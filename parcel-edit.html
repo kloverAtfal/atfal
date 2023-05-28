@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Parcel-Edit - KloverAtfal</title>
+    <meta property="og:title" content="Parcel-Edit - KloverAtfal" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <!--This is the head section-->
+    <!-- <style> ... </style> -->
+    <style data-section-id="dropdown">
+      [data-thq="thq-dropdown"]:hover > [data-thq="thq-dropdown-list"] {
+          display: flex;
+        }
+
+        [data-thq="thq-dropdown"]:hover > div [data-thq="thq-dropdown-arrow"] {
+          transform: rotate(90deg);
+        }
+    </style>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div>
+      <link href="./parcel-edit.css" rel="stylesheet" />
+
+      <div class="parcel-edit-container">
+        <div class="parcel-edit-contents">
+          <div class="sidebarnavigationparcel-sidebarnavigationparcel">
+            <div class="sidebarnavigationparcel-content">
+              <div class="sidebarnavigationparcel-nav">
+                <div class="sidebarnavigationparcel-header">
+                  <div class="sidebarnavigationparcel-logo">
+                    <div class="sidebarnavigationparcel-logowrap">
+                      <div class="sidebarnavigationparcel-logomark">
+                        <img
+                          alt="Frame1I5236"
+                          src="public/external/frame1i5236-aiyo.svg"
+                          class="sidebarnavigationparcel-frame1"
+                        />
+                      </div>
+                      <img
+                        alt="LogotypeI5236"
+                        src="public/external/logotypei5236-1fz.svg"
+                        class="sidebarnavigationparcel-logotype"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="sidebarnavigationparcel-search">
+                  <div class="sidebarnavigationparcel-inputdropdown">
+                    <div class="sidebarnavigationparcel-inputwithlabel">
+                      <div class="sidebarnavigationparcel-input">
+                        <div class="sidebarnavigationparcel-content1">
+                          <img
+                            alt="searchlgI5236"
+                            src="public/external/searchlgi5236-p0fh.svg"
+                            class="sidebarnavigationparcel-searchlg"
+                          />
+                          <span
+                            class="sidebarnavigationparcel-text TextmdRegular"
+                          >
+                            <span>Search</span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="sidebarnavigationparcel-navigation">
+                  <a href="index.html" class="sidebarnavigationparcel-navlink">
+                    <div class="sidebarnavigationparcel-frame-navitembase">
+                      <div class="sidebarnavigationparcel-content2">
+                        <img
+                          alt="homelineI5236"
+                          src="public/external/homelinei5236-pi1s.svg"
+                          class="sidebarnavigationparcel-homeline"
+                        />
+                        <span
+                          class="sidebarnavigationparcel-text02 TextmdSemibold"
+                        >
+                          <span>Home</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="parcel-dashboard.html"
+                    class="sidebarnavigationparcel-navlink1"
+                  >
+                    <div class="sidebarnavigationparcel-frame-navitembase1">
+                      <div class="sidebarnavigationparcel-content3">
+                        <img
+                          alt="packageI5236"
+                          src="public/external/packagei5236-2yjj.svg"
+                          class="sidebarnavigationparcel-package"
+                        />
+                        <span
+                          class="sidebarnavigationparcel-text04 TextmdSemibold"
+                        >
+                          <span>Parcel</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="shipment-dashboard.html"
+                    class="sidebarnavigationparcel-navlink2"
+                  >
+                    <div class="sidebarnavigationparcel-frame-navitembase2">
+                      <div class="sidebarnavigationparcel-content4">
+                        <img
+                          alt="planeI5236"
+                          src="public/external/planei5236-zdu.svg"
+                          class="sidebarnavigationparcel-plane"
+                        />
+                        <span
+                          class="sidebarnavigationparcel-text06 TextmdSemibold"
+                        >
+                          <span>Shipment</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="transaction-dashboard-alipay-top-up.html"
+                    class="sidebarnavigationparcel-navlink3"
+                  >
+                    <div class="sidebarnavigationparcel-frame-navitembase3">
+                      <div class="sidebarnavigationparcel-content5">
+                        <img
+                          alt="banknote01I5236"
+                          src="public/external/banknote01i5236-cpa.svg"
+                          class="sidebarnavigationparcel-banknote01"
+                        />
+                        <span
+                          class="sidebarnavigationparcel-text08 TextmdSemibold"
+                        >
+                          <span>Transactions</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="affiliates-dashboard.html"
+                    class="sidebarnavigationparcel-navlink4"
+                  >
+                    <div class="sidebarnavigationparcel-frame-navitembase4">
+                      <div class="sidebarnavigationparcel-content6">
+                        <img
+                          alt="users01I5236"
+                          src="public/external/users01i5236-f4q.svg"
+                          class="sidebarnavigationparcel-users01"
+                        />
+                        <span
+                          class="sidebarnavigationparcel-text10 TextmdSemibold"
+                        >
+                          <span>Affiliates</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="sidebarnavigationparcel-footer">
+                <div class="sidebarnavigationparcel-navigation1">
+                  <a
+                    href="settings-my-profile.html"
+                    class="sidebarnavigationparcel-navlink5"
+                  >
+                    <div class="sidebarnavigationparcel-frame-navitembase5">
+                      <div class="sidebarnavigationparcel-content7">
+                        <img
+                          alt="settings01I5236"
+                          src="public/external/settings01i5236-dwy.svg"
+                          class="sidebarnavigationparcel-settings01"
+                        />
+                        <span
+                          class="sidebarnavigationparcel-text12 TextmdSemibold"
+                        >
+                          <span>Settings</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <a
+                  href="homepage.html"
+                  class="sidebarnavigationparcel-navlink6"
+                >
+                  <div class="sidebarnavigationparcel-account">
+                    <div class="sidebarnavigationparcel-avatarlabelgroup">
+                      <div class="sidebarnavigationparcel-avatar"></div>
+                      <div
+                        class="sidebarnavigationparcel-textandsupportingtext"
+                      >
+                        <span
+                          class="sidebarnavigationparcel-text14 TextsmSemibold"
+                        >
+                          <span>Ahmad Mursyid</span>
+                        </span>
+                        <span class="sidebarnavigationparcel-text16">
+                          <span>mursyid@atfal.com</span>
+                        </span>
+                      </div>
+                    </div>
+                    <button class="sidebarnavigationparcel-button">
+                      <img
+                        alt="logout01I5236"
+                        src="public/external/logout01i5236-ixha.svg"
+                        class="sidebarnavigationparcel-logout01"
+                      />
+                    </button>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="parcel-edit-main">
+            <div class="parcel-edit-headersection">
+              <div class="parcel-edit-container1">
+                <div class="parcel-edit-breadcrumbs">
+                  <div class="parcel-edit-tabs">
+                    <a
+                      href="index.html"
+                      class="parcel-edit-frame-breadcrumbbuttonbase"
+                    >
+                      <img
+                        alt="homelineI5296"
+                        src="public/external/homelinei5296-qhd7.svg"
+                        class="parcel-edit-homeline"
+                      />
+                    </a>
+                    <img
+                      alt="chevronright5296"
+                      src="public/external/chevronright5296-au4b.svg"
+                      class="parcel-edit-chevronright"
+                    />
+                    <a
+                      href="parcel-dashboard.html"
+                      class="parcel-edit-frame-breadcrumbbuttonbase1"
+                    >
+                      <span class="parcel-edit-text TextsmMedium">
+                        <span>Parcel</span>
+                      </span>
+                    </a>
+                    <img
+                      alt="chevronright5296"
+                      src="public/external/chevronright5296-n2f.svg"
+                      class="parcel-edit-chevronright1"
+                    />
+                    <button class="parcel-edit-frame-breadcrumbbuttonbase2">
+                      <span class="parcel-edit-text02 TextsmMedium">
+                        <span>...</span>
+                      </span>
+                    </button>
+                    <img
+                      alt="chevronright5296"
+                      src="public/external/chevronright5296-s8uj.svg"
+                      class="parcel-edit-chevronright2"
+                    />
+                    <button class="parcel-edit-frame-breadcrumbbuttonbase3">
+                      <span class="parcel-edit-text04">Edit parcel</span>
+                    </button>
+                  </div>
+                  <div class="parcel-edit-actions">
+                    <div class="parcel-edit-dropdown">
+                      <img
+                        alt="download01I5296"
+                        src="public/external/download01i5296-1vw.svg"
+                        class="parcel-edit-download01"
+                      />
+                    </div>
+                    <button class="parcel-edit-button">
+                      <img
+                        alt="searchrefractionI5296"
+                        src="public/external/searchrefractioni5296-3iva.svg"
+                        class="parcel-edit-searchrefraction"
+                      />
+                    </button>
+                    <button class="parcel-edit-button1">
+                      <img
+                        alt="bell01I5296"
+                        src="public/external/bell01i5296-b7rg.svg"
+                        class="parcel-edit-bell01"
+                      />
+                    </button>
+                    <div class="parcel-edit-dropdown1">
+                      <a
+                        href="parcel-add-new-parcel.html"
+                        class="parcel-edit-button2"
+                      >
+                        <img
+                          alt="plusI5296"
+                          src="public/external/plusi5296-yo.svg"
+                          class="parcel-edit-plus"
+                        />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="parcel-edit-pageheader">
+                  <div class="parcel-edit-content">
+                    <div class="parcel-edit-textandsupportingtext">
+                      <span class="parcel-edit-text05 DisplaysmSemibold">
+                        <span>Parcel</span>
+                      </span>
+                      <span class="parcel-edit-text07 TextmdRegular">
+                        <span>Track, manage, and monitor parcel easily.</span>
+                      </span>
+                    </div>
+                  </div>
+                  <img
+                    alt="DividerI5296"
+                    src="public/external/divideri5296-bt4.svg"
+                    class="parcel-edit-divider"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="parcel-edit-section">
+              <div class="parcel-edit-container2">
+                <div class="parcel-edit-modal">
+                  <div class="parcel-edit-frame-modalheader">
+                    <button class="parcel-edit-buttonclose-x">
+                      <img
+                        alt="xcloseI5236"
+                        src="public/external/xclosei5236-dwk.svg"
+                        class="parcel-edit-xclose"
+                      />
+                    </button>
+                    <div class="parcel-edit-content01">
+                      <div class="parcel-edit-featuredicon">
+                        <img
+                          alt="packageplusI5236"
+                          src="public/external/packageplusi5236-6ki.svg"
+                          class="parcel-edit-packageplus"
+                        />
+                      </div>
+                      <div class="parcel-edit-textandsupportingtext1">
+                        <span class="parcel-edit-text09 TextlgSemibold">
+                          <span>Update Parcel</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="parcel-edit-paddingbottom"></div>
+                  </div>
+                  <div class="parcel-edit-content02">
+                    <div class="parcel-edit-form">
+                      <div class="parcel-edit-row">
+                        <div class="parcel-edit-inputdropdown">
+                          <div class="parcel-edit-inputwithlabel">
+                            <span class="parcel-edit-text11 TextsmMedium">
+                              <span>Parcel Status*</span>
+                            </span>
+                            <div class="parcel-edit-input">
+                              <div class="parcel-edit-content03">
+                                <span class="parcel-edit-text13 TextmdRegular">
+                                  <span>Select one..</span>
+                                </span>
+                              </div>
+                              <img
+                                alt="chevrondownI5239"
+                                src="public/external/chevrondowni5239-3e1r.svg"
+                                class="parcel-edit-chevrondown"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="parcel-edit-inputdropdown1">
+                          <div class="parcel-edit-inputwithlabel01">
+                            <span class="parcel-edit-text15 TextsmMedium">
+                              <span>Payment Status*</span>
+                            </span>
+                            <div class="parcel-edit-input01">
+                              <div class="parcel-edit-content04">
+                                <span class="parcel-edit-text17 TextmdRegular">
+                                  <span>Select one..</span>
+                                </span>
+                              </div>
+                              <img
+                                alt="chevrondownI5239"
+                                src="public/external/chevrondowni5239-c37g.svg"
+                                class="parcel-edit-chevrondown1"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="parcel-edit-row1">
+                        <div class="parcel-edit-inputfield">
+                          <div class="parcel-edit-inputwithlabel02">
+                            <span class="parcel-edit-text19 TextsmMedium">
+                              <span>Tracking Number*</span>
+                            </span>
+                            <div class="parcel-edit-input02">
+                              <div class="parcel-edit-content05">
+                                <span class="parcel-edit-text21 TextmdRegular">
+                                  <span>Select one..</span>
+                                </span>
+                              </div>
+                              <div class="parcel-edit-helpicon">
+                                <img
+                                  alt="helpcircleI5236"
+                                  src="public/external/helpcirclei5236-urgj.svg"
+                                  class="parcel-edit-helpcircle"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="parcel-edit-inputfield1">
+                          <div class="parcel-edit-inputwithlabel03">
+                            <span class="parcel-edit-text23 TextsmMedium">
+                              <span>Parcel Item*</span>
+                            </span>
+                            <div class="parcel-edit-input03">
+                              <div class="parcel-edit-content06">
+                                <span class="parcel-edit-text25 TextmdRegular">
+                                  <span>Select one..</span>
+                                </span>
+                              </div>
+                              <div class="parcel-edit-helpicon1">
+                                <img
+                                  alt="helpcircleI5236"
+                                  src="public/external/helpcirclei5236-jfv5.svg"
+                                  class="parcel-edit-helpcircle1"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="parcel-edit-row2">
+                        <div class="parcel-edit-inputdropdown2">
+                          <div class="parcel-edit-inputwithlabel04">
+                            <span class="parcel-edit-text27 TextsmMedium">
+                              <span>Type of Goods*</span>
+                            </span>
+                            <div class="parcel-edit-input04">
+                              <div class="parcel-edit-content07">
+                                <img
+                                  alt="packagesearchI5236"
+                                  src="public/external/packagesearchi5236-j429.svg"
+                                  class="parcel-edit-packagesearch"
+                                />
+                                <span class="parcel-edit-text29 TextmdRegular">
+                                  <span>Search for goods</span>
+                                </span>
+                              </div>
+                              <img
+                                alt="chevrondownI5236"
+                                src="public/external/chevrondowni5236-n8yr.svg"
+                                class="parcel-edit-chevrondown2"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="parcel-edit-inputdropdown3">
+                          <div class="parcel-edit-inputwithlabel05">
+                            <span class="parcel-edit-text31 TextsmMedium">
+                              <span>Warehouse*</span>
+                            </span>
+                            <div class="parcel-edit-input05">
+                              <div class="parcel-edit-content08">
+                                <img
+                                  alt="building02I5236"
+                                  src="public/external/building02i5236-yrdd.svg"
+                                  class="parcel-edit-building02"
+                                />
+                                <span class="parcel-edit-text33 TextmdRegular">
+                                  <span>Select one..</span>
+                                </span>
+                              </div>
+                              <img
+                                alt="chevrondownI5236"
+                                src="public/external/chevrondowni5236-90wp.svg"
+                                class="parcel-edit-chevrondown3"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="parcel-edit-row3">
+                        <div class="parcel-edit-inputfield2">
+                          <div class="parcel-edit-inputwithlabel06">
+                            <span class="parcel-edit-text35 TextsmMedium">
+                              <span>Parcel value*</span>
+                            </span>
+                            <div class="parcel-edit-input06">
+                              <div class="parcel-edit-content09">
+                                <div class="parcel-edit-textinput">
+                                  <span
+                                    class="parcel-edit-text37 TextmdRegular"
+                                  >
+                                    <span>RM</span>
+                                  </span>
+                                  <span
+                                    class="parcel-edit-text39 TextmdRegular"
+                                  >
+                                    <span>1,000.00</span>
+                                  </span>
+                                </div>
+                                <div class="parcel-edit-helpicon2">
+                                  <img
+                                    alt="helpcircleI5236"
+                                    src="public/external/helpcirclei5236-3oc.svg"
+                                    class="parcel-edit-helpcircle2"
+                                  />
+                                </div>
+                              </div>
+                              <div class="parcel-edit-dropdown2">
+                                <span class="parcel-edit-text41 TextmdRegular">
+                                  <span>MYR</span>
+                                </span>
+                                <img
+                                  alt="chevrondownI5236"
+                                  src="public/external/chevrondowni5236-oayx.svg"
+                                  class="parcel-edit-chevrondown4"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="parcel-edit-inputdropdown4">
+                          <div class="parcel-edit-inputwithlabel07">
+                            <span class="parcel-edit-text43 TextsmMedium">
+                              <span>Weight (Kg)*</span>
+                            </span>
+                            <div class="parcel-edit-input07">
+                              <div class="parcel-edit-content10">
+                                <span class="parcel-edit-text45 TextmdRegular">
+                                  <span>Select one..</span>
+                                </span>
+                              </div>
+                              <img
+                                alt="chevrondownI5236"
+                                src="public/external/chevrondowni5236-nj2.svg"
+                                class="parcel-edit-chevrondown5"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="parcel-edit-row4">
+                        <div class="parcel-edit-inputfield3">
+                          <div class="parcel-edit-inputwithlabel08">
+                            <span class="parcel-edit-text47 TextsmMedium">
+                              <span>Name*</span>
+                            </span>
+                            <div class="parcel-edit-input08">
+                              <div class="parcel-edit-content11">
+                                <span class="parcel-edit-text49 TextmdRegular">
+                                  <span>Select one..</span>
+                                </span>
+                              </div>
+                              <div class="parcel-edit-helpicon3">
+                                <img
+                                  alt="helpcircleI5236"
+                                  src="public/external/helpcirclei5236-anao.svg"
+                                  class="parcel-edit-helpcircle3"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="parcel-edit-inputfield4">
+                          <div class="parcel-edit-inputwithlabel09">
+                            <span class="parcel-edit-text51 TextsmMedium">
+                              <span>Email*</span>
+                            </span>
+                            <div class="parcel-edit-input09">
+                              <div class="parcel-edit-content12">
+                                <span class="parcel-edit-text53 TextmdRegular">
+                                  <span>Select one..</span>
+                                </span>
+                              </div>
+                              <div class="parcel-edit-helpicon4">
+                                <img
+                                  alt="helpcircleI5236"
+                                  src="public/external/helpcirclei5236-572.svg"
+                                  class="parcel-edit-helpcircle4"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="parcel-edit-inputfield5">
+                          <div class="parcel-edit-inputwithlabel10">
+                            <span class="parcel-edit-text55 TextsmMedium">
+                              <span>Contact*</span>
+                            </span>
+                            <div class="parcel-edit-input10">
+                              <div class="parcel-edit-content13">
+                                <span class="parcel-edit-text57 TextmdRegular">
+                                  <span>Select one..</span>
+                                </span>
+                              </div>
+                              <div class="parcel-edit-helpicon5">
+                                <img
+                                  alt="helpcircleI5236"
+                                  src="public/external/helpcirclei5236-cew1.svg"
+                                  class="parcel-edit-helpcircle5"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="parcel-edit-textareainputfield">
+                        <div class="parcel-edit-inputwithlabel11">
+                          <span class="parcel-edit-text59 TextsmMedium">
+                            <span>Remarks</span>
+                          </span>
+                          <input
+                            type="text"
+                            placeholder="Write your note here..."
+                            class="parcel-edit-input11"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="parcel-edit-frame-modalactions">
+                    <div class="parcel-edit-content14">
+                      <a
+                        href="parcel-dashboard.html"
+                        class="parcel-edit-button3"
+                      >
+                        <span class="parcel-edit-text61 TextmdSemibold">
+                          <span>Back</span>
+                        </span>
+                      </a>
+                      <a
+                        href="parcel-successful-edited.html"
+                        class="parcel-edit-button4"
+                      >
+                        <img
+                          alt="save01I5236"
+                          src="public/external/save01i5236-xvz9.svg"
+                          class="parcel-edit-save01"
+                        />
+                        <span class="parcel-edit-text63 TextmdSemibold">
+                          <span>Save</span>
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      data-section-id="navbar"
+      src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
+    ></script>
+  </body>
+</html>

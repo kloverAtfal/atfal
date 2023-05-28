@@ -1,0 +1,1964 @@
+.sidebarnavigation-shipment-sidebarnavigationparcel {
+  width: 280px;
+  height: auto;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(234, 236, 240, 1);
+  border-style: solid;
+  border-width: Symbol(figma.mixed)px;
+  background-color: var(--dl-color-base-white);
+}
+.sidebarnavigation-shipment-content {
+  flex: 1;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-grow: 1;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.sidebarnavigation-shipment-nav {
+  gap: 24px;
+  display: flex;
+  padding: 32px 0 0 0;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.sidebarnavigation-shipment-header {
+  display: flex;
+  padding: 0 20px 0 24px;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.sidebarnavigation-shipment-logo {
+  display: flex;
+  align-items: flex-start;
+}
+.sidebarnavigation-shipment-logowrap {
+  width: 142px;
+  height: 32px;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.sidebarnavigation-shipment-logomark {
+  top: 0px;
+  left: 0px;
+  width: 32px;
+  display: flex;
+  position: absolute;
+  box-shadow: 0px 1px 3px 0px rgba(16, 24, 40, 0.10000000149011612) ;
+  align-items: flex-start;
+}
+.sidebarnavigation-shipment-frame1 {
+  width: 32px;
+  height: 32px;
+}
+.sidebarnavigation-shipment-logotype {
+  top: 0px;
+  left: 42px;
+  width: 100px;
+  height: 32px;
+  position: absolute;
+}
+.sidebarnavigation-shipment-search {
+  display: none;
+  padding: 0 24px;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.sidebarnavigation-shipment-inputdropdown {
+  gap: 8px;
+  width: 231px;
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.sidebarnavigation-shipment-inputwithlabel {
+  gap: 6px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.sidebarnavigation-shipment-input {
+  gap: 8px;
+  display: flex;
+  padding: 10px 14px;
+  overflow: hidden;
+  align-self: stretch;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05000000074505806) ;
+  align-items: center;
+  flex-shrink: 0;
+  border-color: rgba(207, 212, 220, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  background-color: var(--dl-color-base-white);
+}
+.sidebarnavigation-shipment-content1 {
+  gap: 8px;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+.sidebarnavigation-shipment-searchlg {
+  width: 20px;
+  height: 20px;
+}
+.sidebarnavigation-shipment-text {
+  color: var(--dl-color-gray-500);
+  height: auto;
+  text-align: left;
+  line-height: 24px;
+}
+.sidebarnavigation-shipment-navigation {
+  gap: 4px;
+  display: flex;
+  padding: 0 16px;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.sidebarnavigation-shipment-navlink {
+  display: contents;
+}
+.sidebarnavigation-shipment-frame-navitembase {
+  gap: 8px;
+  display: flex;
+  padding: 8px 12px;
+  overflow: hidden;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 6px;
+  text-decoration: none;
+  background-color: var(--dl-color-base-white);
+}
+.sidebarnavigation-shipment-content2 {
+  gap: 12px;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+.sidebarnavigation-shipment-homeline {
+  width: 24px;
+  height: 24px;
+}
+.sidebarnavigation-shipment-text02 {
+  color: var(--dl-color-gray-700);
+  height: auto;
+  text-align: left;
+  line-height: 24px;
+}
+.sidebarnavigation-shipment-navlink1 {
+  display: contents;
+}
+.sidebarnavigation-shipment-frame-navitembase1 {
+  gap: 8px;
+  display: flex;
+  padding: 8px 12px;
+  overflow: hidden;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 6px;
+  text-decoration: none;
+  background-color: var(--dl-color-gray-white);
+}
+.sidebarnavigation-shipment-content3 {
+  gap: 12px;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+.sidebarnavigation-shipment-package {
+  width: 24px;
+  height: 24px;
+}
+.sidebarnavigation-shipment-text04 {
+  color: var(--dl-color-gray-900);
+  height: auto;
+  text-align: left;
+  line-height: 24px;
+}
+.sidebarnavigation-shipment-navlink2 {
+  display: contents;
+}
+.sidebarnavigation-shipment-frame-navitembase2 {
+  gap: 8px;
+  display: flex;
+  padding: 8px 12px;
+  overflow: hidden;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 6px;
+  text-decoration: none;
+  background-color: var(--dl-color-gray-50);
+}
+.sidebarnavigation-shipment-content4 {
+  gap: 12px;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+.sidebarnavigation-shipment-plane {
+  width: 24px;
+  height: 24px;
+}
+.sidebarnavigation-shipment-text06 {
+  color: var(--dl-color-gray-700);
+  height: auto;
+  text-align: left;
+  line-height: 24px;
+}
+.sidebarnavigation-shipment-navlink3 {
+  display: contents;
+}
+.sidebarnavigation-shipment-frame-navitembase3 {
+  gap: 8px;
+  display: flex;
+  padding: 8px 12px;
+  overflow: hidden;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 6px;
+  text-decoration: none;
+  background-color: var(--dl-color-base-white);
+}
+.sidebarnavigation-shipment-content5 {
+  gap: 12px;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+.sidebarnavigation-shipment-banknote01 {
+  width: 24px;
+  height: 24px;
+}
+.sidebarnavigation-shipment-text08 {
+  color: var(--dl-color-gray-700);
+  height: auto;
+  text-align: left;
+  line-height: 24px;
+}
+.sidebarnavigation-shipment-navlink4 {
+  display: contents;
+}
+.sidebarnavigation-shipment-frame-navitembase4 {
+  gap: 8px;
+  display: flex;
+  padding: 8px 12px;
+  overflow: hidden;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 6px;
+  text-decoration: none;
+  background-color: var(--dl-color-base-white);
+}
+.sidebarnavigation-shipment-content6 {
+  gap: 12px;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+.sidebarnavigation-shipment-users01 {
+  width: 24px;
+  height: 24px;
+}
+.sidebarnavigation-shipment-text10 {
+  color: var(--dl-color-gray-700);
+  height: auto;
+  text-align: left;
+  line-height: 24px;
+}
+.sidebarnavigation-shipment-footer {
+  gap: 24px;
+  display: flex;
+  padding: 0 16px 32px 16px;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.sidebarnavigation-shipment-navigation1 {
+  gap: 4px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.sidebarnavigation-shipment-navlink5 {
+  display: contents;
+}
+.sidebarnavigation-shipment-frame-navitembase5 {
+  gap: 8px;
+  display: flex;
+  padding: 8px 12px;
+  overflow: hidden;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 6px;
+  text-decoration: none;
+  background-color: var(--dl-color-base-white);
+}
+.sidebarnavigation-shipment-content7 {
+  gap: 12px;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+.sidebarnavigation-shipment-settings01 {
+  width: 24px;
+  height: 24px;
+}
+.sidebarnavigation-shipment-text12 {
+  color: var(--dl-color-gray-700);
+  height: auto;
+  text-align: left;
+  line-height: 24px;
+}
+.sidebarnavigation-shipment-navlink6 {
+  display: contents;
+}
+.sidebarnavigation-shipment-account {
+  gap: 47px;
+  display: flex;
+  padding: 24px 32px 0 8px;
+  position: relative;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(234, 236, 240, 1);
+  border-style: solid;
+  border-width: Symbol(figma.mixed)px;
+  text-decoration: none;
+}
+.sidebarnavigation-shipment-avatarlabelgroup {
+  gap: 12px;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+.sidebarnavigation-shipment-avatar {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 200px;
+  flex-direction: column;
+  background-size: cover;
+  justify-content: center;
+  background-image: url("public/external/fc1cfe10-08e5-475a-8902-81b277486d6f-w84b-200h.undefined");
+}
+.sidebarnavigation-shipment-textandsupportingtext {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.sidebarnavigation-shipment-text14 {
+  color: var(--dl-color-gray-700);
+  height: auto;
+  text-align: left;
+  line-height: 20px;
+}
+.sidebarnavigation-shipment-text16 {
+  color: var(--dl-color-gray-600);
+  height: auto;
+  font-size: 14px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.sidebarnavigation-shipment-button {
+  gap: 8px;
+  display: flex;
+  padding: 8px;
+  z-index: 1;
+  overflow: hidden;
+  align-items: center;
+  border-radius: 8px;
+  justify-content: center;
+}
+.sidebarnavigation-shipment-logout01 {
+  width: 20px;
+  height: 20px;
+}
+
+.transaction-check-out-internet-banking-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-contents {
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: var(--dl-color-base-white);
+}
+.transaction-check-out-internet-banking-main {
+  gap: 24px;
+  display: flex;
+  padding: 32px 0 48px 0;
+  position: relative;
+  flex-grow: 1;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: var(--dl-color-gray-25);
+}
+.transaction-check-out-internet-banking-headersection {
+  gap: 24px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-container1 {
+  gap: 24px;
+  display: flex;
+  padding: 0 32px;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-breadcrumbs {
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: space-between;
+}
+.transaction-check-out-internet-banking-tabs {
+  gap: 8px;
+  display: flex;
+  align-items: center;
+}
+.transaction-check-out-internet-banking-frame-breadcrumbbuttonbase {
+  display: flex;
+  padding: 4px;
+  align-items: flex-start;
+  border-radius: 6px;
+  text-decoration: none;
+}
+.transaction-check-out-internet-banking-homeline {
+  width: 20px;
+  height: 20px;
+}
+.transaction-check-out-internet-banking-chevronright {
+  width: 16px;
+  height: 16px;
+}
+.transaction-check-out-internet-banking-frame-breadcrumbbuttonbase1 {
+  display: flex;
+  padding: 4px 8px;
+  align-items: center;
+  border-radius: 6px;
+  justify-content: center;
+  text-decoration: none;
+}
+.transaction-check-out-internet-banking-text {
+  color: var(--dl-color-gray-600);
+  height: auto;
+  text-align: left;
+  line-height: 20px;
+}
+.transaction-check-out-internet-banking-chevronright1 {
+  width: 16px;
+  height: 16px;
+}
+.transaction-check-out-internet-banking-frame-breadcrumbbuttonbase2 {
+  display: flex;
+  padding: 4px 8px;
+  align-items: center;
+  border-radius: 6px;
+  justify-content: center;
+}
+.transaction-check-out-internet-banking-text02 {
+  color: var(--dl-color-gray-600);
+  height: auto;
+  text-align: left;
+  line-height: 20px;
+}
+.transaction-check-out-internet-banking-chevronright2 {
+  width: 16px;
+  height: 16px;
+}
+.transaction-check-out-internet-banking-frame-breadcrumbbuttonbase3 {
+  display: flex;
+  padding: 4px 8px;
+  align-items: center;
+  border-radius: 6px;
+  justify-content: center;
+}
+.transaction-check-out-internet-banking-text04 {
+  color: var(--dl-color-gray-700);
+  height: auto;
+  text-align: left;
+  line-height: 20px;
+}
+.transaction-check-out-internet-banking-actions {
+  gap: 12px;
+  display: flex;
+  align-items: center;
+}
+.transaction-check-out-internet-banking-dropdown {
+  display: none;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-download01 {
+  width: 20px;
+  height: 20px;
+}
+.transaction-check-out-internet-banking-button {
+  gap: 8px;
+  display: flex;
+  padding: 10px;
+  overflow: hidden;
+  align-items: center;
+  border-radius: 8px;
+  justify-content: center;
+}
+.transaction-check-out-internet-banking-searchrefraction {
+  width: 20px;
+  height: 20px;
+}
+.transaction-check-out-internet-banking-button1 {
+  gap: 8px;
+  display: flex;
+  padding: 10px;
+  overflow: hidden;
+  align-items: center;
+  border-radius: 8px;
+  justify-content: center;
+}
+.transaction-check-out-internet-banking-bell01 {
+  width: 20px;
+  height: 20px;
+}
+.transaction-check-out-internet-banking-dropdown1 {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-button2 {
+  gap: 8px;
+  display: flex;
+  padding: 10px;
+  overflow: hidden;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05000000074505806) ;
+  align-items: center;
+  border-color: rgba(236, 191, 6, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 24px;
+  justify-content: center;
+  text-decoration: none;
+  background-color: var(--dl-color-primary-600);
+}
+.transaction-check-out-internet-banking-plus {
+  width: 20px;
+  height: 20px;
+}
+.transaction-check-out-internet-banking-pageheader {
+  gap: 20px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-content {
+  gap: 16px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.transaction-check-out-internet-banking-textandsupportingtext {
+  gap: 4px;
+  width: 1096px;
+  display: flex;
+  flex-grow: 1;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-text06 {
+  color: var(--dl-color-gray-900);
+  height: auto;
+  align-self: stretch;
+  text-align: left;
+  line-height: 38px;
+}
+.transaction-check-out-internet-banking-text08 {
+  color: var(--dl-color-gray-600);
+  height: auto;
+  align-self: stretch;
+  text-align: left;
+  line-height: 24px;
+}
+.transaction-check-out-internet-banking-divider {
+  width: 1096px;
+  height: 1px;
+  align-self: stretch;
+}
+.transaction-check-out-internet-banking-section {
+  gap: 24px;
+  display: flex;
+  flex-grow: 1;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-container2 {
+  gap: 24px;
+  display: flex;
+  padding: 0 32px;
+  flex-grow: 1;
+  align-self: stretch;
+  align-items: flex-start;
+}
+.transaction-check-out-internet-banking-content01 {
+  gap: 24px;
+  height: 929px;
+  display: flex;
+  padding: 24px 8px;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-inline-cta {
+  gap: 20px;
+  display: flex;
+  padding: 24px;
+  overflow: hidden;
+  flex-grow: 1;
+  align-self: stretch;
+  align-items: flex-start;
+  border-radius: 12px;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-header {
+  gap: 4px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-text10 {
+  color: var(--dl-color-gray-900);
+  height: auto;
+  align-self: stretch;
+  text-align: left;
+  line-height: 28px;
+}
+.transaction-check-out-internet-banking-text12 {
+  color: var(--dl-color-gray-600);
+  height: auto;
+  align-self: stretch;
+  text-align: left;
+  line-height: 60px;
+}
+.transaction-check-out-internet-banking-card {
+  gap: 16px;
+  display: flex;
+  padding: 16px 24px;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+  border-color: rgba(234, 236, 240, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  justify-content: center;
+  background-color: var(--dl-color-base-white);
+}
+.transaction-check-out-internet-banking-content02 {
+  gap: 16px;
+  display: flex;
+  flex-grow: 1;
+  align-items: flex-start;
+}
+.transaction-check-out-internet-banking-paymentmethodicon {
+  width: 58px;
+  height: 40px;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(242, 243, 246, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 6px;
+  background-color: var(--dl-color-base-white);
+}
+.transaction-check-out-internet-banking-alipay {
+  top: 14.663798332214355px;
+  left: 5px;
+  width: 46.666664123535156px;
+  height: 11.76668643951416px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.transaction-check-out-internet-banking-vector {
+  top: 0px;
+  left: 0px;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+}
+.transaction-check-out-internet-banking-vector01 {
+  top: 1.5595521926879883px;
+  left: 0.863957405090332px;
+  width: 11px;
+  height: 8px;
+  position: absolute;
+}
+.transaction-check-out-internet-banking-vector02 {
+  top: 0.7042856216430664px;
+  left: 25.33539581298828px;
+  width: 2px;
+  height: 2px;
+  position: absolute;
+}
+.transaction-check-out-internet-banking-vector03 {
+  top: 0.9610996246337891px;
+  left: 22.361759185791016px;
+  width: 2px;
+  height: 9px;
+  position: absolute;
+}
+.transaction-check-out-internet-banking-vector04 {
+  top: 1.2542352676391602px;
+  left: 13.862968444824219px;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+}
+.transaction-check-out-internet-banking-vector05 {
+  top: 3.2326745986938477px;
+  left: 25.47648048400879px;
+  width: 2px;
+  height: 6px;
+  position: absolute;
+}
+.transaction-check-out-internet-banking-vector06 {
+  top: 3.2326745986938477px;
+  left: 40.427330017089844px;
+  width: 6px;
+  height: 8px;
+  position: absolute;
+}
+.transaction-check-out-internet-banking-vector07 {
+  top: 3.103726387023926px;
+  left: 28.274852752685547px;
+  width: 6px;
+  height: 8px;
+  position: absolute;
+}
+.transaction-check-out-internet-banking-vector08 {
+  top: 3.103726387023926px;
+  left: 34.595787048339844px;
+  width: 6px;
+  height: 7px;
+  position: absolute;
+}
+.transaction-check-out-internet-banking-content03 {
+  gap: 8px;
+  width: 350px;
+  display: flex;
+  flex-grow: 1;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-textandactions {
+  gap: 8px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+  justify-content: space-between;
+}
+.transaction-check-out-internet-banking-textandsupportingtext01 {
+  gap: 7px;
+  width: 300px;
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-text14 {
+  color: var(--dl-color-gray-700);
+  height: auto;
+  align-self: stretch;
+  text-align: left;
+  line-height: 24px;
+}
+.transaction-check-out-internet-banking-textandsupportingtext02 {
+  gap: 7px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.transaction-check-out-internet-banking-text16 {
+  color: var(--dl-color-gray-700);
+  width: 100px;
+  height: auto;
+  text-align: left;
+  line-height: 20px;
+}
+.transaction-check-out-internet-banking-text18 {
+  color: var(--dl-color-gray-700);
+  height: auto;
+  text-align: right;
+  line-height: 20px;
+}
+.transaction-check-out-internet-banking-textandsupportingtext03 {
+  gap: 7px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.transaction-check-out-internet-banking-text20 {
+  color: var(--dl-color-gray-700);
+  width: 100px;
+  height: auto;
+  text-align: left;
+  line-height: 20px;
+}
+.transaction-check-out-internet-banking-price {
+  gap: 24px;
+  display: flex;
+  align-items: flex-start;
+}
+.transaction-check-out-internet-banking-text22 {
+  color: var(--dl-color-gray-600);
+  height: auto;
+  text-align: right;
+  line-height: 20px;
+}
+.transaction-check-out-internet-banking-text24 {
+  color: var(--dl-color-gray-600);
+  height: auto;
+  text-align: right;
+  line-height: 20px;
+}
+.transaction-check-out-internet-banking-actions1 {
+  gap: 12px;
+  display: flex;
+  align-items: flex-start;
+}
+.transaction-check-out-internet-banking-button3 {
+  gap: 8px;
+  display: flex;
+  padding: 10px 16px;
+  overflow: hidden;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05000000074505806) ;
+  align-items: center;
+  border-color: rgba(207, 212, 220, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  justify-content: center;
+  background-color: var(--dl-color-base-white);
+}
+.transaction-check-out-internet-banking-text26 {
+  color: var(--dl-color-gray-700);
+  height: auto;
+  text-align: left;
+  line-height: 20px;
+}
+.transaction-check-out-internet-banking-iconandsupportingtext {
+  gap: 12px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.transaction-check-out-internet-banking-link03 {
+  width: 16px;
+  height: 16px;
+}
+.transaction-check-out-internet-banking-text28 {
+  color: rgba(0, 122, 255, 1);
+  height: auto;
+  flex-grow: 1;
+  font-size: 12px;
+  align-self: stretch;
+  font-style: italic;
+  text-align: left;
+  font-family: Open Sans;
+  font-weight: 400;
+  line-height: 18px;
+  font-stretch: normal;
+  text-decoration: underline;
+}
+.transaction-check-out-internet-banking-card1 {
+  gap: 16px;
+  display: flex;
+  padding: 16px 24px;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+  border-color: rgba(234, 236, 240, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  justify-content: center;
+  background-color: var(--dl-color-base-white);
+}
+.transaction-check-out-internet-banking-content04 {
+  gap: 16px;
+  display: flex;
+  flex-grow: 1;
+  align-items: flex-start;
+}
+.transaction-check-out-internet-banking-paymentmethodicon1 {
+  width: 58px;
+  height: 40px;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(242, 243, 246, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 6px;
+  background-color: var(--dl-color-base-white);
+}
+.transaction-check-out-internet-banking-alipay1 {
+  top: 14.663798332214355px;
+  left: 5px;
+  width: 46.666664123535156px;
+  height: 11.76668643951416px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.transaction-check-out-internet-banking-vector09 {
+  top: 0px;
+  left: 0px;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+}
+.transaction-check-out-internet-banking-vector10 {
+  top: 1.5595521926879883px;
+  left: 0.863957405090332px;
+  width: 11px;
+  height: 8px;
+  position: absolute;
+}
+.transaction-check-out-internet-banking-vector11 {
+  top: 0.7042856216430664px;
+  left: 25.33539581298828px;
+  width: 2px;
+  height: 2px;
+  position: absolute;
+}
+.transaction-check-out-internet-banking-vector12 {
+  top: 0.9610996246337891px;
+  left: 22.361759185791016px;
+  width: 2px;
+  height: 9px;
+  position: absolute;
+}
+.transaction-check-out-internet-banking-vector13 {
+  top: 1.2542352676391602px;
+  left: 13.862968444824219px;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+}
+.transaction-check-out-internet-banking-vector14 {
+  top: 3.2326745986938477px;
+  left: 25.47648048400879px;
+  width: 2px;
+  height: 6px;
+  position: absolute;
+}
+.transaction-check-out-internet-banking-vector15 {
+  top: 3.2326745986938477px;
+  left: 40.427330017089844px;
+  width: 6px;
+  height: 8px;
+  position: absolute;
+}
+.transaction-check-out-internet-banking-vector16 {
+  top: 3.103726387023926px;
+  left: 28.274852752685547px;
+  width: 6px;
+  height: 8px;
+  position: absolute;
+}
+.transaction-check-out-internet-banking-vector17 {
+  top: 3.103726387023926px;
+  left: 34.595787048339844px;
+  width: 6px;
+  height: 7px;
+  position: absolute;
+}
+.transaction-check-out-internet-banking-content05 {
+  gap: 8px;
+  width: 350px;
+  display: flex;
+  flex-grow: 1;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-textandactions1 {
+  gap: 8px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+  justify-content: space-between;
+}
+.transaction-check-out-internet-banking-textandsupportingtext04 {
+  gap: 7px;
+  width: 300px;
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-text30 {
+  color: var(--dl-color-gray-700);
+  height: auto;
+  align-self: stretch;
+  text-align: left;
+  line-height: 24px;
+}
+.transaction-check-out-internet-banking-textandsupportingtext05 {
+  gap: 7px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.transaction-check-out-internet-banking-text32 {
+  color: var(--dl-color-gray-700);
+  width: 100px;
+  height: auto;
+  text-align: left;
+  line-height: 20px;
+}
+.transaction-check-out-internet-banking-text34 {
+  color: var(--dl-color-gray-700);
+  height: auto;
+  text-align: right;
+  line-height: 20px;
+}
+.transaction-check-out-internet-banking-textandsupportingtext06 {
+  gap: 7px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.transaction-check-out-internet-banking-text36 {
+  color: var(--dl-color-gray-700);
+  width: 100px;
+  height: auto;
+  text-align: left;
+  line-height: 20px;
+}
+.transaction-check-out-internet-banking-price1 {
+  gap: 24px;
+  display: flex;
+  align-items: flex-start;
+}
+.transaction-check-out-internet-banking-text38 {
+  color: var(--dl-color-gray-600);
+  height: auto;
+  text-align: right;
+  line-height: 20px;
+}
+.transaction-check-out-internet-banking-text40 {
+  color: var(--dl-color-gray-600);
+  height: auto;
+  text-align: right;
+  line-height: 20px;
+}
+.transaction-check-out-internet-banking-actions2 {
+  gap: 12px;
+  display: flex;
+  align-items: flex-start;
+}
+.transaction-check-out-internet-banking-button4 {
+  gap: 8px;
+  display: flex;
+  padding: 10px 16px;
+  overflow: hidden;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05000000074505806) ;
+  align-items: center;
+  border-color: rgba(207, 212, 220, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  justify-content: center;
+  background-color: var(--dl-color-base-white);
+}
+.transaction-check-out-internet-banking-text42 {
+  color: var(--dl-color-gray-700);
+  height: auto;
+  text-align: left;
+  line-height: 20px;
+}
+.transaction-check-out-internet-banking-iconandsupportingtext1 {
+  gap: 12px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.transaction-check-out-internet-banking-link031 {
+  width: 16px;
+  height: 16px;
+}
+.transaction-check-out-internet-banking-text44 {
+  color: rgba(0, 122, 255, 1);
+  height: auto;
+  flex-grow: 1;
+  font-size: 12px;
+  align-self: stretch;
+  font-style: italic;
+  text-align: left;
+  font-family: Open Sans;
+  font-weight: 400;
+  line-height: 18px;
+  font-stretch: normal;
+  text-decoration: underline;
+}
+.transaction-check-out-internet-banking-footer {
+  gap: 24px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-content06 {
+  gap: 4px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+  justify-content: space-between;
+}
+.transaction-check-out-internet-banking-text46 {
+  color: var(--dl-color-gray-600);
+  height: auto;
+  text-align: left;
+  line-height: 24px;
+}
+.transaction-check-out-internet-banking-text48 {
+  color: var(--dl-color-gray-600);
+  height: auto;
+  text-align: left;
+  line-height: 24px;
+}
+.transaction-check-out-internet-banking-content07 {
+  gap: 4px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+  justify-content: space-between;
+}
+.transaction-check-out-internet-banking-text50 {
+  color: var(--dl-color-gray-600);
+  height: auto;
+  text-align: left;
+  line-height: 24px;
+}
+.transaction-check-out-internet-banking-text52 {
+  color: var(--dl-color-gray-600);
+  height: auto;
+  text-align: left;
+  line-height: 24px;
+}
+.transaction-check-out-internet-banking-divider1 {
+  width: auto;
+  height: 1px;
+}
+.transaction-check-out-internet-banking-button5 {
+  gap: 8px;
+  display: flex;
+  padding: 10px 16px;
+  overflow: hidden;
+  align-items: center;
+  border-radius: 8px;
+  justify-content: center;
+  background-color: var(--dl-color-default-background);
+}
+.transaction-check-out-internet-banking-text54 {
+  color: var(--dl-color-gray-600);
+  height: auto;
+  text-align: left;
+  line-height: 24px;
+}
+.transaction-check-out-internet-banking-divider2 {
+  width: 480px;
+  height: 1px;
+}
+.transaction-check-out-internet-banking-content08 {
+  gap: 4px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+  justify-content: space-between;
+}
+.transaction-check-out-internet-banking-text56 {
+  color: var(--dl-color-gray-600);
+  height: auto;
+  text-align: left;
+  line-height: 24px;
+}
+.transaction-check-out-internet-banking-text58 {
+  color: var(--dl-color-gray-600);
+  height: auto;
+  text-align: left;
+  line-height: 24px;
+}
+.transaction-check-out-internet-banking-payment {
+  gap: 24px;
+  display: flex;
+  padding: 24px 0;
+  flex-grow: 1;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: var(--dl-color-base-white);
+}
+.transaction-check-out-internet-banking-payment-card {
+  gap: 8px;
+  display: flex;
+  padding: 8px;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-content09 {
+  gap: 32px;
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-header1 {
+  gap: 24px;
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.transaction-check-out-internet-banking-featuredicon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-shrink: 0;
+  border-color: rgba(248, 249, 251, 1);
+  border-style: solid;
+  border-width: 10px;
+  border-radius: 28px;
+  justify-content: center;
+  background-color: var(--dl-color-gray-100);
+}
+.transaction-check-out-internet-banking-banknote01 {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  width: 28px;
+  bottom: 0px;
+  height: 28px;
+  margin: auto;
+  position: absolute;
+}
+.transaction-check-out-internet-banking-textandsupportingtext07 {
+  gap: 12px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-text60 {
+  color: var(--dl-color-gray-900);
+  height: auto;
+  align-self: stretch;
+  text-align: center;
+  line-height: 38px;
+}
+.transaction-check-out-internet-banking-text62 {
+  color: var(--dl-color-gray-600);
+  height: auto;
+  align-self: stretch;
+  text-align: center;
+  line-height: 24px;
+}
+.transaction-check-out-internet-banking-payment-options {
+  gap: 20px;
+  display: flex;
+  padding: 24px 24px 0 24px;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+  justify-content: center;
+}
+.transaction-check-out-internet-banking-checkboxgroupitem {
+  width: 226px;
+  display: flex;
+  flex-grow: 1;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(234, 236, 240, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 12px;
+  flex-direction: column;
+  background-color: var(--dl-color-base-white);
+}
+.transaction-check-out-internet-banking-header2 {
+  gap: 4px;
+  display: flex;
+  padding: 16px 20px 16px 16px;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+  border-color: rgba(234, 236, 240, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 12px;
+}
+.transaction-check-out-internet-banking-content10 {
+  gap: 16px;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+.transaction-check-out-internet-banking-icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.transaction-check-out-internet-banking-featuredicon1 {
+  top: -2px;
+  left: -2px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  flex-shrink: 0;
+  border-color: rgba(255, 250, 230, 1);
+  border-style: solid;
+  border-width: 4px;
+  border-radius: 28px;
+  justify-content: center;
+  background-color: var(--dl-color-primary-100);
+}
+.transaction-check-out-internet-banking-creditcard02 {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  width: 16px;
+  bottom: 0px;
+  height: 16px;
+  margin: auto;
+  position: absolute;
+}
+.transaction-check-out-internet-banking-text64 {
+  color: var(--dl-color-gray-700);
+  height: auto;
+  flex-grow: 1;
+  text-align: left;
+  line-height: 20px;
+}
+.transaction-check-out-internet-banking-frame-checkboxbase {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(207, 212, 220, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  background-color: var(--dl-color-base-white);
+}
+.transaction-check-out-internet-banking-checkboxgroupitem1 {
+  width: 226px;
+  display: flex;
+  flex-grow: 1;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(236, 191, 6, 1);
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 12px;
+  flex-direction: column;
+  background-color: var(--dl-color-base-white);
+}
+.transaction-check-out-internet-banking-header3 {
+  gap: 4px;
+  display: flex;
+  padding: 16px 20px 16px 16px;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+  border-color: rgba(236, 191, 6, 1);
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 12px;
+  background-color: var(--dl-color-primary-50);
+}
+.transaction-check-out-internet-banking-content11 {
+  gap: 16px;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+.transaction-check-out-internet-banking-icon1 {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.transaction-check-out-internet-banking-featuredicon2 {
+  top: -2px;
+  left: -2px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  flex-shrink: 0;
+  border-color: rgba(255, 250, 230, 1);
+  border-style: solid;
+  border-width: 4px;
+  border-radius: 28px;
+  justify-content: center;
+  background-color: var(--dl-color-primary-100);
+}
+.transaction-check-out-internet-banking-wallet02 {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  width: 16px;
+  bottom: 0px;
+  height: 16px;
+  margin: auto;
+  position: absolute;
+}
+.transaction-check-out-internet-banking-text66 {
+  color: var(--dl-color-primary-800);
+  height: auto;
+  flex-grow: 1;
+  text-align: left;
+  line-height: 20px;
+}
+.transaction-check-out-internet-banking-frame-checkboxbase1 {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(236, 191, 6, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  background-color: var(--dl-color-primary-600);
+}
+.transaction-check-out-internet-banking-check {
+  top: 3px;
+  left: 3px;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+}
+.transaction-check-out-internet-banking-internet-banking-q-code {
+  gap: 8px;
+  display: flex;
+  padding: 8px 24px;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-content12 {
+  gap: 20px;
+  display: flex;
+  padding: 24px;
+  overflow: hidden;
+  align-self: stretch;
+  box-shadow: 0px 1px 3px 0px rgba(16, 24, 40, 0.10000000149011612) ;
+  align-items: center;
+  border-color: rgba(234, 236, 240, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 12px;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--dl-color-gray-50);
+}
+.transaction-check-out-internet-banking-q-code {
+  width: 119px;
+  height: 119px;
+}
+.transaction-check-out-internet-banking-textandsupportingtext08 {
+  gap: 18px;
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+}
+.transaction-check-out-internet-banking-text68 {
+  color: var(--dl-color-gray-900);
+  height: auto;
+  flex-grow: 1;
+  text-align: right;
+  line-height: 28px;
+}
+.transaction-check-out-internet-banking-text70 {
+  color: var(--dl-color-gray-600);
+  height: auto;
+  flex-grow: 1;
+  text-align: left;
+  line-height: 20px;
+}
+.transaction-check-out-internet-banking-card2 {
+  gap: 16px;
+  display: flex;
+  padding: 16px;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(234, 236, 240, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  background-color: var(--dl-color-base-white);
+}
+.transaction-check-out-internet-banking-content13 {
+  gap: 16px;
+  display: flex;
+  flex-grow: 1;
+  align-items: flex-start;
+}
+.transaction-check-out-internet-banking-paymentmethodicon2 {
+  gap: 8px;
+  display: flex;
+  padding: 8px;
+  align-items: center;
+  border-color: rgba(242, 243, 246, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 6px;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 1);
+}
+.transaction-check-out-internet-banking-content14 {
+  gap: 8px;
+  width: 318px;
+  display: flex;
+  flex-grow: 1;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-textandactions2 {
+  gap: 8px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.transaction-check-out-internet-banking-textandsupportingtext09 {
+  width: 318px;
+  display: flex;
+  flex-grow: 1;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-text72 {
+  color: var(--dl-color-gray-700);
+  height: auto;
+  align-self: stretch;
+  text-align: left;
+  line-height: 20px;
+}
+.transaction-check-out-internet-banking-text74 {
+  color: rgba(52, 64, 83, 1);
+  height: auto;
+  font-size: 14px;
+  align-self: stretch;
+  font-style: Medium;
+  text-align: left;
+  font-family: Open Sans;
+  font-weight: 500;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.transaction-check-out-internet-banking-text75 {
+  color: var(--dl-color-gray-700);
+  font-weight: 500;
+}
+.transaction-check-out-internet-banking-text77 {
+  color: rgba(52, 64, 83, 1);
+  height: auto;
+  font-size: 14px;
+  align-self: stretch;
+  font-style: Medium;
+  text-align: left;
+  font-family: Open Sans;
+  font-weight: 500;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.transaction-check-out-internet-banking-text78 {
+  color: var(--dl-color-gray-700);
+  font-weight: 500;
+}
+.transaction-check-out-internet-banking-iconandsupportingtext2 {
+  gap: 8px;
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+}
+.transaction-check-out-internet-banking-text80 {
+  color: rgba(52, 64, 83, 1);
+  height: auto;
+  flex-grow: 1;
+  font-size: 14px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Open Sans;
+  font-weight: 500;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.transaction-check-out-internet-banking-text81 {
+  color: var(--dl-color-gray-700);
+  font-weight: 500;
+}
+.transaction-check-out-internet-banking-divider3 {
+  width: auto;
+  height: 1px;
+  align-self: center;
+  margin-top: var(--dl-space-space-twounits);
+  margin-left: var(--dl-space-space-unit);
+  margin-right: var(--dl-space-space-unit);
+  margin-bottom: var(--dl-space-space-unit);
+}
+.transaction-check-out-internet-banking-card3 {
+  gap: 32px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-content15 {
+  gap: 20px;
+  width: 520px;
+  display: flex;
+  padding: 0 24px;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-form {
+  gap: 16px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-row {
+  gap: 16px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.transaction-check-out-internet-banking-inputfield {
+  gap: 6px;
+  width: 472px;
+  display: flex;
+  flex-grow: 1;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-inputwithlabel {
+  gap: 6px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-text83 {
+  color: var(--dl-color-gray-700);
+  height: auto;
+  text-align: left;
+  line-height: 20px;
+}
+.transaction-check-out-internet-banking-input {
+  gap: 8px;
+  display: flex;
+  padding: 10px 14px;
+  overflow: hidden;
+  align-self: stretch;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05000000074505806) ;
+  align-items: center;
+  flex-shrink: 0;
+  border-color: rgba(207, 212, 220, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  background-color: var(--dl-color-base-white);
+}
+.transaction-check-out-internet-banking-content16 {
+  gap: 8px;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+.transaction-check-out-internet-banking-text85 {
+  color: var(--dl-color-gray-900);
+  height: auto;
+  flex-grow: 1;
+  text-align: left;
+  line-height: 24px;
+}
+.transaction-check-out-internet-banking-row1 {
+  gap: 16px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.transaction-check-out-internet-banking-inputfield1 {
+  gap: 6px;
+  width: 472px;
+  display: flex;
+  flex-grow: 1;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-inputwithlabel1 {
+  gap: 6px;
+  color: rgba(52, 64, 83, 1);
+  display: flex;
+  font-size: 14px;
+  align-self: stretch;
+  text-align: left;
+  align-items: flex-start;
+  font-family: Open Sans;
+  font-weight: 500;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-fileupload {
+  gap: 16px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-frame-fileuploadbase {
+  gap: 4px;
+  display: flex;
+  padding: 16px 24px;
+  align-self: stretch;
+  align-items: center;
+  border-color: rgba(234, 236, 240, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 12px;
+  flex-direction: column;
+  background-color: var(--dl-color-base-white);
+}
+.transaction-check-out-internet-banking-content17 {
+  gap: 12px;
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-featuredicon3 {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-shrink: 0;
+  border-color: rgba(248, 249, 251, 1);
+  border-style: solid;
+  border-width: 6px;
+  border-radius: 28px;
+  justify-content: center;
+  background-color: var(--dl-color-gray-100);
+}
+.transaction-check-out-internet-banking-uploadcloud02 {
+  top: 10px;
+  left: 10px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}
+.transaction-check-out-internet-banking-textandsupportingtext10 {
+  gap: 4px;
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-action {
+  gap: 4px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+  justify-content: center;
+}
+.transaction-check-out-internet-banking-button6 {
+  gap: 8px;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+.transaction-check-out-internet-banking-text87 {
+  color: var(--dl-color-primary-700);
+  height: auto;
+  text-align: left;
+  line-height: 20px;
+}
+.transaction-check-out-internet-banking-text89 {
+  color: var(--dl-color-gray-600);
+  height: auto;
+  text-align: left;
+  line-height: 20px;
+}
+.transaction-check-out-internet-banking-text91 {
+  color: var(--dl-color-gray-600);
+  height: auto;
+  align-self: stretch;
+  text-align: center;
+  line-height: 18px;
+}
+.transaction-check-out-internet-banking-tablecell {
+  gap: 12px;
+  display: flex;
+  padding: 0 24px;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+}
+.transaction-check-out-internet-banking-text93 {
+  color: var(--dl-color-gray-600);
+  height: auto;
+  flex-grow: 1;
+  font-size: 14px;
+  font-style: Regular;
+  text-align: left;
+  font-family: Open Sans;
+  font-weight: 400;
+  line-height: 20px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.transaction-check-out-internet-banking-text94 {
+  text-decoration: NONE;
+}
+.transaction-check-out-internet-banking-text95 {
+  text-decoration: UNDERLINE;
+}
+.transaction-check-out-internet-banking-frame-modalactions {
+  width: 520px;
+  display: flex;
+  padding: 32px 0 0 0;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.transaction-check-out-internet-banking-content18 {
+  gap: 12px;
+  display: flex;
+  padding: 0 24px 24px 24px;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.transaction-check-out-internet-banking-button7 {
+  gap: 8px;
+  display: flex;
+  padding: 10px 18px;
+  overflow: hidden;
+  flex-grow: 1;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05000000074505806) ;
+  align-items: center;
+  border-color: rgba(236, 191, 6, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  justify-content: center;
+  text-decoration: none;
+  background-color: var(--dl-color-primary-600);
+}
+.transaction-check-out-internet-banking-text97 {
+  color: var(--dl-color-base-white);
+  height: auto;
+  text-align: left;
+  line-height: 24px;
+}

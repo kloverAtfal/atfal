@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Parcel-Dashboard - KloverAtfal</title>
+    <meta property="og:title" content="Parcel-Dashboard - KloverAtfal" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <!--This is the head section-->
+    <!-- <style> ... </style> -->
+    <style data-section-id="dropdown">
+      [data-thq="thq-dropdown"]:hover > [data-thq="thq-dropdown-list"] {
+          display: flex;
+        }
+
+        [data-thq="thq-dropdown"]:hover > div [data-thq="thq-dropdown-arrow"] {
+          transform: rotate(90deg);
+        }
+    </style>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div>
+      <link href="./parcel-dashboard.css" rel="stylesheet" />
+
+      <div class="parcel-dashboard-container">
+        <div class="parcel-dashboard-contents">
+          <div class="sidebarnavigationparcel-sidebarnavigationparcel">
+            <div class="sidebarnavigationparcel-content">
+              <div class="sidebarnavigationparcel-nav">
+                <div class="sidebarnavigationparcel-header">
+                  <div class="sidebarnavigationparcel-logo">
+                    <div class="sidebarnavigationparcel-logowrap">
+                      <div class="sidebarnavigationparcel-logomark">
+                        <img
+                          alt="Frame1I5236"
+                          src="public/external/frame1i5236-aiyo.svg"
+                          class="sidebarnavigationparcel-frame1"
+                        />
+                      </div>
+                      <img
+                        alt="LogotypeI5236"
+                        src="public/external/logotypei5236-1fz.svg"
+                        class="sidebarnavigationparcel-logotype"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="sidebarnavigationparcel-search">
+                  <div class="sidebarnavigationparcel-inputdropdown">
+                    <div class="sidebarnavigationparcel-inputwithlabel">
+                      <div class="sidebarnavigationparcel-input">
+                        <div class="sidebarnavigationparcel-content1">
+                          <img
+                            alt="searchlgI5236"
+                            src="public/external/searchlgi5236-p0fh.svg"
+                            class="sidebarnavigationparcel-searchlg"
+                          />
+                          <span
+                            class="sidebarnavigationparcel-text TextmdRegular"
+                          >
+                            <span>Search</span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="sidebarnavigationparcel-navigation">
+                  <a href="index.html" class="sidebarnavigationparcel-navlink">
+                    <div class="sidebarnavigationparcel-frame-navitembase">
+                      <div class="sidebarnavigationparcel-content2">
+                        <img
+                          alt="homelineI5236"
+                          src="public/external/homelinei5236-pi1s.svg"
+                          class="sidebarnavigationparcel-homeline"
+                        />
+                        <span
+                          class="sidebarnavigationparcel-text02 TextmdSemibold"
+                        >
+                          <span>Home</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="parcel-dashboard.html"
+                    class="sidebarnavigationparcel-navlink1"
+                  >
+                    <div class="sidebarnavigationparcel-frame-navitembase1">
+                      <div class="sidebarnavigationparcel-content3">
+                        <img
+                          alt="packageI5236"
+                          src="public/external/packagei5236-2yjj.svg"
+                          class="sidebarnavigationparcel-package"
+                        />
+                        <span
+                          class="sidebarnavigationparcel-text04 TextmdSemibold"
+                        >
+                          <span>Parcel</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="shipment-dashboard.html"
+                    class="sidebarnavigationparcel-navlink2"
+                  >
+                    <div class="sidebarnavigationparcel-frame-navitembase2">
+                      <div class="sidebarnavigationparcel-content4">
+                        <img
+                          alt="planeI5236"
+                          src="public/external/planei5236-zdu.svg"
+                          class="sidebarnavigationparcel-plane"
+                        />
+                        <span
+                          class="sidebarnavigationparcel-text06 TextmdSemibold"
+                        >
+                          <span>Shipment</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="transaction-dashboard-alipay-top-up.html"
+                    class="sidebarnavigationparcel-navlink3"
+                  >
+                    <div class="sidebarnavigationparcel-frame-navitembase3">
+                      <div class="sidebarnavigationparcel-content5">
+                        <img
+                          alt="banknote01I5236"
+                          src="public/external/banknote01i5236-cpa.svg"
+                          class="sidebarnavigationparcel-banknote01"
+                        />
+                        <span
+                          class="sidebarnavigationparcel-text08 TextmdSemibold"
+                        >
+                          <span>Transactions</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="affiliates-dashboard.html"
+                    class="sidebarnavigationparcel-navlink4"
+                  >
+                    <div class="sidebarnavigationparcel-frame-navitembase4">
+                      <div class="sidebarnavigationparcel-content6">
+                        <img
+                          alt="users01I5236"
+                          src="public/external/users01i5236-f4q.svg"
+                          class="sidebarnavigationparcel-users01"
+                        />
+                        <span
+                          class="sidebarnavigationparcel-text10 TextmdSemibold"
+                        >
+                          <span>Affiliates</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="sidebarnavigationparcel-footer">
+                <div class="sidebarnavigationparcel-navigation1">
+                  <a
+                    href="settings-my-profile.html"
+                    class="sidebarnavigationparcel-navlink5"
+                  >
+                    <div class="sidebarnavigationparcel-frame-navitembase5">
+                      <div class="sidebarnavigationparcel-content7">
+                        <img
+                          alt="settings01I5236"
+                          src="public/external/settings01i5236-dwy.svg"
+                          class="sidebarnavigationparcel-settings01"
+                        />
+                        <span
+                          class="sidebarnavigationparcel-text12 TextmdSemibold"
+                        >
+                          <span>Settings</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <a
+                  href="homepage.html"
+                  class="sidebarnavigationparcel-navlink6"
+                >
+                  <div class="sidebarnavigationparcel-account">
+                    <div class="sidebarnavigationparcel-avatarlabelgroup">
+                      <div class="sidebarnavigationparcel-avatar"></div>
+                      <div
+                        class="sidebarnavigationparcel-textandsupportingtext"
+                      >
+                        <span
+                          class="sidebarnavigationparcel-text14 TextsmSemibold"
+                        >
+                          <span>Ahmad Mursyid</span>
+                        </span>
+                        <span class="sidebarnavigationparcel-text16">
+                          <span>mursyid@atfal.com</span>
+                        </span>
+                      </div>
+                    </div>
+                    <button class="sidebarnavigationparcel-button">
+                      <img
+                        alt="logout01I5236"
+                        src="public/external/logout01i5236-ixha.svg"
+                        class="sidebarnavigationparcel-logout01"
+                      />
+                    </button>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="parcel-dashboard-main">
+            <div class="parcel-dashboard-headersection">
+              <div class="parcel-dashboard-container1">
+                <div class="parcel-dashboard-breadcrumbs">
+                  <div class="parcel-dashboard-tabs">
+                    <a
+                      href="index.html"
+                      class="parcel-dashboard-frame-breadcrumbbuttonbase"
+                    >
+                      <img
+                        alt="homelineI5296"
+                        src="public/external/homelinei5296-k1z4h.svg"
+                        class="parcel-dashboard-homeline"
+                      />
+                    </a>
+                    <img
+                      alt="chevronright5296"
+                      src="public/external/chevronright5296-zn9.svg"
+                      class="parcel-dashboard-chevronright"
+                    />
+                    <a
+                      href="parcel-dashboard.html"
+                      class="parcel-dashboard-frame-breadcrumbbuttonbase1"
+                    >
+                      <span class="parcel-dashboard-text TextsmMedium">
+                        <span>Parcel</span>
+                      </span>
+                    </a>
+                  </div>
+                  <div class="parcel-dashboard-actions">
+                    <div class="parcel-dashboard-dropdown">
+                      <img
+                        alt="download01I5296"
+                        src="public/external/download01i5296-xwi.svg"
+                        class="parcel-dashboard-download01"
+                      />
+                    </div>
+                    <button class="parcel-dashboard-button">
+                      <img
+                        alt="searchrefractionI5296"
+                        src="public/external/searchrefractioni5296-rc7c.svg"
+                        class="parcel-dashboard-searchrefraction"
+                      />
+                    </button>
+                    <button class="parcel-dashboard-button01">
+                      <img
+                        alt="bell01I5296"
+                        src="public/external/bell01i5296-c1hy.svg"
+                        class="parcel-dashboard-bell01"
+                      />
+                    </button>
+                    <div class="parcel-dashboard-dropdown1">
+                      <a
+                        href="parcel-add-new-parcel.html"
+                        class="parcel-dashboard-button02"
+                      >
+                        <img
+                          alt="plusI5296"
+                          src="public/external/plusi5296-25gt.svg"
+                          class="parcel-dashboard-plus"
+                        />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="parcel-dashboard-pageheader">
+                  <div class="parcel-dashboard-content">
+                    <div class="parcel-dashboard-textandsupportingtext">
+                      <span class="parcel-dashboard-text002 DisplaysmSemibold">
+                        <span>Parcel</span>
+                      </span>
+                      <span class="parcel-dashboard-text004 TextmdRegular">
+                        <span>Track, manage, and monitor parcel easily.</span>
+                      </span>
+                    </div>
+                  </div>
+                  <img
+                    alt="DividerI5296"
+                    src="public/external/divideri5296-evdi.svg"
+                    class="parcel-dashboard-divider"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="parcel-dashboard-section">
+              <div class="parcel-dashboard-container2">
+                <div class="parcel-dashboard-table">
+                  <div class="parcel-dashboard-content1">
+                    <div class="parcel-dashboard-column">
+                      <div class="parcel-dashboard-tableheadercell">
+                        <div class="parcel-dashboard-checkbox">
+                          <div
+                            class="parcel-dashboard-frame-checkboxbase"
+                          ></div>
+                        </div>
+                        <div class="parcel-dashboard-tableheader">
+                          <span class="parcel-dashboard-text006 TextxsMedium">
+                            <span>Tracking Number</span>
+                          </span>
+                          <img
+                            alt="arrowdownI5296"
+                            src="public/external/arrowdowni5296-lmic.svg"
+                            class="parcel-dashboard-arrowdown"
+                          />
+                        </div>
+                      </div>
+                      <div class="parcel-dashboard-tablecell">
+                        <div class="parcel-dashboard-checkbox1">
+                          <div
+                            class="parcel-dashboard-frame-checkboxbase1"
+                          ></div>
+                        </div>
+                        <span class="parcel-dashboard-text008 TextsmMedium">
+                          <span>#PMW50809797</span>
+                        </span>
+                      </div>
+                      <div class="parcel-dashboard-tablecell01">
+                        <div class="parcel-dashboard-checkbox2">
+                          <div
+                            class="parcel-dashboard-frame-checkboxbase2"
+                          ></div>
+                        </div>
+                        <span class="parcel-dashboard-text010 TextsmMedium">
+                          <span>#PMW50809797</span>
+                        </span>
+                      </div>
+                      <div class="parcel-dashboard-tablecell02">
+                        <div class="parcel-dashboard-checkbox3">
+                          <div
+                            class="parcel-dashboard-frame-checkboxbase3"
+                          ></div>
+                        </div>
+                        <span class="parcel-dashboard-text012 TextsmMedium">
+                          <span>#PMW50809797</span>
+                        </span>
+                      </div>
+                      <div class="parcel-dashboard-tablecell03">
+                        <div class="parcel-dashboard-checkbox4">
+                          <div
+                            class="parcel-dashboard-frame-checkboxbase4"
+                          ></div>
+                        </div>
+                        <span class="parcel-dashboard-text014 TextsmMedium">
+                          <span>#PMW50809797</span>
+                        </span>
+                      </div>
+                      <div class="parcel-dashboard-tablecell04">
+                        <div class="parcel-dashboard-checkbox5">
+                          <div
+                            class="parcel-dashboard-frame-checkboxbase5"
+                          ></div>
+                        </div>
+                        <span class="parcel-dashboard-text016 TextsmMedium">
+                          <span>#PMW50809797</span>
+                        </span>
+                      </div>
+                      <div class="parcel-dashboard-tablecell05">
+                        <div class="parcel-dashboard-checkbox6">
+                          <div
+                            class="parcel-dashboard-frame-checkboxbase6"
+                          ></div>
+                        </div>
+                        <span class="parcel-dashboard-text018 TextsmMedium">
+                          <span>#PMW50809797</span>
+                        </span>
+                      </div>
+                      <div class="parcel-dashboard-tablecell06">
+                        <div class="parcel-dashboard-checkbox7">
+                          <div
+                            class="parcel-dashboard-frame-checkboxbase7"
+                          ></div>
+                        </div>
+                        <span class="parcel-dashboard-text020 TextsmMedium">
+                          <span>#PMW50809797</span>
+                        </span>
+                      </div>
+                      <div class="parcel-dashboard-tablecell07">
+                        <div class="parcel-dashboard-checkbox8">
+                          <div
+                            class="parcel-dashboard-frame-checkboxbase8"
+                          ></div>
+                        </div>
+                        <span class="parcel-dashboard-text022 TextsmMedium">
+                          <span>#PMW50809797</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="parcel-dashboard-column1">
+                      <div class="parcel-dashboard-tableheadercell1">
+                        <div class="parcel-dashboard-tableheader1">
+                          <span class="parcel-dashboard-text024 TextxsMedium">
+                            <span>Items</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="parcel-dashboard-tablecell08">
+                        <span class="parcel-dashboard-text026 TextsmMedium">
+                          <span>Olivia Rhye</span>
+                        </span>
+                      </div>
+                      <div class="parcel-dashboard-tablecell09">
+                        <span class="parcel-dashboard-text028 TextsmMedium">
+                          <span>Phoenix Baker</span>
+                        </span>
+                      </div>
+                      <div class="parcel-dashboard-tablecell10">
+                        <span class="parcel-dashboard-text030 TextsmMedium">
+                          <span>Candice Wu</span>
+                        </span>
+                      </div>
+                      <div class="parcel-dashboard-tablecell11">
+                        <span class="parcel-dashboard-text032 TextsmMedium">
+                          <span>Natali Craig</span>
+                        </span>
+                      </div>
+                      <div class="parcel-dashboard-tablecell12">
+                        <span class="parcel-dashboard-text034 TextsmMedium">
+                          <span>Drew Cano</span>
+                        </span>
+                      </div>
+                      <div class="parcel-dashboard-tablecell13">
+                        <span class="parcel-dashboard-text036 TextsmMedium">
+                          <span>Orlando Diggs</span>
+                        </span>
+                      </div>
+                      <div class="parcel-dashboard-tablecell14">
+                        <span class="parcel-dashboard-text038 TextsmMedium">
+                          <span>Andi Lane</span>
+                        </span>
+                      </div>
+                      <div class="parcel-dashboard-tablecell15">
+                        <span class="parcel-dashboard-text040 TextsmMedium">
+                          <span>Kate Morrison</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="parcel-dashboard-column2">
+                      <div class="parcel-dashboard-tableheadercell2">
+                        <div class="parcel-dashboard-tableheader2">
+                          <span class="parcel-dashboard-text042 TextxsMedium">
+                            <span>Remark</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="parcel-dashboard-tablecell16">
+                        <span class="parcel-dashboard-text044 TextsmRegular">
+                          <span>YT8470400394349</span>
+                        </span>
+                      </div>
+                      <div class="parcel-dashboard-tablecell17">
+                        <span class="parcel-dashboard-text046 TextsmRegular">
+                          <span>YT8470400394349</span>
+                        </span>
+                      </div>
+                      <div class="parcel-dashboard-tablecell18">
+                        <span class="parcel-dashboard-text048 TextsmRegular">
+                          <span>YT8470400394349</span>
+                        </span>
+                      </div>
+                      <div class="parcel-dashboard-tablecell19">
+                        <span class="parcel-dashboard-text050 TextsmRegular">
+                          <span>YT8470400394349</span>
+                        </span>
+                      </div>
+                      <div class="parcel-dashboard-tablecell20">
+                        <span class="parcel-dashboard-text052 TextsmRegular">
+                          <span>YT8470400394349</span>
+                        </span>
+                      </div>
+                      <div class="parcel-dashboard-tablecell21">
+                        <span class="parcel-dashboard-text054 TextsmRegular">
+                          <span>YT8470400394349</span>
+                        </span>
+                      </div>
+                      <div class="parcel-dashboard-tablecell22">
+                        <span class="parcel-dashboard-text056 TextsmRegular">
+                          <span>YT8470400394349</span>
+                        </span>
+                      </div>
+                      <div class="parcel-dashboard-tablecell23">
+                        <span class="parcel-dashboard-text058 TextsmRegular">
+                          <span>YT8470400394349</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="parcel-dashboard-column3">
+                      <div class="parcel-dashboard-tableheadercell3">
+                        <div class="parcel-dashboard-tableheader3">
+                          <span class="parcel-dashboard-text060 TextxsMedium">
+                            <span>Date Created</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="parcel-dashboard-tablecell24">
+                        <span class="parcel-dashboard-text062 TextsmRegular">
+                          <span>Jan 6, 2022</span>
+                        </span>
+                      </div>
+                      <div class="parcel-dashboard-tablecell25">
+                        <span class="parcel-dashboard-text064 TextsmRegular">
+                          <span>Jan 6, 2022</span>
+                        </span>
+                      </div>
+                      <div class="parcel-dashboard-tablecell26">
+                        <span class="parcel-dashboard-text066 TextsmRegular">
+                          <span>Jan 5, 2022</span>
+                        </span>
+                      </div>
+                      <div class="parcel-dashboard-tablecell27">
+                        <span class="parcel-dashboard-text068 TextsmRegular">
+                          <span>Jan 5, 2022</span>
+                        </span>
+                      </div>
+                      <div class="parcel-dashboard-tablecell28">
+                        <span class="parcel-dashboard-text070 TextsmRegular">
+                          <span>Jan 4, 2022</span>
+                        </span>
+                      </div>
+                      <div class="parcel-dashboard-tablecell29">
+                        <span class="parcel-dashboard-text072 TextsmRegular">
+                          <span>Jan 3, 2022</span>
+                        </span>
+                      </div>
+                      <div class="parcel-dashboard-tablecell30">
+                        <span class="parcel-dashboard-text074 TextsmRegular">
+                          <span>Jan 3, 2022</span>
+                        </span>
+                      </div>
+                      <div class="parcel-dashboard-tablecell31">
+                        <span class="parcel-dashboard-text076 TextsmRegular">
+                          <span>Jan 3, 2022</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="parcel-dashboard-column4">
+                      <div class="parcel-dashboard-tableheadercell4">
+                        <div class="parcel-dashboard-tableheader4">
+                          <span class="parcel-dashboard-text078 TextxsMedium">
+                            <span>Payment Status</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="parcel-dashboard-tablecell32">
+                        <div class="parcel-dashboard-badge">
+                          <img
+                            alt="checkI5296"
+                            src="public/external/checki5296-235g.svg"
+                            class="parcel-dashboard-check"
+                          />
+                          <span class="parcel-dashboard-text080 TextxsMedium">
+                            <span>Paid</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="parcel-dashboard-tablecell33">
+                        <div class="parcel-dashboard-badge01">
+                          <img
+                            alt="checkI5296"
+                            src="public/external/checki5296-xluxi.svg"
+                            class="parcel-dashboard-check01"
+                          />
+                          <span class="parcel-dashboard-text082 TextxsMedium">
+                            <span>Paid</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="parcel-dashboard-tablecell34">
+                        <div class="parcel-dashboard-badge02">
+                          <img
+                            alt="reverseleftI5296"
+                            src="public/external/reverselefti5296-7nt.svg"
+                            class="parcel-dashboard-reverseleft"
+                          />
+                          <span class="parcel-dashboard-text084 TextxsMedium">
+                            <span>Refunded</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="parcel-dashboard-tablecell35">
+                        <div class="parcel-dashboard-badge03">
+                          <img
+                            alt="checkI5296"
+                            src="public/external/checki5296-zi1.svg"
+                            class="parcel-dashboard-check02"
+                          />
+                          <span class="parcel-dashboard-text086 TextxsMedium">
+                            <span>Paid</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="parcel-dashboard-tablecell36">
+                        <div class="parcel-dashboard-badge04">
+                          <img
+                            alt="xI5296"
+                            src="public/external/xi5296-8puc.svg"
+                            class="parcel-dashboard-x"
+                          />
+                          <span class="parcel-dashboard-text088 TextxsMedium">
+                            <span>Cancelled</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="parcel-dashboard-tablecell37">
+                        <div class="parcel-dashboard-badge05">
+                          <img
+                            alt="checkI5296"
+                            src="public/external/checki5296-ckw.svg"
+                            class="parcel-dashboard-check03"
+                          />
+                          <span class="parcel-dashboard-text090 TextxsMedium">
+                            <span>Paid</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="parcel-dashboard-tablecell38">
+                        <div class="parcel-dashboard-badge06">
+                          <img
+                            alt="checkI5296"
+                            src="public/external/checki5296-bjyk.svg"
+                            class="parcel-dashboard-check04"
+                          />
+                          <span class="parcel-dashboard-text092 TextxsMedium">
+                            <span>Paid</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="parcel-dashboard-tablecell39">
+                        <div class="parcel-dashboard-badge07">
+                          <img
+                            alt="checkI5296"
+                            src="public/external/checki5296-7qnl9.svg"
+                            class="parcel-dashboard-check05"
+                          />
+                          <span class="parcel-dashboard-text094 TextxsMedium">
+                            <span>Paid</span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="parcel-dashboard-column5">
+                      <div class="parcel-dashboard-tableheadercell5">
+                        <div class="parcel-dashboard-tableheader5">
+                          <span class="parcel-dashboard-text096 TextxsMedium">
+                            <span>Parcel Status</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="parcel-dashboard-tablecell40">
+                        <div class="parcel-dashboard-badge08">
+                          <img
+                            alt="checkI5296"
+                            src="public/external/checki5296-srbj.svg"
+                            class="parcel-dashboard-check06"
+                          />
+                          <span class="parcel-dashboard-text098 TextxsMedium">
+                            <span>Paid</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="parcel-dashboard-tablecell41">
+                        <div class="parcel-dashboard-badge09">
+                          <img
+                            alt="checkI5296"
+                            src="public/external/checki5296-6k9r.svg"
+                            class="parcel-dashboard-check07"
+                          />
+                          <span class="parcel-dashboard-text100 TextxsMedium">
+                            <span>Paid</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="parcel-dashboard-tablecell42">
+                        <div class="parcel-dashboard-badge10">
+                          <img
+                            alt="reverseleftI5296"
+                            src="public/external/reverselefti5296-8zk6.svg"
+                            class="parcel-dashboard-reverseleft1"
+                          />
+                          <span class="parcel-dashboard-text102 TextxsMedium">
+                            <span>Refunded</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="parcel-dashboard-tablecell43">
+                        <div class="parcel-dashboard-badge11">
+                          <img
+                            alt="checkI5296"
+                            src="public/external/checki5296-apnr.svg"
+                            class="parcel-dashboard-check08"
+                          />
+                          <span class="parcel-dashboard-text104 TextxsMedium">
+                            <span>Paid</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="parcel-dashboard-tablecell44">
+                        <div class="parcel-dashboard-badge12">
+                          <img
+                            alt="xI5296"
+                            src="public/external/xi5296-6p7s.svg"
+                            class="parcel-dashboard-x1"
+                          />
+                          <span class="parcel-dashboard-text106 TextxsMedium">
+                            <span>Cancelled</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="parcel-dashboard-tablecell45">
+                        <div class="parcel-dashboard-badge13">
+                          <img
+                            alt="checkI5296"
+                            src="public/external/checki5296-83ka.svg"
+                            class="parcel-dashboard-check09"
+                          />
+                          <span class="parcel-dashboard-text108 TextxsMedium">
+                            <span>Paid</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="parcel-dashboard-tablecell46">
+                        <div class="parcel-dashboard-badge14">
+                          <img
+                            alt="checkI5296"
+                            src="public/external/checki5296-hxa.svg"
+                            class="parcel-dashboard-check10"
+                          />
+                          <span class="parcel-dashboard-text110 TextxsMedium">
+                            <span>Paid</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="parcel-dashboard-tablecell47">
+                        <div class="parcel-dashboard-badge15">
+                          <img
+                            alt="checkI5296"
+                            src="public/external/checki5296-zp9d.svg"
+                            class="parcel-dashboard-check11"
+                          />
+                          <span class="parcel-dashboard-text112 TextxsMedium">
+                            <span>Paid</span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="parcel-dashboard-column6">
+                      <div class="parcel-dashboard-tableheadercell6"></div>
+                      <div class="parcel-dashboard-tablecell48">
+                        <a
+                          href="parcel-view-details.html"
+                          class="parcel-dashboard-button03"
+                        >
+                          <img
+                            alt="eyeI5296"
+                            src="public/external/eyei5296-tnpl.svg"
+                            class="parcel-dashboard-eye"
+                          />
+                        </a>
+                        <a
+                          href="parcel-successful-deleted.html"
+                          class="parcel-dashboard-button04"
+                        >
+                          <img
+                            alt="trash01I5296"
+                            src="public/external/trash01i5296-x52rd.svg"
+                            class="parcel-dashboard-trash01"
+                          />
+                        </a>
+                        <a
+                          href="parcel-edit.html"
+                          class="parcel-dashboard-button05"
+                        >
+                          <img
+                            alt="edit01I5296"
+                            src="public/external/edit01i5296-lv4a.svg"
+                            class="parcel-dashboard-edit01"
+                          />
+                        </a>
+                      </div>
+                      <div class="parcel-dashboard-tablecell49">
+                        <a
+                          href="parcel-view-details.html"
+                          class="parcel-dashboard-button06"
+                        >
+                          <img
+                            alt="eyeI5296"
+                            src="public/external/eyei5296-t36b.svg"
+                            class="parcel-dashboard-eye1"
+                          />
+                        </a>
+                        <a
+                          href="parcel-successful-deleted.html"
+                          class="parcel-dashboard-button07"
+                        >
+                          <img
+                            alt="trash01I5296"
+                            src="public/external/trash01i5296-3cef.svg"
+                            class="parcel-dashboard-trash011"
+                          />
+                        </a>
+                        <a
+                          href="parcel-edit.html"
+                          class="parcel-dashboard-button08"
+                        >
+                          <img
+                            alt="edit01I5296"
+                            src="public/external/edit01i5296-7yw.svg"
+                            class="parcel-dashboard-edit011"
+                          />
+                        </a>
+                      </div>
+                      <div class="parcel-dashboard-tablecell50">
+                        <a
+                          href="parcel-view-details.html"
+                          class="parcel-dashboard-button09"
+                        >
+                          <img
+                            alt="eyeI5296"
+                            src="public/external/eyei5296-cq6b.svg"
+                            class="parcel-dashboard-eye2"
+                          />
+                        </a>
+                        <a
+                          href="parcel-successful-deleted.html"
+                          class="parcel-dashboard-button10"
+                        >
+                          <img
+                            alt="trash01I5296"
+                            src="public/external/trash01i5296-gfhk.svg"
+                            class="parcel-dashboard-trash012"
+                          />
+                        </a>
+                        <a
+                          href="parcel-edit.html"
+                          class="parcel-dashboard-button11"
+                        >
+                          <img
+                            alt="edit01I5296"
+                            src="public/external/edit01i5296-jy3b.svg"
+                            class="parcel-dashboard-edit012"
+                          />
+                        </a>
+                      </div>
+                      <div class="parcel-dashboard-tablecell51">
+                        <a
+                          href="parcel-view-details.html"
+                          class="parcel-dashboard-button12"
+                        >
+                          <img
+                            alt="eyeI5296"
+                            src="public/external/eyei5296-c18c.svg"
+                            class="parcel-dashboard-eye3"
+                          />
+                        </a>
+                        <a
+                          href="parcel-successful-deleted.html"
+                          class="parcel-dashboard-button13"
+                        >
+                          <img
+                            alt="trash01I5296"
+                            src="public/external/trash01i5296-opl9.svg"
+                            class="parcel-dashboard-trash013"
+                          />
+                        </a>
+                        <a
+                          href="parcel-edit.html"
+                          class="parcel-dashboard-button14"
+                        >
+                          <img
+                            alt="edit01I5296"
+                            src="public/external/edit01i5296-2w9o.svg"
+                            class="parcel-dashboard-edit013"
+                          />
+                        </a>
+                      </div>
+                      <div class="parcel-dashboard-tablecell52">
+                        <a
+                          href="parcel-view-details.html"
+                          class="parcel-dashboard-button15"
+                        >
+                          <img
+                            alt="eyeI5296"
+                            src="public/external/eyei5296-wm4b.svg"
+                            class="parcel-dashboard-eye4"
+                          />
+                        </a>
+                        <a
+                          href="parcel-successful-deleted.html"
+                          class="parcel-dashboard-button16"
+                        >
+                          <img
+                            alt="trash01I5296"
+                            src="public/external/trash01i5296-hl88.svg"
+                            class="parcel-dashboard-trash014"
+                          />
+                        </a>
+                        <a
+                          href="parcel-edit.html"
+                          class="parcel-dashboard-button17"
+                        >
+                          <img
+                            alt="edit01I5296"
+                            src="public/external/edit01i5296-ib6f.svg"
+                            class="parcel-dashboard-edit014"
+                          />
+                        </a>
+                      </div>
+                      <div class="parcel-dashboard-tablecell53">
+                        <a
+                          href="parcel-view-details.html"
+                          class="parcel-dashboard-button18"
+                        >
+                          <img
+                            alt="eyeI5296"
+                            src="public/external/eyei5296-wks.svg"
+                            class="parcel-dashboard-eye5"
+                          />
+                        </a>
+                        <a
+                          href="parcel-successful-deleted.html"
+                          class="parcel-dashboard-button19"
+                        >
+                          <img
+                            alt="trash01I5296"
+                            src="public/external/trash01i5296-fl9k.svg"
+                            class="parcel-dashboard-trash015"
+                          />
+                        </a>
+                        <a
+                          href="parcel-edit.html"
+                          class="parcel-dashboard-button20"
+                        >
+                          <img
+                            alt="edit01I5296"
+                            src="public/external/edit01i5296-zvuj.svg"
+                            class="parcel-dashboard-edit015"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="parcel-dashboard-pagination">
+                    <button class="parcel-dashboard-button21">
+                      <img
+                        alt="arrowleftI5296"
+                        src="public/external/arrowlefti5296-8ho.svg"
+                        class="parcel-dashboard-arrowleft"
+                      />
+                      <span class="parcel-dashboard-text114 TextsmSemibold">
+                        <span>Previous</span>
+                      </span>
+                    </button>
+                    <div class="parcel-dashboard-paginationnumbers">
+                      <div class="parcel-dashboard-frame-paginationnumberbase">
+                        <div class="parcel-dashboard-content2">
+                          <span class="parcel-dashboard-text116 TextsmMedium">
+                            1
+                          </span>
+                        </div>
+                      </div>
+                      <div class="parcel-dashboard-frame-paginationnumberbase1">
+                        <div class="parcel-dashboard-content3">
+                          <span class="parcel-dashboard-text117 TextsmMedium">
+                            2
+                          </span>
+                        </div>
+                      </div>
+                      <div class="parcel-dashboard-frame-paginationnumberbase2">
+                        <div class="parcel-dashboard-content4">
+                          <span class="parcel-dashboard-text118 TextsmMedium">
+                            3
+                          </span>
+                        </div>
+                      </div>
+                      <div class="parcel-dashboard-frame-paginationnumberbase3">
+                        <div class="parcel-dashboard-content5">
+                          <span class="parcel-dashboard-text119 TextsmMedium">
+                            <span>...</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="parcel-dashboard-frame-paginationnumberbase4">
+                        <div class="parcel-dashboard-content6">
+                          <span class="parcel-dashboard-text121 TextsmMedium">
+                            8
+                          </span>
+                        </div>
+                      </div>
+                      <div class="parcel-dashboard-frame-paginationnumberbase5">
+                        <div class="parcel-dashboard-content7">
+                          <span class="parcel-dashboard-text122 TextsmMedium">
+                            9
+                          </span>
+                        </div>
+                      </div>
+                      <div class="parcel-dashboard-frame-paginationnumberbase6">
+                        <div class="parcel-dashboard-content8">
+                          <span class="parcel-dashboard-text123 TextsmMedium">
+                            <span>10</span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="parcel-dashboard-button22">
+                      <span class="parcel-dashboard-text125 TextsmSemibold">
+                        <span>Next</span>
+                      </span>
+                      <img
+                        alt="arrowrightI5296"
+                        src="public/external/arrowrighti5296-up5.svg"
+                        class="parcel-dashboard-arrowright"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      data-section-id="navbar"
+      src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
+    ></script>
+  </body>
+</html>

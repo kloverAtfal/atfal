@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Settings-Currencies - KloverAtfal</title>
+    <meta property="og:title" content="Settings-Currencies - KloverAtfal" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <!--This is the head section-->
+    <!-- <style> ... </style> -->
+    <style data-section-id="dropdown">
+      [data-thq="thq-dropdown"]:hover > [data-thq="thq-dropdown-list"] {
+          display: flex;
+        }
+
+        [data-thq="thq-dropdown"]:hover > div [data-thq="thq-dropdown-arrow"] {
+          transform: rotate(90deg);
+        }
+    </style>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div>
+      <link href="./settings-currencies.css" rel="stylesheet" />
+
+      <div class="settings-currencies-container">
+        <div class="settings-currencies-contents">
+          <div class="sidebarnavigation-settings-sidebarnavigation-settings">
+            <div class="sidebarnavigation-settings-content">
+              <div class="sidebarnavigation-settings-nav">
+                <div class="sidebarnavigation-settings-header">
+                  <div class="sidebarnavigation-settings-logo">
+                    <div class="sidebarnavigation-settings-logowrap">
+                      <div class="sidebarnavigation-settings-logomark">
+                        <img
+                          alt="Frame1I5236"
+                          src="public/external/frame1i5236-aiyo.svg"
+                          class="sidebarnavigation-settings-frame1"
+                        />
+                      </div>
+                      <img
+                        alt="LogotypeI5236"
+                        src="public/external/logotypei5236-1fz.svg"
+                        class="sidebarnavigation-settings-logotype"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="sidebarnavigation-settings-search">
+                  <div class="sidebarnavigation-settings-inputdropdown">
+                    <div class="sidebarnavigation-settings-inputwithlabel">
+                      <div class="sidebarnavigation-settings-input">
+                        <div class="sidebarnavigation-settings-content1">
+                          <img
+                            alt="searchlgI5236"
+                            src="public/external/searchlgi5236-p0fh.svg"
+                            class="sidebarnavigation-settings-searchlg"
+                          />
+                          <span
+                            class="sidebarnavigation-settings-text TextmdRegular"
+                          >
+                            <span>Search</span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="sidebarnavigation-settings-navigation">
+                  <a
+                    href="index.html"
+                    class="sidebarnavigation-settings-navlink"
+                  >
+                    <div class="sidebarnavigation-settings-frame-navitembase">
+                      <div class="sidebarnavigation-settings-content2">
+                        <img
+                          alt="homelineI5236"
+                          src="public/external/homelinei5236-pi1s.svg"
+                          class="sidebarnavigation-settings-homeline"
+                        />
+                        <span
+                          class="sidebarnavigation-settings-text02 TextmdSemibold"
+                        >
+                          <span>Home</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="parcel-dashboard.html"
+                    class="sidebarnavigation-settings-navlink1"
+                  >
+                    <div class="sidebarnavigation-settings-frame-navitembase1">
+                      <div class="sidebarnavigation-settings-content3">
+                        <img
+                          alt="packageI5236"
+                          src="public/external/packagei5236-2yjj.svg"
+                          class="sidebarnavigation-settings-package"
+                        />
+                        <span
+                          class="sidebarnavigation-settings-text04 TextmdSemibold"
+                        >
+                          <span>Parcel</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="shipment-dashboard.html"
+                    class="sidebarnavigation-settings-navlink2"
+                  >
+                    <div class="sidebarnavigation-settings-frame-navitembase2">
+                      <div class="sidebarnavigation-settings-content4">
+                        <img
+                          alt="planeI5236"
+                          src="public/external/planei5236-zdu.svg"
+                          class="sidebarnavigation-settings-plane"
+                        />
+                        <span
+                          class="sidebarnavigation-settings-text06 TextmdSemibold"
+                        >
+                          <span>Shipment</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="transaction-dashboard-alipay-top-up.html"
+                    class="sidebarnavigation-settings-navlink3"
+                  >
+                    <div class="sidebarnavigation-settings-frame-navitembase3">
+                      <div class="sidebarnavigation-settings-content5">
+                        <img
+                          alt="banknote01I5236"
+                          src="public/external/banknote01i5236-cpa.svg"
+                          class="sidebarnavigation-settings-banknote01"
+                        />
+                        <span
+                          class="sidebarnavigation-settings-text08 TextmdSemibold"
+                        >
+                          <span>Transactions</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="affiliates-dashboard.html"
+                    class="sidebarnavigation-settings-navlink4"
+                  >
+                    <div class="sidebarnavigation-settings-frame-navitembase4">
+                      <div class="sidebarnavigation-settings-content6">
+                        <img
+                          alt="users01I5236"
+                          src="public/external/users01i5236-f4q.svg"
+                          class="sidebarnavigation-settings-users01"
+                        />
+                        <span
+                          class="sidebarnavigation-settings-text10 TextmdSemibold"
+                        >
+                          <span>Affiliates</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="sidebarnavigation-settings-footer">
+                <div class="sidebarnavigation-settings-navigation1">
+                  <a
+                    href="settings-my-profile.html"
+                    class="sidebarnavigation-settings-navlink5"
+                  >
+                    <div class="sidebarnavigation-settings-frame-navitembase5">
+                      <div class="sidebarnavigation-settings-content7">
+                        <img
+                          alt="settings01I5236"
+                          src="public/external/settings01i5236-dwy.svg"
+                          class="sidebarnavigation-settings-settings01"
+                        />
+                        <span
+                          class="sidebarnavigation-settings-text12 TextmdSemibold"
+                        >
+                          <span>Settings</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <a
+                  href="homepage.html"
+                  class="sidebarnavigation-settings-navlink6"
+                >
+                  <div class="sidebarnavigation-settings-account">
+                    <div class="sidebarnavigation-settings-avatarlabelgroup">
+                      <div class="sidebarnavigation-settings-avatar"></div>
+                      <div
+                        class="sidebarnavigation-settings-textandsupportingtext"
+                      >
+                        <span
+                          class="sidebarnavigation-settings-text14 TextsmSemibold"
+                        >
+                          <span>Ahmad Mursyid</span>
+                        </span>
+                        <span class="sidebarnavigation-settings-text16">
+                          <span>mursyid@atfal.com</span>
+                        </span>
+                      </div>
+                    </div>
+                    <button class="sidebarnavigation-settings-button">
+                      <img
+                        alt="logout01I5236"
+                        src="public/external/logout01i5236-ixha.svg"
+                        class="sidebarnavigation-settings-logout01"
+                      />
+                    </button>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="settings-currencies-main">
+            <div class="settings-currencies-headersection">
+              <div class="settings-currencies-container1">
+                <div class="settings-currencies-pageheader">
+                  <div class="settings-currencies-breadcrumbs">
+                    <div class="settings-currencies-tabs">
+                      <a
+                        href="index.html"
+                        class="settings-currencies-frame-breadcrumbbuttonbase"
+                      >
+                        <img
+                          alt="homelineI5296"
+                          src="public/external/homelinei5296-wgaj.svg"
+                          class="settings-currencies-homeline"
+                        />
+                      </a>
+                      <img
+                        alt="chevronright5296"
+                        src="public/external/chevronright5296-q8zs.svg"
+                        class="settings-currencies-chevronright"
+                      />
+                      <a
+                        href="settings-my-profile.html"
+                        class="settings-currencies-frame-breadcrumbbuttonbase1"
+                      >
+                        <span class="settings-currencies-text TextsmMedium">
+                          <span>Settings</span>
+                        </span>
+                      </a>
+                    </div>
+                    <div class="settings-currencies-actions">
+                      <button class="settings-currencies-button">
+                        <img
+                          alt="bell01I5296"
+                          src="public/external/bell01i5296-hzkd.svg"
+                          class="settings-currencies-bell01"
+                        />
+                      </button>
+                      <div class="settings-currencies-dropdown">
+                        <button class="settings-currencies-button1">
+                          <img
+                            alt="plusI5296"
+                            src="public/external/plusi5296-gs4r.svg"
+                            class="settings-currencies-plus"
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="settings-currencies-content">
+                    <div class="settings-currencies-textandsupportingtext">
+                      <span
+                        class="settings-currencies-text02 DisplaysmSemibold"
+                      >
+                        Settings
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="settings-currencies-horizontaltabs">
+                  <div class="settings-currencies-tabs1">
+                    <a
+                      href="settings-my-profile.html"
+                      class="settings-currencies-frame-tabbuttonbase"
+                    >
+                      <span class="settings-currencies-text03 TextsmSemibold">
+                        My Profile
+                      </span>
+                      <span class="settings-currencies-text04 TextsmSemibold">
+                        My Profile
+                      </span>
+                    </a>
+                    <a
+                      href="settings-password.html"
+                      class="settings-currencies-frame-tabbuttonbase1"
+                    >
+                      <span class="settings-currencies-text05 TextsmSemibold">
+                        Password
+                      </span>
+                      <span class="settings-currencies-text06 TextsmSemibold">
+                        Password
+                      </span>
+                    </a>
+                    <a
+                      href="settings-affiliates.html"
+                      class="settings-currencies-frame-tabbuttonbase2"
+                    >
+                      <span class="settings-currencies-text07 TextsmSemibold">
+                        Affiliates
+                      </span>
+                      <span class="settings-currencies-text08 TextsmSemibold">
+                        Affiliates
+                      </span>
+                    </a>
+                    <button class="settings-currencies-frame-tabbuttonbase3">
+                      <span class="settings-currencies-text09 TextsmSemibold">
+                        Admin-currency
+                      </span>
+                      <span class="settings-currencies-text10 TextsmSemibold">
+                        Admin-currency
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="settings-currencies-section">
+              <div class="settings-currencies-container2">
+                <div class="settings-currencies-sectionheader">
+                  <div class="settings-currencies-content01">
+                    <div class="settings-currencies-textandsupportingtext1">
+                      <span class="settings-currencies-text11 TextlgSemibold">
+                        <span>Currency Rate</span>
+                      </span>
+                      <span class="settings-currencies-text13 TextsmRegular">
+                        <span>8 Jan, 12:58 am UTC</span>
+                      </span>
+                    </div>
+                    <div class="settings-currencies-actions1">
+                      <button class="settings-currencies-button2">
+                        <span class="settings-currencies-text15 TextsmSemibold">
+                          <span>Cancel</span>
+                        </span>
+                      </button>
+                      <button class="settings-currencies-button3">
+                        <span class="settings-currencies-text17 TextsmSemibold">
+                          <span>Save</span>
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                  <img
+                    alt="DividerI5296"
+                    src="public/external/divideri5296-sfe.svg"
+                    class="settings-currencies-divider"
+                  />
+                </div>
+                <div class="settings-currencies-form">
+                  <div class="settings-currencies-content02">
+                    <span class="settings-currencies-text19 TextsmMedium">
+                      <span>United States Dollar</span>
+                    </span>
+                    <div class="settings-currencies-inputfield">
+                      <div class="settings-currencies-inputwithlabel">
+                        <div class="settings-currencies-input">
+                          <div class="settings-currencies-content03">
+                            <input
+                              type="text"
+                              placeholder="4.21"
+                              class="settings-currencies-textinput"
+                            />
+                          </div>
+                          <div class="settings-currencies-dropdown1">
+                            <span
+                              class="settings-currencies-text21 TextmdRegular"
+                            >
+                              <span>USD</span>
+                            </span>
+                            <img
+                              alt="chevrondownI5296"
+                              src="public/external/chevrondowni5296-p8sa.svg"
+                              class="settings-currencies-chevrondown"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="settings-currencies-content04">
+                    <span class="settings-currencies-text23 TextsmMedium">
+                      <span>Ringgit Malaysia</span>
+                    </span>
+                    <div class="settings-currencies-inputfield1">
+                      <div class="settings-currencies-inputwithlabel1">
+                        <div class="settings-currencies-input1">
+                          <div class="settings-currencies-content05">
+                            <input
+                              type="text"
+                              placeholder="123"
+                              class="settings-currencies-textinput1"
+                            />
+                          </div>
+                          <div class="settings-currencies-dropdown2">
+                            <span
+                              class="settings-currencies-text25 TextmdRegular"
+                            >
+                              <span>MYR</span>
+                            </span>
+                            <img
+                              alt="chevrondownI5296"
+                              src="public/external/chevrondowni5296-v20g.svg"
+                              class="settings-currencies-chevrondown1"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="settings-currencies-content06">
+                    <span class="settings-currencies-text27 TextsmMedium">
+                      <span>Chinese Yuan</span>
+                    </span>
+                    <div class="settings-currencies-inputfield2">
+                      <div class="settings-currencies-inputwithlabel2">
+                        <div class="settings-currencies-input2">
+                          <div class="settings-currencies-content07">
+                            <input
+                              type="text"
+                              placeholder="123"
+                              class="settings-currencies-textinput2"
+                            />
+                          </div>
+                          <div class="settings-currencies-dropdown3">
+                            <span
+                              class="settings-currencies-text29 TextmdRegular"
+                            >
+                              <span>CNY</span>
+                            </span>
+                            <img
+                              alt="chevrondownI5296"
+                              src="public/external/chevrondowni5296-ieuw.svg"
+                              class="settings-currencies-chevrondown2"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="settings-currencies-content08">
+                    <span class="settings-currencies-text31 TextsmMedium">
+                      <span>Thai Baht</span>
+                    </span>
+                    <div class="settings-currencies-inputfield3">
+                      <div class="settings-currencies-inputwithlabel3">
+                        <div class="settings-currencies-input3">
+                          <div class="settings-currencies-content09">
+                            <input
+                              type="text"
+                              placeholder="123"
+                              class="settings-currencies-textinput3"
+                            />
+                          </div>
+                          <div class="settings-currencies-dropdown4">
+                            <span
+                              class="settings-currencies-text33 TextmdRegular"
+                            >
+                              <span>THB</span>
+                            </span>
+                            <img
+                              alt="chevrondownI5296"
+                              src="public/external/chevrondowni5296-h0op.svg"
+                              class="settings-currencies-chevrondown3"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="settings-currencies-content10">
+                    <span class="settings-currencies-text35 TextsmMedium">
+                      <span>Indonesian Rupiah</span>
+                    </span>
+                    <div class="settings-currencies-inputfield4">
+                      <div class="settings-currencies-inputwithlabel4">
+                        <div class="settings-currencies-input4">
+                          <div class="settings-currencies-content11">
+                            <input
+                              type="text"
+                              placeholder="123"
+                              class="settings-currencies-textinput4"
+                            />
+                          </div>
+                          <div class="settings-currencies-dropdown5">
+                            <span
+                              class="settings-currencies-text37 TextmdRegular"
+                            >
+                              <span>IDR</span>
+                            </span>
+                            <img
+                              alt="chevrondownI5296"
+                              src="public/external/chevrondowni5296-uloe.svg"
+                              class="settings-currencies-chevrondown4"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="settings-currencies-sectionfooter">
+                  <img
+                    alt="DividerI5296"
+                    src="public/external/divideri5296-w5qm.svg"
+                    class="settings-currencies-divider1"
+                  />
+                  <div class="settings-currencies-content12">
+                    <div class="settings-currencies-actions2">
+                      <button class="settings-currencies-button4">
+                        <span class="settings-currencies-text39 TextsmSemibold">
+                          <span>Cancel</span>
+                        </span>
+                      </button>
+                      <button class="settings-currencies-button5">
+                        <span class="settings-currencies-text41 TextsmSemibold">
+                          <span>Save</span>
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      data-section-id="navbar"
+      src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
+    ></script>
+  </body>
+</html>

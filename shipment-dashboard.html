@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Shipment-Dashboard - KloverAtfal</title>
+    <meta property="og:title" content="Shipment-Dashboard - KloverAtfal" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <!--This is the head section-->
+    <!-- <style> ... </style> -->
+    <style data-section-id="dropdown">
+      [data-thq="thq-dropdown"]:hover > [data-thq="thq-dropdown-list"] {
+          display: flex;
+        }
+
+        [data-thq="thq-dropdown"]:hover > div [data-thq="thq-dropdown-arrow"] {
+          transform: rotate(90deg);
+        }
+    </style>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div>
+      <link href="./shipment-dashboard.css" rel="stylesheet" />
+
+      <div class="shipment-dashboard-container">
+        <div class="shipment-dashboard-contents">
+          <div class="sidebarnavigation-shipment-sidebarnavigationparcel">
+            <div class="sidebarnavigation-shipment-content">
+              <div class="sidebarnavigation-shipment-nav">
+                <div class="sidebarnavigation-shipment-header">
+                  <div class="sidebarnavigation-shipment-logo">
+                    <div class="sidebarnavigation-shipment-logowrap">
+                      <div class="sidebarnavigation-shipment-logomark">
+                        <img
+                          alt="Frame1I5236"
+                          src="public/external/frame1i5236-aiyo.svg"
+                          class="sidebarnavigation-shipment-frame1"
+                        />
+                      </div>
+                      <img
+                        alt="LogotypeI5236"
+                        src="public/external/logotypei5236-1fz.svg"
+                        class="sidebarnavigation-shipment-logotype"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="sidebarnavigation-shipment-search">
+                  <div class="sidebarnavigation-shipment-inputdropdown">
+                    <div class="sidebarnavigation-shipment-inputwithlabel">
+                      <div class="sidebarnavigation-shipment-input">
+                        <div class="sidebarnavigation-shipment-content1">
+                          <img
+                            alt="searchlgI5236"
+                            src="public/external/searchlgi5236-p0fh.svg"
+                            class="sidebarnavigation-shipment-searchlg"
+                          />
+                          <span
+                            class="sidebarnavigation-shipment-text TextmdRegular"
+                          >
+                            <span>Search</span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="sidebarnavigation-shipment-navigation">
+                  <a
+                    href="index.html"
+                    class="sidebarnavigation-shipment-navlink"
+                  >
+                    <div class="sidebarnavigation-shipment-frame-navitembase">
+                      <div class="sidebarnavigation-shipment-content2">
+                        <img
+                          alt="homelineI5236"
+                          src="public/external/homelinei5236-pi1s.svg"
+                          class="sidebarnavigation-shipment-homeline"
+                        />
+                        <span
+                          class="sidebarnavigation-shipment-text02 TextmdSemibold"
+                        >
+                          <span>Home</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="parcel-dashboard.html"
+                    class="sidebarnavigation-shipment-navlink1"
+                  >
+                    <div class="sidebarnavigation-shipment-frame-navitembase1">
+                      <div class="sidebarnavigation-shipment-content3">
+                        <img
+                          alt="packageI5236"
+                          src="public/external/packagei5236-2yjj.svg"
+                          class="sidebarnavigation-shipment-package"
+                        />
+                        <span
+                          class="sidebarnavigation-shipment-text04 TextmdSemibold"
+                        >
+                          <span>Parcel</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="shipment-dashboard.html"
+                    class="sidebarnavigation-shipment-navlink2"
+                  >
+                    <div class="sidebarnavigation-shipment-frame-navitembase2">
+                      <div class="sidebarnavigation-shipment-content4">
+                        <img
+                          alt="planeI5236"
+                          src="public/external/planei5236-zdu.svg"
+                          class="sidebarnavigation-shipment-plane"
+                        />
+                        <span
+                          class="sidebarnavigation-shipment-text06 TextmdSemibold"
+                        >
+                          <span>Shipment</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="transaction-dashboard-alipay-top-up.html"
+                    class="sidebarnavigation-shipment-navlink3"
+                  >
+                    <div class="sidebarnavigation-shipment-frame-navitembase3">
+                      <div class="sidebarnavigation-shipment-content5">
+                        <img
+                          alt="banknote01I5236"
+                          src="public/external/banknote01i5236-cpa.svg"
+                          class="sidebarnavigation-shipment-banknote01"
+                        />
+                        <span
+                          class="sidebarnavigation-shipment-text08 TextmdSemibold"
+                        >
+                          <span>Transactions</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="affiliates-dashboard.html"
+                    class="sidebarnavigation-shipment-navlink4"
+                  >
+                    <div class="sidebarnavigation-shipment-frame-navitembase4">
+                      <div class="sidebarnavigation-shipment-content6">
+                        <img
+                          alt="users01I5236"
+                          src="public/external/users01i5236-f4q.svg"
+                          class="sidebarnavigation-shipment-users01"
+                        />
+                        <span
+                          class="sidebarnavigation-shipment-text10 TextmdSemibold"
+                        >
+                          <span>Affiliates</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="sidebarnavigation-shipment-footer">
+                <div class="sidebarnavigation-shipment-navigation1">
+                  <a
+                    href="settings-my-profile.html"
+                    class="sidebarnavigation-shipment-navlink5"
+                  >
+                    <div class="sidebarnavigation-shipment-frame-navitembase5">
+                      <div class="sidebarnavigation-shipment-content7">
+                        <img
+                          alt="settings01I5236"
+                          src="public/external/settings01i5236-dwy.svg"
+                          class="sidebarnavigation-shipment-settings01"
+                        />
+                        <span
+                          class="sidebarnavigation-shipment-text12 TextmdSemibold"
+                        >
+                          <span>Settings</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <a
+                  href="homepage.html"
+                  class="sidebarnavigation-shipment-navlink6"
+                >
+                  <div class="sidebarnavigation-shipment-account">
+                    <div class="sidebarnavigation-shipment-avatarlabelgroup">
+                      <div class="sidebarnavigation-shipment-avatar"></div>
+                      <div
+                        class="sidebarnavigation-shipment-textandsupportingtext"
+                      >
+                        <span
+                          class="sidebarnavigation-shipment-text14 TextsmSemibold"
+                        >
+                          <span>Ahmad Mursyid</span>
+                        </span>
+                        <span class="sidebarnavigation-shipment-text16">
+                          <span>mursyid@atfal.com</span>
+                        </span>
+                      </div>
+                    </div>
+                    <button class="sidebarnavigation-shipment-button">
+                      <img
+                        alt="logout01I5236"
+                        src="public/external/logout01i5236-ixha.svg"
+                        class="sidebarnavigation-shipment-logout01"
+                      />
+                    </button>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="shipment-dashboard-main">
+            <div class="shipment-dashboard-headersection">
+              <div class="shipment-dashboard-container1">
+                <div class="shipment-dashboard-breadcrumbs">
+                  <div class="shipment-dashboard-tabs">
+                    <a
+                      href="index.html"
+                      class="shipment-dashboard-frame-breadcrumbbuttonbase"
+                    >
+                      <img
+                        alt="homelineI5296"
+                        src="public/external/homelinei5296-7u9v.svg"
+                        class="shipment-dashboard-homeline"
+                      />
+                    </a>
+                    <img
+                      alt="chevronright5296"
+                      src="public/external/chevronright5296-gx0p.svg"
+                      class="shipment-dashboard-chevronright"
+                    />
+                    <button
+                      class="shipment-dashboard-frame-breadcrumbbuttonbase1"
+                    >
+                      <span class="shipment-dashboard-text TextsmMedium">
+                        <span>Shipment</span>
+                      </span>
+                    </button>
+                  </div>
+                  <div class="shipment-dashboard-actions">
+                    <div class="shipment-dashboard-dropdown">
+                      <img
+                        alt="download01I5296"
+                        src="public/external/download01i5296-h6na.svg"
+                        class="shipment-dashboard-download01"
+                      />
+                    </div>
+                    <button class="shipment-dashboard-button">
+                      <img
+                        alt="searchrefractionI5296"
+                        src="public/external/searchrefractioni5296-i4sb.svg"
+                        class="shipment-dashboard-searchrefraction"
+                      />
+                    </button>
+                    <button class="shipment-dashboard-button01">
+                      <img
+                        alt="bell01I5296"
+                        src="public/external/bell01i5296-557.svg"
+                        class="shipment-dashboard-bell01"
+                      />
+                    </button>
+                    <a
+                      href="shipment-add-new-shipment.html"
+                      class="shipment-dashboard-navlink"
+                    >
+                      <div class="shipment-dashboard-dropdown1">
+                        <button class="shipment-dashboard-button02">
+                          <img
+                            alt="plusI5296"
+                            src="public/external/plusi5296-ha7.svg"
+                            class="shipment-dashboard-plus"
+                          />
+                        </button>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="shipment-dashboard-pageheader">
+                  <div class="shipment-dashboard-content">
+                    <div class="shipment-dashboard-textandsupportingtext">
+                      <span
+                        class="shipment-dashboard-text002 DisplaysmSemibold"
+                      >
+                        <span>Shipment</span>
+                      </span>
+                      <span class="shipment-dashboard-text004 TextmdRegular">
+                        <span>Track, manage, and monitor shipment easily.</span>
+                      </span>
+                    </div>
+                  </div>
+                  <img
+                    alt="DividerI5296"
+                    src="public/external/divideri5296-aen52.svg"
+                    class="shipment-dashboard-divider"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="shipment-dashboard-section">
+              <div class="shipment-dashboard-container2">
+                <div class="shipment-dashboard-table">
+                  <div class="shipment-dashboard-content1">
+                    <div class="shipment-dashboard-column">
+                      <div class="shipment-dashboard-tableheadercell">
+                        <div class="shipment-dashboard-checkbox">
+                          <div
+                            class="shipment-dashboard-frame-checkboxbase"
+                          ></div>
+                        </div>
+                        <div class="shipment-dashboard-tableheader">
+                          <span class="shipment-dashboard-text006 TextxsMedium">
+                            <span>Tracking Number</span>
+                          </span>
+                          <img
+                            alt="arrowdownI5296"
+                            src="public/external/arrowdowni5296-tp5.svg"
+                            class="shipment-dashboard-arrowdown"
+                          />
+                        </div>
+                      </div>
+                      <div class="shipment-dashboard-tablecell">
+                        <div class="shipment-dashboard-checkbox1">
+                          <div
+                            class="shipment-dashboard-frame-checkboxbase1"
+                          ></div>
+                        </div>
+                        <span class="shipment-dashboard-text008 TextsmMedium">
+                          <span>#PMW50809797</span>
+                        </span>
+                      </div>
+                      <div class="shipment-dashboard-tablecell01">
+                        <div class="shipment-dashboard-checkbox2">
+                          <div
+                            class="shipment-dashboard-frame-checkboxbase2"
+                          ></div>
+                        </div>
+                        <span class="shipment-dashboard-text010 TextsmMedium">
+                          <span>#PMW50809797</span>
+                        </span>
+                      </div>
+                      <div class="shipment-dashboard-tablecell02">
+                        <div class="shipment-dashboard-checkbox3">
+                          <div
+                            class="shipment-dashboard-frame-checkboxbase3"
+                          ></div>
+                        </div>
+                        <span class="shipment-dashboard-text012 TextsmMedium">
+                          <span>#PMW50809797</span>
+                        </span>
+                      </div>
+                      <div class="shipment-dashboard-tablecell03">
+                        <div class="shipment-dashboard-checkbox4">
+                          <div
+                            class="shipment-dashboard-frame-checkboxbase4"
+                          ></div>
+                        </div>
+                        <span class="shipment-dashboard-text014 TextsmMedium">
+                          <span>#PMW50809797</span>
+                        </span>
+                      </div>
+                      <div class="shipment-dashboard-tablecell04">
+                        <div class="shipment-dashboard-checkbox5">
+                          <div
+                            class="shipment-dashboard-frame-checkboxbase5"
+                          ></div>
+                        </div>
+                        <span class="shipment-dashboard-text016 TextsmMedium">
+                          <span>#PMW50809797</span>
+                        </span>
+                      </div>
+                      <div class="shipment-dashboard-tablecell05">
+                        <div class="shipment-dashboard-checkbox6">
+                          <div
+                            class="shipment-dashboard-frame-checkboxbase6"
+                          ></div>
+                        </div>
+                        <span class="shipment-dashboard-text018 TextsmMedium">
+                          <span>#PMW50809797</span>
+                        </span>
+                      </div>
+                      <div class="shipment-dashboard-tablecell06">
+                        <div class="shipment-dashboard-checkbox7">
+                          <div
+                            class="shipment-dashboard-frame-checkboxbase7"
+                          ></div>
+                        </div>
+                        <span class="shipment-dashboard-text020 TextsmMedium">
+                          <span>#PMW50809797</span>
+                        </span>
+                      </div>
+                      <div class="shipment-dashboard-tablecell07">
+                        <div class="shipment-dashboard-checkbox8">
+                          <div
+                            class="shipment-dashboard-frame-checkboxbase8"
+                          ></div>
+                        </div>
+                        <span class="shipment-dashboard-text022 TextsmMedium">
+                          <span>#PMW50809797</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="shipment-dashboard-column1">
+                      <div class="shipment-dashboard-tableheadercell1">
+                        <div class="shipment-dashboard-tableheader1">
+                          <span class="shipment-dashboard-text024 TextxsMedium">
+                            <span>Items</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="shipment-dashboard-tablecell08">
+                        <span class="shipment-dashboard-text026 TextsmMedium">
+                          <span>Olivia Rhye</span>
+                        </span>
+                      </div>
+                      <div class="shipment-dashboard-tablecell09">
+                        <span class="shipment-dashboard-text028 TextsmMedium">
+                          <span>Phoenix Baker</span>
+                        </span>
+                      </div>
+                      <div class="shipment-dashboard-tablecell10">
+                        <span class="shipment-dashboard-text030 TextsmMedium">
+                          <span>Candice Wu</span>
+                        </span>
+                      </div>
+                      <div class="shipment-dashboard-tablecell11">
+                        <span class="shipment-dashboard-text032 TextsmMedium">
+                          <span>Natali Craig</span>
+                        </span>
+                      </div>
+                      <div class="shipment-dashboard-tablecell12">
+                        <span class="shipment-dashboard-text034 TextsmMedium">
+                          <span>Drew Cano</span>
+                        </span>
+                      </div>
+                      <div class="shipment-dashboard-tablecell13">
+                        <span class="shipment-dashboard-text036 TextsmMedium">
+                          <span>Orlando Diggs</span>
+                        </span>
+                      </div>
+                      <div class="shipment-dashboard-tablecell14">
+                        <span class="shipment-dashboard-text038 TextsmMedium">
+                          <span>Andi Lane</span>
+                        </span>
+                      </div>
+                      <div class="shipment-dashboard-tablecell15">
+                        <span class="shipment-dashboard-text040 TextsmMedium">
+                          <span>Kate Morrison</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="shipment-dashboard-column2">
+                      <div class="shipment-dashboard-tableheadercell2">
+                        <div class="shipment-dashboard-tableheader2">
+                          <span class="shipment-dashboard-text042 TextxsMedium">
+                            <span>Remark</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="shipment-dashboard-tablecell16">
+                        <span class="shipment-dashboard-text044 TextsmRegular">
+                          <span>YT8470400394349</span>
+                        </span>
+                      </div>
+                      <div class="shipment-dashboard-tablecell17">
+                        <span class="shipment-dashboard-text046 TextsmRegular">
+                          <span>YT8470400394349</span>
+                        </span>
+                      </div>
+                      <div class="shipment-dashboard-tablecell18">
+                        <span class="shipment-dashboard-text048 TextsmRegular">
+                          <span>YT8470400394349</span>
+                        </span>
+                      </div>
+                      <div class="shipment-dashboard-tablecell19">
+                        <span class="shipment-dashboard-text050 TextsmRegular">
+                          <span>YT8470400394349</span>
+                        </span>
+                      </div>
+                      <div class="shipment-dashboard-tablecell20">
+                        <span class="shipment-dashboard-text052 TextsmRegular">
+                          <span>YT8470400394349</span>
+                        </span>
+                      </div>
+                      <div class="shipment-dashboard-tablecell21">
+                        <span class="shipment-dashboard-text054 TextsmRegular">
+                          <span>YT8470400394349</span>
+                        </span>
+                      </div>
+                      <div class="shipment-dashboard-tablecell22">
+                        <span class="shipment-dashboard-text056 TextsmRegular">
+                          <span>YT8470400394349</span>
+                        </span>
+                      </div>
+                      <div class="shipment-dashboard-tablecell23">
+                        <span class="shipment-dashboard-text058 TextsmRegular">
+                          <span>YT8470400394349</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="shipment-dashboard-column3">
+                      <div class="shipment-dashboard-tableheadercell3">
+                        <div class="shipment-dashboard-tableheader3">
+                          <span class="shipment-dashboard-text060 TextxsMedium">
+                            <span>Date Created</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="shipment-dashboard-tablecell24">
+                        <span class="shipment-dashboard-text062 TextsmRegular">
+                          <span>Jan 6, 2022</span>
+                        </span>
+                      </div>
+                      <div class="shipment-dashboard-tablecell25">
+                        <span class="shipment-dashboard-text064 TextsmRegular">
+                          <span>Jan 6, 2022</span>
+                        </span>
+                      </div>
+                      <div class="shipment-dashboard-tablecell26">
+                        <span class="shipment-dashboard-text066 TextsmRegular">
+                          <span>Jan 5, 2022</span>
+                        </span>
+                      </div>
+                      <div class="shipment-dashboard-tablecell27">
+                        <span class="shipment-dashboard-text068 TextsmRegular">
+                          <span>Jan 5, 2022</span>
+                        </span>
+                      </div>
+                      <div class="shipment-dashboard-tablecell28">
+                        <span class="shipment-dashboard-text070 TextsmRegular">
+                          <span>Jan 4, 2022</span>
+                        </span>
+                      </div>
+                      <div class="shipment-dashboard-tablecell29">
+                        <span class="shipment-dashboard-text072 TextsmRegular">
+                          <span>Jan 3, 2022</span>
+                        </span>
+                      </div>
+                      <div class="shipment-dashboard-tablecell30">
+                        <span class="shipment-dashboard-text074 TextsmRegular">
+                          <span>Jan 3, 2022</span>
+                        </span>
+                      </div>
+                      <div class="shipment-dashboard-tablecell31">
+                        <span class="shipment-dashboard-text076 TextsmRegular">
+                          <span>Jan 3, 2022</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="shipment-dashboard-column4">
+                      <div class="shipment-dashboard-tableheadercell4">
+                        <div class="shipment-dashboard-tableheader4">
+                          <span class="shipment-dashboard-text078 TextxsMedium">
+                            <span>Payment Status</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="shipment-dashboard-tablecell32">
+                        <div class="shipment-dashboard-badge">
+                          <img
+                            alt="checkI5296"
+                            src="public/external/checki5296-aef.svg"
+                            class="shipment-dashboard-check"
+                          />
+                          <span class="shipment-dashboard-text080 TextxsMedium">
+                            <span>Paid</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="shipment-dashboard-tablecell33">
+                        <div class="shipment-dashboard-badge01">
+                          <img
+                            alt="checkI5296"
+                            src="public/external/checki5296-qcwk.svg"
+                            class="shipment-dashboard-check01"
+                          />
+                          <span class="shipment-dashboard-text082 TextxsMedium">
+                            <span>Paid</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="shipment-dashboard-tablecell34">
+                        <div class="shipment-dashboard-badge02">
+                          <img
+                            alt="reverseleftI5296"
+                            src="public/external/reverselefti5296-y3sf.svg"
+                            class="shipment-dashboard-reverseleft"
+                          />
+                          <span class="shipment-dashboard-text084 TextxsMedium">
+                            <span>Refunded</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="shipment-dashboard-tablecell35">
+                        <div class="shipment-dashboard-badge03">
+                          <img
+                            alt="checkI5296"
+                            src="public/external/checki5296-nn9n.svg"
+                            class="shipment-dashboard-check02"
+                          />
+                          <span class="shipment-dashboard-text086 TextxsMedium">
+                            <span>Paid</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="shipment-dashboard-tablecell36">
+                        <div class="shipment-dashboard-badge04">
+                          <img
+                            alt="xI5296"
+                            src="public/external/xi5296-i3gc.svg"
+                            class="shipment-dashboard-x"
+                          />
+                          <span class="shipment-dashboard-text088 TextxsMedium">
+                            <span>Cancelled</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="shipment-dashboard-tablecell37">
+                        <div class="shipment-dashboard-badge05">
+                          <img
+                            alt="checkI5296"
+                            src="public/external/checki5296-jjb.svg"
+                            class="shipment-dashboard-check03"
+                          />
+                          <span class="shipment-dashboard-text090 TextxsMedium">
+                            <span>Paid</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="shipment-dashboard-tablecell38">
+                        <div class="shipment-dashboard-badge06">
+                          <img
+                            alt="checkI5296"
+                            src="public/external/checki5296-qgos.svg"
+                            class="shipment-dashboard-check04"
+                          />
+                          <span class="shipment-dashboard-text092 TextxsMedium">
+                            <span>Paid</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="shipment-dashboard-tablecell39">
+                        <div class="shipment-dashboard-badge07">
+                          <img
+                            alt="checkI5296"
+                            src="public/external/checki5296-pekg.svg"
+                            class="shipment-dashboard-check05"
+                          />
+                          <span class="shipment-dashboard-text094 TextxsMedium">
+                            <span>Paid</span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="shipment-dashboard-column5">
+                      <div class="shipment-dashboard-tableheadercell5">
+                        <div class="shipment-dashboard-tableheader5">
+                          <span class="shipment-dashboard-text096 TextxsMedium">
+                            <span>Status</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="shipment-dashboard-tablecell40">
+                        <div class="shipment-dashboard-badge08">
+                          <img
+                            alt="checkI5296"
+                            src="public/external/checki5296-tn.svg"
+                            class="shipment-dashboard-check06"
+                          />
+                          <span class="shipment-dashboard-text098 TextxsMedium">
+                            <span>Paid</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="shipment-dashboard-tablecell41">
+                        <div class="shipment-dashboard-badge09">
+                          <img
+                            alt="checkI5296"
+                            src="public/external/checki5296-x1an.svg"
+                            class="shipment-dashboard-check07"
+                          />
+                          <span class="shipment-dashboard-text100 TextxsMedium">
+                            <span>Paid</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="shipment-dashboard-tablecell42">
+                        <div class="shipment-dashboard-badge10">
+                          <img
+                            alt="reverseleftI5296"
+                            src="public/external/reverselefti5296-nmpf.svg"
+                            class="shipment-dashboard-reverseleft1"
+                          />
+                          <span class="shipment-dashboard-text102 TextxsMedium">
+                            <span>Refunded</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="shipment-dashboard-tablecell43">
+                        <div class="shipment-dashboard-badge11">
+                          <img
+                            alt="checkI5296"
+                            src="public/external/checki5296-fjf8.svg"
+                            class="shipment-dashboard-check08"
+                          />
+                          <span class="shipment-dashboard-text104 TextxsMedium">
+                            <span>Paid</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="shipment-dashboard-tablecell44">
+                        <div class="shipment-dashboard-badge12">
+                          <img
+                            alt="xI5296"
+                            src="public/external/xi5296-37k.svg"
+                            class="shipment-dashboard-x1"
+                          />
+                          <span class="shipment-dashboard-text106 TextxsMedium">
+                            <span>Cancelled</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="shipment-dashboard-tablecell45">
+                        <div class="shipment-dashboard-badge13">
+                          <img
+                            alt="checkI5296"
+                            src="public/external/checki5296-8m0y.svg"
+                            class="shipment-dashboard-check09"
+                          />
+                          <span class="shipment-dashboard-text108 TextxsMedium">
+                            <span>Paid</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="shipment-dashboard-tablecell46">
+                        <div class="shipment-dashboard-badge14">
+                          <img
+                            alt="checkI5296"
+                            src="public/external/checki5296-n9s1.svg"
+                            class="shipment-dashboard-check10"
+                          />
+                          <span class="shipment-dashboard-text110 TextxsMedium">
+                            <span>Paid</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="shipment-dashboard-tablecell47">
+                        <div class="shipment-dashboard-badge15">
+                          <img
+                            alt="checkI5296"
+                            src="public/external/checki5296-lsg.svg"
+                            class="shipment-dashboard-check11"
+                          />
+                          <span class="shipment-dashboard-text112 TextxsMedium">
+                            <span>Paid</span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="shipment-dashboard-column6">
+                      <div class="shipment-dashboard-tableheadercell6"></div>
+                      <div class="shipment-dashboard-tablecell48">
+                        <a
+                          href="shipment-view-details.html"
+                          class="shipment-dashboard-button03"
+                        >
+                          <img
+                            alt="eyeI5296"
+                            src="public/external/eyei5296-ecu5e.svg"
+                            class="shipment-dashboard-eye"
+                          />
+                        </a>
+                        <a
+                          href="shipment-successful-deleted.html"
+                          class="shipment-dashboard-button04"
+                        >
+                          <img
+                            alt="trash01I5296"
+                            src="public/external/trash01i5296-mcto.svg"
+                            class="shipment-dashboard-trash01"
+                          />
+                        </a>
+                        <a
+                          href="shipment-edit.html"
+                          class="shipment-dashboard-button05"
+                        >
+                          <img
+                            alt="edit01I5296"
+                            src="public/external/edit01i5296-f3xs.svg"
+                            class="shipment-dashboard-edit01"
+                          />
+                        </a>
+                      </div>
+                      <div class="shipment-dashboard-tablecell49">
+                        <a
+                          href="shipment-view-details.html"
+                          class="shipment-dashboard-button06"
+                        >
+                          <img
+                            alt="eyeI5296"
+                            src="public/external/eyei5296-8pgr.svg"
+                            class="shipment-dashboard-eye1"
+                          />
+                        </a>
+                        <a
+                          href="shipment-successful-deleted.html"
+                          class="shipment-dashboard-button07"
+                        >
+                          <img
+                            alt="trash01I5296"
+                            src="public/external/trash01i5296-ofgi.svg"
+                            class="shipment-dashboard-trash011"
+                          />
+                        </a>
+                        <a
+                          href="shipment-edit.html"
+                          class="shipment-dashboard-button08"
+                        >
+                          <img
+                            alt="edit01I5296"
+                            src="public/external/edit01i5296-cj0r.svg"
+                            class="shipment-dashboard-edit011"
+                          />
+                        </a>
+                      </div>
+                      <div class="shipment-dashboard-tablecell50">
+                        <a
+                          href="shipment-view-details.html"
+                          class="shipment-dashboard-button09"
+                        >
+                          <img
+                            alt="eyeI5296"
+                            src="public/external/eyei5296-cjmm.svg"
+                            class="shipment-dashboard-eye2"
+                          />
+                        </a>
+                        <a
+                          href="shipment-successful-deleted.html"
+                          class="shipment-dashboard-button10"
+                        >
+                          <img
+                            alt="trash01I5296"
+                            src="public/external/trash01i5296-uo74.svg"
+                            class="shipment-dashboard-trash012"
+                          />
+                        </a>
+                        <a
+                          href="shipment-edit.html"
+                          class="shipment-dashboard-button11"
+                        >
+                          <img
+                            alt="edit01I5296"
+                            src="public/external/edit01i5296-l66.svg"
+                            class="shipment-dashboard-edit012"
+                          />
+                        </a>
+                      </div>
+                      <div class="shipment-dashboard-tablecell51">
+                        <a
+                          href="shipment-view-details.html"
+                          class="shipment-dashboard-button12"
+                        >
+                          <img
+                            alt="eyeI5296"
+                            src="public/external/eyei5296-k4js.svg"
+                            class="shipment-dashboard-eye3"
+                          />
+                        </a>
+                        <a
+                          href="shipment-successful-deleted.html"
+                          class="shipment-dashboard-button13"
+                        >
+                          <img
+                            alt="trash01I5296"
+                            src="public/external/trash01i5296-sput.svg"
+                            class="shipment-dashboard-trash013"
+                          />
+                        </a>
+                        <a
+                          href="shipment-edit.html"
+                          class="shipment-dashboard-button14"
+                        >
+                          <img
+                            alt="edit01I5296"
+                            src="public/external/edit01i5296-aig8.svg"
+                            class="shipment-dashboard-edit013"
+                          />
+                        </a>
+                      </div>
+                      <div class="shipment-dashboard-tablecell52">
+                        <a
+                          href="shipment-view-details.html"
+                          class="shipment-dashboard-button15"
+                        >
+                          <img
+                            alt="eyeI5296"
+                            src="public/external/eyei5296-zeju.svg"
+                            class="shipment-dashboard-eye4"
+                          />
+                        </a>
+                        <a
+                          href="shipment-successful-deleted.html"
+                          class="shipment-dashboard-button16"
+                        >
+                          <img
+                            alt="trash01I5296"
+                            src="public/external/trash01i5296-ofm.svg"
+                            class="shipment-dashboard-trash014"
+                          />
+                        </a>
+                        <a
+                          href="shipment-edit.html"
+                          class="shipment-dashboard-button17"
+                        >
+                          <img
+                            alt="edit01I5296"
+                            src="public/external/edit01i5296-f62.svg"
+                            class="shipment-dashboard-edit014"
+                          />
+                        </a>
+                      </div>
+                      <div class="shipment-dashboard-tablecell53">
+                        <a
+                          href="shipment-view-details.html"
+                          class="shipment-dashboard-button18"
+                        >
+                          <img
+                            alt="eyeI5296"
+                            src="public/external/eyei5296-rspj.svg"
+                            class="shipment-dashboard-eye5"
+                          />
+                        </a>
+                        <a
+                          href="shipment-successful-deleted.html"
+                          class="shipment-dashboard-button19"
+                        >
+                          <img
+                            alt="trash01I5296"
+                            src="public/external/trash01i5296-0r75.svg"
+                            class="shipment-dashboard-trash015"
+                          />
+                        </a>
+                        <a
+                          href="shipment-edit.html"
+                          class="shipment-dashboard-button20"
+                        >
+                          <img
+                            alt="edit01I5296"
+                            src="public/external/edit01i5296-hty8.svg"
+                            class="shipment-dashboard-edit015"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="shipment-dashboard-pagination">
+                    <button class="shipment-dashboard-button21">
+                      <img
+                        alt="arrowleftI5296"
+                        src="public/external/arrowlefti5296-rc7s.svg"
+                        class="shipment-dashboard-arrowleft"
+                      />
+                      <span class="shipment-dashboard-text114 TextsmSemibold">
+                        <span>Previous</span>
+                      </span>
+                    </button>
+                    <div class="shipment-dashboard-paginationnumbers">
+                      <div
+                        class="shipment-dashboard-frame-paginationnumberbase"
+                      >
+                        <div class="shipment-dashboard-content2">
+                          <span class="shipment-dashboard-text116 TextsmMedium">
+                            1
+                          </span>
+                        </div>
+                      </div>
+                      <div
+                        class="shipment-dashboard-frame-paginationnumberbase1"
+                      >
+                        <div class="shipment-dashboard-content3">
+                          <span class="shipment-dashboard-text117 TextsmMedium">
+                            2
+                          </span>
+                        </div>
+                      </div>
+                      <div
+                        class="shipment-dashboard-frame-paginationnumberbase2"
+                      >
+                        <div class="shipment-dashboard-content4">
+                          <span class="shipment-dashboard-text118 TextsmMedium">
+                            3
+                          </span>
+                        </div>
+                      </div>
+                      <div
+                        class="shipment-dashboard-frame-paginationnumberbase3"
+                      >
+                        <div class="shipment-dashboard-content5">
+                          <span class="shipment-dashboard-text119 TextsmMedium">
+                            <span>...</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div
+                        class="shipment-dashboard-frame-paginationnumberbase4"
+                      >
+                        <div class="shipment-dashboard-content6">
+                          <span class="shipment-dashboard-text121 TextsmMedium">
+                            8
+                          </span>
+                        </div>
+                      </div>
+                      <div
+                        class="shipment-dashboard-frame-paginationnumberbase5"
+                      >
+                        <div class="shipment-dashboard-content7">
+                          <span class="shipment-dashboard-text122 TextsmMedium">
+                            9
+                          </span>
+                        </div>
+                      </div>
+                      <div
+                        class="shipment-dashboard-frame-paginationnumberbase6"
+                      >
+                        <div class="shipment-dashboard-content8">
+                          <span class="shipment-dashboard-text123 TextsmMedium">
+                            <span>10</span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="shipment-dashboard-button22">
+                      <span class="shipment-dashboard-text125 TextsmSemibold">
+                        <span>Next</span>
+                      </span>
+                      <img
+                        alt="arrowrightI5296"
+                        src="public/external/arrowrighti5296-xwjp.svg"
+                        class="shipment-dashboard-arrowright"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      data-section-id="navbar"
+      src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
+    ></script>
+  </body>
+</html>

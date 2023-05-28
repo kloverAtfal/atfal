@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Shipment-Edit - KloverAtfal</title>
+    <meta property="og:title" content="Shipment-Edit - KloverAtfal" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <!--This is the head section-->
+    <!-- <style> ... </style> -->
+    <style data-section-id="dropdown">
+      [data-thq="thq-dropdown"]:hover > [data-thq="thq-dropdown-list"] {
+          display: flex;
+        }
+
+        [data-thq="thq-dropdown"]:hover > div [data-thq="thq-dropdown-arrow"] {
+          transform: rotate(90deg);
+        }
+    </style>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div>
+      <link href="./shipment-edit.css" rel="stylesheet" />
+
+      <div class="shipment-edit-container">
+        <div class="shipment-edit-contents">
+          <div class="sidebarnavigation-shipment-sidebarnavigationparcel">
+            <div class="sidebarnavigation-shipment-content">
+              <div class="sidebarnavigation-shipment-nav">
+                <div class="sidebarnavigation-shipment-header">
+                  <div class="sidebarnavigation-shipment-logo">
+                    <div class="sidebarnavigation-shipment-logowrap">
+                      <div class="sidebarnavigation-shipment-logomark">
+                        <img
+                          alt="Frame1I5236"
+                          src="public/external/frame1i5236-aiyo.svg"
+                          class="sidebarnavigation-shipment-frame1"
+                        />
+                      </div>
+                      <img
+                        alt="LogotypeI5236"
+                        src="public/external/logotypei5236-1fz.svg"
+                        class="sidebarnavigation-shipment-logotype"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="sidebarnavigation-shipment-search">
+                  <div class="sidebarnavigation-shipment-inputdropdown">
+                    <div class="sidebarnavigation-shipment-inputwithlabel">
+                      <div class="sidebarnavigation-shipment-input">
+                        <div class="sidebarnavigation-shipment-content1">
+                          <img
+                            alt="searchlgI5236"
+                            src="public/external/searchlgi5236-p0fh.svg"
+                            class="sidebarnavigation-shipment-searchlg"
+                          />
+                          <span
+                            class="sidebarnavigation-shipment-text TextmdRegular"
+                          >
+                            <span>Search</span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="sidebarnavigation-shipment-navigation">
+                  <a
+                    href="index.html"
+                    class="sidebarnavigation-shipment-navlink"
+                  >
+                    <div class="sidebarnavigation-shipment-frame-navitembase">
+                      <div class="sidebarnavigation-shipment-content2">
+                        <img
+                          alt="homelineI5236"
+                          src="public/external/homelinei5236-pi1s.svg"
+                          class="sidebarnavigation-shipment-homeline"
+                        />
+                        <span
+                          class="sidebarnavigation-shipment-text02 TextmdSemibold"
+                        >
+                          <span>Home</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="parcel-dashboard.html"
+                    class="sidebarnavigation-shipment-navlink1"
+                  >
+                    <div class="sidebarnavigation-shipment-frame-navitembase1">
+                      <div class="sidebarnavigation-shipment-content3">
+                        <img
+                          alt="packageI5236"
+                          src="public/external/packagei5236-2yjj.svg"
+                          class="sidebarnavigation-shipment-package"
+                        />
+                        <span
+                          class="sidebarnavigation-shipment-text04 TextmdSemibold"
+                        >
+                          <span>Parcel</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="shipment-dashboard.html"
+                    class="sidebarnavigation-shipment-navlink2"
+                  >
+                    <div class="sidebarnavigation-shipment-frame-navitembase2">
+                      <div class="sidebarnavigation-shipment-content4">
+                        <img
+                          alt="planeI5236"
+                          src="public/external/planei5236-zdu.svg"
+                          class="sidebarnavigation-shipment-plane"
+                        />
+                        <span
+                          class="sidebarnavigation-shipment-text06 TextmdSemibold"
+                        >
+                          <span>Shipment</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="transaction-dashboard-alipay-top-up.html"
+                    class="sidebarnavigation-shipment-navlink3"
+                  >
+                    <div class="sidebarnavigation-shipment-frame-navitembase3">
+                      <div class="sidebarnavigation-shipment-content5">
+                        <img
+                          alt="banknote01I5236"
+                          src="public/external/banknote01i5236-cpa.svg"
+                          class="sidebarnavigation-shipment-banknote01"
+                        />
+                        <span
+                          class="sidebarnavigation-shipment-text08 TextmdSemibold"
+                        >
+                          <span>Transactions</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <a
+                    href="affiliates-dashboard.html"
+                    class="sidebarnavigation-shipment-navlink4"
+                  >
+                    <div class="sidebarnavigation-shipment-frame-navitembase4">
+                      <div class="sidebarnavigation-shipment-content6">
+                        <img
+                          alt="users01I5236"
+                          src="public/external/users01i5236-f4q.svg"
+                          class="sidebarnavigation-shipment-users01"
+                        />
+                        <span
+                          class="sidebarnavigation-shipment-text10 TextmdSemibold"
+                        >
+                          <span>Affiliates</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="sidebarnavigation-shipment-footer">
+                <div class="sidebarnavigation-shipment-navigation1">
+                  <a
+                    href="settings-my-profile.html"
+                    class="sidebarnavigation-shipment-navlink5"
+                  >
+                    <div class="sidebarnavigation-shipment-frame-navitembase5">
+                      <div class="sidebarnavigation-shipment-content7">
+                        <img
+                          alt="settings01I5236"
+                          src="public/external/settings01i5236-dwy.svg"
+                          class="sidebarnavigation-shipment-settings01"
+                        />
+                        <span
+                          class="sidebarnavigation-shipment-text12 TextmdSemibold"
+                        >
+                          <span>Settings</span>
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <a
+                  href="homepage.html"
+                  class="sidebarnavigation-shipment-navlink6"
+                >
+                  <div class="sidebarnavigation-shipment-account">
+                    <div class="sidebarnavigation-shipment-avatarlabelgroup">
+                      <div class="sidebarnavigation-shipment-avatar"></div>
+                      <div
+                        class="sidebarnavigation-shipment-textandsupportingtext"
+                      >
+                        <span
+                          class="sidebarnavigation-shipment-text14 TextsmSemibold"
+                        >
+                          <span>Ahmad Mursyid</span>
+                        </span>
+                        <span class="sidebarnavigation-shipment-text16">
+                          <span>mursyid@atfal.com</span>
+                        </span>
+                      </div>
+                    </div>
+                    <button class="sidebarnavigation-shipment-button">
+                      <img
+                        alt="logout01I5236"
+                        src="public/external/logout01i5236-ixha.svg"
+                        class="sidebarnavigation-shipment-logout01"
+                      />
+                    </button>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="shipment-edit-main">
+            <div class="shipment-edit-headersection">
+              <div class="shipment-edit-container1">
+                <div class="shipment-edit-breadcrumbs">
+                  <div class="shipment-edit-tabs">
+                    <a
+                      href="index.html"
+                      class="shipment-edit-frame-breadcrumbbuttonbase"
+                    >
+                      <img
+                        alt="homelineI5296"
+                        src="public/external/homelinei5296-vq5j.svg"
+                        class="shipment-edit-homeline"
+                      />
+                    </a>
+                    <img
+                      alt="chevronright5296"
+                      src="public/external/chevronright5296-coqw.svg"
+                      class="shipment-edit-chevronright"
+                    />
+                    <button class="shipment-edit-frame-breadcrumbbuttonbase1">
+                      <a
+                        href="shipment-dashboard.html"
+                        class="shipment-edit-text TextsmMedium"
+                      >
+                        <span>Shipment</span>
+                      </a>
+                    </button>
+                    <img
+                      alt="chevronright5296"
+                      src="public/external/chevronright5296-ye2.svg"
+                      class="shipment-edit-chevronright1"
+                    />
+                    <button class="shipment-edit-frame-breadcrumbbuttonbase2">
+                      <span class="shipment-edit-text002 TextsmMedium">
+                        <span>...</span>
+                      </span>
+                    </button>
+                    <img
+                      alt="chevronright5296"
+                      src="public/external/chevronright5296-ppa.svg"
+                      class="shipment-edit-chevronright2"
+                    />
+                    <button class="shipment-edit-frame-breadcrumbbuttonbase3">
+                      <span class="shipment-edit-text004 TextsmSemibold">
+                        <span>Edit</span>
+                      </span>
+                    </button>
+                  </div>
+                  <div class="shipment-edit-actions">
+                    <div class="shipment-edit-dropdown">
+                      <img
+                        alt="download01I5296"
+                        src="public/external/download01i5296-tw1d.svg"
+                        class="shipment-edit-download01"
+                      />
+                    </div>
+                    <button class="shipment-edit-button">
+                      <img
+                        alt="searchrefractionI5296"
+                        src="public/external/searchrefractioni5296-kemq.svg"
+                        class="shipment-edit-searchrefraction"
+                      />
+                    </button>
+                    <button class="shipment-edit-button01">
+                      <img
+                        alt="bell01I5296"
+                        src="public/external/bell01i5296-v0g.svg"
+                        class="shipment-edit-bell01"
+                      />
+                    </button>
+                    <div class="shipment-edit-dropdown1">
+                      <a
+                        href="shipment-add-new-shipment.html"
+                        class="shipment-edit-button02"
+                      >
+                        <img
+                          alt="plusI5296"
+                          src="public/external/plusi5296-0ycpi.svg"
+                          class="shipment-edit-plus"
+                        />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="shipment-edit-pageheader">
+                  <div class="shipment-edit-content">
+                    <div class="shipment-edit-textandsupportingtext">
+                      <span class="shipment-edit-text006 DisplaysmSemibold">
+                        <span>Shipment</span>
+                      </span>
+                      <span class="shipment-edit-text008 TextmdRegular">
+                        <span>Track, manage, and monitor shipment easily.</span>
+                      </span>
+                    </div>
+                  </div>
+                  <img
+                    alt="DividerI5296"
+                    src="public/external/divideri5296-j0ou.svg"
+                    class="shipment-edit-divider"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="shipment-edit-section">
+              <div class="shipment-edit-container2">
+                <div class="shipment-edit-form">
+                  <div class="shipment-edit-content01">
+                    <div class="shipment-edit-textandsupportingtext1">
+                      <span class="shipment-edit-text010 TextsmMedium">
+                        <span>Parcel details</span>
+                      </span>
+                      <span class="shipment-edit-text012 TextsmRegular">
+                        <span>Update your photo and personal details.</span>
+                      </span>
+                    </div>
+                    <div class="shipment-edit-form1">
+                      <div class="shipment-edit-content02">
+                        <div class="shipment-edit-inputdropdown">
+                          <div class="shipment-edit-inputwithlabel">
+                            <span class="shipment-edit-text014 TextsmMedium">
+                              <span>Parcel</span>
+                            </span>
+                            <div class="shipment-edit-input">
+                              <div class="shipment-edit-content03">
+                                <img
+                                  alt="packagesearchI5239"
+                                  src="public/external/packagesearchi5239-e6gc.svg"
+                                  class="shipment-edit-packagesearch"
+                                />
+                                <span
+                                  class="shipment-edit-text016 TextmdMedium"
+                                >
+                                  <span>Select parcel</span>
+                                </span>
+                              </div>
+                              <img
+                                alt="chevrondownI5239"
+                                src="public/external/chevrondowni5239-4dyk.svg"
+                                class="shipment-edit-chevrondown"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="shipment-edit-sectionfooter">
+                        <img
+                          alt="DividerI5239"
+                          src="public/external/divideri5239-e19k.svg"
+                          class="shipment-edit-divider1"
+                        />
+                        <div class="shipment-edit-content04">
+                          <div class="shipment-edit-actions1">
+                            <button class="shipment-edit-button03">
+                              <span
+                                class="shipment-edit-text018 TextsmSemibold"
+                              >
+                                <span>Cancel</span>
+                              </span>
+                            </button>
+                            <button class="shipment-edit-button04">
+                              <span
+                                class="shipment-edit-text020 TextsmSemibold"
+                              >
+                                <span>Save changes</span>
+                              </span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="shipment-edit-content05">
+                    <div class="shipment-edit-textandsupportingtext2">
+                      <span class="shipment-edit-text022 TextsmMedium">
+                        <span>Sender Derails</span>
+                      </span>
+                      <span class="shipment-edit-text024 TextsmRegular">
+                        <span>Update your photo and personal details.</span>
+                      </span>
+                    </div>
+                    <div class="shipment-edit-form2">
+                      <div class="shipment-edit-content06">
+                        <div class="shipment-edit-inputfield">
+                          <div class="shipment-edit-inputwithlabel01">
+                            <span class="shipment-edit-text026 TextsmMedium">
+                              <span>Name</span>
+                            </span>
+                            <div class="shipment-edit-input01">
+                              <div class="shipment-edit-content07">
+                                <span
+                                  class="shipment-edit-text028 TextmdRegular"
+                                >
+                                  <span>Mursyid</span>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="shipment-edit-inputfields">
+                          <div class="shipment-edit-inputfield01">
+                            <div class="shipment-edit-inputwithlabel02">
+                              <span class="shipment-edit-text030 TextsmMedium">
+                                <span>Email address</span>
+                              </span>
+                              <div class="shipment-edit-input02">
+                                <div class="shipment-edit-content08">
+                                  <img
+                                    alt="mail01I5239"
+                                    src="public/external/mail01i5239-jpai.svg"
+                                    class="shipment-edit-mail01"
+                                  />
+                                  <span class="shipment-edit-text032">
+                                    <span class="shipment-edit-text033">
+                                      mursyid
+                                    </span>
+                                    <span>@atfal.com</span>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="shipment-edit-inputfield02">
+                            <div class="shipment-edit-inputwithlabel03">
+                              <span class="shipment-edit-text035 TextsmMedium">
+                                <span>Phone Number</span>
+                              </span>
+                              <div class="shipment-edit-input03">
+                                <div class="shipment-edit-content09">
+                                  <img
+                                    alt="phoneI5239"
+                                    src="public/external/phonei5239-iitp.svg"
+                                    class="shipment-edit-phone"
+                                  />
+                                  <span
+                                    class="shipment-edit-text037 TextmdRegular"
+                                  >
+                                    <span>0123456789</span>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="shipment-edit-inputfield03">
+                          <div class="shipment-edit-inputwithlabel04">
+                            <span class="shipment-edit-text039 TextsmMedium">
+                              <span>Address 1</span>
+                            </span>
+                            <div class="shipment-edit-input04">
+                              <div class="shipment-edit-content10">
+                                <span
+                                  class="shipment-edit-text041 TextmdRegular"
+                                >
+                                  <span>1234</span>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="shipment-edit-inputfield04">
+                          <div class="shipment-edit-inputwithlabel05">
+                            <span class="shipment-edit-text043 TextsmMedium">
+                              <span>Address 2</span>
+                            </span>
+                            <div class="shipment-edit-input05">
+                              <div class="shipment-edit-content11">
+                                <span
+                                  class="shipment-edit-text045 TextmdRegular"
+                                >
+                                  <span>Road ABC</span>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="shipment-edit-inputfields1">
+                          <div class="shipment-edit-inputfield05">
+                            <div class="shipment-edit-inputwithlabel06">
+                              <span class="shipment-edit-text047 TextsmMedium">
+                                <span>Postcode</span>
+                              </span>
+                              <div class="shipment-edit-input06">
+                                <div class="shipment-edit-content12">
+                                  <span class="shipment-edit-text049">
+                                    <span>12345</span>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="shipment-edit-inputfield06">
+                            <div class="shipment-edit-inputwithlabel07">
+                              <span class="shipment-edit-text051 TextsmMedium">
+                                <span>State</span>
+                              </span>
+                              <div class="shipment-edit-input07">
+                                <div class="shipment-edit-content13">
+                                  <span
+                                    class="shipment-edit-text053 TextmdRegular"
+                                  >
+                                    <span>Kuala Lumpur</span>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="shipment-edit-inputdropdown1">
+                            <div class="shipment-edit-inputwithlabel08">
+                              <span class="shipment-edit-text055 TextsmMedium">
+                                <span>Country</span>
+                              </span>
+                              <div class="shipment-edit-input08">
+                                <div class="shipment-edit-content14">
+                                  <img
+                                    alt="MYI5239"
+                                    src="public/external/myi5239-sf9b.svg"
+                                    class="shipment-edit-my"
+                                  />
+                                  <span
+                                    class="shipment-edit-text057 TextmdMedium"
+                                  >
+                                    <span>Malaysia</span>
+                                  </span>
+                                </div>
+                                <img
+                                  alt="chevrondownI5239"
+                                  src="public/external/chevrondowni5239-53ap.svg"
+                                  class="shipment-edit-chevrondown1"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="shipment-edit-sectionfooter1">
+                        <img
+                          alt="DividerI5239"
+                          src="public/external/divideri5239-huha.svg"
+                          class="shipment-edit-divider2"
+                        />
+                        <div class="shipment-edit-content15">
+                          <div class="shipment-edit-actions2">
+                            <button class="shipment-edit-button05">
+                              <span
+                                class="shipment-edit-text059 TextsmSemibold"
+                              >
+                                <span>Cancel</span>
+                              </span>
+                            </button>
+                            <button class="shipment-edit-button06">
+                              <span
+                                class="shipment-edit-text061 TextsmSemibold"
+                              >
+                                <span>Save changes</span>
+                              </span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="shipment-edit-content16">
+                    <div class="shipment-edit-textandsupportingtext3">
+                      <span class="shipment-edit-text063 TextsmMedium">
+                        <span>Receiver Details</span>
+                      </span>
+                      <span class="shipment-edit-text065 TextsmRegular">
+                        <span>Update your photo and personal details.</span>
+                      </span>
+                    </div>
+                    <div class="shipment-edit-form3">
+                      <div class="shipment-edit-content17">
+                        <div class="shipment-edit-inputdropdown2">
+                          <div class="shipment-edit-inputwithlabel09">
+                            <span class="shipment-edit-text067 TextsmMedium">
+                              <span>Address (Saved)</span>
+                            </span>
+                            <div class="shipment-edit-input09">
+                              <div class="shipment-edit-content18">
+                                <img
+                                  alt="packagesearchI5239"
+                                  src="public/external/packagesearchi5239-da4k.svg"
+                                  class="shipment-edit-packagesearch1"
+                                />
+                                <span
+                                  class="shipment-edit-text069 TextmdMedium"
+                                >
+                                  <span>Select address</span>
+                                </span>
+                              </div>
+                              <img
+                                alt="chevrondownI5239"
+                                src="public/external/chevrondowni5239-hjw.svg"
+                                class="shipment-edit-chevrondown2"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="shipment-edit-inputfield07">
+                          <div class="shipment-edit-inputwithlabel10">
+                            <span class="shipment-edit-text071 TextsmMedium">
+                              <span>Name</span>
+                            </span>
+                            <div class="shipment-edit-input10">
+                              <div class="shipment-edit-content19">
+                                <span
+                                  class="shipment-edit-text073 TextmdRegular"
+                                >
+                                  <span>Mursyid</span>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="shipment-edit-inputfields2">
+                          <div class="shipment-edit-inputfield08">
+                            <div class="shipment-edit-inputwithlabel11">
+                              <span class="shipment-edit-text075 TextsmMedium">
+                                <span>Email address</span>
+                              </span>
+                              <div class="shipment-edit-input11">
+                                <div class="shipment-edit-content20">
+                                  <img
+                                    alt="mail01I5239"
+                                    src="public/external/mail01i5239-o7g9.svg"
+                                    class="shipment-edit-mail011"
+                                  />
+                                  <span class="shipment-edit-text077">
+                                    <span class="shipment-edit-text078">
+                                      mursyid
+                                    </span>
+                                    <span>@atfal.com</span>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="shipment-edit-inputfield09">
+                            <div class="shipment-edit-inputwithlabel12">
+                              <span class="shipment-edit-text080 TextsmMedium">
+                                <span>Phone Number</span>
+                              </span>
+                              <div class="shipment-edit-input12">
+                                <div class="shipment-edit-content21">
+                                  <img
+                                    alt="phoneI5239"
+                                    src="public/external/phonei5239-e8fv.svg"
+                                    class="shipment-edit-phone1"
+                                  />
+                                  <span
+                                    class="shipment-edit-text082 TextmdRegular"
+                                  >
+                                    <span>0123456789</span>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="shipment-edit-inputfield10">
+                          <div class="shipment-edit-inputwithlabel13">
+                            <span class="shipment-edit-text084 TextsmMedium">
+                              <span>Address 1</span>
+                            </span>
+                            <div class="shipment-edit-input13">
+                              <div class="shipment-edit-content22">
+                                <span
+                                  class="shipment-edit-text086 TextmdRegular"
+                                >
+                                  <span>1234</span>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="shipment-edit-inputfield11">
+                          <div class="shipment-edit-inputwithlabel14">
+                            <span class="shipment-edit-text088 TextsmMedium">
+                              <span>Address 2</span>
+                            </span>
+                            <div class="shipment-edit-input14">
+                              <div class="shipment-edit-content23">
+                                <span
+                                  class="shipment-edit-text090 TextmdRegular"
+                                >
+                                  <span>Road ABC</span>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="shipment-edit-inputfields3">
+                          <div class="shipment-edit-inputfield12">
+                            <div class="shipment-edit-inputwithlabel15">
+                              <span class="shipment-edit-text092 TextsmMedium">
+                                <span>Postcode</span>
+                              </span>
+                              <div class="shipment-edit-input15">
+                                <div class="shipment-edit-content24">
+                                  <span class="shipment-edit-text094">
+                                    <span>12345</span>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="shipment-edit-inputfield13">
+                            <div class="shipment-edit-inputwithlabel16">
+                              <span class="shipment-edit-text096 TextsmMedium">
+                                <span>State</span>
+                              </span>
+                              <div class="shipment-edit-input16">
+                                <div class="shipment-edit-content25">
+                                  <span
+                                    class="shipment-edit-text098 TextmdRegular"
+                                  >
+                                    <span>Kuala Lumpur</span>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="shipment-edit-inputdropdown3">
+                            <div class="shipment-edit-inputwithlabel17">
+                              <span class="shipment-edit-text100 TextsmMedium">
+                                <span>Country</span>
+                              </span>
+                              <div class="shipment-edit-input17">
+                                <div class="shipment-edit-content26">
+                                  <img
+                                    alt="MYI5239"
+                                    src="public/external/myi5239-b3zp.svg"
+                                    class="shipment-edit-my1"
+                                  />
+                                  <span
+                                    class="shipment-edit-text102 TextmdMedium"
+                                  >
+                                    <span>Malaysia</span>
+                                  </span>
+                                </div>
+                                <img
+                                  alt="chevrondownI5239"
+                                  src="public/external/chevrondowni5239-u9j.svg"
+                                  class="shipment-edit-chevrondown3"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="shipment-edit-sectionfooter2">
+                        <img
+                          alt="DividerI5239"
+                          src="public/external/divideri5239-n1j.svg"
+                          class="shipment-edit-divider3"
+                        />
+                        <div class="shipment-edit-content27">
+                          <div class="shipment-edit-actions3">
+                            <button class="shipment-edit-button07">
+                              <span
+                                class="shipment-edit-text104 TextsmSemibold"
+                              >
+                                <span>Cancel</span>
+                              </span>
+                            </button>
+                            <button class="shipment-edit-button08">
+                              <span
+                                class="shipment-edit-text106 TextsmSemibold"
+                              >
+                                <span>Save changes</span>
+                              </span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="shipment-edit-content28">
+                    <div class="shipment-edit-textandsupportingtext4">
+                      <span class="shipment-edit-text108 TextsmMedium">
+                        <span>Courier Details</span>
+                      </span>
+                      <span class="shipment-edit-text110 TextsmRegular">
+                        <span>Update your portfolio and bio.</span>
+                      </span>
+                    </div>
+                    <div class="shipment-edit-form4">
+                      <div class="shipment-edit-content29">
+                        <div class="shipment-edit-inputdropdown4">
+                          <div class="shipment-edit-inputwithlabel18">
+                            <span class="shipment-edit-text112 TextsmMedium">
+                              <span>Country</span>
+                            </span>
+                            <div class="shipment-edit-input18">
+                              <div class="shipment-edit-content30">
+                                <div
+                                  class="shipment-edit-logisticmethodicon"
+                                ></div>
+                                <span
+                                  class="shipment-edit-text114 TextmdMedium"
+                                >
+                                  <span>DHL</span>
+                                </span>
+                              </div>
+                              <img
+                                alt="chevrondownI5239"
+                                src="public/external/chevrondowni5239-tvs4.svg"
+                                class="shipment-edit-chevrondown4"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="shipment-edit-toggle">
+                          <div class="shipment-edit-frame-togglebase">
+                            <img
+                              alt="ButtonI5239"
+                              src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/91000129-b09c-4551-b38d-861d463970e9/13a841c3-bca2-45d3-816b-1a1e4d079b07?org_if_sml=1686"
+                              class="shipment-edit-button09"
+                            />
+                          </div>
+                          <div class="shipment-edit-textandsupportingtext5">
+                            <span class="shipment-edit-text116 TextsmMedium">
+                              <span>
+                                Pickup - would like to pick up by myself at
+                                warehouse
+                              </span>
+                            </span>
+                            <span class="shipment-edit-text118 TextsmRegular">
+                              <span>*Pickup Date (must within 7 days)</span>
+                            </span>
+                          </div>
+                        </div>
+                        <div class="shipment-edit-datepickerdropdown">
+                          <button class="shipment-edit-button10">
+                            <img
+                              alt="calendarI5239"
+                              src="public/external/calendari5239-dg0j.svg"
+                              class="shipment-edit-calendar"
+                            />
+                            <span class="shipment-edit-text120 TextsmSemibold">
+                              <span>Select date</span>
+                            </span>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="shipment-edit-sectionfooter3">
+                        <img
+                          alt="DividerI5239"
+                          src="public/external/divideri5239-4erj.svg"
+                          class="shipment-edit-divider4"
+                        />
+                        <div class="shipment-edit-content31">
+                          <div class="shipment-edit-actions4">
+                            <button class="shipment-edit-button11">
+                              <span
+                                class="shipment-edit-text122 TextsmSemibold"
+                              >
+                                <span>Cancel</span>
+                              </span>
+                            </button>
+                            <button class="shipment-edit-button12">
+                              <span
+                                class="shipment-edit-text124 TextsmSemibold"
+                              >
+                                <span>Save changes</span>
+                              </span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <img
+                    alt="Divider5239"
+                    src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/91000129-b09c-4551-b38d-861d463970e9/3f0525a2-4c10-45c4-92e1-8b3dd285c779?org_if_sml=1110"
+                    class="shipment-edit-divider5"
+                  />
+                  <div class="shipment-edit-content32">
+                    <div class="shipment-edit-frame-pricingtiercard">
+                      <div class="shipment-edit-header">
+                        <div class="shipment-edit-headingandprice">
+                          <div class="shipment-edit-headingandsupportingtext">
+                            <div class="shipment-edit-headingandbadge">
+                              <span
+                                class="shipment-edit-text126 DisplayxsSemibold"
+                              >
+                                <span>Total</span>
+                              </span>
+                            </div>
+                            <span class="shipment-edit-text128 TextmdRegular">
+                              <span>Advanced features and reporting.</span>
+                            </span>
+                          </div>
+                          <div class="shipment-edit-price">
+                            <div class="shipment-edit-framewrap">
+                              <span
+                                class="shipment-edit-text130 DisplaymdSemibold"
+                              >
+                                $
+                              </span>
+                            </div>
+                            <span
+                              class="shipment-edit-text131 DisplayxlSemibold"
+                            >
+                              <span>20</span>
+                            </span>
+                            <div class="shipment-edit-periodwrap">
+                              <span class="shipment-edit-text133 TextmdMedium">
+                                <span>/ MYR 230.23</span>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="shipment-edit-footer">
+                        <div class="shipment-edit-actions5">
+                          <a
+                            href="shipment-successful-edited.html"
+                            class="shipment-edit-button13"
+                          >
+                            <img
+                              alt="save02I5239"
+                              src="public/external/save02i5239-sp38.svg"
+                              class="shipment-edit-save02"
+                            />
+                            <span class="shipment-edit-text135 TextmdSemibold">
+                              <span>Update</span>
+                            </span>
+                          </a>
+                          <a
+                            href="shipment-dashboard.html"
+                            class="shipment-edit-button14"
+                          >
+                            <span class="shipment-edit-text137 TextmdSemibold">
+                              <span>Back</span>
+                            </span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      data-section-id="navbar"
+      src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
+    ></script>
+  </body>
+</html>
