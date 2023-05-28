@@ -1,0 +1,813 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+ 
+ :root {
+  --dl-color-blue-25: rgba(244, 249, 255, 1);
+  --dl-color-blue-50: rgba(239, 248, 255, 1);
+  --dl-color-cyan-25: rgba(244, 254, 255, 1);
+  --dl-color-cyan-50: rgba(235, 253, 255, 1);
+  --dl-color-gray-25: rgba(251, 252, 252, 1);
+  --dl-color-gray-50: rgba(248, 249, 251, 1);
+  --dl-color-moss-25: rgba(249, 252, 246, 1);
+  --dl-color-moss-50: rgba(244, 250, 238, 1);
+  --dl-color-pink-25: rgba(253, 246, 251, 1);
+  --dl-color-pink-50: rgba(253, 241, 249, 1);
+  --dl-color-rosé-25: rgba(255, 244, 246, 1);
+  --dl-color-rosé-50: rgba(254, 241, 242, 1);
+  --dl-color-teal-25: rgba(246, 253, 251, 1);
+  --dl-color-teal-50: rgba(240, 252, 249, 1);
+  --dl-color-blue-100: rgba(209, 233, 255, 1);
+  --dl-color-blue-200: rgba(178, 221, 255, 1);
+  --dl-color-blue-300: rgba(132, 202, 255, 1);
+  --dl-color-blue-400: rgba(83, 176, 253, 1);
+  --dl-color-blue-500: rgba(46, 144, 250, 1);
+  --dl-color-blue-600: rgba(21, 111, 238, 1);
+  --dl-color-blue-700: rgba(23, 92, 211, 1);
+  --dl-color-blue-800: rgba(24, 73, 169, 1);
+  --dl-color-blue-900: rgba(25, 64, 132, 1);
+  --dl-color-cyan-100: rgba(207, 248, 254, 1);
+  --dl-color-cyan-200: rgba(165, 240, 251, 1);
+  --dl-color-cyan-300: rgba(103, 227, 249, 1);
+  --dl-color-cyan-400: rgba(34, 203, 237, 1);
+  --dl-color-cyan-500: rgba(5, 174, 212, 1);
+  --dl-color-cyan-600: rgba(7, 138, 178, 1);
+  --dl-color-cyan-700: rgba(13, 111, 144, 1);
+  --dl-color-cyan-800: rgba(21, 91, 117, 1);
+  --dl-color-cyan-900: rgba(21, 75, 99, 1);
+  --dl-color-error-25: rgba(254, 250, 250, 1);
+  --dl-color-error-50: rgba(254, 242, 241, 1);
+  --dl-color-gray-100: rgba(242, 243, 246, 1);
+  --dl-color-gray-200: rgba(234, 236, 240, 1);
+  --dl-color-gray-300: rgba(207, 212, 220, 1);
+  --dl-color-gray-400: rgba(152, 161, 178, 1);
+  --dl-color-gray-500: rgba(102, 112, 132, 1);
+  --dl-color-gray-600: rgba(71, 84, 102, 1);
+  --dl-color-gray-700: rgba(52, 64, 83, 1);
+  --dl-color-gray-800: rgba(29, 40, 56, 1);
+  --dl-color-gray-900: rgba(15, 23, 40, 1);
+  --dl-color-green-25: rgba(246, 253, 248, 1);
+  --dl-color-green-50: rgba(236, 252, 241, 1);
+  --dl-color-moss-100: rgba(229, 244, 214, 1);
+  --dl-color-moss-200: rgba(205, 234, 175, 1);
+  --dl-color-moss-300: rgba(172, 219, 121, 1);
+  --dl-color-moss-400: rgba(133, 203, 59, 1);
+  --dl-color-moss-500: rgba(102, 158, 42, 1);
+  --dl-color-moss-600: rgba(78, 122, 32, 1);
+  --dl-color-moss-700: rgba(63, 97, 26, 1);
+  --dl-color-moss-800: rgba(51, 79, 21, 1);
+  --dl-color-moss-900: rgba(42, 66, 17, 1);
+  --dl-color-pink-100: rgba(252, 230, 245, 1);
+  --dl-color-pink-200: rgba(251, 206, 238, 1);
+  --dl-color-pink-300: rgba(249, 167, 223, 1);
+  --dl-color-pink-400: rgba(245, 112, 199, 1);
+  --dl-color-pink-500: rgba(237, 70, 187, 1);
+  --dl-color-pink-600: rgba(220, 37, 144, 1);
+  --dl-color-pink-700: rgba(192, 21, 115, 1);
+  --dl-color-pink-800: rgba(158, 21, 94, 1);
+  --dl-color-pink-900: rgba(132, 22, 81, 1);
+  --dl-color-rosé-100: rgba(255, 227, 231, 1);
+  --dl-color-rosé-200: rgba(254, 204, 213, 1);
+  --dl-color-rosé-300: rgba(254, 162, 179, 1);
+  --dl-color-rosé-400: rgba(252, 111, 141, 1);
+  --dl-color-rosé-500: rgba(245, 61, 104, 1);
+  --dl-color-rosé-600: rgba(227, 26, 83, 1);
+  --dl-color-rosé-700: rgba(192, 15, 71, 1);
+  --dl-color-rosé-800: rgba(161, 15, 66, 1);
+  --dl-color-rosé-900: rgba(137, 17, 61, 1);
+  --dl-color-teal-100: rgba(204, 250, 239, 1);
+  --dl-color-teal-200: rgba(153, 245, 224, 1);
+  --dl-color-teal-300: rgba(94, 233, 207, 1);
+  --dl-color-teal-400: rgba(46, 210, 183, 1);
+  --dl-color-teal-500: rgba(21, 182, 158, 1);
+  --dl-color-teal-600: rgba(13, 147, 131, 1);
+  --dl-color-teal-700: rgba(15, 117, 105, 1);
+  --dl-color-teal-800: rgba(17, 93, 85, 1);
+  --dl-color-teal-900: rgba(19, 77, 71, 1);
+  --dl-color-error-100: rgba(254, 227, 225, 1);
+  --dl-color-error-200: rgba(254, 205, 201, 1);
+  --dl-color-error-300: rgba(252, 161, 155, 1);
+  --dl-color-error-400: rgba(249, 112, 102, 1);
+  --dl-color-error-500: rgba(240, 68, 55, 1);
+  --dl-color-error-600: rgba(217, 44, 32, 1);
+  --dl-color-error-700: rgba(179, 34, 24, 1);
+  --dl-color-error-800: rgba(144, 31, 23, 1);
+  --dl-color-error-900: rgba(122, 38, 25, 1);
+  --dl-color-gray-5001: rgba(102, 112, 132, 1);
+  --dl-color-gray-7001: rgba(52, 64, 83, 1);
+  --dl-color-gray-9001: rgba(15, 23, 40, 1);
+  --dl-color-gray-9002: rgba(15, 23, 40, 1);
+  --dl-color-green-100: rgba(210, 248, 222, 1);
+  --dl-color-green-200: rgba(170, 239, 195, 1);
+  --dl-color-green-300: rgba(114, 226, 163, 1);
+  --dl-color-green-400: rgba(59, 203, 126, 1);
+  --dl-color-green-500: rgba(22, 178, 100, 1);
+  --dl-color-green-600: rgba(9, 145, 79, 1);
+  --dl-color-green-700: rgba(8, 115, 67, 1);
+  --dl-color-green-800: rgba(9, 91, 54, 1);
+  --dl-color-green-900: rgba(8, 75, 46, 1);
+  --dl-color-indigo-25: rgba(244, 248, 255, 1);
+  --dl-color-indigo-50: rgba(238, 243, 255, 1);
+  --dl-color-orange-25: rgba(254, 249, 245, 1);
+  --dl-color-orange-50: rgba(254, 245, 237, 1);
+  --dl-color-purple-25: rgba(250, 249, 255, 1);
+  --dl-color-purple-50: rgba(243, 243, 255, 1);
+  --dl-color-violet-25: rgba(250, 249, 255, 1);
+  --dl-color-violet-50: rgba(244, 243, 255, 1);
+  --dl-color-yellow-25: rgba(254, 252, 240, 1);
+  --dl-color-yellow-50: rgba(254, 251, 232, 1);
+  --dl-size-size-large: 144px;
+  --dl-size-size-small: 48px;
+  --dl-color-base-black: rgba(0, 0, 0, 1);
+  --dl-color-base-white: rgba(255, 255, 255, 1);
+  --dl-color-danger-300: #A22020;
+  --dl-color-danger-500: #BF2626;
+  --dl-color-danger-700: #E14747;
+  --dl-color-fuchsia-25: rgba(254, 249, 254, 1);
+  --dl-color-fuchsia-50: rgba(253, 244, 254, 1);
+  --dl-color-gray-black: #000000;
+  --dl-color-gray-white: #FFFFFF;
+  --dl-color-indigo-100: rgba(223, 234, 255, 1);
+  --dl-color-indigo-200: rgba(198, 215, 254, 1);
+  --dl-color-indigo-300: rgba(163, 187, 253, 1);
+  --dl-color-indigo-400: rgba(127, 152, 249, 1);
+  --dl-color-indigo-500: rgba(96, 113, 243, 1);
+  --dl-color-indigo-600: rgba(68, 76, 230, 1);
+  --dl-color-indigo-700: rgba(53, 55, 204, 1);
+  --dl-color-indigo-800: rgba(45, 49, 165, 1);
+  --dl-color-indigo-900: rgba(44, 50, 130, 1);
+  --dl-color-orange-100: rgba(252, 234, 215, 1);
+  --dl-color-orange-200: rgba(248, 219, 175, 1);
+  --dl-color-orange-300: rgba(247, 178, 121, 1);
+  --dl-color-orange-400: rgba(243, 135, 67, 1);
+  --dl-color-orange-500: rgba(239, 104, 31, 1);
+  --dl-color-orange-600: rgba(223, 79, 22, 1);
+  --dl-color-orange-700: rgba(185, 56, 20, 1);
+  --dl-color-orange-800: rgba(147, 47, 24, 1);
+  --dl-color-orange-900: rgba(118, 40, 23, 1);
+  --dl-color-primary-25: rgba(255, 254, 250, 1);
+  --dl-color-primary-50: rgba(255, 250, 230, 1);
+  --dl-color-purple-100: rgba(234, 232, 254, 1);
+  --dl-color-purple-200: rgba(217, 213, 254, 1);
+  --dl-color-purple-300: rgba(188, 180, 253, 1);
+  --dl-color-purple-400: rgba(154, 137, 251, 1);
+  --dl-color-purple-500: rgba(121, 89, 248, 1);
+  --dl-color-purple-600: rgba(104, 56, 238, 1);
+  --dl-color-purple-700: rgba(89, 37, 219, 1);
+  --dl-color-purple-800: rgba(74, 31, 183, 1);
+  --dl-color-purple-900: rgba(62, 27, 150, 1);
+  --dl-color-success-25: rgba(245, 254, 249, 1);
+  --dl-color-success-50: rgba(235, 253, 242, 1);
+  --dl-color-violet-100: rgba(236, 232, 254, 1);
+  --dl-color-violet-200: rgba(220, 213, 254, 1);
+  --dl-color-violet-300: rgba(195, 180, 253, 1);
+  --dl-color-violet-400: rgba(164, 138, 250, 1);
+  --dl-color-violet-500: rgba(135, 90, 247, 1);
+  --dl-color-violet-600: rgba(120, 57, 237, 1);
+  --dl-color-violet-700: rgba(104, 38, 218, 1);
+  --dl-color-violet-800: rgba(87, 32, 182, 1);
+  --dl-color-violet-900: rgba(72, 28, 149, 1);
+  --dl-color-warning-25: rgba(255, 252, 244, 1);
+  --dl-color-warning-50: rgba(255, 249, 235, 1);
+  --dl-color-yellow-100: rgba(253, 247, 195, 1);
+  --dl-color-yellow-200: rgba(254, 238, 148, 1);
+  --dl-color-yellow-300: rgba(253, 225, 113, 1);
+  --dl-color-yellow-400: rgba(250, 196, 20, 1);
+  --dl-color-yellow-500: rgba(234, 169, 7, 1);
+  --dl-color-yellow-600: rgba(202, 132, 3, 1);
+  --dl-color-yellow-700: rgba(161, 91, 6, 1);
+  --dl-color-yellow-800: rgba(133, 73, 13, 1);
+  --dl-color-yellow-900: rgba(113, 59, 17, 1);
+  --dl-size-size-medium: 96px;
+  --dl-size-size-xlarge: 192px;
+  --dl-size-size-xsmall: 16px;
+  --dl-space-space-unit: 16px;
+  --dl-color-bluedark-25: rgba(244, 248, 255, 1);
+  --dl-color-bluedark-50: rgba(239, 244, 255, 1);
+  --dl-color-fuchsia-100: rgba(250, 232, 254, 1);
+  --dl-color-fuchsia-200: rgba(246, 208, 253, 1);
+  --dl-color-fuchsia-300: rgba(237, 170, 252, 1);
+  --dl-color-fuchsia-400: rgba(228, 119, 250, 1);
+  --dl-color-fuchsia-500: rgba(212, 68, 240, 1);
+  --dl-color-fuchsia-600: rgba(186, 36, 212, 1);
+  --dl-color-fuchsia-700: rgba(159, 26, 176, 1);
+  --dl-color-fuchsia-800: rgba(130, 23, 144, 1);
+  --dl-color-fuchsia-900: rgba(110, 24, 118, 1);
+  --dl-color-grayblue-50: rgba(248, 248, 251, 1);
+  --dl-color-graycool-25: rgba(251, 252, 253, 1);
+  --dl-color-graycool-50: rgba(248, 249, 251, 1);
+  --dl-color-grayiron-25: rgba(252, 252, 252, 1);
+  --dl-color-grayiron-50: rgba(250, 250, 250, 1);
+  --dl-color-graytrue-25: rgba(252, 252, 252, 1);
+  --dl-color-graytrue-50: rgba(250, 250, 250, 1);
+  --dl-color-graywarm-25: rgba(252, 252, 252, 1);
+  --dl-color-graywarm-50: rgba(250, 250, 248, 1);
+  --dl-color-primary-100: rgba(253, 244, 204, 1);
+  --dl-color-primary-200: rgba(252, 232, 153, 1);
+  --dl-color-primary-300: rgba(250, 221, 102, 1);
+  --dl-color-primary-400: rgba(249, 209, 51, 1);
+  --dl-color-primary-500: rgba(247, 198, 0, 1);
+  --dl-color-primary-600: rgba(236, 191, 6, 1);
+  --dl-color-primary-700: rgba(222, 178, 0, 1);
+  --dl-color-primary-800: rgba(123, 99, 0, 1);
+  --dl-color-primary-900: rgba(99, 79, 0, 1);
+  --dl-color-success-100: rgba(208, 250, 223, 1);
+  --dl-color-success-200: rgba(166, 244, 197, 1);
+  --dl-color-success-300: #199033;
+  --dl-color-success-400: rgba(49, 213, 131, 1);
+  --dl-color-success-500: rgba(18, 182, 105, 1);
+  --dl-color-success-600: rgba(3, 151, 84, 1);
+  --dl-color-success-700: rgba(2, 121, 71, 1);
+  --dl-color-success-800: rgba(5, 95, 58, 1);
+  --dl-color-success-900: rgba(5, 78, 49, 1);
+  --dl-color-warning-100: rgba(254, 239, 198, 1);
+  --dl-color-warning-200: rgba(254, 222, 136, 1);
+  --dl-color-warning-300: rgba(254, 200, 74, 1);
+  --dl-color-warning-400: rgba(252, 176, 34, 1);
+  --dl-color-warning-500: rgba(247, 143, 8, 1);
+  --dl-color-warning-600: rgba(219, 104, 3, 1);
+  --dl-color-warning-700: rgba(181, 71, 7, 1);
+  --dl-color-warning-800: rgba(147, 55, 12, 1);
+  --dl-color-warning-900: rgba(121, 45, 13, 1);
+  --dl-size-size-xxlarge: 288px;
+  --dl-color-bluedark-100: rgba(209, 224, 255, 1);
+  --dl-color-bluedark-200: rgba(178, 203, 255, 1);
+  --dl-color-bluedark-300: rgba(131, 173, 255, 1);
+  --dl-color-bluedark-400: rgba(81, 139, 255, 1);
+  --dl-color-bluedark-500: rgba(41, 112, 254, 1);
+  --dl-color-bluedark-600: rgba(21, 93, 238, 1);
+  --dl-color-bluedark-700: rgba(0, 78, 234, 1);
+  --dl-color-bluedark-800: rgba(0, 64, 193, 1);
+  --dl-color-bluedark-900: rgba(0, 52, 158, 1);
+  --dl-color-bluelight-25: rgba(244, 250, 255, 1);
+  --dl-color-bluelight-50: rgba(240, 249, 255, 1);
+  --dl-color-grayblue-100: rgba(234, 235, 245, 1);
+  --dl-color-grayblue-200: rgba(213, 216, 235, 1);
+  --dl-color-grayblue-300: rgba(178, 184, 219, 1);
+  --dl-color-grayblue-400: rgba(112, 122, 188, 1);
+  --dl-color-grayblue-500: rgba(78, 90, 166, 1);
+  --dl-color-grayblue-600: rgba(62, 71, 131, 1);
+  --dl-color-grayblue-700: rgba(53, 62, 114, 1);
+  --dl-color-grayblue-800: rgba(40, 48, 86, 1);
+  --dl-color-grayblue-900: rgba(16, 18, 34, 1);
+  --dl-color-graycool-100: rgba(239, 240, 245, 1);
+  --dl-color-graycool-200: rgba(220, 223, 233, 1);
+  --dl-color-graycool-300: rgba(185, 191, 212, 1);
+  --dl-color-graycool-400: rgba(125, 137, 175, 1);
+  --dl-color-graycool-500: rgba(93, 106, 151, 1);
+  --dl-color-graycool-600: rgba(73, 84, 120, 1);
+  --dl-color-graycool-700: rgba(63, 73, 104, 1);
+  --dl-color-graycool-800: rgba(48, 55, 78, 1);
+  --dl-color-graycool-900: rgba(17, 19, 33, 1);
+  --dl-color-grayiron-100: rgba(243, 243, 245, 1);
+  --dl-color-grayiron-200: rgba(227, 227, 231, 1);
+  --dl-color-grayiron-300: rgba(209, 209, 214, 1);
+  --dl-color-grayiron-400: rgba(160, 160, 170, 1);
+  --dl-color-grayiron-500: rgba(111, 112, 123, 1);
+  --dl-color-grayiron-600: rgba(81, 81, 91, 1);
+  --dl-color-grayiron-700: rgba(62, 62, 70, 1);
+  --dl-color-grayiron-800: rgba(38, 38, 42, 1);
+  --dl-color-grayiron-900: rgba(23, 23, 27, 1);
+  --dl-color-graytrue-100: rgba(245, 245, 245, 1);
+  --dl-color-graytrue-200: rgba(229, 229, 229, 1);
+  --dl-color-graytrue-300: rgba(214, 214, 214, 1);
+  --dl-color-graytrue-400: rgba(163, 163, 163, 1);
+  --dl-color-graytrue-500: rgba(115, 115, 115, 1);
+  --dl-color-graytrue-600: rgba(82, 82, 82, 1);
+  --dl-color-graytrue-700: rgba(66, 66, 66, 1);
+  --dl-color-graytrue-800: rgba(40, 40, 40, 1);
+  --dl-color-graytrue-900: rgba(20, 20, 20, 1);
+  --dl-color-graywarm-100: rgba(245, 245, 243, 1);
+  --dl-color-graywarm-200: rgba(231, 228, 227, 1);
+  --dl-color-graywarm-300: rgba(214, 210, 208, 1);
+  --dl-color-graywarm-400: rgba(168, 161, 157, 1);
+  --dl-color-graywarm-500: rgba(120, 112, 107, 1);
+  --dl-color-graywarm-600: rgba(87, 82, 77, 1);
+  --dl-color-graywarm-700: rgba(68, 63, 59, 1);
+  --dl-color-graywarm-800: rgba(41, 36, 35, 1);
+  --dl-color-graywarm-900: rgba(28, 24, 22, 1);
+  --dl-color-primary-1001: rgba(253, 244, 204, 1);
+  --dl-color-primary-3001: rgba(250, 221, 102, 1);
+  --dl-color-primary-5001: rgba(247, 198, 0, 1);
+  --dl-color-primary-7001: rgba(222, 178, 0, 1);
+  --dl-color-success-3001: rgba(107, 233, 166, 1);
+  --dl-color-success-5001: rgba(18, 182, 105, 1);
+  --dl-color-success-7001: rgba(2, 121, 71, 1);
+  --dl-size-size-maxwidth: 1400px;
+  --dl-color-bluelight-100: rgba(223, 242, 254, 1);
+  --dl-color-bluelight-200: rgba(185, 229, 253, 1);
+  --dl-color-bluelight-300: rgba(123, 212, 253, 1);
+  --dl-color-bluelight-400: rgba(54, 191, 249, 1);
+  --dl-color-bluelight-500: rgba(11, 164, 235, 1);
+  --dl-color-bluelight-600: rgba(0, 133, 201, 1);
+  --dl-color-bluelight-700: rgba(1, 106, 162, 1);
+  --dl-color-bluelight-800: rgba(5, 89, 134, 1);
+  --dl-color-bluelight-900: rgba(10, 74, 111, 1);
+  --dl-color-graymodern-25: rgba(251, 252, 253, 1);
+  --dl-color-graymodern-50: rgba(248, 249, 251, 1);
+  --dl-color-greenlight-25: rgba(250, 254, 245, 1);
+  --dl-color-greenlight-50: rgba(243, 253, 231, 1);
+  --dl-color-orangedark-25: rgba(255, 248, 244, 1);
+  --dl-color-orangedark-50: rgba(255, 243, 237, 1);
+  --dl-radius-radius-round: 50%;
+  --dl-color-graymodern-100: rgba(238, 242, 246, 1);
+  --dl-color-graymodern-200: rgba(227, 232, 238, 1);
+  --dl-color-graymodern-300: rgba(205, 212, 222, 1);
+  --dl-color-graymodern-400: rgba(153, 163, 178, 1);
+  --dl-color-graymodern-500: rgba(105, 116, 133, 1);
+  --dl-color-graymodern-600: rgba(74, 85, 101, 1);
+  --dl-color-graymodern-700: rgba(53, 65, 82, 1);
+  --dl-color-graymodern-800: rgba(31, 41, 57, 1);
+  --dl-color-graymodern-900: rgba(17, 24, 38, 1);
+  --dl-color-grayneutral-25: rgba(251, 252, 252, 1);
+  --dl-color-grayneutral-50: rgba(249, 250, 250, 1);
+  --dl-color-greenlight-100: rgba(227, 251, 203, 1);
+  --dl-color-greenlight-200: rgba(207, 247, 170, 1);
+  --dl-color-greenlight-300: rgba(166, 239, 102, 1);
+  --dl-color-greenlight-400: rgba(133, 225, 57, 1);
+  --dl-color-greenlight-500: rgba(101, 197, 28, 1);
+  --dl-color-greenlight-600: rgba(75, 163, 12, 1);
+  --dl-color-greenlight-700: rgba(58, 124, 14, 1);
+  --dl-color-greenlight-800: rgba(49, 98, 17, 1);
+  --dl-color-greenlight-900: rgba(43, 83, 19, 1);
+  --dl-color-orangedark-100: rgba(255, 229, 213, 1);
+  --dl-color-orangedark-200: rgba(254, 214, 173, 1);
+  --dl-color-orangedark-300: rgba(255, 155, 101, 1);
+  --dl-color-orangedark-400: rgba(254, 105, 45, 1);
+  --dl-color-orangedark-500: rgba(255, 67, 5, 1);
+  --dl-color-orangedark-600: rgba(229, 45, 4, 1);
+  --dl-color-orangedark-700: rgba(187, 27, 5, 1);
+  --dl-color-orangedark-800: rgba(150, 23, 12, 1);
+  --dl-color-orangedark-900: rgba(119, 25, 13, 1);
+  --dl-space-space-halfunit: 8px;
+  --dl-space-space-sixunits: 96px;
+  --dl-space-space-twounits: 32px;
+  --dl-color-grayneutral-100: rgba(243, 244, 245, 1);
+  --dl-color-grayneutral-200: rgba(229, 231, 234, 1);
+  --dl-color-grayneutral-300: rgba(209, 213, 218, 1);
+  --dl-color-grayneutral-400: rgba(156, 163, 174, 1);
+  --dl-color-grayneutral-500: rgba(108, 114, 126, 1);
+  --dl-color-grayneutral-600: rgba(76, 86, 97, 1);
+  --dl-color-grayneutral-700: rgba(55, 65, 80, 1);
+  --dl-color-grayneutral-800: rgba(31, 41, 54, 1);
+  --dl-color-grayneutral-900: rgba(17, 24, 38, 1);
+  --dl-radius-radius-radius2: 2px;
+  --dl-radius-radius-radius4: 4px;
+  --dl-radius-radius-radius8: 8px;
+  --dl-space-space-fiveunits: 80px;
+  --dl-space-space-fourunits: 64px;
+  --dl-space-space-threeunits: 48px;
+  --dl-color-default-background: rgba(246, 248, 252, 1);
+  --dl-space-space-oneandhalfunits: 24px;
+}
+.button {
+  color: var(--dl-color-gray-black);
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: var(--dl-color-gray-white);
+}
+.input {
+  color: var(--dl-color-gray-black);
+  cursor: auto;
+  padding: 0.5rem 1rem;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: var(--dl-color-gray-white);
+}
+.textarea {
+  color: var(--dl-color-gray-black);
+  cursor: auto;
+  padding: 0.5rem;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: var(--dl-color-gray-white);
+}
+.list {
+  width: 100%;
+  margin: 1em 0px 1em 0px;
+  display: block;
+  padding: 0px 0px 0px 1.5rem;
+  list-style-type: none;
+  list-style-position: outside;
+}
+.list-item {
+  display: list-item;
+}
+.teleport-show {
+  display: flex !important;
+  transform: none !important;
+}
+.Display2xlBold {
+  font-size: 72px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 700px;
+  font-stretch: normal;
+}
+.TextxlSemibold1 {
+  font-size: 20px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 600px;
+  font-stretch: normal;
+}
+.DisplayxlMedium {
+  font-size: 60px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 500px;
+  font-stretch: normal;
+}
+.TextlgRegular {
+  font-size: 18px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.TextmdSemibold {
+  font-size: 16px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 600px;
+  font-stretch: normal;
+}
+.DisplaylgSemibold {
+  font-size: 48px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 600px;
+  font-stretch: normal;
+}
+.DisplaysmRegular {
+  font-size: 30px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.TextlgSemibold {
+  font-size: 18px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 600px;
+  font-stretch: normal;
+}
+.DisplayxlSemibold {
+  font-size: 60px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 600px;
+  font-stretch: normal;
+}
+.DisplaysmMedium {
+  font-size: 30px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 500px;
+  font-stretch: normal;
+}
+.DisplayxsSemibold1 {
+  font-size: 24px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 600px;
+  font-stretch: normal;
+}
+.DisplaymdSemibold {
+  font-size: 36px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 600px;
+  font-stretch: normal;
+}
+.Display2xlRegular {
+  font-size: 72px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.TextxsSemibold {
+  font-size: 12px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 600px;
+  font-stretch: normal;
+}
+.DisplaylgMedium {
+  font-size: 48px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 500px;
+  font-stretch: normal;
+}
+.DisplaylgBold {
+  font-size: 48px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 700px;
+  font-stretch: normal;
+}
+.TextmdBold {
+  font-size: 16px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 700px;
+  font-stretch: normal;
+}
+.Heading {
+  font-size: 32px;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: 1.15;
+  text-transform: none;
+  text-decoration: none;
+}
+.TextmdRegular {
+  font-size: 16px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.DisplaymdBold {
+  font-size: 36px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 700px;
+  font-stretch: normal;
+}
+.TextlgMediumunderlined {
+  font-size: 18px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 500px;
+  font-stretch: normal;
+}
+.TextxlRegular {
+  font-size: 20px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.TextxsBold {
+  font-size: 12px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 700px;
+  font-stretch: normal;
+}
+.TextxlBold {
+  font-size: 20px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 700px;
+  font-stretch: normal;
+}
+.TextxsMedium1 {
+  font-size: 12px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 500px;
+  font-stretch: normal;
+}
+.DisplayxlBold {
+  font-size: 60px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 700px;
+  font-stretch: normal;
+}
+.DisplaysmSemibold {
+  font-size: 30px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 600px;
+  font-stretch: normal;
+}
+.TextxlRegularunderlined {
+  font-size: 20px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.DisplaymdRegular {
+  font-size: 36px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.DisplaymdMedium {
+  font-size: 36px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 500px;
+  font-stretch: normal;
+}
+.Content {
+  font-size: 16px;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 1.15;
+  text-transform: none;
+  text-decoration: none;
+}
+.TextsmSemibold {
+  font-size: 14px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 600px;
+  font-stretch: normal;
+}
+.DisplayxsMedium1 {
+  font-size: 24px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 500px;
+  font-stretch: normal;
+}
+.Display2xlSemibold {
+  font-size: 72px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 600px;
+  font-stretch: normal;
+}
+.Display2xlMedium {
+  font-size: 72px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 500px;
+  font-stretch: normal;
+}
+.TextxlSemibold {
+  font-size: 20px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 600px;
+  font-stretch: normal;
+}
+.TextlgMedium {
+  font-size: 18px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 500px;
+  font-stretch: normal;
+}
+.TextsmRegular {
+  font-size: 14px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.DisplaysmBold {
+  font-size: 30px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 700px;
+  font-stretch: normal;
+}
+.TextxlRegular1 {
+  font-size: 20px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.TextlgRegular1 {
+  font-size: 18px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.DisplayxlRegular {
+  font-size: 60px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.DisplayxlSemibold1 {
+  font-size: 60px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 600px;
+  font-stretch: normal;
+}
+.TextxlMedium {
+  font-size: 20px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 500px;
+  font-stretch: normal;
+}
+.TextsmMedium {
+  font-size: 14px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 500px;
+  font-stretch: normal;
+}
+.TextmdRegular1 {
+  font-size: 16px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.DisplayxsRegular {
+  font-size: 24px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.TextlgBold {
+  font-size: 18px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 700px;
+  font-stretch: normal;
+}
+.DisplayxsSemibold {
+  font-size: 24px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 600px;
+  font-stretch: normal;
+}
+.TextlgSemibold1 {
+  font-size: 18px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 600px;
+  font-stretch: normal;
+}
+.TextmdMedium {
+  font-size: 16px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 500px;
+  font-stretch: normal;
+}
+.TextxsRegular {
+  font-size: 12px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.DisplaylgRegular {
+  font-size: 48px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.TextxsMedium {
+  font-size: 12px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 500px;
+  font-stretch: normal;
+}
+.TextlgMedium1 {
+  font-size: 18px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 500px;
+  font-stretch: normal;
+}
+.DisplayxsBold {
+  font-size: 24px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 700px;
+  font-stretch: normal;
+}
+.TextsmBold {
+  font-size: 14px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 700px;
+  font-stretch: normal;
+}
+.DisplayxsMedium {
+  font-size: 24px;
+  font-style: normal;
+  font-family: Open Sans;
+  font-weight: 500px;
+  font-stretch: normal;
+}
