@@ -40,7 +40,7 @@ document
       })
       .catch((error) => {
         submitRegisterBtn.disabled = false;
-        // submitRegisterBtn.innerHTML = 'Register';
+        // submitRegisterBtn.innerHTML = 'Register' ;
         alert(error);
       });
   });
