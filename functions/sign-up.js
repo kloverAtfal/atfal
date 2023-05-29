@@ -40,7 +40,7 @@ document
       })
       .catch((error) => {
         submitRegisterBtn.disabled = false;
-        // submitRegisterBtn.innerHTML = 'Register';
+        // submitRegisterBtn.innerHTML = 'Register' ;
         alert(error);
       });
   });
@@ -51,19 +51,15 @@ document
     initGoogleCode();
   });
 
-var redirectUrl = 'https://gikijo.com/';
-var successUrl = 'https://gikijo.com/home';
-var selectRole = 'https://gikijo.com/account-type';
-
 function initGoogleCode() {
   fetchAPI(
-    `https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/oauth/google/init?redirect_uri=${redirectUrl}`,
-    'POST',
+    `https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/oauth/google/init`,
+    'GET',
     null
   )
     .then((data) => {
       if (data?.message) {
-        alert(data.message);
+        showToast('alert-toast-container', data.message, 'danger');
       } else {
         window.location.href = data.authUrl;
       }
@@ -84,25 +80,20 @@ window.onload = function () {
 
 function continueOauth(code) {
   fetchAPI(
-    `https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/oauth/google/continue?redirect_uri=${redirectUrl}&code=${code}`,
-    'GET',
+    `https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/oauth/google/continue?code=${code}`,
+    'POST',
     null
   )
     .then((data) => {
       if (data?.message) {
-        alert(data.message);
+        showToast('alert-toast-container', data.message, 'danger');
       } else {
         if (data?.authToken) {
           saveData('masterData', {
             userData: data.userData,
             authToken: data.authToken,
           });
-
-          if (data.userData.role_id) {
-            window.location.href = successUrl;
-          } else {
-            window.location.href = selectRole;
-          }
+          location.href = '/home-dashboard-user';
         } else {
           alert('Token not found');
         }
