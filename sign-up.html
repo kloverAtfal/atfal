@@ -8,7 +8,83 @@
     <meta property="twitter:card" content="summary_large_image" />
 
     <style data-tag="reset-style-sheet">
-      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+      html {
+        line-height: 1.15;
+      }
+      body {
+        margin: 0;
+      }
+      * {
+        box-sizing: border-box;
+        border-width: 0;
+        border-style: solid;
+      }
+      p,
+      li,
+      ul,
+      pre,
+      div,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      figure,
+      blockquote,
+      figcaption {
+        margin: 0;
+        padding: 0;
+      }
+      button {
+        background-color: transparent;
+      }
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        font-family: inherit;
+        font-size: 100%;
+        line-height: 1.15;
+        margin: 0;
+      }
+      button,
+      select {
+        text-transform: none;
+      }
+      button,
+      [type='button'],
+      [type='reset'],
+      [type='submit'] {
+        -webkit-appearance: button;
+      }
+      button::-moz-focus-inner,
+      [type='button']::-moz-focus-inner,
+      [type='reset']::-moz-focus-inner,
+      [type='submit']::-moz-focus-inner {
+        border-style: none;
+        padding: 0;
+      }
+      button:-moz-focus,
+      [type='button']:-moz-focus,
+      [type='reset']:-moz-focus,
+      [type='submit']:-moz-focus {
+        outline: 1px dotted ButtonText;
+      }
+      a {
+        color: inherit;
+        text-decoration: inherit;
+      }
+      input {
+        padding: 2px 4px;
+      }
+      img {
+        display: block;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
     </style>
     <style data-tag="default-style-sheet">
       html {
@@ -18,14 +94,13 @@
 
       body {
         font-weight: 400;
-        font-style:normal;
+        font-style: normal;
         text-decoration: none;
         text-transform: none;
         letter-spacing: normal;
         line-height: 1.15;
         color: var(--dl-color-gray-black);
         background-color: var(--dl-color-gray-white);
-
       }
     </style>
     <link
@@ -41,20 +116,29 @@
     <!--This is the head section-->
     <!-- <style> ... </style> -->
     <style data-section-id="dropdown">
-      [data-thq="thq-dropdown"]:hover > [data-thq="thq-dropdown-list"] {
-          display: flex;
-        }
+      [data-thq='thq-dropdown']:hover > [data-thq='thq-dropdown-list'] {
+        display: flex;
+      }
 
-        [data-thq="thq-dropdown"]:hover > div [data-thq="thq-dropdown-arrow"] {
-          transform: rotate(90deg);
-        }
+      [data-thq='thq-dropdown']:hover > div [data-thq='thq-dropdown-arrow'] {
+        transform: rotate(90deg);
+      }
     </style>
     <link rel="stylesheet" href="./style.css" />
+    <!-- My function 1 -->
+    <script src="functions/apiHelper.js"></script>
+    <script src="functions/globalFunction.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   </head>
   <body>
     <div>
       <link href="./sign-up.css" rel="stylesheet" />
-
       <div class="sign-up-container">
         <div class="sign-up-login">
           <div class="sign-up-section">
@@ -86,20 +170,22 @@
                     <span>Start your 30-day free trial.</span>
                   </span>
                 </div>
+
                 <div class="sign-up-content1">
-                  <div class="sign-up-form">
+                  <form id="sign-up-form" class="sign-up-form">
                     <div class="sign-up-inputfield">
                       <div class="sign-up-inputwithlabel">
                         <span class="sign-up-text04 TextsmMedium">
                           <span>Name*</span>
                         </span>
-                        <div class="sign-up-input">
-                          <div class="sign-up-content2">
-                            <span class="sign-up-text06 TextmdRegular">
-                              <span>Enter your name</span>
-                            </span>
-                          </div>
-                        </div>
+                        <input
+                          maxlength="30"
+                          type="text"
+                          class="sign-up-input"
+                          id="input-username"
+                          placeholder="Enter your name"
+                          required
+                        />
                       </div>
                     </div>
                     <div class="sign-up-inputfield1">
@@ -107,13 +193,14 @@
                         <span class="sign-up-text08 TextsmMedium">
                           <span>Email*</span>
                         </span>
-                        <div class="sign-up-input1">
-                          <div class="sign-up-content3">
-                            <span class="sign-up-text10 TextmdRegular">
-                              <span>Enter your email</span>
-                            </span>
-                          </div>
-                        </div>
+                        <input
+                          maxlength="30"
+                          type="email"
+                          class="sign-up-input"
+                          id="input-email"
+                          placeholder="Enter your email"
+                          required
+                        />
                       </div>
                     </div>
                     <div class="sign-up-inputfield2">
@@ -121,37 +208,43 @@
                         <span class="sign-up-text12 TextsmMedium">
                           <span>Password*</span>
                         </span>
-                        <div class="sign-up-input2">
-                          <div class="sign-up-content4">
-                            <span class="sign-up-text14 TextmdRegular">
-                              <span>Create a password</span>
-                            </span>
-                          </div>
-                        </div>
+                        <input
+                          maxlength="30"
+                          type="password"
+                          class="sign-up-input"
+                          id="input-password"
+                          placeholder="Create a password"
+                          required
+                        />
                       </div>
                       <span class="sign-up-text16 TextsmRegular">
                         <span>Must be at least 8 characters.</span>
                       </span>
                     </div>
-                  </div>
-                  <div class="sign-up-actions">
-                    <a href="log-in.html" class="sign-up-button">
-                      <span class="sign-up-text18 TextmdSemibold">
-                        <span>Get started</span>
-                      </span>
-                    </a>
-                    <button class="sign-up-socialbuttongroups"></button>
-                    <button class="sign-up-socialbutton">
-                      <img
-                        alt="SocialiconI5318"
-                        src="public/external/socialiconi5318-o828.svg"
-                        class="sign-up-socialicon"
+
+                    <div class="sign-up-actions">
+                      <input
+                        type="submit"
+                        value="Get started"
+                        class="sign-up-button sign-up-text18 TextmdSemibold"
+                        id="submit-btn-register"
                       />
-                      <span class="sign-up-text20 TextmdSemibold">
-                        <span>Sign up with Google</span>
-                      </span>
-                    </button>
-                  </div>
+                      <button class="sign-up-socialbuttongroups"></button>
+                    </div>
+                  </form>
+                  <button
+                    class="sign-up-socialbutton"
+                    id="button-continue-login-with-google"
+                  >
+                    <img
+                      alt="SocialiconI5318"
+                      src="public/external/socialiconi5318-o828.svg"
+                      class="sign-up-socialicon"
+                    />
+                    <span class="sign-up-text20 TextmdSemibold">
+                      <span>Continue with Google</span>
+                    </span>
+                  </button>
                 </div>
                 <div class="sign-up-row">
                   <span class="sign-up-text22 TextsmRegular">
@@ -187,5 +280,10 @@
       data-section-id="navbar"
       src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
     ></script>
+    <!-- My function 2 -->
+    <div id="alert-toast-container">
+      <!-- alert toast -->
+    </div>
+    <script src="functions/sign-up.js"></script>
   </body>
 </html>

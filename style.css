@@ -361,7 +361,7 @@
   --dl-color-default-background: rgba(246, 248, 252, 1);
   --dl-space-space-oneandhalfunits: 24px;
 }
-.button {
+/* .button {
   color: var(--dl-color-gray-black);
   display: inline-block;
   padding: 0.5rem 1rem;
@@ -378,7 +378,7 @@
   border-width: 1px;
   border-radius: 4px;
   background-color: var(--dl-color-gray-white);
-}
+} */
 .textarea {
   color: var(--dl-color-gray-black);
   cursor: auto;
