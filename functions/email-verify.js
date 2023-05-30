@@ -31,12 +31,6 @@ function continueMagic(magicToken) {
     options
   )
     .then((data) => {
-      showToast(
-        'alert-toast-container',
-        'Verification completed, you are being redirected to dashboard, please wait...',
-        'success'
-      );
-
       // useBtn.disabled = false;
       useBtn.innerHTML = defaultBtnText;
 
@@ -46,7 +40,7 @@ function continueMagic(magicToken) {
         if (data?.authToken) {
           showToast(
             'alert-toast-container',
-            'email verification complete, you are being redirected to dashboard, please wait...',
+            'Verification completed, you are being redirected to dashboard, please wait...',
             'success'
           );
           saveData('masterData', {
