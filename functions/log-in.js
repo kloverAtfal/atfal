@@ -3,49 +3,53 @@ const token = myData?.authToken;
 
 const spinner = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`;
 
-document
-  .getElementById('sign-up-form')
-  .addEventListener('submit', function (e) {
-    e.preventDefault();
+document.getElementById('log-in-form').addEventListener('submit', function (e) {
+  e.preventDefault();
 
-    let useBtn = document.querySelector('#submit-btn-register');
-    let defaultBtnText = useBtn.innerHTML;
+  let useBtn = document.querySelector('#submit-btn-log-in');
+  let defaultBtnText = useBtn.innerHTML;
 
-    useBtn.disabled = true;
-    useBtn.innerHTML = `${spinner} ${useBtn.innerHTML}`;
+  useBtn.disabled = true;
+  useBtn.innerHTML = `${spinner} ${useBtn.innerHTML}`;
 
-    const username = document.getElementById('input-username').value;
-    const email = document.getElementById('input-email').value;
-    const password = document.getElementById('input-password').value;
+  const email = document.getElementById('input-email').value;
+  const password = document.getElementById('input-password').value;
 
-    const options = {
-      body: JSON.stringify({
-        username: username,
-        email: email,
-        password: password,
-      }),
-    };
-    fetchAPI(
-      'https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/auth/verify_email/signup',
-      'POST',
-      null,
-      options
-    )
-      .then((data) => {
-        useBtn.disabled = false;
-        useBtn.innerHTML = defaultBtnText;
-        if (data.code) {
-          showToast('alert-toast-container', data.message, 'danger');
+  const options = {
+    body: JSON.stringify({
+      email: email,
+      password: password,
+    }),
+  };
+  fetchAPI(
+    'https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/auth/login',
+    'POST',
+    null,
+    options
+  )
+    .then((data) => {
+      useBtn.disabled = false;
+      useBtn.innerHTML = defaultBtnText;
+      if (data.code) {
+        showToast('alert-toast-container', data.message, 'danger');
+      } else {
+        if (data?.authToken) {
+          saveData('masterData', {
+            userData: data.userData,
+            authToken: data.authToken,
+          });
+          location.href = '/home-dashboard-user';
         } else {
-          showToast('alert-toast-container', data.message, 'success');
+          showToast('alert-toast-container', data.message, 'danger');
         }
-      })
-      .catch((error) => {
-        useBtn.disabled = false;
-        useBtn.innerHTML = defaultBtnText;
-        alert(error);
-      });
-  });
+      }
+    })
+    .catch((error) => {
+      useBtn.disabled = false;
+      useBtn.innerHTML = defaultBtnText;
+      alert(error);
+    });
+});
 
 document
   .getElementById('button-continue-with-google')
