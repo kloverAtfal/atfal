@@ -49,7 +49,7 @@ function continueMagic(magicToken) {
           });
           setTimeout(() => {
             location.href = '/home-dashboard-user';
-          }, 2000);
+          }, 5000);
         } else {
           showToast('alert-toast-container', 'Token not found', 'danger');
         }
