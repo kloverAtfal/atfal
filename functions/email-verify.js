@@ -12,10 +12,10 @@ window.onload = function () {
 };
 
 function continueMagic(magicToken) {
-  let useBtn = document.getElementById('go-to-log-in-btn');
+  let useBtn = document.getElementById('text-verify');
   let defaultBtnText = useBtn.innerHTML;
 
-  useBtn.disabled = true;
+  // useBtn.disabled = true;
   useBtn.innerHTML = `${spinner} ${useBtn.innerHTML}`;
 
   const options = {
@@ -31,25 +31,38 @@ function continueMagic(magicToken) {
     options
   )
     .then((data) => {
-      useBtn.disabled = false;
+      showToast(
+        'alert-toast-container',
+        'Verification completed, you are being redirected to dashboard, please wait...',
+        'success'
+      );
+
+      // useBtn.disabled = false;
       useBtn.innerHTML = defaultBtnText;
 
       if (data?.message) {
         showToast('alert-toast-container', data.message, 'danger');
       } else {
         if (data?.authToken) {
+          showToast(
+            'alert-toast-container',
+            'email verification complete, you are being redirected to dashboard, please wait...',
+            'success'
+          );
           saveData('masterData', {
             userData: data.userData,
             authToken: data.authToken,
           });
-          location.href = '/home-dashboard-user';
+          setTimeout(() => {
+            location.href = '/home-dashboard-user';
+          }, 2000);
         } else {
           showToast('alert-toast-container', 'Token not found', 'danger');
         }
       }
     })
     .catch((error) => {
-      useBtn.disabled = false;
+      // useBtn.disabled = false;
       useBtn.innerHTML = defaultBtnText;
       console.log('error', error);
     });
