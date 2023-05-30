@@ -1,16 +1,18 @@
 const myData = getSavedData('masterData');
 const token = myData?.authToken;
 
+const spinner = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`;
+
 document
   .getElementById('sign-up-form')
   .addEventListener('submit', function (e) {
     e.preventDefault();
 
-    let submitRegisterBtn = document.querySelector('#submit-btn-register');
+    let useBtn = document.querySelector('#submit-btn-register');
+    let defaultBtnText = useBtn.innerHTML;
 
-    submitRegisterBtn.disabled = true;
-    // submitRegisterBtn.innerHTML =
-    //   '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...';
+    useBtn.disabled = true;
+    useBtn.innerHTML = `${useBtn.innerHTML} ${spinner}`;
 
     const username = document.getElementById('input-username').value;
     const email = document.getElementById('input-email').value;
@@ -30,8 +32,8 @@ document
       options
     )
       .then((data) => {
-        submitRegisterBtn.disabled = false;
-        // submitRegisterBtn.innerHTML = 'Register';
+        useBtn.disabled = false;
+        useBtn.innerHTML = defaultBtnText;
         if (data.code) {
           showToast('alert-toast-container', data.message, 'danger');
         } else {
@@ -39,25 +41,33 @@ document
         }
       })
       .catch((error) => {
-        submitRegisterBtn.disabled = false;
-        // submitRegisterBtn.innerHTML = 'Register' ;
+        useBtn.disabled = false;
+        useBtn.innerHTML = defaultBtnText;
         alert(error);
       });
   });
 
 document
-  .getElementById('button-continue-login-with-google')
+  .getElementById('button-continue-with-google')
   .addEventListener('click', function () {
     initGoogleCode();
   });
 
 function initGoogleCode() {
+  let useBtn = document.querySelector('#button-continue-with-google');
+  let defaultBtnText = useBtn.innerHTML;
+
+  useBtn.disabled = true;
+  useBtn.innerHTML = `${useBtn.innerHTML} ${spinner}`;
+
   fetchAPI(
     `https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/oauth/google/init`,
     'GET',
     null
   )
     .then((data) => {
+      useBtn.disabled = false;
+      useBtn.innerHTML = defaultBtnText;
       if (data?.message) {
         showToast('alert-toast-container', data.message, 'danger');
       } else {
@@ -65,6 +75,8 @@ function initGoogleCode() {
       }
     })
     .catch((error) => {
+      useBtn.disabled = false;
+      useBtn.innerHTML = defaultBtnText;
       console.log('error', error);
     });
 }
@@ -79,12 +91,21 @@ window.onload = function () {
 };
 
 function continueOauth(code) {
+  let useBtn = document.querySelector('#button-continue-with-google');
+  let defaultBtnText = useBtn.innerHTML;
+
+  useBtn.disabled = true;
+  useBtn.innerHTML = `${useBtn.innerHTML} ${spinner}`;
+
   fetchAPI(
     `https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/oauth/google/continue?code=${code}`,
     'POST',
     null
   )
     .then((data) => {
+      useBtn.disabled = false;
+      useBtn.innerHTML = defaultBtnText;
+
       if (data?.message) {
         showToast('alert-toast-container', data.message, 'danger');
       } else {
@@ -100,6 +121,8 @@ function continueOauth(code) {
       }
     })
     .catch((error) => {
+      useBtn.disabled = false;
+      useBtn.innerHTML = defaultBtnText;
       console.log('error', error);
     });
 }
