@@ -1,8 +1,3 @@
-const myData = getSavedData('masterData');
-const token = myData?.authToken;
-
-const spinner = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`;
-
 document
   .getElementById('sign-up-form')
   .addEventListener('submit', function (e) {

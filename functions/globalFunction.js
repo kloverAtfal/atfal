@@ -4,6 +4,8 @@
 </div> */
 // showAlert("alert-login-container", "Error!", data.message, "danger", "my-login-alert");
 
+const spinner = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`;
+
 function maskText(text) {
   if (text) {
     return text.substring(0, 4) + '*'.repeat(text.length - 4);
@@ -186,3 +188,6 @@ if (!excludedPages.includes(currentUrl)) {
     }
   };
 }
+
+const myData = getSavedData('masterData');
+const token = myData?.authToken;
