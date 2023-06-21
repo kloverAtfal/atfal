@@ -8,7 +8,7 @@ function sidebarNavigationLoaded() {
 }
 
 document.getElementById('sidebar-navigation').innerHTML = sidebarNavigation(
-  'parcel',
+  'shipment',
   sidebarNavigationLoaded()
 );
 
@@ -28,10 +28,11 @@ document
   .getElementById('button-logout-yes')
   .addEventListener('click', clearSession);
 
-document.getElementById('add-new-parcel-btn').addEventListener('click', () => {
-  // location.href = 'parcel-add-new-parcel';
-  $('#newParcelModal').modal('show');
-});
+document
+  .getElementById('add-new-shipment-btn')
+  .addEventListener('click', () => {
+    location.href = 'shipment-add-new-shipment';
+  });
 
 // const totalWaiting = document.getElementById('text-total-waiting');
 // const totalArrived = document.getElementById('text-total-arrived');
@@ -59,6 +60,25 @@ function updateTotals(data) {
   // totalShipped.innerText = shippedCount;
 }
 
+const format = {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+  // hour: "numeric",
+  // minute: "numeric",
+  // hour12: true,
+};
+
+function formatDate(date) {
+  if (date) {
+    let fDate = new Date(date);
+    var newDate = fDate.toLocaleString('en-US', format);
+    return newDate;
+  } else {
+    return '-';
+  }
+}
+
 let tableData = [];
 
 function populateToTable(data) {
@@ -70,8 +90,8 @@ function populateToTable(data) {
     columns: [
       {
         title:
-          '<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="checkAll"/><label class="datatable-header-title" for="flexCheckDefault">Tracking Number</label></div>',
-        data: 'tracking_number',
+          '<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="checkAll"/><label class="datatable-header-title" for="flexCheckDefault">Shipping ID</label></div>',
+        data: 'custom_id',
         render: function (data, type, row, meta) {
           return `<div class="datatable-item-container"><div class="datatable-item-title">
                 <div class="form-check"><input class="form-check-input" type="checkbox" value="${data}" id="checkItem" />${data}</div></div>
@@ -79,17 +99,100 @@ function populateToTable(data) {
         },
       },
       {
-        title: '<label class="datatable-header-title">Parcel Content</label>',
-        data: 'content',
+        title: '<label class="datatable-header-title">Sender Name</label>',
+        data: 'sender_name',
         render: function (data, type, row, meta) {
           return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
         },
       },
       {
-        title: '<label class="datatable-header-title">Remarks</label>',
-        data: 'note',
+        title: '<label class="datatable-header-title">Receiver Name</label>',
+        data: 'receiver_name',
         render: function (data, type, row, meta) {
           return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Parcel</label>',
+        data: 'selected_parcel',
+        render: function (data, type, row, meta) {
+          const combineResult = data
+            .map((item) => item?.parcel_data?.content)
+            .join(', ');
+
+          return `<div class="datatable-item-container"><div class="datatable-item-title">${combineResult}</div></div>`;
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Courier</label>',
+        data: 'custom_id',
+        render: function (data, type, row, meta) {
+          return `<div class="datatable-item-container"><div class="datatable-item-title">${row.courier.name}</div></div>`;
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Price</label>',
+        data: 'custom_id',
+        render: function (data, type, row, meta) {
+          return `<div class="datatable-item-container"><div class="datatable-item-title">${row.courier.price}</div></div>`;
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Shipping Status</label>',
+        data: 'shipping_status_data.code',
+        render: function (data, type, row, meta) {
+          if (data == 'waiting') {
+            return `<div class="shipment-dashboard-tablecell40">
+            <div class="shipment-dashboard-badge08">
+              <img alt="checkI5296" src="public/external/checki5296-srbj.svg" class="shipment-dashboard-check06">
+              <span class="shipment-dashboard-text098 TextxsMedium">
+                <span>${data}</span>
+              </span>
+            </div>
+          </div>`;
+          }
+          if (data == 'arrived') {
+            return `<div class="shipment-dashboard-tablecell40">
+                        <div class="shipment-dashboard-badge08">
+                          <img alt="checkI5296" src="public/external/checki5296-srbj.svg" class="shipment-dashboard-check06">
+                          <span class="shipment-dashboard-text098 TextxsMedium">
+                            <span>${data}</span>
+                          </span>
+                        </div>
+                      </div>`;
+          }
+          if (data.code == 'shipped') {
+            return `<div class="shipment-dashboard-tablecell40">
+            <div class="shipment-dashboard-badge08">
+              <img alt="checkI5296" src="public/external/checki5296-srbj.svg" class="shipment-dashboard-check06">
+              <span class="shipment-dashboard-text098 TextxsMedium">
+                <span>${data}</span>
+              </span>
+            </div>
+          </div>`;
+          } else {
+            return `<div class="shipment-dashboard-tablecell40">-</div>`;
+          }
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Payment Status</label>',
+        data: 'payment_status_data',
+        render: function (data, type, row, meta) {
+          if (data.code == 'not_paid') {
+            return `${data.name}`;
+          }
+          if (data.code == 'pending') {
+            return `${data.name}`;
+          }
+          if (data.code == 'paid') {
+            return `${data.name}`;
+          }
+          if (data.code == 'refunded') {
+            return `${data.name}`;
+          } else {
+            return `<div class="shipment-dashboard-tablecell40">-</div>`;
+          }
         },
       },
       {
@@ -104,66 +207,23 @@ function populateToTable(data) {
         },
       },
       {
-        title: '<label class="datatable-header-title">Status</label>',
-        data: 'parcel_status_data.code',
-        render: function (data, type, row, meta) {
-          if (data == 'waiting') {
-            return `<div class="parcel-dashboard-tablecell40">
-            <div class="parcel-dashboard-badge08">
-              <img alt="checkI5296" src="public/external/checki5296-srbj.svg" class="parcel-dashboard-check06">
-              <span class="parcel-dashboard-text098 TextxsMedium">
-                <span>${data}</span>
-              </span>
-            </div>
-          </div>`;
-          }
-          if (data == 'arrived') {
-            return `<div class="parcel-dashboard-tablecell40">
-                        <div class="parcel-dashboard-badge08">
-                          <img alt="checkI5296" src="public/external/checki5296-srbj.svg" class="parcel-dashboard-check06">
-                          <span class="parcel-dashboard-text098 TextxsMedium">
-                            <span>${data}</span>
-                          </span>
-                        </div>
-                      </div>`;
-          }
-          if (data.code == 'shipped') {
-            return `<div class="parcel-dashboard-tablecell40">
-            <div class="parcel-dashboard-badge08">
-              <img alt="checkI5296" src="public/external/checki5296-srbj.svg" class="parcel-dashboard-check06">
-              <span class="parcel-dashboard-text098 TextxsMedium">
-                <span>${data}</span>
-              </span>
-            </div>
-          </div>`;
-          } else {
-            return `<div class="parcel-dashboard-tablecell40">
-            <div class="parcel-dashboard-badge08">
-              <img alt="checkI5296" src="public/external/checki5296-srbj.svg" class="parcel-dashboard-check06">
-              <span class="parcel-dashboard-text098 TextxsMedium">
-                <span>${data}</span>
-              </span>
-            </div>
-          </div>`;
-          }
-        },
-      },
-      {
-        title: '<label class="datatable-header-title">Action</label>',
+        title: '<label class="datatable-header-title"></label>',
         data: 'id',
         orderable: false, // disable sorting for this column
         render: function (data, type, row, meta) {
+          // if (row.payment_status_data.code == 'not_paid') {
+          // <button class="dropdown-item" type="button" onclick="payShipment('${custom_id}')">
           return `<div class="datatable-item-container"><div class="datatable-item-title">
 
-          <div class="parcel-dashboard-tablecell48">
-                        <a class="parcel-dashboard-button03">
-                          <img alt="eyeI5296" src="public/external/eyei5296-tnpl.svg" class="parcel-dashboard-eye">
+          <div class="shipment-dashboard-tablecell48">
+                        <a class="shipment-dashboard-button03">
+                          <img alt="eyeI5296" src="public/external/eyei5296-tnpl.svg" class="shipment-dashboard-eye">
                         </a>
-                        <a onclick="deleteTracking(${data}, this)" class="parcel-dashboard-button04">
-                          <img alt="trash01I5296" src="public/external/trash01i5296-x52rd.svg" class="parcel-dashboard-trash01">
+                        <a onclick="deleteShipment(${data}, this)" class="shipment-dashboard-button04">
+                          <img alt="trash01I5296" src="public/external/trash01i5296-x52rd.svg" class="shipment-dashboard-trash01">
                         </a>
-                        <a onclick="editParcel(${data}, this)" class="parcel-dashboard-button05">
-                          <img alt="edit01I5296" src="public/external/edit01i5296-lv4a.svg" class="parcel-dashboard-edit01">
+                        <a onclick="editShipment(${data}, this)" class="shipment-dashboard-button05">
+                          <img alt="edit01I5296" src="public/external/edit01i5296-lv4a.svg" class="shipment-dashboard-edit01">
                         </a>
                       </div>
 
@@ -292,9 +352,9 @@ function deleteTracking(id, button) {
     });
 }
 
-function getParcelList() {
+function getShipmentList() {
   fetchAPI(
-    'https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/parcel',
+    'https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/shipment',
     'GET',
     token,
     null
@@ -304,7 +364,7 @@ function getParcelList() {
         showToast('alert-toast-container', data.message, 'danger');
         tableLoader.style.display = 'none';
       } else {
-        tableData = data.parcel_list;
+        tableData = data.shipment_list;
         populateToTable();
       }
     })
@@ -314,71 +374,4 @@ function getParcelList() {
     });
 }
 
-var inputTrackingNumber = document.getElementById('input-tracking-number');
-var inputParcelContent = document.getElementById('input-parcel-content');
-var inputParcelValue = document.getElementById('input-parcel-value');
-var inputLength = document.getElementById('input-parcel-length');
-var inputWidth = document.getElementById('input-parcel-width');
-var inputHeight = document.getElementById('input-parcel-height');
-var inputWeight = document.getElementById('input-parcel-weight');
-var inputName = document.getElementById('input-name');
-var inputEmail = document.getElementById('input-email');
-var inputPhoneNumber = document.getElementById('input-phone-number');
-var inputRemark = document.getElementById('input-remark');
-
-document
-  .getElementById('add-new-parcel-form')
-  .addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    let useBtn = document.querySelector('#add-new-parcel-submit-btn');
-    let defaultBtnText = useBtn.innerHTML;
-
-    useBtn.disabled = true;
-    useBtn.innerHTML = `${spinner} ${useBtn.innerHTML}`;
-
-    const options = {
-      body: JSON.stringify({
-        tracking_number: inputTrackingNumber.value,
-        content: inputParcelContent.value,
-        value: inputParcelValue.value,
-        length: inputLength.value,
-        width: inputWidth.value,
-        height: inputHeight.value,
-        weight: inputWeight.value,
-        name: inputName.value,
-        email: inputEmail.value,
-        phone: inputPhoneNumber.value,
-        note: inputRemark.value,
-      }),
-    };
-
-    fetchAPI(
-      'https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/parcel',
-      'POST',
-      token,
-      options
-    )
-      .then((data) => {
-        useBtn.disabled = false;
-        useBtn.innerHTML = defaultBtnText;
-        if (data?.message) {
-          showToast('alert-toast-container', data.message, 'danger');
-        } else {
-          $('#newParcelModal').modal('hide');
-          $('#example').DataTable().row.add(data.new_parcel).draw().node();
-          showToast(
-            'alert-toast-container',
-            'New parcel added successfully!',
-            'success'
-          );
-        }
-      })
-      .catch((error) => {
-        useBtn.disabled = false;
-        useBtn.innerHTML = defaultBtnText;
-        console.log('error', error);
-      });
-  });
-
-getParcelList();
+getShipmentList();

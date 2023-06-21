@@ -606,12 +606,12 @@
   flex-direction: column;
 }
 .shipment-dashboard-container2 {
-  gap: 24px;
-  display: flex;
+  /* gap: 24px;
+  display: flex; */
   padding: 0 32px;
-  align-self: stretch;
+  /* align-self: stretch;
   align-items: flex-start;
-  flex-direction: column;
+  flex-direction: column; */
 }
 .shipment-dashboard-table {
   display: flex;

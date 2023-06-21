@@ -109,7 +109,7 @@ function continueOauth(code) {
             userData: data.userData,
             authToken: data.authToken,
           });
-          location.href = '/home-dashboard-user';
+          location.href = 'home-dashboard-user';
         } else {
           showToast('alert-toast-container', 'Token not found', 'danger');
         }

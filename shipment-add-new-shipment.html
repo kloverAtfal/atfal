@@ -11,7 +11,83 @@
     <meta property="twitter:card" content="summary_large_image" />
 
     <style data-tag="reset-style-sheet">
-      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+      html {
+        line-height: 1.15;
+      }
+      body {
+        margin: 0;
+      }
+      * {
+        box-sizing: border-box;
+        border-width: 0;
+        border-style: solid;
+      }
+      p,
+      li,
+      ul,
+      pre,
+      div,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      figure,
+      blockquote,
+      figcaption {
+        margin: 0;
+        padding: 0;
+      }
+      button {
+        background-color: transparent;
+      }
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        font-family: inherit;
+        font-size: 100%;
+        line-height: 1.15;
+        margin: 0;
+      }
+      button,
+      select {
+        text-transform: none;
+      }
+      button,
+      [type='button'],
+      [type='reset'],
+      [type='submit'] {
+        -webkit-appearance: button;
+      }
+      button::-moz-focus-inner,
+      [type='button']::-moz-focus-inner,
+      [type='reset']::-moz-focus-inner,
+      [type='submit']::-moz-focus-inner {
+        border-style: none;
+        padding: 0;
+      }
+      button:-moz-focus,
+      [type='button']:-moz-focus,
+      [type='reset']:-moz-focus,
+      [type='submit']:-moz-focus {
+        outline: 1px dotted ButtonText;
+      }
+      a {
+        color: inherit;
+        text-decoration: inherit;
+      }
+      input {
+        padding: 2px 4px;
+      }
+      img {
+        display: block;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
     </style>
     <style data-tag="default-style-sheet">
       html {
@@ -21,14 +97,13 @@
 
       body {
         font-weight: 400;
-        font-style:normal;
+        font-style: normal;
         text-decoration: none;
         text-transform: none;
         letter-spacing: normal;
         line-height: 1.15;
         color: var(--dl-color-gray-black);
         background-color: var(--dl-color-gray-white);
-
       }
     </style>
     <link
@@ -44,15 +119,27 @@
     <!--This is the head section-->
     <!-- <style> ... </style> -->
     <style data-section-id="dropdown">
-      [data-thq="thq-dropdown"]:hover > [data-thq="thq-dropdown-list"] {
-          display: flex;
-        }
+      [data-thq='thq-dropdown']:hover > [data-thq='thq-dropdown-list'] {
+        display: flex;
+      }
 
-        [data-thq="thq-dropdown"]:hover > div [data-thq="thq-dropdown-arrow"] {
-          transform: rotate(90deg);
-        }
+      [data-thq='thq-dropdown']:hover > div [data-thq='thq-dropdown-arrow'] {
+        transform: rotate(90deg);
+      }
     </style>
     <link rel="stylesheet" href="./style.css" />
+    <!-- My function 1 -->
+    <script src="functions/apiHelper.js"></script>
+    <script src="functions/globalFunction.js"></script>
+    <script src="functions/shareComponent.js"></script>
+    <link rel="stylesheet" href="./components/sidebarnavigation.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   </head>
   <body>
     <div>
@@ -60,200 +147,14 @@
 
       <div class="shipment-add-new-shipment-container">
         <div class="shipment-add-new-shipment-contents">
-          <div class="sidebarnavigation-shipment-sidebarnavigationparcel">
-            <div class="sidebarnavigation-shipment-content">
-              <div class="sidebarnavigation-shipment-nav">
-                <div class="sidebarnavigation-shipment-header">
-                  <div class="sidebarnavigation-shipment-logo">
-                    <div class="sidebarnavigation-shipment-logowrap">
-                      <div class="sidebarnavigation-shipment-logomark">
-                        <img
-                          alt="Frame1I5236"
-                          src="public/external/frame1i5236-aiyo.svg"
-                          class="sidebarnavigation-shipment-frame1"
-                        />
-                      </div>
-                      <img
-                        alt="LogotypeI5236"
-                        src="public/external/logotypei5236-1fz.svg"
-                        class="sidebarnavigation-shipment-logotype"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div class="sidebarnavigation-shipment-search">
-                  <div class="sidebarnavigation-shipment-inputdropdown">
-                    <div class="sidebarnavigation-shipment-inputwithlabel">
-                      <div class="sidebarnavigation-shipment-input">
-                        <div class="sidebarnavigation-shipment-content1">
-                          <img
-                            alt="searchlgI5236"
-                            src="public/external/searchlgi5236-p0fh.svg"
-                            class="sidebarnavigation-shipment-searchlg"
-                          />
-                          <span
-                            class="sidebarnavigation-shipment-text TextmdRegular"
-                          >
-                            <span>Search</span>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="sidebarnavigation-shipment-navigation">
-                  <a
-                    href="home-dashboard-user.html"
-                    class="sidebarnavigation-shipment-navlink"
-                  >
-                    <div class="sidebarnavigation-shipment-frame-navitembase">
-                      <div class="sidebarnavigation-shipment-content2">
-                        <img
-                          alt="homelineI5236"
-                          src="public/external/homelinei5236-pi1s.svg"
-                          class="sidebarnavigation-shipment-homeline"
-                        />
-                        <span
-                          class="sidebarnavigation-shipment-text02 TextmdSemibold"
-                        >
-                          <span>Home</span>
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                  <a
-                    href="parcel-dashboard.html"
-                    class="sidebarnavigation-shipment-navlink1"
-                  >
-                    <div class="sidebarnavigation-shipment-frame-navitembase1">
-                      <div class="sidebarnavigation-shipment-content3">
-                        <img
-                          alt="packageI5236"
-                          src="public/external/packagei5236-2yjj.svg"
-                          class="sidebarnavigation-shipment-package"
-                        />
-                        <span
-                          class="sidebarnavigation-shipment-text04 TextmdSemibold"
-                        >
-                          <span>Parcel</span>
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                  <a
-                    href="shipment-dashboard.html"
-                    class="sidebarnavigation-shipment-navlink2"
-                  >
-                    <div class="sidebarnavigation-shipment-frame-navitembase2">
-                      <div class="sidebarnavigation-shipment-content4">
-                        <img
-                          alt="planeI5236"
-                          src="public/external/planei5236-zdu.svg"
-                          class="sidebarnavigation-shipment-plane"
-                        />
-                        <span
-                          class="sidebarnavigation-shipment-text06 TextmdSemibold"
-                        >
-                          <span>Shipment</span>
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                  <a
-                    href="transaction-dashboard-alipay-top-up.html"
-                    class="sidebarnavigation-shipment-navlink3"
-                  >
-                    <div class="sidebarnavigation-shipment-frame-navitembase3">
-                      <div class="sidebarnavigation-shipment-content5">
-                        <img
-                          alt="banknote01I5236"
-                          src="public/external/banknote01i5236-cpa.svg"
-                          class="sidebarnavigation-shipment-banknote01"
-                        />
-                        <span
-                          class="sidebarnavigation-shipment-text08 TextmdSemibold"
-                        >
-                          <span>Transactions</span>
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                  <a
-                    href="affiliates-dashboard.html"
-                    class="sidebarnavigation-shipment-navlink4"
-                  >
-                    <div class="sidebarnavigation-shipment-frame-navitembase4">
-                      <div class="sidebarnavigation-shipment-content6">
-                        <img
-                          alt="users01I5236"
-                          src="public/external/users01i5236-f4q.svg"
-                          class="sidebarnavigation-shipment-users01"
-                        />
-                        <span
-                          class="sidebarnavigation-shipment-text10 TextmdSemibold"
-                        >
-                          <span>Affiliates</span>
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="sidebarnavigation-shipment-footer">
-                <div class="sidebarnavigation-shipment-navigation1">
-                  <a
-                    href="settings-my-profile.html"
-                    class="sidebarnavigation-shipment-navlink5"
-                  >
-                    <div class="sidebarnavigation-shipment-frame-navitembase5">
-                      <div class="sidebarnavigation-shipment-content7">
-                        <img
-                          alt="settings01I5236"
-                          src="public/external/settings01i5236-dwy.svg"
-                          class="sidebarnavigation-shipment-settings01"
-                        />
-                        <span
-                          class="sidebarnavigation-shipment-text12 TextmdSemibold"
-                        >
-                          <span>Settings</span>
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <a
-                  href="index.html"
-                  class="sidebarnavigation-shipment-navlink6"
-                >
-                  <div class="sidebarnavigation-shipment-account">
-                    <div class="sidebarnavigation-shipment-avatarlabelgroup">
-                      <div class="sidebarnavigation-shipment-avatar"></div>
-                      <div
-                        class="sidebarnavigation-shipment-textandsupportingtext"
-                      >
-                        <span
-                          class="sidebarnavigation-shipment-text14 TextsmSemibold"
-                        >
-                          <span>Ahmad Mursyid</span>
-                        </span>
-                        <span class="sidebarnavigation-shipment-text16">
-                          <span>mursyid@atfal.com</span>
-                        </span>
-                      </div>
-                    </div>
-                    <button class="sidebarnavigation-shipment-button">
-                      <img
-                        alt="logout01I5236"
-                        src="public/external/logout01i5236-ixha.svg"
-                        class="sidebarnavigation-shipment-logout01"
-                      />
-                    </button>
-                  </div>
-                </a>
-              </div>
-            </div>
+          <div id="sidebar-navigation">
+            <!-- sidebarNavigation -->
           </div>
-          <div class="shipment-add-new-shipment-main">
+          <div
+            class="shipment-add-new-shipment-main"
+            id="body-content"
+            style="display: none"
+          >
             <div class="shipment-add-new-shipment-headersection">
               <div class="shipment-add-new-shipment-container1">
                 <div class="shipment-add-new-shipment-breadcrumbs">
@@ -373,7 +274,7 @@
             </div>
             <div class="shipment-add-new-shipment-section">
               <div class="shipment-add-new-shipment-container2">
-                <div class="shipment-add-new-shipment-form">
+                <form class="shipment-add-new-shipment-form" id="shipment-form">
                   <div class="shipment-add-new-shipment-content01">
                     <div
                       class="shipment-add-new-shipment-textandsupportingtext1"
@@ -398,50 +299,22 @@
                             >
                               <span>Parcel</span>
                             </span>
-                            <div class="shipment-add-new-shipment-input">
-                              <div class="shipment-add-new-shipment-content03">
-                                <img
-                                  alt="packagesearchI5239"
-                                  src="public/external/packagesearchi5239-5k4ie.svg"
-                                  class="shipment-add-new-shipment-packagesearch"
-                                />
-                                <span
-                                  class="shipment-add-new-shipment-text016 TextmdMedium"
-                                >
-                                  <span>Select parcel</span>
-                                </span>
-                              </div>
+
+                            <div
+                              class="shipment-add-new-shipment-content03 shipment-add-new-shipment-input"
+                            >
                               <img
-                                alt="chevrondownI5239"
-                                src="public/external/chevrondowni5239-07h9.svg"
-                                class="shipment-add-new-shipment-chevrondown"
+                                alt="packagesearchI5239"
+                                src="public/external/packagesearchi5239-5k4ie.svg"
+                                class="shipment-add-new-shipment-packagesearch"
                               />
+                              <select
+                                class="form-control shipment-add-new-shipment-text016 TextmdMedium"
+                                id="input-select-parcel"
+                                required
+                                style="border: 0px; outline: 0px"
+                              ></select>
                             </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="shipment-add-new-shipment-sectionfooter">
-                        <img
-                          alt="DividerI5239"
-                          src="public/external/divideri5239-m6.svg"
-                          class="shipment-add-new-shipment-divider1"
-                        />
-                        <div class="shipment-add-new-shipment-content04">
-                          <div class="shipment-add-new-shipment-actions1">
-                            <button class="shipment-add-new-shipment-button03">
-                              <span
-                                class="shipment-add-new-shipment-text018 TextsmSemibold"
-                              >
-                                <span>Cancel</span>
-                              </span>
-                            </button>
-                            <button class="shipment-add-new-shipment-button04">
-                              <span
-                                class="shipment-add-new-shipment-text020 TextsmSemibold"
-                              >
-                                <span>Save changes</span>
-                              </span>
-                            </button>
                           </div>
                         </div>
                       </div>
@@ -454,7 +327,7 @@
                       <span
                         class="shipment-add-new-shipment-text022 TextsmMedium"
                       >
-                        <span>Sender Derails</span>
+                        <span>Sender Details</span>
                       </span>
                       <span
                         class="shipment-add-new-shipment-text024 TextsmRegular"
@@ -473,15 +346,14 @@
                             >
                               <span>Name</span>
                             </span>
-                            <div class="shipment-add-new-shipment-input01">
-                              <div class="shipment-add-new-shipment-content07">
-                                <span
-                                  class="shipment-add-new-shipment-text028 TextmdRegular"
-                                >
-                                  <span>Mursyid</span>
-                                </span>
-                              </div>
-                            </div>
+                            <input
+                              maxlength="100"
+                              type="text"
+                              class="shipment-add-new-shipment-input01"
+                              id="input-sender-name"
+                              placeholder=""
+                              required
+                            />
                           </div>
                         </div>
                         <div class="shipment-add-new-shipment-inputfields">
@@ -503,16 +375,14 @@
                                     src="public/external/mail01i5239-10tl.svg"
                                     class="shipment-add-new-shipment-mail01"
                                   />
-                                  <span
+                                  <input
+                                    maxlength="100"
+                                    type="email"
                                     class="shipment-add-new-shipment-text032"
-                                  >
-                                    <span
-                                      class="shipment-add-new-shipment-text033"
-                                    >
-                                      mursyid
-                                    </span>
-                                    <span>@atfal.com</span>
-                                  </span>
+                                    id="input-sender-email"
+                                    placeholder=""
+                                    required
+                                  />
                                 </div>
                               </div>
                             </div>
@@ -535,101 +405,101 @@
                                     src="public/external/phonei5239-3yro.svg"
                                     class="shipment-add-new-shipment-phone"
                                   />
-                                  <span
-                                    class="shipment-add-new-shipment-text037 TextmdRegular"
-                                  >
-                                    <span>0123456789</span>
-                                  </span>
+                                  <input
+                                    maxlength="100"
+                                    type="text"
+                                    class="shipment-add-new-shipment-text037"
+                                    id="input-sender-phone-number"
+                                    placeholder=""
+                                    required
+                                  />
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                        <div class="shipment-add-new-shipment-inputfield03">
+
+                        <div class="shipment-add-new-shipment-inputfield">
                           <div
-                            class="shipment-add-new-shipment-inputwithlabel04"
+                            class="shipment-add-new-shipment-inputwithlabel01"
                           >
                             <span
-                              class="shipment-add-new-shipment-text039 TextsmMedium"
+                              class="shipment-add-new-shipment-text026 TextsmMedium"
                             >
                               <span>Address 1</span>
                             </span>
-                            <div class="shipment-add-new-shipment-input04">
-                              <div class="shipment-add-new-shipment-content10">
-                                <span
-                                  class="shipment-add-new-shipment-text041 TextmdRegular"
-                                >
-                                  <span>1234</span>
-                                </span>
-                              </div>
-                            </div>
+                            <input
+                              maxlength="100"
+                              type="text"
+                              class="shipment-add-new-shipment-input01"
+                              id="input-sender-address-1"
+                              placeholder=""
+                              required
+                            />
                           </div>
                         </div>
-                        <div class="shipment-add-new-shipment-inputfield04">
+
+                        <div class="shipment-add-new-shipment-inputfield">
                           <div
-                            class="shipment-add-new-shipment-inputwithlabel05"
+                            class="shipment-add-new-shipment-inputwithlabel01"
                           >
                             <span
-                              class="shipment-add-new-shipment-text043 TextsmMedium"
+                              class="shipment-add-new-shipment-text026 TextsmMedium"
                             >
                               <span>Address 2</span>
                             </span>
-                            <div class="shipment-add-new-shipment-input05">
-                              <div class="shipment-add-new-shipment-content11">
-                                <span
-                                  class="shipment-add-new-shipment-text045 TextmdRegular"
-                                >
-                                  <span>Road ABC</span>
-                                </span>
-                              </div>
-                            </div>
+                            <input
+                              maxlength="100"
+                              type="text"
+                              class="shipment-add-new-shipment-input01"
+                              id="input-sender-address-2"
+                              placeholder=""
+                              required
+                            />
                           </div>
                         </div>
+
                         <div class="shipment-add-new-shipment-inputfields1">
-                          <div class="shipment-add-new-shipment-inputfield05">
+                          <div class="shipment-add-new-shipment-inputfield">
                             <div
-                              class="shipment-add-new-shipment-inputwithlabel06"
+                              class="shipment-add-new-shipment-inputwithlabel01"
                             >
                               <span
-                                class="shipment-add-new-shipment-text047 TextsmMedium"
+                                class="shipment-add-new-shipment-text026 TextsmMedium"
                               >
                                 <span>Postcode</span>
                               </span>
-                              <div class="shipment-add-new-shipment-input06">
-                                <div
-                                  class="shipment-add-new-shipment-content12"
-                                >
-                                  <span
-                                    class="shipment-add-new-shipment-text049"
-                                  >
-                                    <span>12345</span>
-                                  </span>
-                                </div>
-                              </div>
+                              <input
+                                maxlength="100"
+                                type="text"
+                                class="shipment-add-new-shipment-input01"
+                                id="input-sender-postcode"
+                                placeholder=""
+                                required
+                              />
                             </div>
                           </div>
-                          <div class="shipment-add-new-shipment-inputfield06">
+
+                          <div class="shipment-add-new-shipment-inputfield">
                             <div
-                              class="shipment-add-new-shipment-inputwithlabel07"
+                              class="shipment-add-new-shipment-inputwithlabel01"
                             >
                               <span
-                                class="shipment-add-new-shipment-text051 TextsmMedium"
+                                class="shipment-add-new-shipment-text026 TextsmMedium"
                               >
-                                <span>State</span>
+                                <span>City</span>
                               </span>
-                              <div class="shipment-add-new-shipment-input07">
-                                <div
-                                  class="shipment-add-new-shipment-content13"
-                                >
-                                  <span
-                                    class="shipment-add-new-shipment-text053 TextmdRegular"
-                                  >
-                                    <span>Kuala Lumpur</span>
-                                  </span>
-                                </div>
-                              </div>
+                              <input
+                                maxlength="100"
+                                type="text"
+                                class="shipment-add-new-shipment-input01"
+                                id="input-sender-city"
+                                placeholder=""
+                                required
+                              />
                             </div>
                           </div>
+
                           <div class="shipment-add-new-shipment-inputdropdown1">
                             <div
                               class="shipment-add-new-shipment-inputwithlabel08"
@@ -637,55 +507,17 @@
                               <span
                                 class="shipment-add-new-shipment-text055 TextsmMedium"
                               >
-                                <span>Country</span>
+                                <span>State / Province</span>
                               </span>
-                              <div class="shipment-add-new-shipment-input08">
-                                <div
-                                  class="shipment-add-new-shipment-content14"
-                                >
-                                  <img
-                                    alt="MYI5239"
-                                    src="public/external/myi5239-6cxk.svg"
-                                    class="shipment-add-new-shipment-my"
-                                  />
-                                  <span
-                                    class="shipment-add-new-shipment-text057 TextmdMedium"
-                                  >
-                                    <span>Malaysia</span>
-                                  </span>
-                                </div>
-                                <img
-                                  alt="chevrondownI5239"
-                                  src="public/external/chevrondowni5239-89g5.svg"
-                                  class="shipment-add-new-shipment-chevrondown1"
-                                />
-                              </div>
+                              <input
+                                maxlength="100"
+                                type="text"
+                                class="shipment-add-new-shipment-input01"
+                                id="input-sender-state-province"
+                                placeholder=""
+                                required
+                              />
                             </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="shipment-add-new-shipment-sectionfooter1">
-                        <img
-                          alt="DividerI5239"
-                          src="public/external/divideri5239-4ndm.svg"
-                          class="shipment-add-new-shipment-divider2"
-                        />
-                        <div class="shipment-add-new-shipment-content15">
-                          <div class="shipment-add-new-shipment-actions2">
-                            <button class="shipment-add-new-shipment-button05">
-                              <span
-                                class="shipment-add-new-shipment-text059 TextsmSemibold"
-                              >
-                                <span>Cancel</span>
-                              </span>
-                            </button>
-                            <button class="shipment-add-new-shipment-button06">
-                              <span
-                                class="shipment-add-new-shipment-text061 TextsmSemibold"
-                              >
-                                <span>Save changes</span>
-                              </span>
-                            </button>
                           </div>
                         </div>
                       </div>
@@ -706,8 +538,9 @@
                         <span>Update your photo and personal details.</span>
                       </span>
                     </div>
-                    <div class="shipment-add-new-shipment-form3">
-                      <div class="shipment-add-new-shipment-content17">
+
+                    <div class="shipment-add-new-shipment-form2">
+                      <div class="shipment-add-new-shipment-content06">
                         <div class="shipment-add-new-shipment-inputdropdown2">
                           <div
                             class="shipment-add-new-shipment-inputwithlabel09"
@@ -724,242 +557,196 @@
                                   src="public/external/packagesearchi5239-e1ta.svg"
                                   class="shipment-add-new-shipment-packagesearch1"
                                 />
-                                <span
-                                  class="shipment-add-new-shipment-text069 TextmdMedium"
-                                >
-                                  <span>Select address</span>
-                                </span>
                               </div>
-                              <img
-                                alt="chevrondownI5239"
-                                src="public/external/chevrondowni5239-v2kf.svg"
-                                class="shipment-add-new-shipment-chevrondown2"
-                              />
+                              <select
+                                class="form-control shipment-add-new-shipment-text016 TextmdMedium"
+                                id="input-select-save-address"
+                                style="border: 0px; outline: 0px"
+                              ></select>
                             </div>
                           </div>
                         </div>
-                        <div class="shipment-add-new-shipment-inputfield07">
+                        <div class="shipment-add-new-shipment-inputfield">
                           <div
-                            class="shipment-add-new-shipment-inputwithlabel10"
+                            class="shipment-add-new-shipment-inputwithlabel01"
                           >
                             <span
-                              class="shipment-add-new-shipment-text071 TextsmMedium"
+                              class="shipment-add-new-shipment-text026 TextsmMedium"
                             >
                               <span>Name</span>
                             </span>
-                            <div class="shipment-add-new-shipment-input10">
-                              <div class="shipment-add-new-shipment-content19">
-                                <span
-                                  class="shipment-add-new-shipment-text073 TextmdRegular"
-                                >
-                                  <span>Mursyid</span>
-                                </span>
-                              </div>
-                            </div>
+                            <input
+                              maxlength="100"
+                              type="text"
+                              class="shipment-add-new-shipment-input01"
+                              id="input-receiver-name"
+                              placeholder=""
+                              required
+                            />
                           </div>
                         </div>
-                        <div class="shipment-add-new-shipment-inputfields2">
-                          <div class="shipment-add-new-shipment-inputfield08">
+                        <div class="shipment-add-new-shipment-inputfields">
+                          <div class="shipment-add-new-shipment-inputfield01">
                             <div
-                              class="shipment-add-new-shipment-inputwithlabel11"
+                              class="shipment-add-new-shipment-inputwithlabel02"
                             >
                               <span
-                                class="shipment-add-new-shipment-text075 TextsmMedium"
+                                class="shipment-add-new-shipment-text030 TextsmMedium"
                               >
                                 <span>Email address</span>
                               </span>
-                              <div class="shipment-add-new-shipment-input11">
+                              <div class="shipment-add-new-shipment-input02">
                                 <div
-                                  class="shipment-add-new-shipment-content20"
+                                  class="shipment-add-new-shipment-content08"
                                 >
                                   <img
                                     alt="mail01I5239"
-                                    src="public/external/mail01i5239-pxyr.svg"
-                                    class="shipment-add-new-shipment-mail011"
+                                    src="public/external/mail01i5239-10tl.svg"
+                                    class="shipment-add-new-shipment-mail01"
                                   />
-                                  <span
-                                    class="shipment-add-new-shipment-text077"
-                                  >
-                                    <span
-                                      class="shipment-add-new-shipment-text078"
-                                    >
-                                      mursyid
-                                    </span>
-                                    <span>@atfal.com</span>
-                                  </span>
+                                  <input
+                                    maxlength="100"
+                                    type="email"
+                                    class="shipment-add-new-shipment-text032"
+                                    id="input-receiver-email"
+                                    placeholder=""
+                                    required
+                                  />
                                 </div>
                               </div>
                             </div>
                           </div>
-                          <div class="shipment-add-new-shipment-inputfield09">
+                          <div class="shipment-add-new-shipment-inputfield02">
                             <div
-                              class="shipment-add-new-shipment-inputwithlabel12"
+                              class="shipment-add-new-shipment-inputwithlabel03"
                             >
                               <span
-                                class="shipment-add-new-shipment-text080 TextsmMedium"
+                                class="shipment-add-new-shipment-text035 TextsmMedium"
                               >
                                 <span>Phone Number</span>
                               </span>
-                              <div class="shipment-add-new-shipment-input12">
+                              <div class="shipment-add-new-shipment-input03">
                                 <div
-                                  class="shipment-add-new-shipment-content21"
+                                  class="shipment-add-new-shipment-content09"
                                 >
                                   <img
                                     alt="phoneI5239"
-                                    src="public/external/phonei5239-fvx3.svg"
-                                    class="shipment-add-new-shipment-phone1"
+                                    src="public/external/phonei5239-3yro.svg"
+                                    class="shipment-add-new-shipment-phone"
                                   />
-                                  <span
-                                    class="shipment-add-new-shipment-text082 TextmdRegular"
-                                  >
-                                    <span>0123456789</span>
-                                  </span>
+                                  <input
+                                    maxlength="100"
+                                    type="text"
+                                    class="shipment-add-new-shipment-text037"
+                                    id="input-receiver-phone-number"
+                                    placeholder=""
+                                    required
+                                  />
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                        <div class="shipment-add-new-shipment-inputfield10">
+
+                        <div class="shipment-add-new-shipment-inputfield">
                           <div
-                            class="shipment-add-new-shipment-inputwithlabel13"
+                            class="shipment-add-new-shipment-inputwithlabel01"
                           >
                             <span
-                              class="shipment-add-new-shipment-text084 TextsmMedium"
+                              class="shipment-add-new-shipment-text026 TextsmMedium"
                             >
                               <span>Address 1</span>
                             </span>
-                            <div class="shipment-add-new-shipment-input13">
-                              <div class="shipment-add-new-shipment-content22">
-                                <span
-                                  class="shipment-add-new-shipment-text086 TextmdRegular"
-                                >
-                                  <span>1234</span>
-                                </span>
-                              </div>
-                            </div>
+                            <input
+                              maxlength="100"
+                              type="text"
+                              class="shipment-add-new-shipment-input01"
+                              id="input-receiver-address-1"
+                              placeholder=""
+                              required
+                            />
                           </div>
                         </div>
-                        <div class="shipment-add-new-shipment-inputfield11">
+
+                        <div class="shipment-add-new-shipment-inputfield">
                           <div
-                            class="shipment-add-new-shipment-inputwithlabel14"
+                            class="shipment-add-new-shipment-inputwithlabel01"
                           >
                             <span
-                              class="shipment-add-new-shipment-text088 TextsmMedium"
+                              class="shipment-add-new-shipment-text026 TextsmMedium"
                             >
                               <span>Address 2</span>
                             </span>
-                            <div class="shipment-add-new-shipment-input14">
-                              <div class="shipment-add-new-shipment-content23">
-                                <span
-                                  class="shipment-add-new-shipment-text090 TextmdRegular"
-                                >
-                                  <span>Road ABC</span>
-                                </span>
-                              </div>
-                            </div>
+                            <input
+                              maxlength="100"
+                              type="text"
+                              class="shipment-add-new-shipment-input01"
+                              id="input-receiver-address-2"
+                              placeholder=""
+                              required
+                            />
                           </div>
                         </div>
-                        <div class="shipment-add-new-shipment-inputfields3">
-                          <div class="shipment-add-new-shipment-inputfield12">
+
+                        <div class="shipment-add-new-shipment-inputfields1">
+                          <div class="shipment-add-new-shipment-inputfield">
                             <div
-                              class="shipment-add-new-shipment-inputwithlabel15"
+                              class="shipment-add-new-shipment-inputwithlabel01"
                             >
                               <span
-                                class="shipment-add-new-shipment-text092 TextsmMedium"
+                                class="shipment-add-new-shipment-text026 TextsmMedium"
                               >
                                 <span>Postcode</span>
                               </span>
-                              <div class="shipment-add-new-shipment-input15">
-                                <div
-                                  class="shipment-add-new-shipment-content24"
-                                >
-                                  <span
-                                    class="shipment-add-new-shipment-text094"
-                                  >
-                                    <span>12345</span>
-                                  </span>
-                                </div>
-                              </div>
+                              <input
+                                maxlength="100"
+                                type="text"
+                                class="shipment-add-new-shipment-input01"
+                                id="input-receiver-postcode"
+                                placeholder=""
+                                required
+                              />
                             </div>
                           </div>
-                          <div class="shipment-add-new-shipment-inputfield13">
+
+                          <div class="shipment-add-new-shipment-inputfield">
                             <div
-                              class="shipment-add-new-shipment-inputwithlabel16"
+                              class="shipment-add-new-shipment-inputwithlabel01"
                             >
                               <span
-                                class="shipment-add-new-shipment-text096 TextsmMedium"
+                                class="shipment-add-new-shipment-text026 TextsmMedium"
                               >
-                                <span>State</span>
+                                <span>City</span>
                               </span>
-                              <div class="shipment-add-new-shipment-input16">
-                                <div
-                                  class="shipment-add-new-shipment-content25"
-                                >
-                                  <span
-                                    class="shipment-add-new-shipment-text098 TextmdRegular"
-                                  >
-                                    <span>Kuala Lumpur</span>
-                                  </span>
-                                </div>
-                              </div>
+                              <input
+                                maxlength="100"
+                                type="text"
+                                class="shipment-add-new-shipment-input01"
+                                id="input-receiver-city"
+                                placeholder=""
+                                required
+                              />
                             </div>
                           </div>
-                          <div class="shipment-add-new-shipment-inputdropdown3">
+
+                          <div class="shipment-add-new-shipment-inputdropdown1">
                             <div
-                              class="shipment-add-new-shipment-inputwithlabel17"
+                              class="shipment-add-new-shipment-inputwithlabel08"
                             >
                               <span
-                                class="shipment-add-new-shipment-text100 TextsmMedium"
+                                class="shipment-add-new-shipment-text055 TextsmMedium"
                               >
-                                <span>Country</span>
+                                <span>State / Province</span>
                               </span>
-                              <div class="shipment-add-new-shipment-input17">
-                                <div
-                                  class="shipment-add-new-shipment-content26"
-                                >
-                                  <img
-                                    alt="MYI5239"
-                                    src="public/external/myi5239-aej7.svg"
-                                    class="shipment-add-new-shipment-my1"
-                                  />
-                                  <span
-                                    class="shipment-add-new-shipment-text102 TextmdMedium"
-                                  >
-                                    <span>Malaysia</span>
-                                  </span>
-                                </div>
-                                <img
-                                  alt="chevrondownI5239"
-                                  src="public/external/chevrondowni5239-l0y.svg"
-                                  class="shipment-add-new-shipment-chevrondown3"
-                                />
-                              </div>
+                              <input
+                                maxlength="100"
+                                type="text"
+                                class="shipment-add-new-shipment-input01"
+                                id="input-receiver-state-province"
+                                placeholder=""
+                                required
+                              />
                             </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="shipment-add-new-shipment-sectionfooter2">
-                        <img
-                          alt="DividerI5239"
-                          src="public/external/divideri5239-1mvi.svg"
-                          class="shipment-add-new-shipment-divider3"
-                        />
-                        <div class="shipment-add-new-shipment-content27">
-                          <div class="shipment-add-new-shipment-actions3">
-                            <button class="shipment-add-new-shipment-button07">
-                              <span
-                                class="shipment-add-new-shipment-text104 TextsmSemibold"
-                              >
-                                <span>Cancel</span>
-                              </span>
-                            </button>
-                            <button class="shipment-add-new-shipment-button08">
-                              <span
-                                class="shipment-add-new-shipment-text106 TextsmSemibold"
-                              >
-                                <span>Save changes</span>
-                              </span>
-                            </button>
                           </div>
                         </div>
                       </div>
@@ -982,36 +769,45 @@
                     </div>
                     <div class="shipment-add-new-shipment-form4">
                       <div class="shipment-add-new-shipment-content29">
-                        <div class="shipment-add-new-shipment-inputdropdown4">
+                        <button
+                          class="btn btn-warning shipment-add-new-shipment-button04 shipment-add-new-shipment-text020 TextsmSemibold"
+                          id="get-available-courier-btn"
+                          tyoe="submi"
+                        >
+                          Get Available Courier
+                        </button>
+                        <div
+                          id="courier-service-section"
+                          class="shipment-add-new-shipment-inputdropdown4"
+                        >
                           <div
                             class="shipment-add-new-shipment-inputwithlabel18"
                           >
                             <span
                               class="shipment-add-new-shipment-text112 TextsmMedium"
                             >
-                              Company
+                              Courier Service
                             </span>
                             <div class="shipment-add-new-shipment-input18">
                               <div class="shipment-add-new-shipment-content30">
                                 <div
                                   class="shipment-add-new-shipment-logisticmethodicon"
                                 ></div>
-                                <span
-                                  class="shipment-add-new-shipment-text113 TextmdMedium"
-                                >
-                                  <span>DHL</span>
-                                </span>
                               </div>
-                              <img
-                                alt="chevrondownI5239"
-                                src="public/external/chevrondowni5239-pw88.svg"
-                                class="shipment-add-new-shipment-chevrondown4"
-                              />
+                              <select
+                                class="form-control shipment-add-new-shipment-text016 TextmdMedium"
+                                id="input-courier-company"
+                                style="border: 0px; outline: 0px"
+                              ></select>
                             </div>
                           </div>
                         </div>
-                        <div class="shipment-add-new-shipment-toggle">
-                          <div
+
+                        <div
+                          class="shipment-add-new-shipment-toggle"
+                          id="pickup-section-1"
+                        >
+                          <!-- <div
                             class="shipment-add-new-shipment-frame-togglebase"
                           >
                             <img
@@ -1019,18 +815,18 @@
                               src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/91000129-b09c-4551-b38d-861d463970e9/bc1fee2c-42fd-414c-9ba0-74dbb7b5c98b?org_if_sml=1686"
                               class="shipment-add-new-shipment-button09"
                             />
-                          </div>
+                          </div> -->
                           <div
                             class="shipment-add-new-shipment-textandsupportingtext5"
                           >
-                            <span
+                            <!-- <span
                               class="shipment-add-new-shipment-text115 TextsmMedium"
                             >
                               <span>
                                 Pickup - would like to pick up by myself at
                                 warehouse
                               </span>
-                            </span>
+                            </span> -->
                             <span
                               class="shipment-add-new-shipment-text117 TextsmRegular"
                             >
@@ -1040,44 +836,15 @@
                         </div>
                         <div
                           class="shipment-add-new-shipment-datepickerdropdown"
+                          id="pickup-section-2"
                         >
-                          <button class="shipment-add-new-shipment-button10">
-                            <img
-                              alt="calendarI5239"
-                              src="public/external/calendari5239-8xt.svg"
-                              class="shipment-add-new-shipment-calendar"
-                            />
-                            <span
-                              class="shipment-add-new-shipment-text119 TextsmSemibold"
-                            >
-                              <span>Select date</span>
-                            </span>
-                          </button>
-                        </div>
-                      </div>
-                      <div class="shipment-add-new-shipment-sectionfooter3">
-                        <img
-                          alt="DividerI5239"
-                          src="public/external/divideri5239-xvci.svg"
-                          class="shipment-add-new-shipment-divider4"
-                        />
-                        <div class="shipment-add-new-shipment-content31">
-                          <div class="shipment-add-new-shipment-actions4">
-                            <button class="shipment-add-new-shipment-button11">
-                              <span
-                                class="shipment-add-new-shipment-text121 TextsmSemibold"
-                              >
-                                <span>Cancel</span>
-                              </span>
-                            </button>
-                            <button class="shipment-add-new-shipment-button12">
-                              <span
-                                class="shipment-add-new-shipment-text123 TextsmSemibold"
-                              >
-                                <span>Save changes</span>
-                              </span>
-                            </button>
-                          </div>
+                          <input
+                            maxlength="30"
+                            type="date"
+                            class="form-control shipment-add-new-shipment-button10 shipment-add-new-shipment-text119 TextsmSemibold"
+                            id="input-courier-pickup-date"
+                            placeholder=""
+                          />
                         </div>
                       </div>
                     </div>
@@ -1116,55 +883,62 @@
                               <span
                                 class="shipment-add-new-shipment-text129 DisplaymdSemibold"
                               >
-                                $
+                                RM
                               </span>
                             </div>
                             <span
                               class="shipment-add-new-shipment-text130 DisplayxlSemibold"
+                              id="total-in-myr"
                             >
-                              <span>20</span>
+                              <span>0.00</span>
                             </span>
-                            <div class="shipment-add-new-shipment-periodwrap">
+                            <!-- <div class="shipment-add-new-shipment-periodwrap">
                               <span
                                 class="shipment-add-new-shipment-text132 TextmdMedium"
                               >
-                                <span>/ MYR 230.23</span>
+                                <span>/ - </span>
                               </span>
-                            </div>
+                            </div> -->
                           </div>
                         </div>
                       </div>
                       <div class="shipment-add-new-shipment-footer">
                         <div class="shipment-add-new-shipment-actions5">
-                          <a
-                            href="shipment-successful-add-new-shipment.html"
-                            class="shipment-add-new-shipment-button13"
+                          <button
+                            type="button"
+                            class="btn btn-warning shipment-add-new-shipment-button13 shipment-add-new-shipment-text134 TextmdSemibold"
+                            id="check-out-btn"
                           >
-                            <span
-                              class="shipment-add-new-shipment-text134 TextmdSemibold"
-                            >
-                              <span>Check Out</span>
-                            </span>
+                            Check Out
                             <img
                               alt="logout01I5239"
                               src="public/external/logout01i5239-u6pu.svg"
                               class="shipment-add-new-shipment-logout01"
                             />
-                          </a>
+                          </button>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </form>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div id="logout-modal-container">
+      <!-- logout modal -->
+    </div>
     <script
       data-section-id="navbar"
       src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
     ></script>
+    <!-- My function 2 -->
+    <div id="alert-toast-container">
+      <!-- alert toast -->
+    </div>
+    <script src="functions/shipment-add-new-shipment.js"></script>
+    <!--Data table -->
   </body>
 </html>

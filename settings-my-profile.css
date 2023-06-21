@@ -685,7 +685,7 @@
 .settings-my-profile-container2 {
   gap: 24px;
   display: flex;
-  padding: 0 32px;
+  /* padding: 0 32px; */
   align-self: stretch;
   align-items: flex-start;
   flex-direction: column;
@@ -1075,7 +1075,7 @@
   flex-direction: column;
   background-size: cover;
   justify-content: center;
-  background-image: url("https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/91000129-b09c-4551-b38d-861d463970e9/4dde3789-ed68-42cb-b447-64bb69f5a380?org_if_sml=110255");
+  background-color: rgb(147, 147, 147);
 }
 .settings-my-profile-fileupload {
   gap: 16px;

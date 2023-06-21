@@ -8,7 +8,83 @@
     <meta property="twitter:card" content="summary_large_image" />
 
     <style data-tag="reset-style-sheet">
-      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+      html {
+        line-height: 1.15;
+      }
+      body {
+        margin: 0;
+      }
+      * {
+        box-sizing: border-box;
+        border-width: 0;
+        border-style: solid;
+      }
+      p,
+      li,
+      ul,
+      pre,
+      div,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      figure,
+      blockquote,
+      figcaption {
+        margin: 0;
+        padding: 0;
+      }
+      button {
+        background-color: transparent;
+      }
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        font-family: inherit;
+        font-size: 100%;
+        line-height: 1.15;
+        margin: 0;
+      }
+      button,
+      select {
+        text-transform: none;
+      }
+      button,
+      [type='button'],
+      [type='reset'],
+      [type='submit'] {
+        -webkit-appearance: button;
+      }
+      button::-moz-focus-inner,
+      [type='button']::-moz-focus-inner,
+      [type='reset']::-moz-focus-inner,
+      [type='submit']::-moz-focus-inner {
+        border-style: none;
+        padding: 0;
+      }
+      button:-moz-focus,
+      [type='button']:-moz-focus,
+      [type='reset']:-moz-focus,
+      [type='submit']:-moz-focus {
+        outline: 1px dotted ButtonText;
+      }
+      a {
+        color: inherit;
+        text-decoration: inherit;
+      }
+      input {
+        padding: 2px 4px;
+      }
+      img {
+        display: block;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
     </style>
     <style data-tag="default-style-sheet">
       html {
@@ -18,14 +94,13 @@
 
       body {
         font-weight: 400;
-        font-style:normal;
+        font-style: normal;
         text-decoration: none;
         text-transform: none;
         letter-spacing: normal;
         line-height: 1.15;
         color: var(--dl-color-gray-black);
         background-color: var(--dl-color-gray-white);
-
       }
     </style>
     <link
@@ -41,15 +116,27 @@
     <!--This is the head section-->
     <!-- <style> ... </style> -->
     <style data-section-id="dropdown">
-      [data-thq="thq-dropdown"]:hover > [data-thq="thq-dropdown-list"] {
-          display: flex;
-        }
+      [data-thq='thq-dropdown']:hover > [data-thq='thq-dropdown-list'] {
+        display: flex;
+      }
 
-        [data-thq="thq-dropdown"]:hover > div [data-thq="thq-dropdown-arrow"] {
-          transform: rotate(90deg);
-        }
+      [data-thq='thq-dropdown']:hover > div [data-thq='thq-dropdown-arrow'] {
+        transform: rotate(90deg);
+      }
     </style>
     <link rel="stylesheet" href="./style.css" />
+    <!-- My function 1 -->
+    <script src="functions/apiHelper.js"></script>
+    <script src="functions/globalFunction.js"></script>
+    <script src="functions/shareComponent.js"></script>
+    <link rel="stylesheet" href="./components/sidebarnavigation.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   </head>
   <body>
     <div>
@@ -57,197 +144,14 @@
 
       <div class="parcel-add-new-parcel-container">
         <div class="parcel-add-new-parcel-contents">
-          <div class="sidebarnavigationparcel-sidebarnavigationparcel">
-            <div class="sidebarnavigationparcel-content">
-              <div class="sidebarnavigationparcel-nav">
-                <div class="sidebarnavigationparcel-header">
-                  <div class="sidebarnavigationparcel-logo">
-                    <div class="sidebarnavigationparcel-logowrap">
-                      <div class="sidebarnavigationparcel-logomark">
-                        <img
-                          alt="Frame1I5236"
-                          src="public/external/frame1i5236-aiyo.svg"
-                          class="sidebarnavigationparcel-frame1"
-                        />
-                      </div>
-                      <img
-                        alt="LogotypeI5236"
-                        src="public/external/logotypei5236-1fz.svg"
-                        class="sidebarnavigationparcel-logotype"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div class="sidebarnavigationparcel-search">
-                  <div class="sidebarnavigationparcel-inputdropdown">
-                    <div class="sidebarnavigationparcel-inputwithlabel">
-                      <div class="sidebarnavigationparcel-input">
-                        <div class="sidebarnavigationparcel-content1">
-                          <img
-                            alt="searchlgI5236"
-                            src="public/external/searchlgi5236-p0fh.svg"
-                            class="sidebarnavigationparcel-searchlg"
-                          />
-                          <span
-                            class="sidebarnavigationparcel-text TextmdRegular"
-                          >
-                            <span>Search</span>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="sidebarnavigationparcel-navigation">
-                  <a
-                    href="home-dashboard-user.html"
-                    class="sidebarnavigationparcel-navlink"
-                  >
-                    <div class="sidebarnavigationparcel-frame-navitembase">
-                      <div class="sidebarnavigationparcel-content2">
-                        <img
-                          alt="homelineI5236"
-                          src="public/external/homelinei5236-pi1s.svg"
-                          class="sidebarnavigationparcel-homeline"
-                        />
-                        <span
-                          class="sidebarnavigationparcel-text02 TextmdSemibold"
-                        >
-                          <span>Home</span>
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                  <a
-                    href="parcel-dashboard.html"
-                    class="sidebarnavigationparcel-navlink1"
-                  >
-                    <div class="sidebarnavigationparcel-frame-navitembase1">
-                      <div class="sidebarnavigationparcel-content3">
-                        <img
-                          alt="packageI5236"
-                          src="public/external/packagei5236-2yjj.svg"
-                          class="sidebarnavigationparcel-package"
-                        />
-                        <span
-                          class="sidebarnavigationparcel-text04 TextmdSemibold"
-                        >
-                          <span>Parcel</span>
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                  <a
-                    href="shipment-dashboard.html"
-                    class="sidebarnavigationparcel-navlink2"
-                  >
-                    <div class="sidebarnavigationparcel-frame-navitembase2">
-                      <div class="sidebarnavigationparcel-content4">
-                        <img
-                          alt="planeI5236"
-                          src="public/external/planei5236-zdu.svg"
-                          class="sidebarnavigationparcel-plane"
-                        />
-                        <span
-                          class="sidebarnavigationparcel-text06 TextmdSemibold"
-                        >
-                          <span>Shipment</span>
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                  <a
-                    href="transaction-dashboard-alipay-top-up.html"
-                    class="sidebarnavigationparcel-navlink3"
-                  >
-                    <div class="sidebarnavigationparcel-frame-navitembase3">
-                      <div class="sidebarnavigationparcel-content5">
-                        <img
-                          alt="banknote01I5236"
-                          src="public/external/banknote01i5236-cpa.svg"
-                          class="sidebarnavigationparcel-banknote01"
-                        />
-                        <span
-                          class="sidebarnavigationparcel-text08 TextmdSemibold"
-                        >
-                          <span>Transactions</span>
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                  <a
-                    href="affiliates-dashboard.html"
-                    class="sidebarnavigationparcel-navlink4"
-                  >
-                    <div class="sidebarnavigationparcel-frame-navitembase4">
-                      <div class="sidebarnavigationparcel-content6">
-                        <img
-                          alt="users01I5236"
-                          src="public/external/users01i5236-f4q.svg"
-                          class="sidebarnavigationparcel-users01"
-                        />
-                        <span
-                          class="sidebarnavigationparcel-text10 TextmdSemibold"
-                        >
-                          <span>Affiliates</span>
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="sidebarnavigationparcel-footer">
-                <div class="sidebarnavigationparcel-navigation1">
-                  <a
-                    href="settings-my-profile.html"
-                    class="sidebarnavigationparcel-navlink5"
-                  >
-                    <div class="sidebarnavigationparcel-frame-navitembase5">
-                      <div class="sidebarnavigationparcel-content7">
-                        <img
-                          alt="settings01I5236"
-                          src="public/external/settings01i5236-dwy.svg"
-                          class="sidebarnavigationparcel-settings01"
-                        />
-                        <span
-                          class="sidebarnavigationparcel-text12 TextmdSemibold"
-                        >
-                          <span>Settings</span>
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <a href="index.html" class="sidebarnavigationparcel-navlink6">
-                  <div class="sidebarnavigationparcel-account">
-                    <div class="sidebarnavigationparcel-avatarlabelgroup">
-                      <div class="sidebarnavigationparcel-avatar"></div>
-                      <div
-                        class="sidebarnavigationparcel-textandsupportingtext"
-                      >
-                        <span
-                          class="sidebarnavigationparcel-text14 TextsmSemibold"
-                        >
-                          <span>Ahmad Mursyid</span>
-                        </span>
-                        <span class="sidebarnavigationparcel-text16">
-                          <span>mursyid@atfal.com</span>
-                        </span>
-                      </div>
-                    </div>
-                    <button class="sidebarnavigationparcel-button">
-                      <img
-                        alt="logout01I5236"
-                        src="public/external/logout01i5236-ixha.svg"
-                        class="sidebarnavigationparcel-logout01"
-                      />
-                    </button>
-                  </div>
-                </a>
-              </div>
-            </div>
+          <div id="sidebar-navigation">
+            <!-- sidebarNavigation -->
           </div>
-          <div class="parcel-add-new-parcel-main">
+          <div
+            class="parcel-add-new-parcel-main"
+            id="body-content"
+            style="display: none"
+          >
             <div class="parcel-add-new-parcel-headersection">
               <div class="parcel-add-new-parcel-container1">
                 <div class="parcel-add-new-parcel-breadcrumbs">
@@ -360,90 +264,77 @@
             <div class="parcel-add-new-parcel-section">
               <div class="parcel-add-new-parcel-container2">
                 <div class="parcel-add-new-parcel-modal">
-                  <div class="parcel-add-new-parcel-frame-modalheader">
-                    <a
-                      href="parcel-dashboard.html"
-                      class="parcel-add-new-parcel-buttonclose-x"
-                    >
-                      <img
-                        alt="xcloseI5232"
-                        src="public/external/xclosei5232-00hk.svg"
-                        class="parcel-add-new-parcel-xclose"
-                      />
-                    </a>
-                    <div class="parcel-add-new-parcel-content01">
-                      <div class="parcel-add-new-parcel-featuredicon">
+                  <form id="add-new-parcel-form">
+                    <div class="parcel-add-new-parcel-frame-modalheader">
+                      <a
+                        href="parcel-dashboard.html"
+                        class="parcel-add-new-parcel-buttonclose-x"
+                      >
                         <img
-                          alt="packageplusI5232"
-                          src="public/external/packageplusi5232-ixeo.svg"
-                          class="parcel-add-new-parcel-packageplus"
+                          alt="xcloseI5232"
+                          src="public/external/xclosei5232-00hk.svg"
+                          class="parcel-add-new-parcel-xclose"
                         />
-                      </div>
-                      <div class="parcel-add-new-parcel-textandsupportingtext1">
-                        <span
-                          class="parcel-add-new-parcel-text09 TextlgSemibold"
+                      </a>
+                      <div class="parcel-add-new-parcel-content01">
+                        <div class="parcel-add-new-parcel-featuredicon">
+                          <img
+                            alt="packageplusI5232"
+                            src="public/external/packageplusi5232-ixeo.svg"
+                            class="parcel-add-new-parcel-packageplus"
+                          />
+                        </div>
+                        <div
+                          class="parcel-add-new-parcel-textandsupportingtext1"
                         >
-                          <span>Add New Parcel</span>
-                        </span>
+                          <span
+                            class="parcel-add-new-parcel-text09 TextlgSemibold"
+                          >
+                            <span>Add New Parcel</span>
+                          </span>
+                        </div>
                       </div>
+                      <div class="parcel-add-new-parcel-paddingbottom"></div>
                     </div>
-                    <div class="parcel-add-new-parcel-paddingbottom"></div>
-                  </div>
-                  <div class="parcel-add-new-parcel-content02">
-                    <div class="parcel-add-new-parcel-form">
-                      <div class="parcel-add-new-parcel-row">
-                        <div class="parcel-add-new-parcel-inputfield">
-                          <div class="parcel-add-new-parcel-inputwithlabel">
-                            <span
-                              class="parcel-add-new-parcel-text11 TextsmMedium"
-                            >
-                              <span>Tracking Number*</span>
-                            </span>
-                            <div class="parcel-add-new-parcel-input">
-                              <div class="parcel-add-new-parcel-content03">
-                                <span
-                                  class="parcel-add-new-parcel-text13 TextmdRegular"
-                                >
-                                  <span>Select one..</span>
-                                </span>
-                              </div>
-                              <div class="parcel-add-new-parcel-helpicon">
-                                <img
-                                  alt="helpcircleI5232"
-                                  src="public/external/helpcirclei5232-5bg.svg"
-                                  class="parcel-add-new-parcel-helpcircle"
-                                />
-                              </div>
+                    <div class="parcel-add-new-parcel-content02">
+                      <div class="parcel-add-new-parcel-form">
+                        <div class="parcel-add-new-parcel-row">
+                          <div class="parcel-add-new-parcel-inputfield">
+                            <div class="parcel-add-new-parcel-inputwithlabel">
+                              <span
+                                class="parcel-add-new-parcel-text11 TextsmMedium"
+                              >
+                                <span>Tracking Number*</span>
+                              </span>
+                              <input
+                                maxlength="100"
+                                type="text"
+                                class="parcel-add-new-parcel-input"
+                                id="input-tracking-number"
+                                placeholder="Enter your tracking number"
+                                required
+                              />
+                            </div>
+                          </div>
+                          <div class="parcel-add-new-parcel-inputfield1">
+                            <div class="parcel-add-new-parcel-inputwithlabel01">
+                              <span
+                                class="parcel-add-new-parcel-text15 TextsmMedium"
+                              >
+                                <span>Parcel Item*</span>
+                              </span>
+                              <input
+                                maxlength="100"
+                                type="text"
+                                class="parcel-add-new-parcel-input01"
+                                id="input-parcel-content"
+                                placeholder="Enter parcel item"
+                                required
+                              />
                             </div>
                           </div>
                         </div>
-                        <div class="parcel-add-new-parcel-inputfield1">
-                          <div class="parcel-add-new-parcel-inputwithlabel01">
-                            <span
-                              class="parcel-add-new-parcel-text15 TextsmMedium"
-                            >
-                              <span>Parcel Item*</span>
-                            </span>
-                            <div class="parcel-add-new-parcel-input01">
-                              <div class="parcel-add-new-parcel-content04">
-                                <span
-                                  class="parcel-add-new-parcel-text17 TextmdRegular"
-                                >
-                                  <span>Select one..</span>
-                                </span>
-                              </div>
-                              <div class="parcel-add-new-parcel-helpicon1">
-                                <img
-                                  alt="helpcircleI5232"
-                                  src="public/external/helpcirclei5232-he49.svg"
-                                  class="parcel-add-new-parcel-helpcircle1"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="parcel-add-new-parcel-row1">
+                        <!-- <div class="parcel-add-new-parcel-row1">
                         <div class="parcel-add-new-parcel-inputdropdown">
                           <div class="parcel-add-new-parcel-inputwithlabel02">
                             <span
@@ -500,183 +391,211 @@
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="parcel-add-new-parcel-row2">
-                        <div class="parcel-add-new-parcel-inputfield2">
-                          <div class="parcel-add-new-parcel-inputwithlabel04">
-                            <span
-                              class="parcel-add-new-parcel-text27 TextsmMedium"
-                            >
-                              <span>Parcel value*</span>
-                            </span>
-                            <div class="parcel-add-new-parcel-input04">
-                              <div class="parcel-add-new-parcel-content07">
-                                <div class="parcel-add-new-parcel-textinput">
-                                  <span
-                                    class="parcel-add-new-parcel-text29 TextmdRegular"
-                                  >
-                                    <span>RM</span>
-                                  </span>
-                                  <span
-                                    class="parcel-add-new-parcel-text31 TextmdRegular"
-                                  >
-                                    <span>1,000.00</span>
-                                  </span>
+                      </div> -->
+                        <div class="parcel-add-new-parcel-row2">
+                          <div class="parcel-add-new-parcel-inputfield2">
+                            <div class="parcel-add-new-parcel-inputwithlabel04">
+                              <span
+                                class="parcel-add-new-parcel-text27 TextsmMedium"
+                              >
+                                <span>Parcel value*</span>
+                              </span>
+
+                              <div class="parcel-add-new-parcel-input04">
+                                <div class="parcel-add-new-parcel-content07">
+                                  <div class="parcel-add-new-parcel-textinput">
+                                    <span
+                                      class="parcel-add-new-parcel-text29 TextmdRegular"
+                                    >
+                                      <span>RM</span>
+                                    </span>
+                                    <input
+                                      type="number"
+                                      class="parcel-add-new-parcel-text31 TextmdRegular"
+                                      id="input-parcel-value"
+                                      placeholder="10.00"
+                                      required
+                                    />
+                                  </div>
+                                  <div class="parcel-add-new-parcel-helpicon2">
+                                    <img
+                                      alt="helpcircleI5232"
+                                      src="public/external/helpcirclei5232-a74l.svg"
+                                      class="parcel-add-new-parcel-helpcircle2"
+                                    />
+                                  </div>
                                 </div>
-                                <div class="parcel-add-new-parcel-helpicon2">
+                                <div class="parcel-add-new-parcel-dropdown2">
+                                  <span
+                                    class="parcel-add-new-parcel-text33 TextmdRegular"
+                                  >
+                                    <span>MYR</span>
+                                  </span>
                                   <img
-                                    alt="helpcircleI5232"
-                                    src="public/external/helpcirclei5232-a74l.svg"
-                                    class="parcel-add-new-parcel-helpcircle2"
+                                    alt="chevrondownI5232"
+                                    src="public/external/chevrondowni5232-p519.svg"
+                                    class="parcel-add-new-parcel-chevrondown2"
                                   />
                                 </div>
                               </div>
-                              <div class="parcel-add-new-parcel-dropdown2">
-                                <span
-                                  class="parcel-add-new-parcel-text33 TextmdRegular"
-                                >
-                                  <span>MYR</span>
-                                </span>
-                                <img
-                                  alt="chevrondownI5232"
-                                  src="public/external/chevrondowni5232-p519.svg"
-                                  class="parcel-add-new-parcel-chevrondown2"
-                                />
-                              </div>
                             </div>
                           </div>
-                        </div>
-                        <div class="parcel-add-new-parcel-inputdropdown2">
-                          <div class="parcel-add-new-parcel-inputwithlabel05">
-                            <span
-                              class="parcel-add-new-parcel-text35 TextsmMedium"
-                            >
-                              <span>Weight (Kg)*</span>
-                            </span>
-                            <div class="parcel-add-new-parcel-input05">
-                              <div class="parcel-add-new-parcel-content08">
-                                <span
-                                  class="parcel-add-new-parcel-text37 TextmdRegular"
-                                >
-                                  <span>Select one..</span>
-                                </span>
-                              </div>
-                              <img
-                                alt="chevrondownI5232"
-                                src="public/external/chevrondowni5232-ul7s.svg"
-                                class="parcel-add-new-parcel-chevrondown3"
+
+                          <div class="parcel-add-new-parcel-inputfield1">
+                            <div class="parcel-add-new-parcel-inputwithlabel01">
+                              <span
+                                class="parcel-add-new-parcel-text15 TextsmMedium"
+                              >
+                                <span>Weight (Kg)*</span>
+                              </span>
+                              <input
+                                maxlength="100"
+                                type="number"
+                                class="parcel-add-new-parcel-input05"
+                                id="input-parcel-weight"
+                                placeholder=""
+                                required
                               />
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="parcel-add-new-parcel-row3">
-                        <div class="parcel-add-new-parcel-inputfield3">
-                          <div class="parcel-add-new-parcel-inputwithlabel06">
-                            <span
-                              class="parcel-add-new-parcel-text39 TextsmMedium"
-                            >
-                              <span>Name*</span>
-                            </span>
-                            <div class="parcel-add-new-parcel-input06">
-                              <div class="parcel-add-new-parcel-content09">
-                                <span
-                                  class="parcel-add-new-parcel-text41 TextmdRegular"
-                                >
-                                  <span>Select one..</span>
-                                </span>
-                              </div>
-                              <div class="parcel-add-new-parcel-helpicon3">
-                                <img
-                                  alt="helpcircleI5232"
-                                  src="public/external/helpcirclei5232-329.svg"
-                                  class="parcel-add-new-parcel-helpcircle3"
-                                />
-                              </div>
+                        <div class="parcel-add-new-parcel-row3">
+                          <div class="parcel-add-new-parcel-inputfield1">
+                            <div class="parcel-add-new-parcel-inputwithlabel01">
+                              <span
+                                class="parcel-add-new-parcel-text15 TextsmMedium"
+                              >
+                                <span>Length (cm)</span>
+                              </span>
+                              <input
+                                maxlength="100"
+                                type="number"
+                                class="parcel-add-new-parcel-input05"
+                                id="input-parcel-length"
+                                placeholder=""
+                                required
+                              />
+                            </div>
+                          </div>
+                          <div class="parcel-add-new-parcel-inputfield1">
+                            <div class="parcel-add-new-parcel-inputwithlabel01">
+                              <span
+                                class="parcel-add-new-parcel-text15 TextsmMedium"
+                              >
+                                <span>Width (cm)</span>
+                              </span>
+                              <input
+                                maxlength="100"
+                                type="number"
+                                class="parcel-add-new-parcel-input05"
+                                id="input-parcel-width"
+                                placeholder=""
+                                required
+                              />
+                            </div>
+                          </div>
+                          <div class="parcel-add-new-parcel-inputfield1">
+                            <div class="parcel-add-new-parcel-inputwithlabel01">
+                              <span
+                                class="parcel-add-new-parcel-text15 TextsmMedium"
+                              >
+                                <span>Height (cm)</span>
+                              </span>
+                              <input
+                                maxlength="100"
+                                type="number"
+                                class="parcel-add-new-parcel-input05"
+                                id="input-parcel-height"
+                                placeholder=""
+                                required
+                              />
                             </div>
                           </div>
                         </div>
-                        <div class="parcel-add-new-parcel-inputfield4">
-                          <div class="parcel-add-new-parcel-inputwithlabel07">
-                            <span
-                              class="parcel-add-new-parcel-text43 TextsmMedium"
-                            >
-                              <span>Email*</span>
-                            </span>
-                            <div class="parcel-add-new-parcel-input07">
-                              <div class="parcel-add-new-parcel-content10">
-                                <span
-                                  class="parcel-add-new-parcel-text45 TextmdRegular"
-                                >
-                                  <span>Select one..</span>
-                                </span>
-                              </div>
-                              <div class="parcel-add-new-parcel-helpicon4">
-                                <img
-                                  alt="helpcircleI5232"
-                                  src="public/external/helpcirclei5232-8nd.svg"
-                                  class="parcel-add-new-parcel-helpcircle4"
-                                />
-                              </div>
+                        <div class="parcel-add-new-parcel-row3">
+                          <div class="parcel-add-new-parcel-inputfield3">
+                            <div class="parcel-add-new-parcel-inputwithlabel06">
+                              <span
+                                class="parcel-add-new-parcel-text39 TextsmMedium"
+                              >
+                                <span>Name*</span>
+                              </span>
+                              <input
+                                maxlength="100"
+                                type="text"
+                                class="parcel-add-new-parcel-input05"
+                                id="input-name"
+                                placeholder="Enter your name"
+                                required
+                              />
+                            </div>
+                          </div>
+                          <div class="parcel-add-new-parcel-inputfield4">
+                            <div class="parcel-add-new-parcel-inputwithlabel07">
+                              <span
+                                class="parcel-add-new-parcel-text39 TextsmMedium"
+                              >
+                                <span>Email*</span>
+                              </span>
+                              <input
+                                maxlength="100"
+                                type="email"
+                                class="parcel-add-new-parcel-input07"
+                                id="input-email"
+                                placeholder="Enter your email"
+                                required
+                              />
+                            </div>
+                          </div>
+                          <div class="parcel-add-new-parcel-inputfield3">
+                            <div class="parcel-add-new-parcel-inputwithlabel06">
+                              <span
+                                class="parcel-add-new-parcel-text39 TextsmMedium"
+                              >
+                                <span>Contact*</span>
+                              </span>
+                              <input
+                                maxlength="100"
+                                type="text"
+                                class="parcel-add-new-parcel-input05"
+                                id="input-phone-number"
+                                placeholder="Enter your contact number"
+                                required
+                              />
                             </div>
                           </div>
                         </div>
-                        <div class="parcel-add-new-parcel-inputfield5">
-                          <div class="parcel-add-new-parcel-inputwithlabel08">
+                        <div class="parcel-add-new-parcel-textareainputfield">
+                          <div class="parcel-add-new-parcel-inputwithlabel09">
                             <span
-                              class="parcel-add-new-parcel-text47 TextsmMedium"
+                              class="parcel-add-new-parcel-text51 TextsmMedium"
                             >
-                              <span>Contact*</span>
+                              <span>Remarks</span>
                             </span>
-                            <div class="parcel-add-new-parcel-input08">
-                              <div class="parcel-add-new-parcel-content11">
-                                <span
-                                  class="parcel-add-new-parcel-text49 TextmdRegular"
-                                >
-                                  <span>Select one..</span>
-                                </span>
-                              </div>
-                              <div class="parcel-add-new-parcel-helpicon5">
-                                <img
-                                  alt="helpcircleI5232"
-                                  src="public/external/helpcirclei5232-s7no.svg"
-                                  class="parcel-add-new-parcel-helpcircle5"
-                                />
-                              </div>
-                            </div>
+                            <textarea
+                              minlength="50"
+                              maxlength="2000"
+                              class="parcel-add-new-parcel-input09"
+                              id="input-remark"
+                              rows="3"
+                              placeholder="Write your note here..."
+                            ></textarea>
                           </div>
-                        </div>
-                      </div>
-                      <div class="parcel-add-new-parcel-textareainputfield">
-                        <div class="parcel-add-new-parcel-inputwithlabel09">
-                          <span
-                            class="parcel-add-new-parcel-text51 TextsmMedium"
-                          >
-                            <span>Remarks</span>
-                          </span>
-                          <input
-                            type="text"
-                            placeholder="Write your note here..."
-                            class="parcel-add-new-parcel-input09"
-                          />
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="parcel-add-new-parcel-frame-modalactions">
-                    <div class="parcel-add-new-parcel-content12">
-                      <a
-                        href="parcel-successful-add-new-parcel.html"
-                        class="parcel-add-new-parcel-button3"
-                      >
-                        <span
-                          class="parcel-add-new-parcel-text53 TextmdSemibold"
+                    <div class="parcel-add-new-parcel-frame-modalactions">
+                      <div class="parcel-add-new-parcel-content12">
+                        <button
+                          class="btn btn-warning parcel-add-new-parcel-button3 parcel-add-new-parcel-text53 TextmdSemibold"
+                          type="submit"
+                          id="add-new-parcel-submit-btn"
                         >
-                          <span>Add new parcel</span>
-                        </span>
-                      </a>
+                          Add new parcel
+                        </button>
+                      </div>
                     </div>
-                  </div>
+                  </form>
                 </div>
               </div>
             </div>
@@ -684,9 +603,18 @@
         </div>
       </div>
     </div>
+    <div id="logout-modal-container">
+      <!-- logout modal -->
+    </div>
     <script
       data-section-id="navbar"
       src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
     ></script>
+    <!-- My function 2 -->
+    <div id="alert-toast-container">
+      <!-- alert toast -->
+    </div>
+    <script src="functions/parcel-add-new-parcel.js"></script>
+    <!--Data table -->
   </body>
 </html>

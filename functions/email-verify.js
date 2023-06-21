@@ -1,5 +1,3 @@
-const spinner = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`;
-
 window.onload = function () {
   var curUrl = new URL(document.location.href);
   var code = curUrl.searchParams.get('token');
@@ -48,7 +46,7 @@ function continueMagic(magicToken) {
             authToken: data.authToken,
           });
           setTimeout(() => {
-            location.href = '/home-dashboard-user';
+            location.href = 'home-dashboard-user';
           }, 5000);
         } else {
           showToast('alert-toast-container', 'Token not found', 'danger');

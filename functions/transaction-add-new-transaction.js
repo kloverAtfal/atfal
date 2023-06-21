@@ -8,7 +8,7 @@ function sidebarNavigationLoaded() {
 }
 
 document.getElementById('sidebar-navigation').innerHTML = sidebarNavigation(
-  'home',
+  'transaction',
   sidebarNavigationLoaded()
 );
 
@@ -27,8 +27,3 @@ document
 document
   .getElementById('button-logout-yes')
   .addEventListener('click', clearSession);
-
-document.getElementById('welcome-username').innerHTML = myData?.userData
-  .username
-  ? `Welcome back, ${myData.userData.username}`
-  : `-`;

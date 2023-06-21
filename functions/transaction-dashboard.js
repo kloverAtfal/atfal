@@ -7,8 +7,44 @@ function sidebarNavigationLoaded() {
   document.getElementById('logout-modal-container').innerHTML = logoutModal();
 }
 
+let tabs = [];
+var defaultTab = document.getElementById('my-alipay-topup-tab');
+defaultTab.classList.add('show', 'active');
+tabs.push(
+  {
+    id: 'my-alipay-topup-tab-content',
+    title: 'Alipay Top Up',
+    content: 'my-alipay-topup-tab',
+  },
+  {
+    id: 'my-alipay-onbehalf-tab-content',
+    title: 'Alipay Pay On Behalf (POB)',
+    content: 'my-alipay-onbehalf-tab',
+  }
+);
+let tabHTML = '';
+for (let i = 0; i < tabs.length; i++) {
+  let isActive = i === 0 ? 'active' : '';
+  let isShow = i === 0 ? 'show' : '';
+  tabHTML += `
+    <li class="nav-item">
+      <a
+        class="nav-link ${isActive} ${isShow}"
+        id="${tabs[i].id}"
+        data-toggle="tab"
+        href="#${tabs[i].content}"
+        role="tab"
+        aria-controls="${tabs[i].content}"
+        aria-selected="${isActive}"
+        >${tabs[i].title}</a
+      >
+    </li>
+  `;
+}
+document.getElementById('myTab').innerHTML = tabHTML;
+
 document.getElementById('sidebar-navigation').innerHTML = sidebarNavigation(
-  'parcel',
+  'transaction',
   sidebarNavigationLoaded()
 );
 
@@ -28,36 +64,7 @@ document
   .getElementById('button-logout-yes')
   .addEventListener('click', clearSession);
 
-document.getElementById('add-new-parcel-btn').addEventListener('click', () => {
-  // location.href = 'parcel-add-new-parcel';
-  $('#newParcelModal').modal('show');
-});
-
-// const totalWaiting = document.getElementById('text-total-waiting');
-// const totalArrived = document.getElementById('text-total-arrived');
-// const totalShipped = document.getElementById('text-total-shipped');
-
 const tableLoader = document.getElementById('table-loader');
-
-function updateTotals(data) {
-  let waitingCount = 0;
-  let arrivedCount = 0;
-  let shippedCount = 0;
-
-  for (let i = 0; i < data.length; i++) {
-    if (data[i].parcel_status_data.code == 'waiting') {
-      waitingCount++;
-    } else if (data[i].parcel_status_data.code == 'arrived') {
-      arrivedCount++;
-    } else if (data[i].parcel_status_data.code == 'shipped') {
-      shippedCount++;
-    }
-  }
-
-  // totalWaiting.innerText = waitingCount;
-  // totalArrived.innerText = arrivedCount;
-  // totalShipped.innerText = shippedCount;
-}
 
 let tableData = [];
 
@@ -313,72 +320,5 @@ function getParcelList() {
       console.log('error', error);
     });
 }
-
-var inputTrackingNumber = document.getElementById('input-tracking-number');
-var inputParcelContent = document.getElementById('input-parcel-content');
-var inputParcelValue = document.getElementById('input-parcel-value');
-var inputLength = document.getElementById('input-parcel-length');
-var inputWidth = document.getElementById('input-parcel-width');
-var inputHeight = document.getElementById('input-parcel-height');
-var inputWeight = document.getElementById('input-parcel-weight');
-var inputName = document.getElementById('input-name');
-var inputEmail = document.getElementById('input-email');
-var inputPhoneNumber = document.getElementById('input-phone-number');
-var inputRemark = document.getElementById('input-remark');
-
-document
-  .getElementById('add-new-parcel-form')
-  .addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    let useBtn = document.querySelector('#add-new-parcel-submit-btn');
-    let defaultBtnText = useBtn.innerHTML;
-
-    useBtn.disabled = true;
-    useBtn.innerHTML = `${spinner} ${useBtn.innerHTML}`;
-
-    const options = {
-      body: JSON.stringify({
-        tracking_number: inputTrackingNumber.value,
-        content: inputParcelContent.value,
-        value: inputParcelValue.value,
-        length: inputLength.value,
-        width: inputWidth.value,
-        height: inputHeight.value,
-        weight: inputWeight.value,
-        name: inputName.value,
-        email: inputEmail.value,
-        phone: inputPhoneNumber.value,
-        note: inputRemark.value,
-      }),
-    };
-
-    fetchAPI(
-      'https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/parcel',
-      'POST',
-      token,
-      options
-    )
-      .then((data) => {
-        useBtn.disabled = false;
-        useBtn.innerHTML = defaultBtnText;
-        if (data?.message) {
-          showToast('alert-toast-container', data.message, 'danger');
-        } else {
-          $('#newParcelModal').modal('hide');
-          $('#example').DataTable().row.add(data.new_parcel).draw().node();
-          showToast(
-            'alert-toast-container',
-            'New parcel added successfully!',
-            'success'
-          );
-        }
-      })
-      .catch((error) => {
-        useBtn.disabled = false;
-        useBtn.innerHTML = defaultBtnText;
-        console.log('error', error);
-      });
-  });
 
 getParcelList();
