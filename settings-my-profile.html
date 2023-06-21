@@ -8,7 +8,83 @@
     <meta property="twitter:card" content="summary_large_image" />
 
     <style data-tag="reset-style-sheet">
-      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+      html {
+        line-height: 1.15;
+      }
+      body {
+        margin: 0;
+      }
+      * {
+        box-sizing: border-box;
+        border-width: 0;
+        border-style: solid;
+      }
+      p,
+      li,
+      ul,
+      pre,
+      div,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      figure,
+      blockquote,
+      figcaption {
+        margin: 0;
+        padding: 0;
+      }
+      button {
+        background-color: transparent;
+      }
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        font-family: inherit;
+        font-size: 100%;
+        line-height: 1.15;
+        margin: 0;
+      }
+      button,
+      select {
+        text-transform: none;
+      }
+      button,
+      [type='button'],
+      [type='reset'],
+      [type='submit'] {
+        -webkit-appearance: button;
+      }
+      button::-moz-focus-inner,
+      [type='button']::-moz-focus-inner,
+      [type='reset']::-moz-focus-inner,
+      [type='submit']::-moz-focus-inner {
+        border-style: none;
+        padding: 0;
+      }
+      button:-moz-focus,
+      [type='button']:-moz-focus,
+      [type='reset']:-moz-focus,
+      [type='submit']:-moz-focus {
+        outline: 1px dotted ButtonText;
+      }
+      a {
+        color: inherit;
+        text-decoration: inherit;
+      }
+      input {
+        padding: 2px 4px;
+      }
+      img {
+        display: block;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
     </style>
     <style data-tag="default-style-sheet">
       html {
@@ -18,14 +94,13 @@
 
       body {
         font-weight: 400;
-        font-style:normal;
+        font-style: normal;
         text-decoration: none;
         text-transform: none;
         letter-spacing: normal;
         line-height: 1.15;
         color: var(--dl-color-gray-black);
         background-color: var(--dl-color-gray-white);
-
       }
     </style>
     <link
@@ -41,15 +116,58 @@
     <!--This is the head section-->
     <!-- <style> ... </style> -->
     <style data-section-id="dropdown">
-      [data-thq="thq-dropdown"]:hover > [data-thq="thq-dropdown-list"] {
-          display: flex;
-        }
+      [data-thq='thq-dropdown']:hover > [data-thq='thq-dropdown-list'] {
+        display: flex;
+      }
 
-        [data-thq="thq-dropdown"]:hover > div [data-thq="thq-dropdown-arrow"] {
-          transform: rotate(90deg);
-        }
+      [data-thq='thq-dropdown']:hover > div [data-thq='thq-dropdown-arrow'] {
+        transform: rotate(90deg);
+      }
     </style>
     <link rel="stylesheet" href="./style.css" />
+    <!-- My function 1 -->
+    <script src="functions/apiHelper.js"></script>
+    <script src="functions/globalFunction.js"></script>
+    <script src="functions/shareComponent.js"></script>
+    <link rel="stylesheet" href="./components/sidebarnavigation.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.10/moment-timezone-with-data.js"></script>
+    <!-- data table -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.3/css/dataTables.bootstrap5.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/buttons/2.3.5/css/buttons.bootstrap5.min.css"
+    />
+    <!-- dropdown -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    />
+    <!-- end dropdown -->
+    <!-- tab style -->
+    <style>
+      .nav-tabs .nav-item .nav-link {
+        background-color: transparent;
+        color: var(--dl-color-gray-500);
+      }
+      .nav-tabs .nav-item .nav-link.active {
+        color: var(--dl-color-primary-700);
+      }
+    </style>
   </head>
   <body>
     <div>
@@ -57,200 +175,14 @@
 
       <div class="settings-my-profile-container">
         <div class="settings-my-profile-contents">
-          <div class="sidebarnavigation-settings-sidebarnavigation-settings">
-            <div class="sidebarnavigation-settings-content">
-              <div class="sidebarnavigation-settings-nav">
-                <div class="sidebarnavigation-settings-header">
-                  <div class="sidebarnavigation-settings-logo">
-                    <div class="sidebarnavigation-settings-logowrap">
-                      <div class="sidebarnavigation-settings-logomark">
-                        <img
-                          alt="Frame1I5236"
-                          src="public/external/frame1i5236-aiyo.svg"
-                          class="sidebarnavigation-settings-frame1"
-                        />
-                      </div>
-                      <img
-                        alt="LogotypeI5236"
-                        src="public/external/logotypei5236-1fz.svg"
-                        class="sidebarnavigation-settings-logotype"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div class="sidebarnavigation-settings-search">
-                  <div class="sidebarnavigation-settings-inputdropdown">
-                    <div class="sidebarnavigation-settings-inputwithlabel">
-                      <div class="sidebarnavigation-settings-input">
-                        <div class="sidebarnavigation-settings-content1">
-                          <img
-                            alt="searchlgI5236"
-                            src="public/external/searchlgi5236-p0fh.svg"
-                            class="sidebarnavigation-settings-searchlg"
-                          />
-                          <span
-                            class="sidebarnavigation-settings-text TextmdRegular"
-                          >
-                            <span>Search</span>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="sidebarnavigation-settings-navigation">
-                  <a
-                    href="home-dashboard-user.html"
-                    class="sidebarnavigation-settings-navlink"
-                  >
-                    <div class="sidebarnavigation-settings-frame-navitembase">
-                      <div class="sidebarnavigation-settings-content2">
-                        <img
-                          alt="homelineI5236"
-                          src="public/external/homelinei5236-pi1s.svg"
-                          class="sidebarnavigation-settings-homeline"
-                        />
-                        <span
-                          class="sidebarnavigation-settings-text02 TextmdSemibold"
-                        >
-                          <span>Home</span>
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                  <a
-                    href="parcel-dashboard.html"
-                    class="sidebarnavigation-settings-navlink1"
-                  >
-                    <div class="sidebarnavigation-settings-frame-navitembase1">
-                      <div class="sidebarnavigation-settings-content3">
-                        <img
-                          alt="packageI5236"
-                          src="public/external/packagei5236-2yjj.svg"
-                          class="sidebarnavigation-settings-package"
-                        />
-                        <span
-                          class="sidebarnavigation-settings-text04 TextmdSemibold"
-                        >
-                          <span>Parcel</span>
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                  <a
-                    href="shipment-dashboard.html"
-                    class="sidebarnavigation-settings-navlink2"
-                  >
-                    <div class="sidebarnavigation-settings-frame-navitembase2">
-                      <div class="sidebarnavigation-settings-content4">
-                        <img
-                          alt="planeI5236"
-                          src="public/external/planei5236-zdu.svg"
-                          class="sidebarnavigation-settings-plane"
-                        />
-                        <span
-                          class="sidebarnavigation-settings-text06 TextmdSemibold"
-                        >
-                          <span>Shipment</span>
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                  <a
-                    href="transaction-dashboard-alipay-top-up.html"
-                    class="sidebarnavigation-settings-navlink3"
-                  >
-                    <div class="sidebarnavigation-settings-frame-navitembase3">
-                      <div class="sidebarnavigation-settings-content5">
-                        <img
-                          alt="banknote01I5236"
-                          src="public/external/banknote01i5236-cpa.svg"
-                          class="sidebarnavigation-settings-banknote01"
-                        />
-                        <span
-                          class="sidebarnavigation-settings-text08 TextmdSemibold"
-                        >
-                          <span>Transactions</span>
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                  <a
-                    href="affiliates-dashboard.html"
-                    class="sidebarnavigation-settings-navlink4"
-                  >
-                    <div class="sidebarnavigation-settings-frame-navitembase4">
-                      <div class="sidebarnavigation-settings-content6">
-                        <img
-                          alt="users01I5236"
-                          src="public/external/users01i5236-f4q.svg"
-                          class="sidebarnavigation-settings-users01"
-                        />
-                        <span
-                          class="sidebarnavigation-settings-text10 TextmdSemibold"
-                        >
-                          <span>Affiliates</span>
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="sidebarnavigation-settings-footer">
-                <div class="sidebarnavigation-settings-navigation1">
-                  <a
-                    href="settings-my-profile.html"
-                    class="sidebarnavigation-settings-navlink5"
-                  >
-                    <div class="sidebarnavigation-settings-frame-navitembase5">
-                      <div class="sidebarnavigation-settings-content7">
-                        <img
-                          alt="settings01I5236"
-                          src="public/external/settings01i5236-dwy.svg"
-                          class="sidebarnavigation-settings-settings01"
-                        />
-                        <span
-                          class="sidebarnavigation-settings-text12 TextmdSemibold"
-                        >
-                          <span>Settings</span>
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <a
-                  href="index.html"
-                  class="sidebarnavigation-settings-navlink6"
-                >
-                  <div class="sidebarnavigation-settings-account">
-                    <div class="sidebarnavigation-settings-avatarlabelgroup">
-                      <div class="sidebarnavigation-settings-avatar"></div>
-                      <div
-                        class="sidebarnavigation-settings-textandsupportingtext"
-                      >
-                        <span
-                          class="sidebarnavigation-settings-text14 TextsmSemibold"
-                        >
-                          <span>Ahmad Mursyid</span>
-                        </span>
-                        <span class="sidebarnavigation-settings-text16">
-                          <span>mursyid@atfal.com</span>
-                        </span>
-                      </div>
-                    </div>
-                    <button class="sidebarnavigation-settings-button">
-                      <img
-                        alt="logout01I5236"
-                        src="public/external/logout01i5236-ixha.svg"
-                        class="sidebarnavigation-settings-logout01"
-                      />
-                    </button>
-                  </div>
-                </a>
-              </div>
-            </div>
+          <div id="sidebar-navigation">
+            <!-- sidebarNavigation -->
           </div>
-          <div class="settings-my-profile-main">
+          <div
+            class="settings-my-profile-main"
+            id="body-content"
+            style="display: none"
+          >
             <div class="settings-my-profile-headersection">
               <div class="settings-my-profile-container1">
                 <div class="settings-my-profile-pageheader">
@@ -309,479 +241,929 @@
                     </div>
                   </div>
                 </div>
-                <div class="settings-my-profile-horizontaltabs">
-                  <div class="settings-my-profile-tabs1">
-                    <button class="settings-my-profile-frame-tabbuttonbase">
-                      <span class="settings-my-profile-text03 TextsmSemibold">
-                        My Profile
-                      </span>
-                      <span class="settings-my-profile-text04 TextsmSemibold">
-                        My Profile
-                      </span>
-                    </button>
-                    <a
-                      href="settings-password.html"
-                      class="settings-my-profile-frame-tabbuttonbase1"
-                    >
-                      <span class="settings-my-profile-text05 TextsmSemibold">
-                        Password
-                      </span>
-                      <span class="settings-my-profile-text06 TextsmSemibold">
-                        Password
-                      </span>
-                    </a>
-                    <a
-                      href="settings-affiliates.html"
-                      class="settings-my-profile-frame-tabbuttonbase2"
-                    >
-                      <span class="settings-my-profile-text07 TextsmSemibold">
-                        Affiliates
-                      </span>
-                      <span class="settings-my-profile-text08 TextsmSemibold">
-                        Affiliates
-                      </span>
-                    </a>
-                    <a
-                      href="settings-currencies.html"
-                      class="settings-my-profile-frame-tabbuttonbase3"
-                    >
-                      <span class="settings-my-profile-text09 TextsmSemibold">
-                        Admin-currency
-                      </span>
-                      <span class="settings-my-profile-text10 TextsmSemibold">
-                        Admin-currency
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="settings-my-profile-section">
-              <div class="settings-my-profile-container2">
-                <div class="settings-my-profile-sectionheader">
-                  <div class="settings-my-profile-content01">
-                    <div class="settings-my-profile-textandsupportingtext1">
-                      <span class="settings-my-profile-text11 TextlgSemibold">
-                        <span>My Profile</span>
-                      </span>
-                      <span class="settings-my-profile-text13 TextsmRegular">
-                        <span>
-                          Update your photo and personal details here.
-                        </span>
-                      </span>
-                    </div>
-                    <div class="settings-my-profile-actions1">
-                      <button class="settings-my-profile-button2">
-                        <span class="settings-my-profile-text15 TextsmSemibold">
-                          <span>Cancel</span>
-                        </span>
-                      </button>
-                      <button class="settings-my-profile-button3">
-                        <span class="settings-my-profile-text17 TextsmSemibold">
-                          <span>Save</span>
-                        </span>
-                      </button>
-                    </div>
-                  </div>
-                  <img
-                    alt="DividerI5295"
-                    src="public/external/divideri5295-ef5s.svg"
-                    class="settings-my-profile-divider"
-                  />
-                </div>
-                <div class="settings-my-profile-form">
-                  <div class="settings-my-profile-content02">
-                    <span class="settings-my-profile-text19 TextsmMedium">
-                      <span>Name</span>
-                    </span>
-                    <div class="settings-my-profile-inputfields">
-                      <div class="settings-my-profile-inputfield">
-                        <div class="settings-my-profile-inputwithlabel">
-                          <div class="settings-my-profile-input">
-                            <div class="settings-my-profile-content03">
-                              <span
-                                class="settings-my-profile-text21 TextmdRegular"
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                  <!-- nav tabs -->
+                </ul>
+                <div class="tab-content">
+                  <div
+                    class="tab-pane fade"
+                    id="my-profile-tab"
+                    role="tabpanel"
+                    aria-labelledby="my-profile-tab-content"
+                  >
+                    <form id="my-profile-form">
+                      <div class="settings-my-profile-section">
+                        <div class="settings-my-profile-container2">
+                          <div class="settings-my-profile-sectionheader">
+                            <div class="settings-my-profile-content01">
+                              <div
+                                class="settings-my-profile-textandsupportingtext1"
                               >
-                                <span>Ahmad</span>
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="settings-my-profile-inputfield01">
-                        <div class="settings-my-profile-inputwithlabel01">
-                          <div class="settings-my-profile-input01">
-                            <div class="settings-my-profile-content04">
-                              <span
-                                class="settings-my-profile-text23 TextmdRegular"
-                              >
-                                <span>Mursyid</span>
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <img
-                    alt="Divider5295"
-                    src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/91000129-b09c-4551-b38d-861d463970e9/950cd959-573b-4cc3-a2a0-fa98fef1aaab?org_if_sml=1110"
-                    class="settings-my-profile-divider01"
-                  />
-                  <div class="settings-my-profile-content05">
-                    <span class="settings-my-profile-text25 TextsmMedium">
-                      <span>Phone Number</span>
-                    </span>
-                    <div class="settings-my-profile-inputfield02">
-                      <div class="settings-my-profile-inputwithlabel02">
-                        <div class="settings-my-profile-input02">
-                          <div class="settings-my-profile-content06">
-                            <img
-                              alt="phoneI5295"
-                              src="public/external/phonei5295-hdeq.svg"
-                              class="settings-my-profile-phone"
-                            />
-                            <span
-                              class="settings-my-profile-text27 TextmdRegular"
-                            >
-                              <span>+60 12 3456789</span>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <img
-                    alt="Divider5295"
-                    src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/91000129-b09c-4551-b38d-861d463970e9/51e2b2a3-a73e-418e-b024-9c03f5fecc3b?org_if_sml=1110"
-                    class="settings-my-profile-divider02"
-                  />
-                  <div class="settings-my-profile-content07">
-                    <span class="settings-my-profile-text29 TextsmMedium">
-                      <span>Email address</span>
-                    </span>
-                    <div class="settings-my-profile-inputfield03">
-                      <div class="settings-my-profile-inputwithlabel03">
-                        <div class="settings-my-profile-input03">
-                          <div class="settings-my-profile-content08">
-                            <img
-                              alt="mail01I5295"
-                              src="public/external/mail01i5295-l5el.svg"
-                              class="settings-my-profile-mail01"
-                            />
-                            <span
-                              class="settings-my-profile-text31 TextmdRegular"
-                            >
-                              <span>ahmadmursyid@atfal.com</span>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <img
-                    alt="Divider5295"
-                    src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/91000129-b09c-4551-b38d-861d463970e9/dabca7f8-b9f6-4ed9-b991-666deeb2576b?org_if_sml=1110"
-                    class="settings-my-profile-divider03"
-                  />
-                  <div class="settings-my-profile-content09">
-                    <div class="settings-my-profile-textandsupportingtext2">
-                      <span class="settings-my-profile-text33 TextsmMedium">
-                        <span>Your photo</span>
-                      </span>
-                      <span class="settings-my-profile-text35 TextsmRegular">
-                        <span>This will be displayed on your profile.</span>
-                      </span>
-                    </div>
-                    <div class="settings-my-profile-avatarandfileupload">
-                      <div class="settings-my-profile-avatar"></div>
-                      <div class="settings-my-profile-fileupload">
-                        <div class="settings-my-profile-frame-fileuploadbase">
-                          <div class="settings-my-profile-content10">
-                            <div class="settings-my-profile-featuredicon">
-                              <img
-                                alt="uploadcloud02I5295"
-                                src="public/external/uploadcloud02i5295-7zm.svg"
-                                class="settings-my-profile-uploadcloud02"
-                              />
-                            </div>
-                            <div
-                              class="settings-my-profile-textandsupportingtext3"
-                            >
-                              <div class="settings-my-profile-action">
-                                <button class="settings-my-profile-button4">
-                                  <span
-                                    class="settings-my-profile-text37 TextsmSemibold"
-                                  >
-                                    <span>Click to upload</span>
-                                  </span>
-                                </button>
                                 <span
-                                  class="settings-my-profile-text39 TextsmRegular"
+                                  class="settings-my-profile-text11 TextlgSemibold"
                                 >
-                                  <span>or drag and drop</span>
+                                  <span>My Profile</span>
+                                </span>
+                                <span
+                                  class="settings-my-profile-text13 TextsmRegular"
+                                >
+                                  <span>
+                                    Update your photo and personal details here.
+                                  </span>
                                 </span>
                               </div>
+                              <div class="settings-my-profile-actions1">
+                                <button
+                                  class="btn btn-light settings-my-profile-button2 settings-my-profile-text15 TextsmSemibold"
+                                  type="button"
+                                  id="cancel-my-profile-btn"
+                                >
+                                  Cancel
+                                </button>
+                                <button
+                                  class="btn btn-warning settings-my-profile-button3 settings-my-profile-text17 TextsmSemibold"
+                                  type="submit"
+                                  id="save-my-profile-btn"
+                                >
+                                  Save
+                                </button>
+                              </div>
+                            </div>
+                            <img
+                              alt="DividerI5295"
+                              src="public/external/divideri5295-ef5s.svg"
+                              class="settings-my-profile-divider"
+                            />
+                          </div>
+                          <div class="settings-my-profile-content05">
+                            <span
+                              class="settings-my-profile-text25 TextsmMedium"
+                            >
+                              <span>Username</span>
+                            </span>
+                            <div class="settings-my-profile-inputfield04">
+                              <div class="settings-my-profile-inputwithlabel04">
+                                <input
+                                  maxlength="100"
+                                  type="text"
+                                  class="settings-my-profile-input05"
+                                  id="input-username"
+                                  placeholder=""
+                                  required
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <img
+                            alt="DividerI5295"
+                            src="public/external/divideri5295-ef5s.svg"
+                            class="settings-my-profile-divider"
+                          />
+                          <div class="settings-my-profile-form">
+                            <div class="settings-my-profile-content02">
                               <span
-                                class="settings-my-profile-text41 TextxsRegular"
+                                class="settings-my-profile-text19 TextsmMedium"
                               >
-                                <span>
-                                  SVG, PNG, JPG or GIF (max. 800x400px)
+                                <span>Full Name</span>
+                              </span>
+
+                              <div class="settings-my-profile-inputfields">
+                                <input
+                                  maxlength="100"
+                                  type="text"
+                                  class="settings-my-profile-inputfield settings-my-profile-input"
+                                  id="input-first-name"
+                                  placeholder="First name"
+                                  required
+                                />
+                                <input
+                                  maxlength="100"
+                                  type="text"
+                                  class="settings-my-profile-inputfield settings-my-profile-input"
+                                  id="input-last-name"
+                                  placeholder="Last name"
+                                  required
+                                />
+                              </div>
+                            </div>
+                            <img
+                              alt="Divider5295"
+                              src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/91000129-b09c-4551-b38d-861d463970e9/950cd959-573b-4cc3-a2a0-fa98fef1aaab?org_if_sml=1110"
+                              class="settings-my-profile-divider01"
+                            />
+                            <div class="settings-my-profile-content05">
+                              <span
+                                class="settings-my-profile-text25 TextsmMedium"
+                              >
+                                <span>Phone Number</span>
+                              </span>
+                              <div class="settings-my-profile-inputfield02">
+                                <div
+                                  class="settings-my-profile-inputwithlabel02"
+                                >
+                                  <div class="settings-my-profile-input02">
+                                    <div class="settings-my-profile-content06">
+                                      <img
+                                        alt="phoneI5295"
+                                        src="public/external/phonei5295-hdeq.svg"
+                                        class="settings-my-profile-phone"
+                                      />
+                                      <input
+                                        maxlength="100"
+                                        type="text"
+                                        class="settings-my-profile-text31"
+                                        id="input-phone-number"
+                                        placeholder="Enter your contact number"
+                                        required
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <img
+                              alt="Divider5295"
+                              src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/91000129-b09c-4551-b38d-861d463970e9/51e2b2a3-a73e-418e-b024-9c03f5fecc3b?org_if_sml=1110"
+                              class="settings-my-profile-divider02"
+                            />
+                            <div class="settings-my-profile-content07">
+                              <span
+                                class="settings-my-profile-text29 TextsmMedium"
+                              >
+                                <span>Email address</span>
+                              </span>
+                              <div class="settings-my-profile-inputfield03">
+                                <div
+                                  class="settings-my-profile-inputwithlabel03"
+                                >
+                                  <div class="settings-my-profile-input03">
+                                    <div class="settings-my-profile-content08">
+                                      <img
+                                        alt="mail01I5295"
+                                        src="public/external/mail01i5295-l5el.svg"
+                                        class="settings-my-profile-mail01"
+                                      />
+                                      <input
+                                        maxlength="100"
+                                        type="email"
+                                        class="settings-my-profile-text31"
+                                        id="input-email"
+                                        placeholder="Enter your email"
+                                        required
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <img
+                              alt="Divider5295"
+                              src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/91000129-b09c-4551-b38d-861d463970e9/dabca7f8-b9f6-4ed9-b991-666deeb2576b?org_if_sml=1110"
+                              class="settings-my-profile-divider03"
+                            />
+                            <div class="settings-my-profile-content09">
+                              <div
+                                class="settings-my-profile-textandsupportingtext2"
+                              >
+                                <span
+                                  class="settings-my-profile-text33 TextsmMedium"
+                                >
+                                  <span>Your photo</span>
                                 </span>
+                                <span
+                                  class="settings-my-profile-text35 TextsmRegular"
+                                >
+                                  <span
+                                    >This will be displayed on your
+                                    profile.</span
+                                  >
+                                </span>
+                              </div>
+                              <div
+                                class="settings-my-profile-avatarandfileupload"
+                              >
+                                <img
+                                  class="settings-my-profile-avatar"
+                                  id="image-profile"
+                                />
+                                <div
+                                  class="settings-my-profile-fileupload"
+                                  id="file-upload"
+                                >
+                                  <div
+                                    class="settings-my-profile-frame-fileuploadbase"
+                                  >
+                                    <div class="settings-my-profile-content10">
+                                      <div
+                                        class="settings-my-profile-featuredicon"
+                                      >
+                                        <img
+                                          alt="uploadcloud02I5295"
+                                          src="public/external/uploadcloud02i5295-7zm.svg"
+                                          class="settings-my-profile-uploadcloud02"
+                                        />
+                                      </div>
+                                      <div
+                                        class="settings-my-profile-textandsupportingtext3"
+                                      >
+                                        <div class="settings-my-profile-action">
+                                          <button
+                                            class="settings-my-profile-button4"
+                                          >
+                                            <span
+                                              class="settings-my-profile-text37 TextsmSemibold"
+                                            >
+                                              <span>Click to upload</span>
+                                            </span>
+                                          </button>
+                                          <span
+                                            class="settings-my-profile-text39 TextsmRegular"
+                                          >
+                                            <span>or drag and drop</span>
+                                          </span>
+                                        </div>
+                                        <span
+                                          class="settings-my-profile-text41 TextxsRegular"
+                                          id="text-file-upload-name"
+                                        >
+                                          <span>
+                                            SVG, PNG, JPG or GIF (max.
+                                            800x400px)
+                                          </span>
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <img
+                              alt="Divider5295"
+                              src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/91000129-b09c-4551-b38d-861d463970e9/ccb1bf0a-2e38-482f-8420-3dc4b63dc63e?org_if_sml=1110"
+                              class="settings-my-profile-divider04"
+                            />
+                            <div class="settings-my-profile-content11">
+                              <span
+                                class="settings-my-profile-text43 TextsmMedium"
+                              >
+                                <span>Address</span>
+                              </span>
+                              <div class="settings-my-profile-inputfield04">
+                                <div
+                                  class="settings-my-profile-inputwithlabel04"
+                                >
+                                  <span
+                                    class="settings-my-profile-text50 TextsmMedium"
+                                  >
+                                    <span>Address 1</span>
+                                  </span>
+                                  <input
+                                    maxlength="100"
+                                    type="text"
+                                    class="settings-my-profile-input05"
+                                    id="input-address-1"
+                                    placeholder=""
+                                    required
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div class="settings-my-profile-content13">
+                              <span
+                                class="settings-my-profile-text49 TextsmMedium"
+                              ></span>
+                              <div class="settings-my-profile-inputfield05">
+                                <div
+                                  class="settings-my-profile-inputwithlabel05"
+                                >
+                                  <span
+                                    class="settings-my-profile-text45 TextsmMedium"
+                                  >
+                                    <span>Address 2</span>
+                                  </span>
+                                  <input
+                                    maxlength="100"
+                                    type="text"
+                                    class="settings-my-profile-input04"
+                                    id="input-address-2"
+                                    placeholder=""
+                                    required
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div class="settings-my-profile-content13">
+                              <span
+                                class="settings-my-profile-text49 TextsmMedium"
+                              ></span>
+                              <div class="settings-my-profile-inputfield05">
+                                <div
+                                  class="settings-my-profile-inputwithlabel05"
+                                >
+                                  <span
+                                    class="settings-my-profile-text45 TextsmMedium"
+                                  >
+                                    <span>Postcode</span>
+                                  </span>
+                                  <input
+                                    maxlength="100"
+                                    type="text"
+                                    class="settings-my-profile-input04"
+                                    id="input-postcode"
+                                    placeholder=""
+                                    required
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div class="settings-my-profile-content17">
+                              <span
+                                class="settings-my-profile-text59 TextsmMedium"
+                              ></span>
+                              <div class="settings-my-profile-inputfield07">
+                                <div
+                                  class="settings-my-profile-inputwithlabel07"
+                                >
+                                  <span
+                                    class="settings-my-profile-text60 TextsmMedium"
+                                  >
+                                    <span>City</span>
+                                  </span>
+                                  <input
+                                    maxlength="100"
+                                    type="text"
+                                    class="settings-my-profile-input07"
+                                    id="input-city"
+                                    placeholder=""
+                                    required
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div class="settings-my-profile-content17">
+                              <span
+                                class="settings-my-profile-text59 TextsmMedium"
+                              ></span>
+                              <div class="settings-my-profile-inputfield07">
+                                <div
+                                  class="settings-my-profile-inputwithlabel07"
+                                >
+                                  <span
+                                    class="settings-my-profile-text60 TextsmMedium"
+                                  >
+                                    <span>State</span>
+                                  </span>
+                                  <input
+                                    maxlength="100"
+                                    type="text"
+                                    class="settings-my-profile-input07"
+                                    id="input-state"
+                                    placeholder=""
+                                    required
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div class="settings-my-profile-content17">
+                              <span
+                                class="settings-my-profile-text59 TextsmMedium"
+                              ></span>
+                              <div class="settings-my-profile-inputfield07">
+                                <div
+                                  class="settings-my-profile-inputwithlabel07"
+                                >
+                                  <span
+                                    class="settings-my-profile-text60 TextsmMedium"
+                                  >
+                                    <span>Country</span>
+                                  </span>
+                                  <select
+                                    class="form-control settings-my-profile-text71 TextmdRegular"
+                                    id="input-select-country"
+                                    required
+                                  ></select>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- <div class="settings-my-profile-content19">
+                            <span
+                              class="settings-my-profile-text64 TextsmMedium"
+                            ></span>
+                            <div class="settings-my-profile-inputdropdown">
+                              <div class="settings-my-profile-inputwithlabel08">
+                                <span
+                                  class="settings-my-profile-text65 TextsmMedium"
+                                >
+                                  <span>Team member</span>
+                                </span>
+                                <div class="settings-my-profile-input08">
+                                  <div class="settings-my-profile-content20">
+                                    <img
+                                      alt="MYI5295"
+                                      src="public/external/myi5295-iq.svg"
+                                      class="settings-my-profile-my"
+                                    />
+                                    <span
+                                      class="settings-my-profile-text67 TextmdMedium"
+                                    >
+                                      <span>Malaysia</span>
+                                    </span>
+                                  </div>
+                                  <img
+                                    alt="chevrondownI5295"
+                                    src="public/external/chevrondowni5295-qwy.svg"
+                                    class="settings-my-profile-chevrondown"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div> -->
+                            <img
+                              alt="Divider5295"
+                              src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/91000129-b09c-4551-b38d-861d463970e9/87f8c386-dbee-4a5c-a12e-786067ca417b?org_if_sml=1110"
+                              class="settings-my-profile-divider05"
+                            />
+                            <div class="settings-my-profile-content21">
+                              <span
+                                class="settings-my-profile-text69 TextsmMedium"
+                              >
+                                <span>Timezone</span>
+                              </span>
+                              <div class="settings-my-profile-inputfield08">
+                                <div
+                                  class="settings-my-profile-inputwithlabel09"
+                                >
+                                  <div class="settings-my-profile-input09">
+                                    <div class="settings-my-profile-content22">
+                                      <img
+                                        alt="clockI5295"
+                                        src="public/external/clocki5295-vmte.svg"
+                                        class="settings-my-profile-clock"
+                                      />
+                                      <select
+                                        class="form-control settings-my-profile-text71 TextmdRegular"
+                                        id="input-select-timezone"
+                                        required
+                                        style="border: 0px; outline: 0px"
+                                      ></select>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <img
+                              alt="Divider5295"
+                              src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/91000129-b09c-4551-b38d-861d463970e9/21a9bba5-e89f-483f-8628-601cf269b224?org_if_sml=1110"
+                              class="settings-my-profile-divider06"
+                            />
+
+                            <div class="settings-my-profile-content23">
+                              <span
+                                class="settings-my-profile-text73 TextsmMedium"
+                              >
+                                <span>Currency</span>
+                              </span>
+                              <div class="settings-my-profile-inputfield08">
+                                <div
+                                  class="settings-my-profile-inputwithlabel09"
+                                >
+                                  <select
+                                    class="form-control settings-my-profile-text71 TextmdRegular"
+                                    id="input-select-currency"
+                                    required
+                                  ></select>
+                                </div>
+                              </div>
+                            </div>
+                            <img
+                              alt="Divider5296"
+                              src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/91000129-b09c-4551-b38d-861d463970e9/0fcb7a98-51e8-4dec-8ee1-e5e2da27f043?org_if_sml=1110"
+                              class="settings-my-profile-divider07"
+                            />
+                            <div class="settings-my-profile-content25">
+                              <span
+                                class="settings-my-profile-text77 TextsmMedium"
+                              >
+                                <span>Status</span>
+                              </span>
+                              <div class="settings-my-profile-badge">
+                                <img
+                                  alt="checkI5295"
+                                  src="public/external/checki5295-7797.svg"
+                                  class="settings-my-profile-check"
+                                />
+                                <span
+                                  class="settings-my-profile-text79 TextxsMedium"
+                                >
+                                  <span id="badge-status">Active</span>
+                                </span>
+                              </div>
+                            </div>
+                            <img
+                              alt="Divider5295"
+                              src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/91000129-b09c-4551-b38d-861d463970e9/fefe57df-1c21-4edd-994c-4b3dbb262b51?org_if_sml=1110"
+                              class="settings-my-profile-divider08"
+                            />
+                            <div class="settings-my-profile-content26">
+                              <span
+                                class="settings-my-profile-text81 TextsmMedium"
+                              >
+                                <span>Created Date</span>
+                              </span>
+                              <span
+                                class="settings-my-profile-text83 TextsmMedium"
+                              >
+                                <span id="text-created-at">-</span>
+                              </span>
+                            </div>
+                            <img
+                              alt="Divider5295"
+                              src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/91000129-b09c-4551-b38d-861d463970e9/b97d30d1-39c5-4288-8eea-18a6273b527a?org_if_sml=1110"
+                              class="settings-my-profile-divider09"
+                            />
+                            <div class="settings-my-profile-content27">
+                              <span
+                                class="settings-my-profile-text85 TextsmMedium"
+                              >
+                                <span>Expired Date</span>
+                              </span>
+                              <span
+                                class="settings-my-profile-text87 TextsmMedium"
+                                id="text-expired-at"
+                              >
+                                -
                               </span>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </form>
                   </div>
-                  <img
-                    alt="Divider5295"
-                    src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/91000129-b09c-4551-b38d-861d463970e9/ccb1bf0a-2e38-482f-8420-3dc4b63dc63e?org_if_sml=1110"
-                    class="settings-my-profile-divider04"
-                  />
-                  <div class="settings-my-profile-content11">
-                    <span class="settings-my-profile-text43 TextsmMedium">
-                      <span>Address</span>
-                    </span>
-                    <div class="settings-my-profile-inputfield04">
-                      <div class="settings-my-profile-inputwithlabel04">
-                        <span class="settings-my-profile-text45 TextsmMedium">
-                          <span>Postcode</span>
-                        </span>
-                        <div class="settings-my-profile-input04">
-                          <div class="settings-my-profile-content12">
-                            <span class="settings-my-profile-text47">
-                              <span>12345</span>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="settings-my-profile-content13">
-                    <span
-                      class="settings-my-profile-text49 TextsmMedium"
-                    ></span>
-                    <div class="settings-my-profile-inputfield05">
-                      <div class="settings-my-profile-inputwithlabel05">
-                        <span class="settings-my-profile-text50 TextsmMedium">
-                          <span>Street address</span>
-                        </span>
-                        <div class="settings-my-profile-input05">
-                          <div class="settings-my-profile-content14">
-                            <span
-                              class="settings-my-profile-text52 TextmdRegular"
-                            >
-                              <span>Kuala Lumpur</span>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="settings-my-profile-content15">
-                    <span
-                      class="settings-my-profile-text54 TextsmMedium"
-                    ></span>
-                    <div class="settings-my-profile-inputfield06">
-                      <div class="settings-my-profile-inputwithlabel06">
-                        <span class="settings-my-profile-text55 TextsmMedium">
-                          <span>Postcode</span>
-                        </span>
-                        <div class="settings-my-profile-input06">
-                          <div class="settings-my-profile-content16">
-                            <span
-                              class="settings-my-profile-text57 TextmdRegular"
-                            >
-                              <span>Kuala Lumpur</span>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="settings-my-profile-content17">
-                    <span
-                      class="settings-my-profile-text59 TextsmMedium"
-                    ></span>
-                    <div class="settings-my-profile-inputfield07">
-                      <div class="settings-my-profile-inputwithlabel07">
-                        <span class="settings-my-profile-text60 TextsmMedium">
-                          <span>State</span>
-                        </span>
-                        <div class="settings-my-profile-input07">
-                          <div class="settings-my-profile-content18">
-                            <span
-                              class="settings-my-profile-text62 TextmdRegular"
-                            >
-                              <span>Kuala Lumpur</span>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="settings-my-profile-content19">
-                    <span
-                      class="settings-my-profile-text64 TextsmMedium"
-                    ></span>
-                    <div class="settings-my-profile-inputdropdown">
-                      <div class="settings-my-profile-inputwithlabel08">
-                        <span class="settings-my-profile-text65 TextsmMedium">
-                          <span>Team member</span>
-                        </span>
-                        <div class="settings-my-profile-input08">
-                          <div class="settings-my-profile-content20">
+                  <div
+                    class="tab-pane fade"
+                    id="password-tab"
+                    role="tabpanel"
+                    aria-labelledby="password-tab-content"
+                  >
+                    <form id="password-form">
+                      <div class="settings-my-profile-section">
+                        <div class="settings-my-profile-container2">
+                          <div class="settings-my-profile-sectionheader">
+                            <div class="settings-my-profile-content01">
+                              <div
+                                class="settings-my-profile-textandsupportingtext1"
+                              >
+                                <span
+                                  class="settings-my-profile-text11 TextlgSemibold"
+                                >
+                                  <span>Password</span>
+                                </span>
+                                <span
+                                  class="settings-my-profile-text13 TextsmRegular"
+                                >
+                                  <span id="last-reset-password">-</span>
+                                </span>
+                              </div>
+                              <div class="settings-my-profile-actions1">
+                                <button
+                                  class="btn btn-light settings-my-profile-button2 settings-my-profile-text15 TextsmSemibold"
+                                  type="button"
+                                  id="cancel-password-btn"
+                                >
+                                  Cancel
+                                </button>
+                                <button
+                                  class="btn btn-warning settings-my-profile-button3 settings-my-profile-text17 TextsmSemibold"
+                                  type="submit"
+                                  id="save-password-btn"
+                                >
+                                  Save
+                                </button>
+                              </div>
+                            </div>
                             <img
-                              alt="MYI5295"
-                              src="public/external/myi5295-iq.svg"
-                              class="settings-my-profile-my"
+                              alt="DividerI5295"
+                              src="public/external/divideri5295-ef5s.svg"
+                              class="settings-my-profile-divider"
                             />
+                          </div>
+                          <div class="settings-my-profile-content05">
                             <span
-                              class="settings-my-profile-text67 TextmdMedium"
+                              class="settings-my-profile-text25 TextsmMedium"
                             >
-                              <span>Malaysia</span>
+                              <span>Current password</span>
                             </span>
+                            <div class="settings-my-profile-inputfield02">
+                              <div class="settings-my-profile-inputwithlabel02">
+                                <div class="settings-my-profile-input02">
+                                  <div class="settings-my-profile-content06">
+                                    <img
+                                      alt="passcodelockI5295"
+                                      src="public/external/passcodelocki5295-50y.svg"
+                                      class="settings-password-passcodelock"
+                                    />
+                                    <input
+                                      maxlength="100"
+                                      type="password"
+                                      class="settings-my-profile-text31"
+                                      id="input-current-password"
+                                      placeholder=""
+                                      required
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                           <img
-                            alt="chevrondownI5295"
-                            src="public/external/chevrondowni5295-qwy.svg"
-                            class="settings-my-profile-chevrondown"
+                            alt="DividerI5295"
+                            src="public/external/divideri5295-ef5s.svg"
+                            class="settings-my-profile-divider"
                           />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <img
-                    alt="Divider5295"
-                    src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/91000129-b09c-4551-b38d-861d463970e9/87f8c386-dbee-4a5c-a12e-786067ca417b?org_if_sml=1110"
-                    class="settings-my-profile-divider05"
-                  />
-                  <div class="settings-my-profile-content21">
-                    <span class="settings-my-profile-text69 TextsmMedium">
-                      <span>Timezone</span>
-                    </span>
-                    <div class="settings-my-profile-inputfield08">
-                      <div class="settings-my-profile-inputwithlabel09">
-                        <div class="settings-my-profile-input09">
-                          <div class="settings-my-profile-content22">
-                            <img
-                              alt="clockI5295"
-                              src="public/external/clocki5295-vmte.svg"
-                              class="settings-my-profile-clock"
-                            />
+                          <div class="settings-my-profile-content05">
                             <span
-                              class="settings-my-profile-text71 TextmdRegular"
+                              class="settings-my-profile-text25 TextsmMedium"
                             >
-                              <span>Asia/Malaysia</span>
+                              <span>New password</span>
                             </span>
+                            <div class="settings-my-profile-inputfield02">
+                              <div class="settings-my-profile-inputwithlabel02">
+                                <div class="settings-my-profile-input02">
+                                  <div class="settings-my-profile-content06">
+                                    <img
+                                      alt="lockunlocked04I5295"
+                                      src="public/external/lockunlocked04i5295-5z8e.svg"
+                                      class="settings-password-lockunlocked04"
+                                    />
+                                    <input
+                                      maxlength="100"
+                                      type="password"
+                                      class="settings-my-profile-text31"
+                                      id="input-new-password"
+                                      placeholder=""
+                                      required
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <img
-                    alt="Divider5295"
-                    src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/91000129-b09c-4551-b38d-861d463970e9/21a9bba5-e89f-483f-8628-601cf269b224?org_if_sml=1110"
-                    class="settings-my-profile-divider06"
-                  />
-                  <div class="settings-my-profile-content23">
-                    <span class="settings-my-profile-text73 TextsmMedium">
-                      <span>Currency</span>
-                    </span>
-                    <div class="settings-my-profile-inputfield09">
-                      <div class="settings-my-profile-inputwithlabel10">
-                        <div class="settings-my-profile-input10">
-                          <div class="settings-my-profile-content24">
-                            <input
-                              type="text"
-                              placeholder="Ringgit Malaysia"
-                              class="settings-my-profile-textinput"
-                            />
-                          </div>
-                          <div class="settings-my-profile-dropdown1">
+                          <img
+                            alt="DividerI5295"
+                            src="public/external/divideri5295-ef5s.svg"
+                            class="settings-my-profile-divider"
+                          />
+                          <div class="settings-my-profile-content05">
                             <span
-                              class="settings-my-profile-text75 TextmdRegular"
+                              class="settings-my-profile-text25 TextsmMedium"
                             >
-                              <span>MYR</span>
+                              <span>Confirm new password</span>
                             </span>
-                            <img
-                              alt="chevrondownI5296"
-                              src="public/external/chevrondowni5296-rugf.svg"
-                              class="settings-my-profile-chevrondown1"
-                            />
+                            <div class="settings-my-profile-inputfield02">
+                              <div class="settings-my-profile-inputwithlabel02">
+                                <div class="settings-my-profile-input02">
+                                  <div class="settings-my-profile-content06">
+                                    <img
+                                      alt="lock04I5295"
+                                      src="public/external/lock04i5295-vgah.svg"
+                                      class="settings-password-lock04"
+                                    />
+                                    <input
+                                      maxlength="100"
+                                      type="password"
+                                      class="settings-my-profile-text31"
+                                      id="input-confirm-new-password"
+                                      placeholder=""
+                                      required
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </form>
                   </div>
-                  <img
-                    alt="Divider5296"
-                    src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/91000129-b09c-4551-b38d-861d463970e9/0fcb7a98-51e8-4dec-8ee1-e5e2da27f043?org_if_sml=1110"
-                    class="settings-my-profile-divider07"
-                  />
-                  <div class="settings-my-profile-content25">
-                    <span class="settings-my-profile-text77 TextsmMedium">
-                      <span>Status</span>
-                    </span>
-                    <div class="settings-my-profile-badge">
-                      <img
-                        alt="checkI5295"
-                        src="public/external/checki5295-7797.svg"
-                        class="settings-my-profile-check"
-                      />
-                      <span class="settings-my-profile-text79 TextxsMedium">
-                        <span>Active</span>
-                      </span>
-                    </div>
+                  <div
+                    class="tab-pane fade"
+                    id="affiliates-tab"
+                    role="tabpanel"
+                    aria-labelledby="affiliates-tab-content"
+                  >
+                    <form id="affiliates-form">
+                      <div class="settings-my-profile-section">
+                        <div class="settings-my-profile-container2">
+                          <div class="settings-my-profile-sectionheader">
+                            <div class="settings-my-profile-content01">
+                              <div
+                                class="settings-my-profile-textandsupportingtext1"
+                              >
+                                <span
+                                  class="settings-my-profile-text11 TextlgSemibold"
+                                >
+                                  <span>Program settings</span>
+                                </span>
+                                <span
+                                  class="settings-my-profile-text13 TextsmRegular"
+                                >
+                                  <span id="last-reset-currency"
+                                    >View and update your affiliate
+                                    settings</span
+                                  >
+                                </span>
+                              </div>
+                              <div class="settings-my-profile-actions1">
+                                <button
+                                  class="btn btn-light settings-my-profile-button2 settings-my-profile-text15 TextsmSemibold"
+                                  type="button"
+                                  id="cancel-affiliates-btn"
+                                >
+                                  Cancel
+                                </button>
+                                <button
+                                  class="btn btn-warning settings-my-profile-button3 settings-my-profile-text17 TextsmSemibold"
+                                  type="submit"
+                                  id="save-affiliates-btn"
+                                >
+                                  Save
+                                </button>
+                              </div>
+                            </div>
+                            <img
+                              alt="DividerI5295"
+                              src="public/external/divideri5295-ef5s.svg"
+                              class="settings-my-profile-divider"
+                            />
+                          </div>
+                          <div class="settings-my-profile-content05 mb-3">
+                            <span
+                              class="settings-my-profile-text25 TextsmMedium"
+                            >
+                              <span>Affiliate hub profile</span><br />Activate
+                              your affiliate program and allow new affiliate
+                              applications via the Atfal Affiliate Hub
+                            </span>
+                            <div class="settings-my-profile-inputfield04">
+                              <div class="settings-my-profile-inputwithlabel04">
+                                <input
+                                  type="text"
+                                  class="settings-my-profile-input05"
+                                  placeholder=""
+                                  required
+                                  disabled
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="settings-my-profile-content05 mb-3">
+                            <span
+                              class="settings-my-profile-text25 TextsmMedium"
+                            >
+                              <span>Affiliate link</span><br />Anyone can apply
+                              to be your affiliate with this link
+                            </span>
+                            <div class="settings-my-profile-inputfield04">
+                              <div class="settings-my-profile-inputwithlabel04">
+                                <input
+                                  type="text"
+                                  class="settings-my-profile-input05"
+                                  id="input-affiliate-link"
+                                  placeholder=""
+                                  required
+                                  disabled
+                                />
+                                <button
+                                  class="btn btn-light settings-my-profile-button2 settings-my-profile-text15 TextsmSemibold"
+                                  type="button"
+                                  id="copy-affiliates-link-btn"
+                                >
+                                  <img
+                                    alt="copy01I5296"
+                                    src="public/external/copy01i5296-qyl8.svg"
+                                    class="settings-affiliates-copy01"
+                                  />
+                                  Copy
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="settings-my-profile-content05 mb-3">
+                            <span
+                              class="settings-my-profile-text25 TextsmMedium"
+                            >
+                              <span>Affiliate code</span><br />Anyone can apply
+                              to be your affiliate with this code
+                            </span>
+                            <div class="settings-my-profile-inputfield04">
+                              <div class="settings-my-profile-inputwithlabel04">
+                                <input
+                                  type="text"
+                                  class="settings-my-profile-input05"
+                                  id="input-affiliate-code"
+                                  placeholder=""
+                                  required
+                                  disabled
+                                />
+                                <button
+                                  class="btn btn-light settings-my-profile-button2 settings-my-profile-text15 TextsmSemibold"
+                                  type="button"
+                                  id="copy-affiliates-code-btn"
+                                >
+                                  <img
+                                    alt="copy01I5296"
+                                    src="public/external/copy01i5296-qyl8.svg"
+                                    class="settings-affiliates-copy01"
+                                  />
+                                  Copy
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
                   </div>
-                  <img
-                    alt="Divider5295"
-                    src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/91000129-b09c-4551-b38d-861d463970e9/fefe57df-1c21-4edd-994c-4b3dbb262b51?org_if_sml=1110"
-                    class="settings-my-profile-divider08"
-                  />
-                  <div class="settings-my-profile-content26">
-                    <span class="settings-my-profile-text81 TextsmMedium">
-                      <span>Created Date</span>
-                    </span>
-                    <span class="settings-my-profile-text83 TextsmMedium">
-                      <span>Mar 13, 2023</span>
-                    </span>
-                  </div>
-                  <img
-                    alt="Divider5295"
-                    src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/91000129-b09c-4551-b38d-861d463970e9/b97d30d1-39c5-4288-8eea-18a6273b527a?org_if_sml=1110"
-                    class="settings-my-profile-divider09"
-                  />
-                  <div class="settings-my-profile-content27">
-                    <span class="settings-my-profile-text85 TextsmMedium">
-                      <span>Expired Date</span>
-                    </span>
-                    <span class="settings-my-profile-text87 TextsmMedium">
-                      -
-                    </span>
-                  </div>
-                </div>
-                <div class="settings-my-profile-sectionfooter">
-                  <img
-                    alt="DividerI5295"
-                    src="public/external/divideri5295-b04o.svg"
-                    class="settings-my-profile-divider10"
-                  />
-                  <div class="settings-my-profile-content28">
-                    <div class="settings-my-profile-actions2">
-                      <button class="settings-my-profile-button5">
-                        <span class="settings-my-profile-text88 TextsmSemibold">
-                          <span>Cancel</span>
-                        </span>
-                      </button>
-                      <button class="settings-my-profile-button6">
-                        <span class="settings-my-profile-text90 TextsmSemibold">
-                          <span>Save</span>
-                        </span>
-                      </button>
-                    </div>
+                  <div
+                    class="tab-pane fade"
+                    id="currency-tab"
+                    role="tabpanel"
+                    aria-labelledby="currency-tab-content"
+                  >
+                    <form id="currency-form">
+                      <div class="settings-my-profile-section">
+                        <div class="settings-my-profile-container2">
+                          <div class="settings-my-profile-sectionheader">
+                            <div class="settings-my-profile-content01">
+                              <div
+                                class="settings-my-profile-textandsupportingtext1"
+                              >
+                                <span
+                                  class="settings-my-profile-text11 TextlgSemibold"
+                                >
+                                  <span>Currency Rate</span>
+                                </span>
+                                <span
+                                  class="settings-my-profile-text13 TextsmRegular"
+                                >
+                                  <span id="last-reset-currency">-</span>
+                                </span>
+                              </div>
+                              <div class="settings-my-profile-actions1">
+                                <button
+                                  class="btn btn-light settings-my-profile-button2 settings-my-profile-text15 TextsmSemibold"
+                                  type="button"
+                                  id="cancel-currency-btn"
+                                >
+                                  Cancel
+                                </button>
+                                <button
+                                  class="btn btn-warning settings-my-profile-button3 settings-my-profile-text17 TextsmSemibold"
+                                  type="submit"
+                                  id="save-currency-btn"
+                                >
+                                  Save
+                                </button>
+                              </div>
+                            </div>
+                            <img
+                              alt="DividerI5295"
+                              src="public/external/divideri5295-ef5s.svg"
+                              class="settings-my-profile-divider"
+                            />
+                          </div>
+
+                          <div id="form-parent-currency">
+                            <div
+                              class="settings-my-profile-content05 mb-3"
+                              id="form-child-currency"
+                            >
+                              <span
+                                class="settings-my-profile-text25 TextsmMedium"
+                              >
+                                <span>...</span>
+                              </span>
+                              <div class="settings-my-profile-inputfield04">
+                                <div
+                                  class="settings-my-profile-inputwithlabel04"
+                                >
+                                  <input
+                                    maxlength="100"
+                                    type="number"
+                                    step="0.01"
+                                    class="settings-my-profile-input05"
+                                    placeholder=""
+                                    required
+                                    value=""
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>
@@ -790,9 +1172,28 @@
         </div>
       </div>
     </div>
+    <div id="logout-modal-container">
+      <!-- logout modal -->
+    </div>
     <script
       data-section-id="navbar"
       src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
     ></script>
+    <!-- My function 2 -->
+    <div id="alert-toast-container">
+      <!-- alert toast -->
+    </div>
+    <script src="functions/setting-profile.js"></script>
+    <!--Data table -->
+    <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.3/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.5/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.colVis.min.js"></script>
   </body>
 </html>

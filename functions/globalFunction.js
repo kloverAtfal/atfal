@@ -4,7 +4,33 @@
 </div> */
 // showAlert("alert-login-container", "Error!", data.message, "danger", "my-login-alert");
 
+function formatNumber(number) {
+  return (number / 100).toLocaleString('en', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+}
+
 const spinner = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`;
+
+const momentFormat = {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+  // hour: "numeric",
+  // minute: "numeric",
+  // hour12: true,
+};
+
+function formatDate(date) {
+  if (date) {
+    let fDate = new Date(date);
+    var newDate = fDate.toLocaleString('en-US', momentFormat);
+    return newDate;
+  } else {
+    return '-';
+  }
+}
 
 function maskText(text) {
   if (text) {
@@ -184,7 +210,7 @@ if (!excludedPages.includes(currentUrl)) {
     const token = myData.authToken;
     if (token == null) {
       alert('You are not logged in. Please log in and try again');
-      location.href = '/index';
+      location.href = 'index';
     }
   };
 }

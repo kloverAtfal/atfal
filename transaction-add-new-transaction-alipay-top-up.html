@@ -11,7 +11,83 @@
     <meta property="twitter:card" content="summary_large_image" />
 
     <style data-tag="reset-style-sheet">
-      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+      html {
+        line-height: 1.15;
+      }
+      body {
+        margin: 0;
+      }
+      * {
+        box-sizing: border-box;
+        border-width: 0;
+        border-style: solid;
+      }
+      p,
+      li,
+      ul,
+      pre,
+      div,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      figure,
+      blockquote,
+      figcaption {
+        margin: 0;
+        padding: 0;
+      }
+      button {
+        background-color: transparent;
+      }
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        font-family: inherit;
+        font-size: 100%;
+        line-height: 1.15;
+        margin: 0;
+      }
+      button,
+      select {
+        text-transform: none;
+      }
+      button,
+      [type='button'],
+      [type='reset'],
+      [type='submit'] {
+        -webkit-appearance: button;
+      }
+      button::-moz-focus-inner,
+      [type='button']::-moz-focus-inner,
+      [type='reset']::-moz-focus-inner,
+      [type='submit']::-moz-focus-inner {
+        border-style: none;
+        padding: 0;
+      }
+      button:-moz-focus,
+      [type='button']:-moz-focus,
+      [type='reset']:-moz-focus,
+      [type='submit']:-moz-focus {
+        outline: 1px dotted ButtonText;
+      }
+      a {
+        color: inherit;
+        text-decoration: inherit;
+      }
+      input {
+        padding: 2px 4px;
+      }
+      img {
+        display: block;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
     </style>
     <style data-tag="default-style-sheet">
       html {
@@ -21,14 +97,13 @@
 
       body {
         font-weight: 400;
-        font-style:normal;
+        font-style: normal;
         text-decoration: none;
         text-transform: none;
         letter-spacing: normal;
         line-height: 1.15;
         color: var(--dl-color-gray-black);
         background-color: var(--dl-color-gray-white);
-
       }
     </style>
     <link
@@ -44,15 +119,46 @@
     <!--This is the head section-->
     <!-- <style> ... </style> -->
     <style data-section-id="dropdown">
-      [data-thq="thq-dropdown"]:hover > [data-thq="thq-dropdown-list"] {
-          display: flex;
-        }
+      [data-thq='thq-dropdown']:hover > [data-thq='thq-dropdown-list'] {
+        display: flex;
+      }
 
-        [data-thq="thq-dropdown"]:hover > div [data-thq="thq-dropdown-arrow"] {
-          transform: rotate(90deg);
-        }
+      [data-thq='thq-dropdown']:hover > div [data-thq='thq-dropdown-arrow'] {
+        transform: rotate(90deg);
+      }
     </style>
     <link rel="stylesheet" href="./style.css" />
+    <!-- My function 1 -->
+    <script src="functions/apiHelper.js"></script>
+    <script src="functions/globalFunction.js"></script>
+    <script src="functions/shareComponent.js"></script>
+    <link rel="stylesheet" href="./components/sidebarnavigation.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- data table -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.3/css/dataTables.bootstrap5.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/buttons/2.3.5/css/buttons.bootstrap5.min.css"
+    />
+    <!-- dropdown -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    />
+    <!-- end dropdown -->
   </head>
   <body>
     <div>
@@ -63,200 +169,14 @@
 
       <div class="transaction-add-new-transaction-alipay-top-up-container">
         <div class="transaction-add-new-transaction-alipay-top-up-contents">
-          <div class="sidebarnavigation-shipment-sidebarnavigationparcel">
-            <div class="sidebarnavigation-shipment-content">
-              <div class="sidebarnavigation-shipment-nav">
-                <div class="sidebarnavigation-shipment-header">
-                  <div class="sidebarnavigation-shipment-logo">
-                    <div class="sidebarnavigation-shipment-logowrap">
-                      <div class="sidebarnavigation-shipment-logomark">
-                        <img
-                          alt="Frame1I5236"
-                          src="public/external/frame1i5236-aiyo.svg"
-                          class="sidebarnavigation-shipment-frame1"
-                        />
-                      </div>
-                      <img
-                        alt="LogotypeI5236"
-                        src="public/external/logotypei5236-1fz.svg"
-                        class="sidebarnavigation-shipment-logotype"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div class="sidebarnavigation-shipment-search">
-                  <div class="sidebarnavigation-shipment-inputdropdown">
-                    <div class="sidebarnavigation-shipment-inputwithlabel">
-                      <div class="sidebarnavigation-shipment-input">
-                        <div class="sidebarnavigation-shipment-content1">
-                          <img
-                            alt="searchlgI5236"
-                            src="public/external/searchlgi5236-p0fh.svg"
-                            class="sidebarnavigation-shipment-searchlg"
-                          />
-                          <span
-                            class="sidebarnavigation-shipment-text TextmdRegular"
-                          >
-                            <span>Search</span>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="sidebarnavigation-shipment-navigation">
-                  <a
-                    href="home-dashboard-user.html"
-                    class="sidebarnavigation-shipment-navlink"
-                  >
-                    <div class="sidebarnavigation-shipment-frame-navitembase">
-                      <div class="sidebarnavigation-shipment-content2">
-                        <img
-                          alt="homelineI5236"
-                          src="public/external/homelinei5236-pi1s.svg"
-                          class="sidebarnavigation-shipment-homeline"
-                        />
-                        <span
-                          class="sidebarnavigation-shipment-text02 TextmdSemibold"
-                        >
-                          <span>Home</span>
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                  <a
-                    href="parcel-dashboard.html"
-                    class="sidebarnavigation-shipment-navlink1"
-                  >
-                    <div class="sidebarnavigation-shipment-frame-navitembase1">
-                      <div class="sidebarnavigation-shipment-content3">
-                        <img
-                          alt="packageI5236"
-                          src="public/external/packagei5236-2yjj.svg"
-                          class="sidebarnavigation-shipment-package"
-                        />
-                        <span
-                          class="sidebarnavigation-shipment-text04 TextmdSemibold"
-                        >
-                          <span>Parcel</span>
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                  <a
-                    href="shipment-dashboard.html"
-                    class="sidebarnavigation-shipment-navlink2"
-                  >
-                    <div class="sidebarnavigation-shipment-frame-navitembase2">
-                      <div class="sidebarnavigation-shipment-content4">
-                        <img
-                          alt="planeI5236"
-                          src="public/external/planei5236-zdu.svg"
-                          class="sidebarnavigation-shipment-plane"
-                        />
-                        <span
-                          class="sidebarnavigation-shipment-text06 TextmdSemibold"
-                        >
-                          <span>Shipment</span>
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                  <a
-                    href="transaction-dashboard-alipay-top-up.html"
-                    class="sidebarnavigation-shipment-navlink3"
-                  >
-                    <div class="sidebarnavigation-shipment-frame-navitembase3">
-                      <div class="sidebarnavigation-shipment-content5">
-                        <img
-                          alt="banknote01I5236"
-                          src="public/external/banknote01i5236-cpa.svg"
-                          class="sidebarnavigation-shipment-banknote01"
-                        />
-                        <span
-                          class="sidebarnavigation-shipment-text08 TextmdSemibold"
-                        >
-                          <span>Transactions</span>
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                  <a
-                    href="affiliates-dashboard.html"
-                    class="sidebarnavigation-shipment-navlink4"
-                  >
-                    <div class="sidebarnavigation-shipment-frame-navitembase4">
-                      <div class="sidebarnavigation-shipment-content6">
-                        <img
-                          alt="users01I5236"
-                          src="public/external/users01i5236-f4q.svg"
-                          class="sidebarnavigation-shipment-users01"
-                        />
-                        <span
-                          class="sidebarnavigation-shipment-text10 TextmdSemibold"
-                        >
-                          <span>Affiliates</span>
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="sidebarnavigation-shipment-footer">
-                <div class="sidebarnavigation-shipment-navigation1">
-                  <a
-                    href="settings-my-profile.html"
-                    class="sidebarnavigation-shipment-navlink5"
-                  >
-                    <div class="sidebarnavigation-shipment-frame-navitembase5">
-                      <div class="sidebarnavigation-shipment-content7">
-                        <img
-                          alt="settings01I5236"
-                          src="public/external/settings01i5236-dwy.svg"
-                          class="sidebarnavigation-shipment-settings01"
-                        />
-                        <span
-                          class="sidebarnavigation-shipment-text12 TextmdSemibold"
-                        >
-                          <span>Settings</span>
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <a
-                  href="index.html"
-                  class="sidebarnavigation-shipment-navlink6"
-                >
-                  <div class="sidebarnavigation-shipment-account">
-                    <div class="sidebarnavigation-shipment-avatarlabelgroup">
-                      <div class="sidebarnavigation-shipment-avatar"></div>
-                      <div
-                        class="sidebarnavigation-shipment-textandsupportingtext"
-                      >
-                        <span
-                          class="sidebarnavigation-shipment-text14 TextsmSemibold"
-                        >
-                          <span>Ahmad Mursyid</span>
-                        </span>
-                        <span class="sidebarnavigation-shipment-text16">
-                          <span>mursyid@atfal.com</span>
-                        </span>
-                      </div>
-                    </div>
-                    <button class="sidebarnavigation-shipment-button">
-                      <img
-                        alt="logout01I5236"
-                        src="public/external/logout01i5236-ixha.svg"
-                        class="sidebarnavigation-shipment-logout01"
-                      />
-                    </button>
-                  </div>
-                </a>
-              </div>
-            </div>
+          <div id="sidebar-navigation">
+            <!-- sidebarNavigation -->
           </div>
-          <div class="transaction-add-new-transaction-alipay-top-up-main">
+          <div
+            class="transaction-add-new-transaction-alipay-top-up-main"
+            id="body-content"
+            style="display: none"
+          >
             <div
               class="transaction-add-new-transaction-alipay-top-up-headersection"
             >
@@ -940,9 +860,28 @@
         </div>
       </div>
     </div>
+    <div id="logout-modal-container">
+      <!-- logout modal -->
+    </div>
     <script
       data-section-id="navbar"
       src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
     ></script>
+    <!-- My function 2 -->
+    <div id="alert-toast-container">
+      <!-- alert toast -->
+    </div>
+    <script src="functions/transaction-add-new-transaction.js"></script>
+    <!--Data table -->
+    <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.3/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.5/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.colVis.min.js"></script>
   </body>
 </html>
