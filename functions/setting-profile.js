@@ -1,11 +1,42 @@
+// --- start auth function
+
 if (!token) {
   location.href = 'index';
 }
+
+document.getElementById('sidebar-navigation').innerHTML = sidebarNavigation(
+  'settings',
+  sidebarNavigationLoaded()
+);
 
 function sidebarNavigationLoaded() {
   document.getElementById('body-content').style.display = 'block';
   document.getElementById('logout-modal-container').innerHTML = logoutModal();
 }
+
+$(document).ready(function () {
+  $('#sidebarCollapse').on('click', function () {
+    $('#sidebar').toggleClass('active');
+  });
+});
+
+document.getElementById('sidebar-username').innerHTML =
+  myData?.userData.username ?? '-';
+
+document.getElementById('sidebar-email').innerHTML =
+  myData?.userData.email ?? '-';
+
+document
+  .getElementById('sidebar-logout-btn')
+  .addEventListener('click', function (e) {
+    $('#logoutModal').modal('show');
+  });
+
+document
+  .getElementById('button-logout-yes')
+  .addEventListener('click', clearSession);
+
+// --- end auth function
 
 let tabs = [];
 var defaultTab = document.getElementById('my-profile-tab');
@@ -52,27 +83,6 @@ for (let i = 0; i < tabs.length; i++) {
   `;
 }
 document.getElementById('myTab').innerHTML = tabHTML;
-
-document.getElementById('sidebar-navigation').innerHTML = sidebarNavigation(
-  'settings',
-  sidebarNavigationLoaded()
-);
-
-document.getElementById('sidebar-username').innerHTML =
-  myData?.userData.username ?? '-';
-
-document.getElementById('sidebar-email').innerHTML =
-  myData?.userData.email ?? '-';
-
-document
-  .getElementById('sidebar-logout-btn')
-  .addEventListener('click', function (e) {
-    $('#logoutModal').modal('show');
-  });
-
-document
-  .getElementById('button-logout-yes')
-  .addEventListener('click', clearSession);
 
 // -- file upload
 var fileUploadPhoto = null;
@@ -261,7 +271,7 @@ function populateToAdminCurrency(data) {
     data.map((item) => {
       const card = child.cloneNode(true);
 
-      const label = card.getElementsByTagName('span');
+      const label = card.getElementsByTagName('label');
       const formInput = card.getElementsByTagName('input');
 
       label[0].innerHTML = `${item.name} (${item.short_name})`;
@@ -290,13 +300,13 @@ function populateToAdminCurrency(data) {
 
 function getSettingDropdownData() {
   fetchAPI(
-    'https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/setting/dropdown/data',
+    'https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/setting/dropdown',
     'GET',
     token
   )
     .then((data) => {
       if (data?.message) {
-        alert(data.message);
+        showToast('alert-toast-container', data.message, 'danger');
       } else {
         currencyData = data.currency;
         populateToAdminCurrency(currencyData);

@@ -1,201 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Shipment-Dashboard - KloverAtfal</title>
-    <meta property="og:title" content="Shipment-Dashboard - KloverAtfal" />
+    <title>KloverAtfal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
-
-    <style data-tag="reset-style-sheet">
-      html {
-        line-height: 1.15;
-      }
-      body {
-        margin: 0;
-      }
-      * {
-        box-sizing: border-box;
-        border-width: 0;
-        border-style: solid;
-      }
-      p,
-      li,
-      ul,
-      pre,
-      div,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      figure,
-      blockquote,
-      figcaption {
-        margin: 0;
-        padding: 0;
-      }
-      button {
-        background-color: transparent;
-      }
-      button,
-      input,
-      optgroup,
-      select,
-      textarea {
-        font-family: inherit;
-        font-size: 100%;
-        line-height: 1.15;
-        margin: 0;
-      }
-      button,
-      select {
-        text-transform: none;
-      }
-      button,
-      [type='button'],
-      [type='reset'],
-      [type='submit'] {
-        -webkit-appearance: button;
-      }
-      button::-moz-focus-inner,
-      [type='button']::-moz-focus-inner,
-      [type='reset']::-moz-focus-inner,
-      [type='submit']::-moz-focus-inner {
-        border-style: none;
-        padding: 0;
-      }
-      button:-moz-focus,
-      [type='button']:-moz-focus,
-      [type='reset']:-moz-focus,
-      [type='submit']:-moz-focus {
-        outline: 1px dotted ButtonText;
-      }
-      a {
-        color: inherit;
-        text-decoration: inherit;
-      }
-      input {
-        padding: 2px 4px;
-      }
-      img {
-        display: block;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-    </style>
-    <style data-tag="default-style-sheet">
-      html {
-        font-family: Inter;
-        font-size: 16px;
-      }
-
-      body {
-        font-weight: 400;
-        font-style: normal;
-        text-decoration: none;
-        text-transform: none;
-        letter-spacing: normal;
-        line-height: 1.15;
-        color: var(--dl-color-gray-black);
-        background-color: var(--dl-color-gray-white);
-      }
-    </style>
-    <style>
-      .dataTables_wrapper .dt-buttons .btn-secondary {
-        border-style: solid;
-        border-width: 1px;
-        border-color: #d0d5dd;
-        background-color: #fff;
-        box-shadow: 0px 1px 2px rgb(16 24 40 / 5%);
-        text-decoration: none;
-
-        font-family: Open Sans, sans-serif;
-        color: #344054;
-        font-size: 14px;
-        line-height: 20px;
-        font-weight: 600;
-        letter-spacing: 0em;
-      }
-      .dt-btn-split-wrapper .dt-btn-split-drop {
-        border-color: #d0d5dd !important;
-      }
-      .dt-button-collection .dropdown-menu a {
-        font-family: Open Sans, sans-serif;
-        color: #344054;
-        font-size: 14px;
-        line-height: 20px;
-        font-weight: 600;
-        letter-spacing: 0em;
-      }
-      .dropdown-item:active {
-        background-color: grey !important;
-      }
-      #example_length label {
-        font-family: Open Sans, sans-serif;
-        color: rgba(102, 112, 133, 1);
-        font-size: 16px;
-        line-height: 24px;
-        font-weight: 400;
-        letter-spacing: 0em;
-      }
-      #example_filter label {
-        font-family: Open Sans, sans-serif;
-        color: rgba(102, 112, 133, 1);
-        font-size: 16px;
-        line-height: 24px;
-        font-weight: 400;
-        letter-spacing: 0em;
-      }
-      .dataTables_wrapper .page-item.active .page-link {
-        background-color: rgba(238, 191, 8, 255);
-        border: 1px solid rgba(238, 191, 8, 255);
-      }
-      .dataTables_wrapper .paginate_button.previous:not(.disabled) a {
-        color: rgb(61, 61, 61);
-      }
-      .dataTables_wrapper .paginate_button.next:not(.disabled) a {
-        color: rgb(61, 61, 61);
-      }
-      .dataTables_wrapper .paginate_button:not(.active) a {
-        color: rgb(145, 145, 145);
-      }
-      /* .dataTables_wrapper .page-item.next .page-link {
-        color: rgba(238, 191, 8, 255);
-      } */
-      .datatable-header-title {
-        font-family: Open Sans, sans-serif;
-        color: rgba(71, 84, 103, 1);
-        font-size: 12px;
-        line-height: 18px;
-        font-weight: 500;
-        letter-spacing: 0em;
-      }
-      .datatable-header-container {
-        background-color: #f9fafb;
-      }
-      .datatable-row-container {
-        /* background-color: blue; */
-      }
-      .datatable-item-container {
-        /* background-color: red; */
-        display: flex;
-        /* justify-content: center; */
-        align-items: center;
-        min-height: 50px;
-      }
-      .datatable-item-title {
-        font-family: Open Sans, sans-serif;
-        color: rgba(16, 24, 40, 1);
-        font-size: 14px;
-        line-height: 20px;
-        font-weight: 500;
-        letter-spacing: 0em;
-        /* background-color: aqua; */
-      }
-    </style>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
@@ -206,23 +15,11 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
       data-tag="font"
     />
-    <!--This is the head section-->
-    <!-- <style> ... </style> -->
-    <style data-section-id="dropdown">
-      [data-thq='thq-dropdown']:hover > [data-thq='thq-dropdown-list'] {
-        display: flex;
-      }
-
-      [data-thq='thq-dropdown']:hover > div [data-thq='thq-dropdown-arrow'] {
-        transform: rotate(90deg);
-      }
-    </style>
     <link rel="stylesheet" href="./style.css" />
-    <!-- My function 1 -->
+    <!-- function -->
     <script src="functions/apiHelper.js"></script>
     <script src="functions/globalFunction.js"></script>
     <script src="functions/shareComponent.js"></script>
-    <link rel="stylesheet" href="./components/sidebarnavigation.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
@@ -230,6 +27,8 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.10/moment-timezone-with-data.js"></script>
     <!-- data table -->
     <link
       rel="stylesheet"
@@ -248,107 +47,87 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
     />
-    <!-- end dropdown -->
+    <!-- style -->
+    <link rel="stylesheet" href="./components/custom-style.css" />
+    <link rel="stylesheet" href="./components/sidebarnavigation.css" />
   </head>
-  <body>
+  <body class="body">
     <div>
-      <link href="./shipment-dashboard.css" rel="stylesheet" />
-
-      <div class="shipment-dashboard-container">
-        <div class="shipment-dashboard-contents">
-          <div id="sidebar-navigation">
-            <!-- sidebarNavigation -->
-          </div>
-          <div
-            class="shipment-dashboard-main"
-            id="body-content"
-            style="display: none"
-          >
-            <div class="shipment-dashboard-headersection">
-              <div class="shipment-dashboard-container1">
-                <div class="shipment-dashboard-breadcrumbs">
-                  <div class="shipment-dashboard-tabs">
-                    <a
-                      href="home-dashboard-user.html"
-                      class="shipment-dashboard-frame-breadcrumbbuttonbase"
-                    >
-                      <img
-                        alt="homelineI5296"
-                        src="public/external/homelinei5296-7u9v.svg"
-                        class="shipment-dashboard-homeline"
-                      />
-                    </a>
-                    <img
-                      alt="chevronright5296"
-                      src="public/external/chevronright5296-gx0p.svg"
-                      class="shipment-dashboard-chevronright"
-                    />
+      <div class="d-flex">
+        <div class="d-flex" id="sidebar-navigation">
+          <!-- sidebarNavigation -->
+        </div>
+        <div
+          class="col pt-3 body-content"
+          id="body-content"
+          style="display: none"
+        >
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <div class="d-flex justify-content-start align-items-center">
+                  <span class="mr-3">
                     <button
-                      class="shipment-dashboard-frame-breadcrumbbuttonbase1"
-                    >
-                      <span class="shipment-dashboard-text TextsmMedium">
-                        <span>Shipment</span>
-                      </span>
-                    </button>
-                  </div>
-                  <div class="shipment-dashboard-actions">
-                    <div class="shipment-dashboard-dropdown">
-                      <img
-                        alt="download01I5296"
-                        src="public/external/download01i5296-h6na.svg"
-                        class="shipment-dashboard-download01"
-                      />
-                    </div>
-                    <button class="shipment-dashboard-button">
-                      <img
-                        alt="searchrefractionI5296"
-                        src="public/external/searchrefractioni5296-i4sb.svg"
-                        class="shipment-dashboard-searchrefraction"
-                      />
-                    </button>
-                    <button class="shipment-dashboard-button01">
-                      <img
-                        alt="bell01I5296"
-                        src="public/external/bell01i5296-557.svg"
-                        class="shipment-dashboard-bell01"
-                      />
-                    </button>
-                    <button
-                      class="btn btn-warning shipment-dashboard-dropdown1 shipment-dashboard-button02"
                       type="button"
+                      id="sidebarCollapse"
+                      class="btn btn-warning"
+                    >
+                      <span style="color: #fff">&#9776;</span>
+                    </button>
+                  </span>
+                  <span class="mr-3">
+                    <a href="home-dashboard-user.html">
+                      <img
+                        alt="homelineI131"
+                        src="public/external/homelinei131-k1j1.svg"
+                      /> </a
+                  ></span>
+                  <span class="mr-3">
+                    <img
+                      alt="chevronright1311"
+                      src="public/external/chevronright1311-6r0f.svg"
+                  /></span>
+                  <span>
+                    <a
+                      href="shipment-dashboard.html"
+                      class="transaction-dashboard-alipay-top-up-text TextsmMedium"
+                    >
+                      <span>Shipment</span>
+                    </a></span
+                  >
+                </div>
+              </div>
+              <div class="col">
+                <div class="d-flex justify-content-end align-items-center">
+                  <span class="mr-3" id="button-download-csv">
+                    <img
+                      alt="download01I131"
+                      src="public/external/download01i131-4ln.svg"
+                  /></span>
+                  <span
+                    ><button
+                      class="btn btn-warning rounded-btn"
+                      type="button"
+                      style="color: white"
                       id="add-new-shipment-btn"
                     >
-                      <img
-                        alt="plusI5296"
-                        src="public/external/plusi5296-25gt.svg"
-                        class="shipment-dashboard-plus"
-                      />
-                    </button>
-                  </div>
-                </div>
-                <div class="shipment-dashboard-pageheader">
-                  <div class="shipment-dashboard-content">
-                    <div class="shipment-dashboard-textandsupportingtext">
-                      <span
-                        class="shipment-dashboard-text002 DisplaysmSemibold"
-                      >
-                        <span>Shipment</span>
-                      </span>
-                      <span class="shipment-dashboard-text004 TextmdRegular">
-                        <span>Track, manage, and monitor shipment easily.</span>
-                      </span>
-                    </div>
-                  </div>
-                  <img
-                    alt="DividerI5296"
-                    src="public/external/divideri5296-aen52.svg"
-                    class="shipment-dashboard-divider"
-                  />
+                      +
+                    </button></span
+                  >
                 </div>
               </div>
             </div>
-
-            <div class="table-responsive shipment-dashboard-container2">
+            <div
+              class="transaction-dashboard-alipay-top-up-text002 DisplaysmSemibold mt-3"
+            >
+              <span>Shipment</span>
+            </div>
+            <div
+              class="transaction-dashboard-alipay-top-up-text004 TextmdRegular"
+            >
+              <span>Track, manage, and monitor shipment easily.</span>
+            </div>
+            <div>
               <div id="table-loader">
                 <div class="d-flex justify-content-center">
                   <div class="spinner-border" role="status">
@@ -376,7 +155,7 @@
       data-section-id="navbar"
       src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
     ></script>
-    <!-- My function 2 -->
+    <!-- function -->
     <div id="alert-toast-container">
       <!-- alert toast -->
     </div>

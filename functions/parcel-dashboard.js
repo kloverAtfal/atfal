@@ -1,16 +1,24 @@
+// --- start auth function
+
 if (!token) {
   location.href = 'index';
-}
-
-function sidebarNavigationLoaded() {
-  document.getElementById('body-content').style.display = 'block';
-  document.getElementById('logout-modal-container').innerHTML = logoutModal();
 }
 
 document.getElementById('sidebar-navigation').innerHTML = sidebarNavigation(
   'parcel',
   sidebarNavigationLoaded()
 );
+
+function sidebarNavigationLoaded() {
+  document.getElementById('body-content').style.display = 'block';
+  document.getElementById('logout-modal-container').innerHTML = logoutModal();
+}
+
+$(document).ready(function () {
+  $('#sidebarCollapse').on('click', function () {
+    $('#sidebar').toggleClass('active');
+  });
+});
 
 document.getElementById('sidebar-username').innerHTML =
   myData?.userData.username ?? '-';
@@ -28,36 +36,15 @@ document
   .getElementById('button-logout-yes')
   .addEventListener('click', clearSession);
 
-document.getElementById('add-new-parcel-btn').addEventListener('click', () => {
-  // location.href = 'parcel-add-new-parcel';
-  $('#newParcelModal').modal('show');
-});
+// --- end auth function
 
-// const totalWaiting = document.getElementById('text-total-waiting');
-// const totalArrived = document.getElementById('text-total-arrived');
-// const totalShipped = document.getElementById('text-total-shipped');
+document
+  .getElementById('add-new-parcel-btn')
+  .addEventListener('click', function (e) {
+    $('#newParcelModal').modal('show');
+  });
 
 const tableLoader = document.getElementById('table-loader');
-
-function updateTotals(data) {
-  let waitingCount = 0;
-  let arrivedCount = 0;
-  let shippedCount = 0;
-
-  for (let i = 0; i < data.length; i++) {
-    if (data[i].parcel_status_data.code == 'waiting') {
-      waitingCount++;
-    } else if (data[i].parcel_status_data.code == 'arrived') {
-      arrivedCount++;
-    } else if (data[i].parcel_status_data.code == 'shipped') {
-      shippedCount++;
-    }
-  }
-
-  // totalWaiting.innerText = waitingCount;
-  // totalArrived.innerText = arrivedCount;
-  // totalShipped.innerText = shippedCount;
-}
 
 let tableData = [];
 
@@ -87,9 +74,11 @@ function populateToTable(data) {
       },
       {
         title: '<label class="datatable-header-title">Remarks</label>',
-        data: 'note',
+        data: 'remarks',
         render: function (data, type, row, meta) {
-          return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
+          return `<div class="datatable-item-container"><div class="datatable-item-title">${
+            data ? data : '-'
+          }</div></div>`;
         },
       },
       {
@@ -101,74 +90,6 @@ function populateToTable(data) {
           )})"><div class="datatable-item-title">${formatDate(
             data
           )}</div></div>`;
-        },
-      },
-      {
-        title: '<label class="datatable-header-title">Status</label>',
-        data: 'parcel_status_data.code',
-        render: function (data, type, row, meta) {
-          if (data == 'waiting') {
-            return `<div class="parcel-dashboard-tablecell40">
-            <div class="parcel-dashboard-badge08">
-              <img alt="checkI5296" src="public/external/checki5296-srbj.svg" class="parcel-dashboard-check06">
-              <span class="parcel-dashboard-text098 TextxsMedium">
-                <span>${data}</span>
-              </span>
-            </div>
-          </div>`;
-          }
-          if (data == 'arrived') {
-            return `<div class="parcel-dashboard-tablecell40">
-                        <div class="parcel-dashboard-badge08">
-                          <img alt="checkI5296" src="public/external/checki5296-srbj.svg" class="parcel-dashboard-check06">
-                          <span class="parcel-dashboard-text098 TextxsMedium">
-                            <span>${data}</span>
-                          </span>
-                        </div>
-                      </div>`;
-          }
-          if (data.code == 'shipped') {
-            return `<div class="parcel-dashboard-tablecell40">
-            <div class="parcel-dashboard-badge08">
-              <img alt="checkI5296" src="public/external/checki5296-srbj.svg" class="parcel-dashboard-check06">
-              <span class="parcel-dashboard-text098 TextxsMedium">
-                <span>${data}</span>
-              </span>
-            </div>
-          </div>`;
-          } else {
-            return `<div class="parcel-dashboard-tablecell40">
-            <div class="parcel-dashboard-badge08">
-              <img alt="checkI5296" src="public/external/checki5296-srbj.svg" class="parcel-dashboard-check06">
-              <span class="parcel-dashboard-text098 TextxsMedium">
-                <span>${data}</span>
-              </span>
-            </div>
-          </div>`;
-          }
-        },
-      },
-      {
-        title: '<label class="datatable-header-title">Action</label>',
-        data: 'id',
-        orderable: false, // disable sorting for this column
-        render: function (data, type, row, meta) {
-          return `<div class="datatable-item-container"><div class="datatable-item-title">
-
-          <div class="parcel-dashboard-tablecell48">
-                        <a class="parcel-dashboard-button03">
-                          <img alt="eyeI5296" src="public/external/eyei5296-tnpl.svg" class="parcel-dashboard-eye">
-                        </a>
-                        <a onclick="deleteTracking(${data}, this)" class="parcel-dashboard-button04">
-                          <img alt="trash01I5296" src="public/external/trash01i5296-x52rd.svg" class="parcel-dashboard-trash01">
-                        </a>
-                        <a onclick="editParcel(${data}, this)" class="parcel-dashboard-button05">
-                          <img alt="edit01I5296" src="public/external/edit01i5296-lv4a.svg" class="parcel-dashboard-edit01">
-                        </a>
-                      </div>
-
-            
-          </div></div>`;
         },
       },
     ],
@@ -189,10 +110,10 @@ function populateToTable(data) {
   //   .container()
   //   .appendTo("#example_wrapper .col-md-6:eq(0)");
 
-  // var buttonDownloadCSV = document.getElementById('button-download-csv');
-  // buttonDownloadCSV.addEventListener('click', function () {
-  //   table.button('.buttons-csv').trigger();
-  // });
+  var buttonDownloadCSV = document.getElementById('button-download-csv');
+  buttonDownloadCSV.addEventListener('click', function () {
+    table.button('.buttons-csv').trigger();
+  });
 
   let checkedRows = [];
 
@@ -292,39 +213,11 @@ function deleteTracking(id, button) {
     });
 }
 
-function getParcelList() {
-  fetchAPI(
-    'https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/parcel',
-    'GET',
-    token,
-    null
-  )
-    .then((data) => {
-      if (data?.message) {
-        showToast('alert-toast-container', data.message, 'danger');
-        tableLoader.style.display = 'none';
-      } else {
-        tableData = data.parcel_list;
-        populateToTable();
-      }
-    })
-    .catch((error) => {
-      tableLoader.style.display = 'none';
-      console.log('error', error);
-    });
-}
-
 var inputTrackingNumber = document.getElementById('input-tracking-number');
 var inputParcelContent = document.getElementById('input-parcel-content');
 var inputParcelValue = document.getElementById('input-parcel-value');
-var inputLength = document.getElementById('input-parcel-length');
-var inputWidth = document.getElementById('input-parcel-width');
-var inputHeight = document.getElementById('input-parcel-height');
 var inputWeight = document.getElementById('input-parcel-weight');
-var inputName = document.getElementById('input-name');
-var inputEmail = document.getElementById('input-email');
-var inputPhoneNumber = document.getElementById('input-phone-number');
-var inputRemark = document.getElementById('input-remark');
+var inputRemarks = document.getElementById('input-remarks');
 
 document
   .getElementById('add-new-parcel-form')
@@ -342,14 +235,8 @@ document
         tracking_number: inputTrackingNumber.value,
         content: inputParcelContent.value,
         value: inputParcelValue.value,
-        length: inputLength.value,
-        width: inputWidth.value,
-        height: inputHeight.value,
         weight: inputWeight.value,
-        name: inputName.value,
-        email: inputEmail.value,
-        phone: inputPhoneNumber.value,
-        note: inputRemark.value,
+        remarks: inputRemarks.value,
       }),
     };
 
@@ -381,4 +268,33 @@ document
       });
   });
 
-getParcelList();
+function getParcelList() {
+  fetchAPI(
+    'https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/parcel',
+    'GET',
+    token,
+    null
+  )
+    .then((data) => {
+      if (data?.message) {
+        showToast('alert-toast-container', data.message, 'danger');
+        tableLoader.style.display = 'none';
+      } else {
+        tableData = data.parcel_list;
+        populateToTable();
+      }
+    })
+    .catch((error) => {
+      tableLoader.style.display = 'none';
+      console.log('error', error);
+    });
+}
+
+$(document).ready(function () {
+  var urlParams = new URLSearchParams(window.location.search);
+  var code = urlParams.get('code');
+  if (code === 'new') {
+    $('#newParcelModal').modal('show');
+  }
+  getParcelList();
+});

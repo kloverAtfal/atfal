@@ -1,108 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Affiliates-Dashboard - KloverAtfal</title>
-    <meta property="og:title" content="Affiliates-Dashboard - KloverAtfal" />
+    <title>KloverAtfal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
-
-    <style data-tag="reset-style-sheet">
-      html {
-        line-height: 1.15;
-      }
-      body {
-        margin: 0;
-      }
-      * {
-        box-sizing: border-box;
-        border-width: 0;
-        border-style: solid;
-      }
-      p,
-      li,
-      ul,
-      pre,
-      div,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      figure,
-      blockquote,
-      figcaption {
-        margin: 0;
-        padding: 0;
-      }
-      button {
-        background-color: transparent;
-      }
-      button,
-      input,
-      optgroup,
-      select,
-      textarea {
-        font-family: inherit;
-        font-size: 100%;
-        line-height: 1.15;
-        margin: 0;
-      }
-      button,
-      select {
-        text-transform: none;
-      }
-      button,
-      [type='button'],
-      [type='reset'],
-      [type='submit'] {
-        -webkit-appearance: button;
-      }
-      button::-moz-focus-inner,
-      [type='button']::-moz-focus-inner,
-      [type='reset']::-moz-focus-inner,
-      [type='submit']::-moz-focus-inner {
-        border-style: none;
-        padding: 0;
-      }
-      button:-moz-focus,
-      [type='button']:-moz-focus,
-      [type='reset']:-moz-focus,
-      [type='submit']:-moz-focus {
-        outline: 1px dotted ButtonText;
-      }
-      a {
-        color: inherit;
-        text-decoration: inherit;
-      }
-      input {
-        padding: 2px 4px;
-      }
-      img {
-        display: block;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-    </style>
-    <style data-tag="default-style-sheet">
-      html {
-        font-family: Inter;
-        font-size: 16px;
-      }
-
-      body {
-        font-weight: 400;
-        font-style: normal;
-        text-decoration: none;
-        text-transform: none;
-        letter-spacing: normal;
-        line-height: 1.15;
-        color: var(--dl-color-gray-black);
-        background-color: var(--dl-color-gray-white);
-      }
-    </style>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
@@ -113,23 +15,11 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
       data-tag="font"
     />
-    <!--This is the head section-->
-    <!-- <style> ... </style> -->
-    <style data-section-id="dropdown">
-      [data-thq='thq-dropdown']:hover > [data-thq='thq-dropdown-list'] {
-        display: flex;
-      }
-
-      [data-thq='thq-dropdown']:hover > div [data-thq='thq-dropdown-arrow'] {
-        transform: rotate(90deg);
-      }
-    </style>
     <link rel="stylesheet" href="./style.css" />
-    <!-- My function 1 -->
+    <!-- function -->
     <script src="functions/apiHelper.js"></script>
     <script src="functions/globalFunction.js"></script>
     <script src="functions/shareComponent.js"></script>
-    <link rel="stylesheet" href="./components/sidebarnavigation.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
@@ -137,6 +27,8 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.10/moment-timezone-with-data.js"></script>
     <!-- data table -->
     <link
       rel="stylesheet"
@@ -155,668 +47,92 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
     />
-    <!-- end dropdown -->
+    <!-- style -->
+    <link rel="stylesheet" href="./components/custom-style.css" />
+    <link rel="stylesheet" href="./components/sidebarnavigation.css" />
   </head>
-  <body>
+  <body class="body">
     <div>
-      <link href="./affiliates-dashboard.css" rel="stylesheet" />
-
-      <div class="affiliates-dashboard-container">
-        <div class="affiliates-dashboard-contents">
-          <div id="sidebar-navigation">
-            <!-- sidebarNavigation -->
-          </div>
-          <div
-            class="affiliates-dashboard-main"
-            id="body-content"
-            style="display: none"
-          >
-            <div class="affiliates-dashboard-headersection">
-              <div class="affiliates-dashboard-container1">
-                <div class="affiliates-dashboard-breadcrumbs">
-                  <div class="affiliates-dashboard-tabs">
-                    <a
-                      href="home-dashboard-user.html"
-                      class="affiliates-dashboard-frame-breadcrumbbuttonbase"
+      <div class="d-flex">
+        <div class="d-flex" id="sidebar-navigation">
+          <!-- sidebarNavigation -->
+        </div>
+        <div
+          class="col pt-3 body-content"
+          id="body-content"
+          style="display: none"
+        >
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <div class="d-flex justify-content-start align-items-center">
+                  <span class="mr-3">
+                    <button
+                      type="button"
+                      id="sidebarCollapse"
+                      class="btn btn-warning"
                     >
+                      <span style="color: #fff">&#9776;</span>
+                    </button>
+                  </span>
+                  <span class="mr-3">
+                    <a href="home-dashboard-user.html">
                       <img
-                        alt="homelineI5296"
-                        src="public/external/homelinei5296-7fhh.svg"
-                        class="affiliates-dashboard-homeline"
-                      />
-                    </a>
+                        alt="homelineI131"
+                        src="public/external/homelinei131-k1j1.svg"
+                      /> </a
+                  ></span>
+                  <span class="mr-3">
                     <img
-                      alt="chevronright5296"
-                      src="public/external/chevronright5296-j1i.svg"
-                      class="affiliates-dashboard-chevronright"
-                    />
+                      alt="chevronright1311"
+                      src="public/external/chevronright1311-6r0f.svg"
+                  /></span>
+                  <span>
                     <a
-                      href="affiliates-dashboard.html"
-                      class="affiliates-dashboard-frame-breadcrumbbuttonbase1"
+                      href="shipment-dashboard.html"
+                      class="transaction-dashboard-alipay-top-up-text TextsmMedium"
                     >
-                      <span class="affiliates-dashboard-text TextsmMedium">
-                        <span>Affiliates</span>
-                      </span>
-                    </a>
-                  </div>
-                  <div class="affiliates-dashboard-actions">
-                    <div class="affiliates-dashboard-dropdown">
-                      <img
-                        alt="download01I5296"
-                        src="public/external/download01i5296-2dfn.svg"
-                        class="affiliates-dashboard-download01"
-                      />
-                    </div>
-                    <button class="affiliates-dashboard-button">
-                      <img
-                        alt="searchrefractionI5296"
-                        src="public/external/searchrefractioni5296-cior.svg"
-                        class="affiliates-dashboard-searchrefraction"
-                      />
-                    </button>
-                    <button class="affiliates-dashboard-button01">
-                      <img
-                        alt="bell01I5296"
-                        src="public/external/bell01i5296-veof.svg"
-                        class="affiliates-dashboard-bell01"
-                      />
-                    </button>
-                    <div class="affiliates-dashboard-dropdown1">
-                      <a
-                        href="affiliates-add-new-affiliates.html"
-                        class="affiliates-dashboard-button02"
-                      >
-                        <img
-                          alt="plusI5296"
-                          src="public/external/plusi5296-6xw7.svg"
-                          class="affiliates-dashboard-plus"
-                        />
-                      </a>
-                    </div>
-                  </div>
+                      <span>Affiliates</span>
+                    </a></span
+                  >
                 </div>
-                <div class="affiliates-dashboard-pageheader">
-                  <div class="affiliates-dashboard-content">
-                    <div class="affiliates-dashboard-textandsupportingtext">
-                      <span
-                        class="affiliates-dashboard-text02 DisplaysmSemibold"
-                      >
-                        Affiliates
-                      </span>
-                      <span class="affiliates-dashboard-text03 TextmdRegular">
-                        <span>
-                          Track, manage, and monitor affiliates easily.
-                        </span>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="affiliates-dashboard-content1">
-                    <div class="affiliates-dashboard-inputdropdown">
-                      <div class="affiliates-dashboard-inputwithlabel">
-                        <div class="affiliates-dashboard-input">
-                          <div class="affiliates-dashboard-content2">
-                            <img
-                              alt="searchlgI5285"
-                              src="public/external/searchlgi5285-ndn.svg"
-                              class="affiliates-dashboard-searchlg"
-                            />
-                            <span
-                              class="affiliates-dashboard-text05 TextmdRegular"
-                            >
-                              <span>Search by name...</span>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="affiliates-dashboard-actions1">
-                      <button class="affiliates-dashboard-button03">
-                        <img
-                          alt="listI5285"
-                          src="public/external/listi5285-c3xf.svg"
-                          class="affiliates-dashboard-list"
-                        />
-                      </button>
-                      <button class="affiliates-dashboard-button04">
-                        <img
-                          alt="grid01I5285"
-                          src="public/external/grid01i5285-x4qe.svg"
-                          class="affiliates-dashboard-grid01"
-                        />
-                      </button>
-                    </div>
-                  </div>
-                  <img
-                    alt="DividerI5285"
-                    src="public/external/divideri5285-b787.svg"
-                    class="affiliates-dashboard-divider"
-                  />
+              </div>
+              <div class="col">
+                <div class="d-flex justify-content-end align-items-center">
+                  <span class="mr-3" id="button-download-csv">
+                    <img
+                      alt="download01I131"
+                      src="public/external/download01i131-4ln.svg"
+                  /></span>
                 </div>
               </div>
             </div>
-            <div class="affiliates-dashboard-section">
-              <div class="affiliates-dashboard-container2">
-                <div class="affiliates-dashboard-table">
-                  <div class="affiliates-dashboard-content3">
-                    <div class="affiliates-dashboard-column">
-                      <div class="affiliates-dashboard-tableheadercell">
-                        <div class="affiliates-dashboard-checkbox">
-                          <div
-                            class="affiliates-dashboard-frame-checkboxbase"
-                          ></div>
-                        </div>
-                        <div class="affiliates-dashboard-tableheader">
-                          <span
-                            class="affiliates-dashboard-text07 TextxsMedium"
-                          >
-                            <span>Members</span>
-                          </span>
-                          <img
-                            alt="arrowdownI5285"
-                            src="public/external/arrowdowni5285-e7e.svg"
-                            class="affiliates-dashboard-arrowdown"
-                          />
-                        </div>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell">
-                        <div class="affiliates-dashboard-avatar"></div>
-                        <div
-                          class="affiliates-dashboard-textandsupportingtext1"
-                        >
-                          <span
-                            class="affiliates-dashboard-text09 TextsmMedium"
-                          >
-                            <span>Ahmad Mursyid</span>
-                          </span>
-                          <span
-                            class="affiliates-dashboard-text11 TextsmRegular"
-                          >
-                            <span>345123456798</span>
-                          </span>
-                        </div>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell01">
-                        <div class="affiliates-dashboard-avatar1"></div>
-                        <div
-                          class="affiliates-dashboard-textandsupportingtext2"
-                        >
-                          <span
-                            class="affiliates-dashboard-text13 TextsmMedium"
-                          >
-                            <span>Olivia Rhye</span>
-                          </span>
-                          <span
-                            class="affiliates-dashboard-text15 TextsmRegular"
-                          >
-                            <span>345123456798</span>
-                          </span>
-                        </div>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell02">
-                        <div class="affiliates-dashboard-avatar2"></div>
-                        <div
-                          class="affiliates-dashboard-textandsupportingtext3"
-                        >
-                          <span
-                            class="affiliates-dashboard-text17 TextsmMedium"
-                          >
-                            <span>Olivia Rhye</span>
-                          </span>
-                          <span
-                            class="affiliates-dashboard-text19 TextsmRegular"
-                          >
-                            <span>345123456798</span>
-                          </span>
-                        </div>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell03">
-                        <div class="affiliates-dashboard-avatar3"></div>
-                        <div
-                          class="affiliates-dashboard-textandsupportingtext4"
-                        >
-                          <span
-                            class="affiliates-dashboard-text21 TextsmMedium"
-                          >
-                            <span>Olivia Rhye</span>
-                          </span>
-                          <span
-                            class="affiliates-dashboard-text23 TextsmRegular"
-                          >
-                            <span>345123456798</span>
-                          </span>
-                        </div>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell04">
-                        <div class="affiliates-dashboard-avatar4"></div>
-                        <div
-                          class="affiliates-dashboard-textandsupportingtext5"
-                        >
-                          <span
-                            class="affiliates-dashboard-text25 TextsmMedium"
-                          >
-                            <span>Olivia Rhye</span>
-                          </span>
-                          <span
-                            class="affiliates-dashboard-text27 TextsmRegular"
-                          >
-                            <span>345123456798</span>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="affiliates-dashboard-column1">
-                      <div class="affiliates-dashboard-tableheadercell1">
-                        <div class="affiliates-dashboard-tableheader1">
-                          <span
-                            class="affiliates-dashboard-text29 TextxsMedium"
-                          >
-                            <span>Sales</span>
-                          </span>
-                        </div>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell05">
-                        <span class="affiliates-dashboard-text31 TextsmRegular">
-                          <span>USD $10.00</span>
-                        </span>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell06">
-                        <span class="affiliates-dashboard-text33 TextsmRegular">
-                          <span>USD $10.00</span>
-                        </span>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell07">
-                        <span class="affiliates-dashboard-text35 TextsmRegular">
-                          <span>USD $10.00</span>
-                        </span>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell08">
-                        <span class="affiliates-dashboard-text37 TextsmRegular">
-                          <span>USD $10.00</span>
-                        </span>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell09">
-                        <span class="affiliates-dashboard-text39 TextsmRegular">
-                          <span>USD $10.00</span>
-                        </span>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell10">
-                        <span class="affiliates-dashboard-text41 TextsmRegular">
-                          <span>USD $10.00</span>
-                        </span>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell11">
-                        <span class="affiliates-dashboard-text43 TextsmRegular">
-                          <span>USD $10.00</span>
-                        </span>
-                      </div>
-                    </div>
-                    <div class="affiliates-dashboard-column2">
-                      <div class="affiliates-dashboard-tableheadercell2">
-                        <div class="affiliates-dashboard-tableheader2">
-                          <span
-                            class="affiliates-dashboard-text45 TextxsMedium"
-                          >
-                            <span class="affiliates-dashboard-text46">
-                              Total
-                            </span>
-                            <span>Commission</span>
-                          </span>
-                        </div>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell12">
-                        <span class="affiliates-dashboard-text48 TextsmRegular">
-                          <span>USD $10.00</span>
-                        </span>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell13">
-                        <span class="affiliates-dashboard-text50 TextsmRegular">
-                          <span>USD $10.00</span>
-                        </span>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell14">
-                        <span class="affiliates-dashboard-text52 TextsmRegular">
-                          <span>USD $10.00</span>
-                        </span>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell15">
-                        <span class="affiliates-dashboard-text54 TextsmRegular">
-                          <span>USD $10.00</span>
-                        </span>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell16">
-                        <span class="affiliates-dashboard-text56 TextsmRegular">
-                          <span>USD $10.00</span>
-                        </span>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell17">
-                        <span class="affiliates-dashboard-text58 TextsmRegular">
-                          <span>USD $10.00</span>
-                        </span>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell18">
-                        <span class="affiliates-dashboard-text60 TextsmRegular">
-                          <span>USD $10.00</span>
-                        </span>
-                      </div>
-                    </div>
-                    <div class="affiliates-dashboard-column3">
-                      <div class="affiliates-dashboard-tableheadercell3">
-                        <div class="affiliates-dashboard-tableheader3">
-                          <span
-                            class="affiliates-dashboard-text62 TextxsMedium"
-                          >
-                            <span>Last activity</span>
-                          </span>
-                        </div>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell19">
-                        <span class="affiliates-dashboard-text64 TextsmRegular">
-                          <span>Dec 1, 2022</span>
-                        </span>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell20">
-                        <span class="affiliates-dashboard-text66 TextsmRegular">
-                          <span>Nov 1, 2022</span>
-                        </span>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell21">
-                        <span class="affiliates-dashboard-text68 TextsmRegular">
-                          <span>Oct 1, 2022</span>
-                        </span>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell22">
-                        <span class="affiliates-dashboard-text70 TextsmRegular">
-                          <span>Sep 1, 2022</span>
-                        </span>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell23">
-                        <span class="affiliates-dashboard-text72 TextsmRegular">
-                          <span>Aug 1, 2022</span>
-                        </span>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell24">
-                        <span class="affiliates-dashboard-text74 TextsmRegular">
-                          <span>Jul 1, 2022</span>
-                        </span>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell25">
-                        <span class="affiliates-dashboard-text76 TextsmRegular">
-                          <span>Jun 1, 2022</span>
-                        </span>
-                      </div>
-                    </div>
-                    <div class="affiliates-dashboard-column4">
-                      <div class="affiliates-dashboard-tableheadercell4">
-                        <div class="affiliates-dashboard-tableheader4">
-                          <span
-                            class="affiliates-dashboard-text78 TextxsMedium"
-                          >
-                            <span>Status</span>
-                          </span>
-                        </div>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell26">
-                        <div class="affiliates-dashboard-badge">
-                          <img
-                            alt="checkI5285"
-                            src="public/external/checki5285-xjs.svg"
-                            class="affiliates-dashboard-check"
-                          />
-                          <span
-                            class="affiliates-dashboard-text80 TextxsMedium"
-                          >
-                            <span>Active</span>
-                          </span>
-                        </div>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell27">
-                        <div class="affiliates-dashboard-badge1">
-                          <img
-                            alt="checkI5287"
-                            src="public/external/checki5287-86b.svg"
-                            class="affiliates-dashboard-check1"
-                          />
-                          <span
-                            class="affiliates-dashboard-text82 TextxsMedium"
-                          >
-                            <span>Active</span>
-                          </span>
-                        </div>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell28">
-                        <div class="affiliates-dashboard-badge2">
-                          <img
-                            alt="checkI5287"
-                            src="public/external/checki5287-6v4r.svg"
-                            class="affiliates-dashboard-check2"
-                          />
-                          <span
-                            class="affiliates-dashboard-text84 TextxsMedium"
-                          >
-                            <span>Active</span>
-                          </span>
-                        </div>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell29">
-                        <div class="affiliates-dashboard-badge3">
-                          <img
-                            alt="checkI5287"
-                            src="public/external/checki5287-zes.svg"
-                            class="affiliates-dashboard-check3"
-                          />
-                          <span
-                            class="affiliates-dashboard-text86 TextxsMedium"
-                          >
-                            <span>Active</span>
-                          </span>
-                        </div>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell30">
-                        <div class="affiliates-dashboard-badge4">
-                          <img
-                            alt="checkI5287"
-                            src="public/external/checki5287-8paj.svg"
-                            class="affiliates-dashboard-check4"
-                          />
-                          <span
-                            class="affiliates-dashboard-text88 TextxsMedium"
-                          >
-                            <span>Active</span>
-                          </span>
-                        </div>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell31">
-                        <div class="affiliates-dashboard-badge5">
-                          <img
-                            alt="checkI5287"
-                            src="public/external/checki5287-kr0u.svg"
-                            class="affiliates-dashboard-check5"
-                          />
-                          <span
-                            class="affiliates-dashboard-text90 TextxsMedium"
-                          >
-                            <span>Active</span>
-                          </span>
-                        </div>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell32">
-                        <div class="affiliates-dashboard-badge6">
-                          <img
-                            alt="checkI5287"
-                            src="public/external/checki5287-wmpk.svg"
-                            class="affiliates-dashboard-check6"
-                          />
-                          <span
-                            class="affiliates-dashboard-text92 TextxsMedium"
-                          >
-                            <span>Active</span>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="affiliates-dashboard-column5">
-                      <div class="affiliates-dashboard-tableheadercell5"></div>
-                      <div class="affiliates-dashboard-tablecell33">
-                        <a
-                          href="affiliates-edit-affiliates.html"
-                          class="affiliates-dashboard-button05"
-                        >
-                          <img
-                            alt="edit01I5285"
-                            src="public/external/edit01i5285-le9p.svg"
-                            class="affiliates-dashboard-edit01"
-                          />
-                        </a>
-                        <a
-                          href="affiliates-view-details.html"
-                          class="affiliates-dashboard-button06"
-                        >
-                          <img
-                            alt="eyeI5285"
-                            src="public/external/eyei5285-edbn.svg"
-                            class="affiliates-dashboard-eye"
-                          />
-                        </a>
-                        <a
-                          href="affiliates-successful-deleted.html"
-                          class="affiliates-dashboard-button07"
-                        >
-                          <img
-                            alt="trash01I5285"
-                            src="public/external/trash01i5285-2j39.svg"
-                            class="affiliates-dashboard-trash01"
-                          />
-                        </a>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell34">
-                        <a
-                          href="affiliates-edit-affiliates.html"
-                          class="affiliates-dashboard-button08"
-                        >
-                          <img
-                            alt="edit01I5296"
-                            src="public/external/edit01i5296-uv9.svg"
-                            class="affiliates-dashboard-edit011"
-                          />
-                        </a>
-                        <a
-                          href="affiliates-view-details.html"
-                          class="affiliates-dashboard-button09"
-                        >
-                          <img
-                            alt="eyeI5296"
-                            src="public/external/eyei5296-n38n.svg"
-                            class="affiliates-dashboard-eye1"
-                          />
-                        </a>
-                        <a
-                          href="affiliates-successful-deleted.html"
-                          class="affiliates-dashboard-button10"
-                        >
-                          <img
-                            alt="trash01I5296"
-                            src="public/external/trash01i5296-rinb.svg"
-                            class="affiliates-dashboard-trash011"
-                          />
-                        </a>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell35">
-                        <a
-                          href="affiliates-edit-affiliates.html"
-                          class="affiliates-dashboard-button11"
-                        >
-                          <img
-                            alt="edit01I5296"
-                            src="public/external/edit01i5296-g97j.svg"
-                            class="affiliates-dashboard-edit012"
-                          />
-                        </a>
-                        <a
-                          href="affiliates-view-details.html"
-                          class="affiliates-dashboard-button12"
-                        >
-                          <img
-                            alt="eyeI5296"
-                            src="public/external/eyei5296-7rlf.svg"
-                            class="affiliates-dashboard-eye2"
-                          />
-                        </a>
-                        <a
-                          href="affiliates-successful-deleted.html"
-                          class="affiliates-dashboard-button13"
-                        >
-                          <img
-                            alt="trash01I5296"
-                            src="public/external/trash01i5296-hnlu.svg"
-                            class="affiliates-dashboard-trash012"
-                          />
-                        </a>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell36">
-                        <a
-                          href="affiliates-edit-affiliates.html"
-                          class="affiliates-dashboard-button14"
-                        >
-                          <img
-                            alt="edit01I5296"
-                            src="public/external/edit01i5296-d7ya.svg"
-                            class="affiliates-dashboard-edit013"
-                          />
-                        </a>
-                        <a
-                          href="affiliates-view-details.html"
-                          class="affiliates-dashboard-button15"
-                        >
-                          <img
-                            alt="eyeI5296"
-                            src="public/external/eyei5296-ucja.svg"
-                            class="affiliates-dashboard-eye3"
-                          />
-                        </a>
-                        <a
-                          href="affiliates-successful-deleted.html"
-                          class="affiliates-dashboard-button16"
-                        >
-                          <img
-                            alt="trash01I5296"
-                            src="public/external/trash01i5296-3gya.svg"
-                            class="affiliates-dashboard-trash013"
-                          />
-                        </a>
-                      </div>
-                      <div class="affiliates-dashboard-tablecell37">
-                        <a
-                          href="affiliates-edit-affiliates.html"
-                          class="affiliates-dashboard-button17"
-                        >
-                          <img
-                            alt="edit01I5296"
-                            src="public/external/edit01i5296-qv6q.svg"
-                            class="affiliates-dashboard-edit014"
-                          />
-                        </a>
-                        <a
-                          href="affiliates-view-details.html"
-                          class="affiliates-dashboard-button18"
-                        >
-                          <img
-                            alt="eyeI5296"
-                            src="public/external/eyei5296-ioj.svg"
-                            class="affiliates-dashboard-eye4"
-                          />
-                        </a>
-                        <button class="affiliates-dashboard-button19">
-                          <img
-                            alt="trash01I5296"
-                            src="public/external/trash01i5296-2wgs.svg"
-                            class="affiliates-dashboard-trash014"
-                          />
-                        </button>
-                      </div>
-                    </div>
+            <div
+              class="transaction-dashboard-alipay-top-up-text002 DisplaysmSemibold mt-3"
+            >
+              <span>Affiliates</span>
+            </div>
+            <div
+              class="transaction-dashboard-alipay-top-up-text004 TextmdRegular"
+            >
+              <span>Track, manage, and monitor affiliates easily.</span>
+            </div>
+            <div>
+              <div id="table-loader">
+                <div class="d-flex justify-content-center">
+                  <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
                   </div>
                 </div>
               </div>
+              <table
+                id="example"
+                class="table table-hover"
+                style="background-color: white; width: 100%"
+              >
+                <thead class="datatable-header-container"></thead>
+                <tbody class="datatable-row-container"></tbody>
+              </table>
             </div>
           </div>
         </div>
@@ -829,7 +145,7 @@
       data-section-id="navbar"
       src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
     ></script>
-    <!-- My function 2 -->
+    <!-- function -->
     <div id="alert-toast-container">
       <!-- alert toast -->
     </div>
