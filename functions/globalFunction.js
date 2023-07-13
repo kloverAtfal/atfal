@@ -4,6 +4,32 @@
 </div> */
 // showAlert("alert-login-container", "Error!", data.message, "danger", "my-login-alert");
 
+function formatDateRange(data) {
+  if (data.length === 0) {
+    return ''; // Return empty string if there is no data
+  }
+
+  // Sort the data array based on the 'created_at' property in ascending order
+  data.sort((a, b) => a.created_at - b.created_at);
+
+  // Get the first and last timestamps from the sorted data array
+  const startDate = new Date(data[0].created_at);
+  const endDate = new Date(data[data.length - 1].created_at);
+
+  // Format the start and end dates
+  const startMonth = startDate.toLocaleString('default', { month: 'short' });
+  const startYear = startDate.getFullYear();
+  const endMonth = endDate.toLocaleString('default', { month: 'short' });
+  const endYear = endDate.getFullYear();
+
+  // Construct and return the formatted date range string
+  if (data.length === 1) {
+    return `${startMonth} ${startYear}`;
+  } else {
+    return `${startMonth} ${startYear} – ${endMonth} ${endYear}`;
+  }
+}
+
 function formatNumber(number) {
   return (number / 100).toLocaleString('en', {
     minimumFractionDigits: 2,

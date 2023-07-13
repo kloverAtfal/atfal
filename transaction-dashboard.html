@@ -89,17 +89,17 @@
                   /></span>
                   <span>
                     <a
-                      href="parcel-dashboard.html"
+                      href="transaction-dashboard.html"
                       class="transaction-dashboard-alipay-top-up-text TextsmMedium"
                     >
-                      <span>Parcel</span>
+                      <span>Transactions</span>
                     </a></span
                   >
                 </div>
               </div>
               <div class="col">
                 <div class="d-flex justify-content-end align-items-center">
-                  <span class="mr-3" id="button-download-csv">
+                  <span class="mr-3">
                     <img
                       alt="download01I131"
                       src="public/external/download01i131-4ln.svg"
@@ -109,7 +109,7 @@
                       class="btn btn-warning rounded-btn"
                       type="button"
                       style="color: white"
-                      id="add-new-parcel-btn"
+                      id="add-new-transactions"
                     >
                       +
                     </button></span
@@ -120,138 +120,65 @@
             <div
               class="transaction-dashboard-alipay-top-up-text002 DisplaysmSemibold mt-3"
             >
-              <span>Parcel</span>
+              <span>Transactions</span>
             </div>
             <div
               class="transaction-dashboard-alipay-top-up-text004 TextmdRegular"
             >
-              <span>Track, manage, and monitor parcel easily.</span>
+              <span>Track, manage, and monitor transactions easily. </span>
             </div>
             <div>
-              <div id="table-loader">
-                <div class="d-flex justify-content-center">
-                  <div class="spinner-border" role="status">
-                    <span class="sr-only">Loading...</span>
+              <ul class="nav nav-tabs mt-3" id="myTab" role="tablist">
+                <!-- nav tabs -->
+              </ul>
+              <div class="tab-content pt-3">
+                <div
+                  class="tab-pane fade"
+                  id="alipay-topup-tab"
+                  role="tabpanel"
+                  aria-labelledby="alipay-topup-content"
+                >
+                  <div id="table-loader">
+                    <div class="d-flex justify-content-center">
+                      <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                      </div>
+                    </div>
                   </div>
+                  <table
+                    id="example"
+                    class="table table-hover"
+                    style="background-color: white; width: 100%"
+                  >
+                    <thead class="datatable-header-container"></thead>
+                    <tbody class="datatable-row-container"></tbody>
+                  </table>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="alipay-onbehalf-tab"
+                  role="tabpanel"
+                  aria-labelledby="alipay-onbehalf-content"
+                >
+                  <div id="table-loader2">
+                    <div class="d-flex justify-content-center">
+                      <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                      </div>
+                    </div>
+                  </div>
+                  <table
+                    id="example2"
+                    class="table table-hover"
+                    style="background-color: white; width: 100%"
+                  >
+                    <thead class="datatable-header-container"></thead>
+                    <tbody class="datatable-row-container"></tbody>
+                  </table>
                 </div>
               </div>
-              <table
-                id="example"
-                class="table table-hover"
-                style="background-color: white; width: 100%"
-              >
-                <thead class="datatable-header-container"></thead>
-                <tbody class="datatable-row-container"></tbody>
-              </table>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <!-- Add New Parcel Modal-->
-    <div
-      class="modal fade bd-example-modal-lg"
-      id="newParcelModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Add New Parcel</h5>
-            <button
-              class="close"
-              type="button"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <form id="add-new-parcel-form">
-            <div class="modal-body">
-              <div class="form-group">
-                <label class="form-label">Tracking Number</label>
-                <input
-                  maxlength="100"
-                  type="text"
-                  class="form-control form-input"
-                  id="input-tracking-number"
-                  placeholder=""
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label class="form-label">Parcel Item</label>
-                <input
-                  maxlength="100"
-                  type="text"
-                  class="form-control form-input"
-                  id="input-parcel-content"
-                  placeholder=""
-                  required
-                />
-              </div>
-              <div class="row">
-                <div class="col">
-                  <div class="form-group">
-                    <label class="form-label">Parcel value (RM)</label>
-                    <input
-                      maxlength="100"
-                      type="text"
-                      class="form-control form-input"
-                      id="input-parcel-value"
-                      placeholder=""
-                      required
-                    />
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="form-group">
-                    <label class="form-label">Weight (Kg)</label>
-                    <input
-                      maxlength="100"
-                      type="text"
-                      class="form-control form-input"
-                      id="input-parcel-weight"
-                      placeholder=""
-                      required
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label">Remarks</label>
-                <textarea
-                  maxlength="500"
-                  class="form-control"
-                  id="input-remarks"
-                  rows="3"
-                  placeholder="Write your note here..."
-                ></textarea>
-              </div>
-
-              <div class="modal-footer">
-                <button
-                  class="btn btn-secondary"
-                  type="button"
-                  data-dismiss="modal"
-                >
-                  Cancel
-                </button>
-                <button
-                  class="btn btn-warning parcel-add-new-parcel-text53"
-                  type="submit"
-                  id="add-new-parcel-submit-btn"
-                >
-                  Add Now
-                </button>
-              </div>
-            </div>
-          </form>
         </div>
       </div>
     </div>
@@ -266,7 +193,7 @@
     <div id="alert-toast-container">
       <!-- alert toast -->
     </div>
-    <script src="functions/parcel-dashboard.js"></script>
+    <script src="functions/transaction-dashboard.js"></script>
     <!--Data table -->
     <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.3/js/dataTables.bootstrap5.min.js"></script>

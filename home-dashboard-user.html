@@ -1,108 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home-Dashboard-User - KloverAtfal</title>
-    <meta property="og:title" content="Home-Dashboard-User - KloverAtfal" />
+    <title>KloverAtfal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
-
-    <style data-tag="reset-style-sheet">
-      html {
-        line-height: 1.15;
-      }
-      body {
-        margin: 0;
-      }
-      * {
-        box-sizing: border-box;
-        border-width: 0;
-        border-style: solid;
-      }
-      p,
-      li,
-      ul,
-      pre,
-      div,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      figure,
-      blockquote,
-      figcaption {
-        margin: 0;
-        padding: 0;
-      }
-      button {
-        background-color: transparent;
-      }
-      button,
-      input,
-      optgroup,
-      select,
-      textarea {
-        font-family: inherit;
-        font-size: 100%;
-        line-height: 1.15;
-        margin: 0;
-      }
-      button,
-      select {
-        text-transform: none;
-      }
-      button,
-      [type='button'],
-      [type='reset'],
-      [type='submit'] {
-        -webkit-appearance: button;
-      }
-      button::-moz-focus-inner,
-      [type='button']::-moz-focus-inner,
-      [type='reset']::-moz-focus-inner,
-      [type='submit']::-moz-focus-inner {
-        border-style: none;
-        padding: 0;
-      }
-      button:-moz-focus,
-      [type='button']:-moz-focus,
-      [type='reset']:-moz-focus,
-      [type='submit']:-moz-focus {
-        outline: 1px dotted ButtonText;
-      }
-      a {
-        color: inherit;
-        text-decoration: inherit;
-      }
-      input {
-        padding: 2px 4px;
-      }
-      img {
-        display: block;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-    </style>
-    <style data-tag="default-style-sheet">
-      html {
-        font-family: Inter;
-        font-size: 16px;
-      }
-
-      body {
-        font-weight: 400;
-        font-style: normal;
-        text-decoration: none;
-        text-transform: none;
-        letter-spacing: normal;
-        line-height: 1.15;
-        color: var(--dl-color-gray-black);
-        background-color: var(--dl-color-gray-white);
-      }
-    </style>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
@@ -113,19 +15,8 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
       data-tag="font"
     />
-    <!--This is the head section-->
-    <!-- <style> ... </style> -->
-    <style data-section-id="dropdown">
-      [data-thq='thq-dropdown']:hover > [data-thq='thq-dropdown-list'] {
-        display: flex;
-      }
-
-      [data-thq='thq-dropdown']:hover > div [data-thq='thq-dropdown-arrow'] {
-        transform: rotate(90deg);
-      }
-    </style>
     <link rel="stylesheet" href="./style.css" />
-    <!-- My function 1 -->
+    <!-- function -->
     <script src="functions/apiHelper.js"></script>
     <script src="functions/globalFunction.js"></script>
     <script src="functions/shareComponent.js"></script>
@@ -136,1591 +27,311 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.10/moment-timezone-with-data.js"></script>
+    <!-- data table -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.3/css/dataTables.bootstrap5.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/buttons/2.3.5/css/buttons.bootstrap5.min.css"
+    />
+    <!-- dropdown -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    />
+    <!-- style -->
+    <link rel="stylesheet" href="./components/custom-style.css" />
+    <link rel="stylesheet" href="./components/sidebarnavigation.css" />
+    <!-- chart -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
   </head>
-  <body>
+  <body class="body">
     <div>
-      <link href="./home-dashboard-user.css" rel="stylesheet" />
-
-      <div class="home-dashboard-user-container">
-        <div class="home-dashboard-user-contents">
-          <div id="sidebar-navigation">
-            <!-- sidebarNavigation -->
-          </div>
-          <div
-            class="home-dashboard-user-main"
-            id="body-content"
-            style="display: none"
-          >
-            <div class="home-dashboard-user-headersection">
-              <div class="home-dashboard-user-container1">
-                <div class="home-dashboard-user-breadcrumbs">
-                  <div class="home-dashboard-user-tabs">
+      <div class="d-flex">
+        <div class="d-flex" id="sidebar-navigation">
+          <!-- sidebarNavigation -->
+        </div>
+        <div
+          class="col pt-3 body-content"
+          id="body-content"
+          style="display: none"
+        >
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <div class="d-flex justify-content-start align-items-center">
+                  <span class="mr-3">
                     <button
-                      class="home-dashboard-user-frame-breadcrumbbuttonbase"
+                      type="button"
+                      id="sidebarCollapse"
+                      class="btn btn-warning"
                     >
-                      <img
-                        alt="homelineI5300"
-                        src="public/external/homelinei5300-tjyd.svg"
-                        class="home-dashboard-user-homeline"
-                      />
+                      <span style="color: #fff">&#9776;</span>
                     </button>
-                  </div>
-                  <div class="home-dashboard-user-actions">
-                    <div class="home-dashboard-user-dropdown">
-                      <img
-                        alt="download01I5300"
-                        src="public/external/download01i5300-6x0n.svg"
-                        class="home-dashboard-user-download01"
-                      />
-                    </div>
-                    <button class="home-dashboard-user-button">
-                      <img
-                        alt="searchrefractionI5300"
-                        src="public/external/searchrefractioni5300-vw9s.svg"
-                        class="home-dashboard-user-searchrefraction"
-                      />
-                    </button>
-                    <button class="home-dashboard-user-button1">
-                      <img
-                        alt="bell01I5300"
-                        src="public/external/bell01i5300-oy2a6u.svg"
-                        class="home-dashboard-user-bell01"
-                      />
-                    </button>
-                    <div class="home-dashboard-user-dropdown1">
-                      <button class="home-dashboard-user-button2">
-                        <img
-                          alt="plusI5300"
-                          src="public/external/plusi5300-xcgd.svg"
-                          class="home-dashboard-user-plus"
-                        />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div class="home-dashboard-user-content">
-                  <div class="home-dashboard-user-textandsupportingtext">
-                    <span class="home-dashboard-user-text DisplaysmSemibold">
-                      <span id="welcome-username">Welcome back, Mursyid</span>
-                    </span>
-                    <span class="home-dashboard-user-text002 TextmdRegular">
-                      <span>Track, manage, and monitor parcel easily.</span>
-                    </span>
-                  </div>
-                </div>
-                <div class="home-dashboard-user-tabsandfilters">
-                  <button class="home-dashboard-user-buttongroup"></button>
-                  <button class="home-dashboard-user-frame-buttongroupbase">
-                    <span class="home-dashboard-user-text004 TextsmSemibold">
-                      <span>12 months</span>
-                    </span>
-                  </button>
-                  <button class="home-dashboard-user-frame-buttongroupbase1">
-                    <span class="home-dashboard-user-text006 TextsmSemibold">
-                      <span>30 days</span>
-                    </span>
-                  </button>
-                  <button class="home-dashboard-user-frame-buttongroupbase2">
-                    <span class="home-dashboard-user-text008 TextsmSemibold">
-                      <span>7 days</span>
-                    </span>
-                  </button>
-                  <button class="home-dashboard-user-frame-buttongroupbase3">
-                    <span class="home-dashboard-user-text010 TextsmSemibold">
-                      <span>24 hours</span>
-                    </span>
-                  </button>
-
-                  <div class="home-dashboard-user-actions1">
-                    <div class="home-dashboard-user-datepickerdropdown">
-                      <button class="home-dashboard-user-button3">
-                        <img
-                          alt="calendarI5300"
-                          src="public/external/calendari5300-j4u.svg"
-                          class="home-dashboard-user-calendar"
-                        />
-                        <span
-                          class="home-dashboard-user-text012 TextsmSemibold"
-                        >
-                          <span>Select dates</span>
-                        </span>
-                      </button>
-                    </div>
-                    <button class="home-dashboard-user-button4">
-                      <img
-                        alt="filterlinesI5300"
-                        src="public/external/filterlinesi5300-mdd2.svg"
-                        class="home-dashboard-user-filterlines"
-                      />
-                      <span class="home-dashboard-user-text014 TextsmSemibold">
-                        <span>Filters</span>
-                      </span>
-                    </button>
-                  </div>
-                </div>
-                <img
-                  alt="Divider5300"
-                  src="public/external/divider5300-16n.svg"
-                  class="home-dashboard-user-divider"
-                />
-              </div>
-            </div>
-            <div class="home-dashboard-user-section">
-              <div class="home-dashboard-user-container2">
-                <div class="home-dashboard-user-headingandnumber">
-                  <span class="home-dashboard-user-text016 TextsmMedium">
-                    <span>Total Commission</span>
                   </span>
-                  <div class="home-dashboard-user-numberandbadge">
-                    <div class="home-dashboard-user-numberand">
-                      <div class="home-dashboard-user-framewrap">
-                        <span class="home-dashboard-user-text018 TextxlMedium">
-                          MYR
-                        </span>
-                      </div>
-                      <span
-                        class="home-dashboard-user-text019 DisplaymdSemibold"
-                      >
-                        <span>18,880</span>
-                      </span>
-                    </div>
-                    <div class="home-dashboard-user-badgewrap">
-                      <div class="home-dashboard-user-badge">
-                        <img
-                          alt="arrowupI5300"
-                          src="public/external/arrowupi5300-kpre.svg"
-                          class="home-dashboard-user-arrowup"
-                        />
-                        <span class="home-dashboard-user-text021 TextsmMedium">
-                          <span>7.4%</span>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="home-dashboard-user-lineandbarchart">
-                  <div class="home-dashboard-user-axis">
-                    <div class="home-dashboard-user-content01">
-                      <div class="home-dashboard-user-frame-yaxis">
-                        <div class="home-dashboard-user-frame-yaxisline">
-                          <img
-                            alt="DividerI5300"
-                            src="public/external/divideri5300-acn.svg"
-                            class="home-dashboard-user-divider01"
-                          />
-                        </div>
-                        <div class="home-dashboard-user-frame-yaxisline1">
-                          <img
-                            alt="DividerI5300"
-                            src="public/external/divideri5300-j75m.svg"
-                            class="home-dashboard-user-divider02"
-                          />
-                        </div>
-                        <div class="home-dashboard-user-frame-yaxisline2">
-                          <img
-                            alt="DividerI5300"
-                            src="public/external/divideri5300-abmg.svg"
-                            class="home-dashboard-user-divider03"
-                          />
-                        </div>
-                        <div class="home-dashboard-user-frame-yaxisline3">
-                          <img
-                            alt="DividerI5300"
-                            src="public/external/divideri5300-ytti.svg"
-                            class="home-dashboard-user-divider04"
-                          />
-                        </div>
-                        <div class="home-dashboard-user-frame-yaxisline4">
-                          <img
-                            alt="DividerI5300"
-                            src="public/external/divideri5300-05v9i.svg"
-                            class="home-dashboard-user-divider05"
-                          />
-                        </div>
-                        <div class="home-dashboard-user-frame-yaxisline5">
-                          <img
-                            alt="DividerI5300"
-                            src="public/external/divideri5300-qyr9.svg"
-                            class="home-dashboard-user-divider06"
-                          />
-                        </div>
-                      </div>
-                      <div class="home-dashboard-user-frame-xaxis">
-                        <span class="home-dashboard-user-text023 TextxsRegular">
-                          <span>Jan</span>
-                        </span>
-                        <span class="home-dashboard-user-text025 TextxsRegular">
-                          <span>Feb</span>
-                        </span>
-                        <span class="home-dashboard-user-text027 TextxsRegular">
-                          <span>Mar</span>
-                        </span>
-                        <span class="home-dashboard-user-text029 TextxsRegular">
-                          <span>Apr</span>
-                        </span>
-                        <span class="home-dashboard-user-text031 TextxsRegular">
-                          <span>May</span>
-                        </span>
-                        <span class="home-dashboard-user-text033 TextxsRegular">
-                          <span>Jun</span>
-                        </span>
-                        <span class="home-dashboard-user-text035 TextxsRegular">
-                          <span>Jul</span>
-                        </span>
-                        <span class="home-dashboard-user-text037 TextxsRegular">
-                          <span>Aug</span>
-                        </span>
-                        <span class="home-dashboard-user-text039 TextxsRegular">
-                          <span>Sep</span>
-                        </span>
-                        <span class="home-dashboard-user-text041 TextxsRegular">
-                          <span>Oct</span>
-                        </span>
-                        <span class="home-dashboard-user-text043 TextxsRegular">
-                          <span>Nov</span>
-                        </span>
-                        <span class="home-dashboard-user-text045 TextxsRegular">
-                          <span>Dec</span>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="home-dashboard-user-frame-chartdata">
-                    <div class="home-dashboard-user-series1">
+                  <span class="mr-3">
+                    <a href="home-dashboard-user.html">
                       <img
-                        alt="LinebackgroundI5300"
-                        src="public/external/linebackgroundi5300-jymg.svg"
-                        class="home-dashboard-user-linebackground"
-                      />
-                      <img
-                        alt="LineI5300"
-                        src="public/external/linei5300-r5n4.svg"
-                        class="home-dashboard-user-line"
-                      />
-                    </div>
-                  </div>
+                        alt="homelineI131"
+                        src="public/external/homelinei131-k1j1.svg"
+                      /> </a
+                  ></span>
                 </div>
-                <div class="home-dashboard-user-metrics">
-                  <div class="home-dashboard-user-headingandnumber1">
-                    <span class="home-dashboard-user-text047 TextsmMedium">
-                      <span>Total Parcel</span>
-                    </span>
-                    <div class="home-dashboard-user-numberandbadge1">
-                      <span
-                        class="home-dashboard-user-text049 DisplaysmSemibold"
-                      >
-                        <span>4,862</span>
-                      </span>
-                      <div class="home-dashboard-user-badgewrap1">
-                        <div class="home-dashboard-user-badge1">
-                          <img
-                            alt="arrowupI5300"
-                            src="public/external/arrowupi5300-ip5.svg"
-                            class="home-dashboard-user-arrowup1"
-                          />
-                          <span
-                            class="home-dashboard-user-text051 TextsmMedium"
-                          >
-                            <span>9.2%</span>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="home-dashboard-user-headingandnumber2">
-                    <span class="home-dashboard-user-text053 TextsmMedium">
-                      <span>Total Shipment</span>
-                    </span>
-                    <div class="home-dashboard-user-numberandbadge2">
-                      <span
-                        class="home-dashboard-user-text055 DisplaysmSemibold"
-                      >
-                        <span>2,671</span>
-                      </span>
-                      <div class="home-dashboard-user-badgewrap2">
-                        <div class="home-dashboard-user-badge2">
-                          <img
-                            alt="arrowupI5300"
-                            src="public/external/arrowupi5300-dewd.svg"
-                            class="home-dashboard-user-arrowup2"
-                          />
-                          <span
-                            class="home-dashboard-user-text057 TextsmMedium"
-                          >
-                            <span>6.6%</span>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="home-dashboard-user-headingandnumber3">
-                    <span class="home-dashboard-user-text059 TextsmMedium">
-                      <span>Total Payment</span>
-                    </span>
-                    <div class="home-dashboard-user-numberandbadge3">
-                      <span
-                        class="home-dashboard-user-text061 DisplaysmSemibold"
-                      >
-                        <span>82%</span>
-                      </span>
-                      <div class="home-dashboard-user-badgewrap3">
-                        <div class="home-dashboard-user-badge3">
-                          <img
-                            alt="arrowupI5300"
-                            src="public/external/arrowupi5300-cmba.svg"
-                            class="home-dashboard-user-arrowup3"
-                          />
-                          <span
-                            class="home-dashboard-user-text063 TextsmMedium"
-                          >
-                            <span>8.1%</span>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+              </div>
+              <div class="col">
+                <div class="d-flex justify-content-end align-items-center">
+                  <!-- right button content -->
                 </div>
               </div>
             </div>
-            <div class="home-dashboard-user-section1">
-              <div class="home-dashboard-user-container3">
-                <div class="home-dashboard-user-sectionheader">
-                  <div class="home-dashboard-user-content02">
-                    <div class="home-dashboard-user-textandsupportingtext1">
-                      <span class="home-dashboard-user-text065 TextlgSemibold">
-                        <span>Start creating content</span>
-                      </span>
-                    </div>
-                    <div class="home-dashboard-user-dropdown2">
-                      <img
-                        alt="dotsverticalI5300"
-                        src="public/external/dotsverticali5300-uy7t.svg"
-                        class="home-dashboard-user-dotsvertical"
-                      />
-                    </div>
-                  </div>
-                  <img
-                    alt="DividerI5300"
-                    src="public/external/divideri5300-13sr.svg"
-                    class="home-dashboard-user-divider07"
-                  />
-                </div>
-                <div class="home-dashboard-user-content03">
-                  <div class="home-dashboard-user-section2">
-                    <div class="home-dashboard-user-c-as">
-                      <a
-                        href="parcel-add-new-parcel.html"
-                        class="home-dashboard-user-navlink"
-                      >
-                        <div class="home-dashboard-user-cta">
-                          <div class="home-dashboard-user-featuredicon">
-                            <img
-                              alt="userplus01I5300"
-                              src="public/external/userplus01i5300-o8ia.svg"
-                              class="home-dashboard-user-userplus01"
-                            />
-                          </div>
-                          <div
-                            class="home-dashboard-user-textandsupportingtext2"
-                          >
-                            <span
-                              class="home-dashboard-user-text067 TextmdSemibold"
-                            >
-                              <span>Create a new parcel</span>
-                            </span>
-                            <span
-                              class="home-dashboard-user-text069 TextsmRegular"
-                            >
-                              <span>Add yourself or import from CSV</span>
-                            </span>
-                          </div>
-                        </div>
-                      </a>
-                      <a
-                        href="shipment-add-new-shipment.html"
-                        class="home-dashboard-user-navlink1"
-                      >
-                        <div class="home-dashboard-user-cta1">
-                          <div class="home-dashboard-user-featuredicon1">
-                            <img
-                              alt="edit04I5300"
-                              src="public/external/edit04i5300-ljr.svg"
-                              class="home-dashboard-user-edit04"
-                            />
-                          </div>
-                          <div
-                            class="home-dashboard-user-textandsupportingtext3"
-                          >
-                            <span
-                              class="home-dashboard-user-text071 TextmdSemibold"
-                            >
-                              <span>Create a new shipment</span>
-                            </span>
-                            <span
-                              class="home-dashboard-user-text073 TextsmRegular"
-                            >
-                              <span>
-                                Dive into the editor and start creating
-                              </span>
-                            </span>
-                          </div>
-                        </div>
-                      </a>
-                      <a
-                        href="transaction-add-new-transaction-alipay-top-up.html"
-                        class="home-dashboard-user-navlink2"
-                      >
-                        <div class="home-dashboard-user-cta2">
-                          <div class="home-dashboard-user-featuredicon2">
-                            <img
-                              alt="edit04I5300"
-                              src="public/external/edit04i5300-n7zb.svg"
-                              class="home-dashboard-user-edit041"
-                            />
-                          </div>
-                          <div
-                            class="home-dashboard-user-textandsupportingtext4"
-                          >
-                            <span
-                              class="home-dashboard-user-text075 TextmdSemibold"
-                            >
-                              <span>Create a new payment</span>
-                            </span>
-                            <span
-                              class="home-dashboard-user-text077 TextsmRegular"
-                            >
-                              <span>
-                                Dive into the editor and start creating
-                              </span>
-                            </span>
-                          </div>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div
+              class="transaction-dashboard-alipay-top-up-text002 DisplaysmSemibold mt-3"
+              id="welcome-username"
+            >
+              <span>Welcome back</span>
             </div>
-            <div class="home-dashboard-user-section3">
-              <div class="home-dashboard-user-container4">
-                <div class="home-dashboard-user-content04">
-                  <div class="home-dashboard-user-section4">
-                    <div class="home-dashboard-user-c-as1">
-                      <div class="home-dashboard-user-parcel-status">
-                        <div class="home-dashboard-user-content05">
-                          <div class="home-dashboard-user-headingandicon">
-                            <div class="home-dashboard-user-parcel-status1">
-                              <img
-                                alt="Ellipse4I5300"
-                                src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/91000129-b09c-4551-b38d-861d463970e9/22e0eabf-b0dd-4fd3-9b5d-61b4ae329cce?org_if_sml=1850"
-                                class="home-dashboard-user-ellipse4"
-                              />
-                              <div class="home-dashboard-user-group">
-                                <img
-                                  alt="VectorI5300"
-                                  src="public/external/vectori5300-0imi.svg"
-                                  class="home-dashboard-user-vector"
-                                />
-                                <img
-                                  alt="VectorI5300"
-                                  src="public/external/vectori5300-k0ac.svg"
-                                  class="home-dashboard-user-vector001"
-                                />
-                                <img
-                                  alt="VectorI5300"
-                                  src="public/external/vectori5300-mjv.svg"
-                                  class="home-dashboard-user-vector002"
-                                />
-                                <img
-                                  alt="VectorI5300"
-                                  src="public/external/vectori5300-lnym.svg"
-                                  class="home-dashboard-user-vector003"
-                                />
-                              </div>
-                              <div
-                                class="home-dashboard-user-frame-fileuploadicon"
-                              ></div>
-                            </div>
-                            <div
-                              class="home-dashboard-user-textandsupportingtext5"
-                            >
-                              <span
-                                class="home-dashboard-user-text079 TextmdMedium"
-                              >
-                                <span>21</span>
-                              </span>
-                              <span
-                                class="home-dashboard-user-text081 TextsmRegular"
-                              >
-                                <span>Pending Parcel waiting to arrive</span>
-                              </span>
-                            </div>
-                          </div>
-                          <span
-                            class="home-dashboard-user-text083 TextsmRegular"
-                          >
-                            <span>Jan 2018 – May 2020</span>
-                          </span>
-                        </div>
-                        <div class="home-dashboard-user-sectionfooter">
-                          <img
-                            alt="DividerI5300"
-                            src="public/external/divideri5300-k6mq.svg"
-                            class="home-dashboard-user-divider08"
-                          />
-                          <div class="home-dashboard-user-content06">
-                            <div class="home-dashboard-user-actions2">
-                              <button class="home-dashboard-user-button5">
-                                <span
-                                  class="home-dashboard-user-text085 TextsmSemibold"
-                                >
-                                  <span>View all Parcels</span>
-                                </span>
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="home-dashboard-user-parcel-status2">
-                        <div class="home-dashboard-user-content07">
-                          <div class="home-dashboard-user-headingandicon1">
-                            <div class="home-dashboard-user-component5">
-                              <img
-                                alt="Ellipse4I5300"
-                                src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/91000129-b09c-4551-b38d-861d463970e9/dc406b8f-5c4e-4a0f-b05d-a3f23ae66cd2?org_if_sml=1828"
-                                class="home-dashboard-user-ellipse41"
-                              />
-                              <div
-                                class="home-dashboard-user-frame-fileuploadicon1"
-                              ></div>
-                              <div class="home-dashboard-user-component3">
-                                <div class="home-dashboard-user-group01">
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-ysd.svg"
-                                    class="home-dashboard-user-vector004"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-xz1e.svg"
-                                    class="home-dashboard-user-vector005"
-                                  />
-                                  <div class="home-dashboard-user-group02">
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-2w9n.svg"
-                                      class="home-dashboard-user-vector006"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-wagc.svg"
-                                      class="home-dashboard-user-vector007"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-jg7i.svg"
-                                      class="home-dashboard-user-vector008"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-st.svg"
-                                      class="home-dashboard-user-vector009"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-gop.svg"
-                                      class="home-dashboard-user-vector010"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-snx.svg"
-                                      class="home-dashboard-user-vector011"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-bt4g.svg"
-                                      class="home-dashboard-user-vector012"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-9n99.svg"
-                                      class="home-dashboard-user-vector013"
-                                    />
-                                  </div>
-                                  <div class="home-dashboard-user-group03">
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-ooql.svg"
-                                      class="home-dashboard-user-vector014"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-x15m.svg"
-                                      class="home-dashboard-user-vector015"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-dmyw.svg"
-                                      class="home-dashboard-user-vector016"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-50i.svg"
-                                      class="home-dashboard-user-vector017"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-c04l.svg"
-                                      class="home-dashboard-user-vector018"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-qve.svg"
-                                      class="home-dashboard-user-vector019"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-o5mh.svg"
-                                      class="home-dashboard-user-vector020"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-c81l.svg"
-                                      class="home-dashboard-user-vector021"
-                                    />
-                                  </div>
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-xjdf.svg"
-                                    class="home-dashboard-user-vector022"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-v6w4.svg"
-                                    class="home-dashboard-user-vector023"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-d11.svg"
-                                    class="home-dashboard-user-vector024"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-ozd.svg"
-                                    class="home-dashboard-user-vector025"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-musx.svg"
-                                    class="home-dashboard-user-vector026"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-saic.svg"
-                                    class="home-dashboard-user-vector027"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-fep.svg"
-                                    class="home-dashboard-user-vector028"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-hw9.svg"
-                                    class="home-dashboard-user-vector029"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-25sl.svg"
-                                    class="home-dashboard-user-vector030"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-bkgj.svg"
-                                    class="home-dashboard-user-vector031"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-gkd.svg"
-                                    class="home-dashboard-user-vector032"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-ja69.svg"
-                                    class="home-dashboard-user-vector033"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-mzgg.svg"
-                                    class="home-dashboard-user-vector034"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-rg4q.svg"
-                                    class="home-dashboard-user-vector035"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-2rl.svg"
-                                    class="home-dashboard-user-vector036"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-7pe.svg"
-                                    class="home-dashboard-user-vector037"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-pody.svg"
-                                    class="home-dashboard-user-vector038"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-y6yb.svg"
-                                    class="home-dashboard-user-vector039"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-w8l7.svg"
-                                    class="home-dashboard-user-vector040"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-tdyg.svg"
-                                    class="home-dashboard-user-vector041"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-hiq.svg"
-                                    class="home-dashboard-user-vector042"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-wxoc.svg"
-                                    class="home-dashboard-user-vector043"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-9qvq.svg"
-                                    class="home-dashboard-user-vector044"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-uvqv.svg"
-                                    class="home-dashboard-user-vector045"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-18hs.svg"
-                                    class="home-dashboard-user-vector046"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-k309.svg"
-                                    class="home-dashboard-user-vector047"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-xtin.svg"
-                                    class="home-dashboard-user-vector048"
-                                  />
-                                  <div class="home-dashboard-user-group04">
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-g42s.svg"
-                                      class="home-dashboard-user-vector049"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-445b.svg"
-                                      class="home-dashboard-user-vector050"
-                                    />
-                                  </div>
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-4ynu.svg"
-                                    class="home-dashboard-user-vector051"
-                                  />
-                                  <div class="home-dashboard-user-group05">
-                                    <div class="home-dashboard-user-group06">
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-waao.svg"
-                                        class="home-dashboard-user-vector052"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-xc5r.svg"
-                                        class="home-dashboard-user-vector053"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-hkq5.svg"
-                                        class="home-dashboard-user-vector054"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-pn9r.svg"
-                                        class="home-dashboard-user-vector055"
-                                      />
-                                    </div>
-                                    <div class="home-dashboard-user-group07">
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-uyg.svg"
-                                        class="home-dashboard-user-vector056"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-quxj.svg"
-                                        class="home-dashboard-user-vector057"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-ju1s.svg"
-                                        class="home-dashboard-user-vector058"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-wbhr.svg"
-                                        class="home-dashboard-user-vector059"
-                                      />
-                                    </div>
-                                    <div class="home-dashboard-user-group08">
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-92bp.svg"
-                                        class="home-dashboard-user-vector060"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-ep1p.svg"
-                                        class="home-dashboard-user-vector061"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-6don.svg"
-                                        class="home-dashboard-user-vector062"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-o9ua.svg"
-                                        class="home-dashboard-user-vector063"
-                                      />
-                                    </div>
-                                    <div class="home-dashboard-user-group09">
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-fkyp.svg"
-                                        class="home-dashboard-user-vector064"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-ue2.svg"
-                                        class="home-dashboard-user-vector065"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-2u6b.svg"
-                                        class="home-dashboard-user-vector066"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-ic4v.svg"
-                                        class="home-dashboard-user-vector067"
-                                      />
-                                    </div>
-                                    <div class="home-dashboard-user-group10">
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-9smv.svg"
-                                        class="home-dashboard-user-vector068"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-0435.svg"
-                                        class="home-dashboard-user-vector069"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-7tx.svg"
-                                        class="home-dashboard-user-vector070"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-sqg.svg"
-                                        class="home-dashboard-user-vector071"
-                                      />
-                                    </div>
-                                    <div class="home-dashboard-user-group11">
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-v0ke.svg"
-                                        class="home-dashboard-user-vector072"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-llj9.svg"
-                                        class="home-dashboard-user-vector073"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-gtsh.svg"
-                                        class="home-dashboard-user-vector074"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-ir5r.svg"
-                                        class="home-dashboard-user-vector075"
-                                      />
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div
-                              class="home-dashboard-user-textandsupportingtext6"
-                            >
-                              <span
-                                class="home-dashboard-user-text087 TextmdMedium"
-                              >
-                                <span>21</span>
-                              </span>
-                              <span
-                                class="home-dashboard-user-text089 TextsmRegular"
-                              >
-                                <span>Pending shipment waiting to arrive</span>
-                              </span>
-                            </div>
-                          </div>
-                          <span
-                            class="home-dashboard-user-text091 TextsmRegular"
-                          >
-                            <span>Jan 2018 – May 2020</span>
-                          </span>
-                        </div>
-                        <div class="home-dashboard-user-sectionfooter1">
-                          <img
-                            alt="DividerI5300"
-                            src="public/external/divideri5300-7zsc.svg"
-                            class="home-dashboard-user-divider09"
-                          />
-                          <div class="home-dashboard-user-content08">
-                            <div class="home-dashboard-user-actions3">
-                              <button class="home-dashboard-user-button6">
-                                <span
-                                  class="home-dashboard-user-text093 TextsmSemibold"
-                                >
-                                  <span>View all Parcels</span>
-                                </span>
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="home-dashboard-user-parcel-status3">
-                        <div class="home-dashboard-user-content09">
-                          <div class="home-dashboard-user-headingandicon2">
-                            <div class="home-dashboard-user-component51">
-                              <img
-                                alt="Ellipse4I5300"
-                                src="https://aheioqhobo.cloudimg.io/v7/_playground-bucket-v2.teleporthq.io_/91000129-b09c-4551-b38d-861d463970e9/89b3f2f0-0358-45f6-8e45-20ad07dae2e9?org_if_sml=1863"
-                                class="home-dashboard-user-ellipse42"
-                              />
-                              <div
-                                class="home-dashboard-user-frame-fileuploadicon2"
-                              ></div>
-                              <div class="home-dashboard-user-component31">
-                                <div class="home-dashboard-user-group12">
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-85ar.svg"
-                                    class="home-dashboard-user-vector076"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-ewmx.svg"
-                                    class="home-dashboard-user-vector077"
-                                  />
-                                  <div class="home-dashboard-user-group13">
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-b7aa.svg"
-                                      class="home-dashboard-user-vector078"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-j9uq.svg"
-                                      class="home-dashboard-user-vector079"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-79or.svg"
-                                      class="home-dashboard-user-vector080"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-df7d.svg"
-                                      class="home-dashboard-user-vector081"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-1io.svg"
-                                      class="home-dashboard-user-vector082"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-clrl.svg"
-                                      class="home-dashboard-user-vector083"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-2hs.svg"
-                                      class="home-dashboard-user-vector084"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-4qws.svg"
-                                      class="home-dashboard-user-vector085"
-                                    />
-                                  </div>
-                                  <div class="home-dashboard-user-group14">
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-0ybb.svg"
-                                      class="home-dashboard-user-vector086"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-9yo7.svg"
-                                      class="home-dashboard-user-vector087"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-4fch.svg"
-                                      class="home-dashboard-user-vector088"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-hhrl.svg"
-                                      class="home-dashboard-user-vector089"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-ilu.svg"
-                                      class="home-dashboard-user-vector090"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-0vssd.svg"
-                                      class="home-dashboard-user-vector091"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-3ix.svg"
-                                      class="home-dashboard-user-vector092"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-xnhm.svg"
-                                      class="home-dashboard-user-vector093"
-                                    />
-                                  </div>
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-rpog.svg"
-                                    class="home-dashboard-user-vector094"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-mv5n.svg"
-                                    class="home-dashboard-user-vector095"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-wjsk.svg"
-                                    class="home-dashboard-user-vector096"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-wbnc.svg"
-                                    class="home-dashboard-user-vector097"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-ev54j.svg"
-                                    class="home-dashboard-user-vector098"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-rsfj.svg"
-                                    class="home-dashboard-user-vector099"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-wz34.svg"
-                                    class="home-dashboard-user-vector100"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-npr.svg"
-                                    class="home-dashboard-user-vector101"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-n17b.svg"
-                                    class="home-dashboard-user-vector102"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-un49.svg"
-                                    class="home-dashboard-user-vector103"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-q487.svg"
-                                    class="home-dashboard-user-vector104"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-5akf.svg"
-                                    class="home-dashboard-user-vector105"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-5bbs.svg"
-                                    class="home-dashboard-user-vector106"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-il9.svg"
-                                    class="home-dashboard-user-vector107"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-tmbu.svg"
-                                    class="home-dashboard-user-vector108"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-31pg.svg"
-                                    class="home-dashboard-user-vector109"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-5h7.svg"
-                                    class="home-dashboard-user-vector110"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-pw9.svg"
-                                    class="home-dashboard-user-vector111"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-zl2o.svg"
-                                    class="home-dashboard-user-vector112"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-r1cq.svg"
-                                    class="home-dashboard-user-vector113"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-kvrp.svg"
-                                    class="home-dashboard-user-vector114"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-gqc.svg"
-                                    class="home-dashboard-user-vector115"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-io3i.svg"
-                                    class="home-dashboard-user-vector116"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-w77w.svg"
-                                    class="home-dashboard-user-vector117"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-8yf.svg"
-                                    class="home-dashboard-user-vector118"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-6w3.svg"
-                                    class="home-dashboard-user-vector119"
-                                  />
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-5rb.svg"
-                                    class="home-dashboard-user-vector120"
-                                  />
-                                  <div class="home-dashboard-user-group15">
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-8dtq.svg"
-                                      class="home-dashboard-user-vector121"
-                                    />
-                                    <img
-                                      alt="VectorI5300"
-                                      src="public/external/vectori5300-wrt.svg"
-                                      class="home-dashboard-user-vector122"
-                                    />
-                                  </div>
-                                  <img
-                                    alt="VectorI5300"
-                                    src="public/external/vectori5300-afr.svg"
-                                    class="home-dashboard-user-vector123"
-                                  />
-                                  <div class="home-dashboard-user-group16">
-                                    <div class="home-dashboard-user-group17">
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-ft5.svg"
-                                        class="home-dashboard-user-vector124"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-v5n9.svg"
-                                        class="home-dashboard-user-vector125"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-akug.svg"
-                                        class="home-dashboard-user-vector126"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-kurv.svg"
-                                        class="home-dashboard-user-vector127"
-                                      />
-                                    </div>
-                                    <div class="home-dashboard-user-group18">
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-rqc.svg"
-                                        class="home-dashboard-user-vector128"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-6lau.svg"
-                                        class="home-dashboard-user-vector129"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-f5b.svg"
-                                        class="home-dashboard-user-vector130"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-1za.svg"
-                                        class="home-dashboard-user-vector131"
-                                      />
-                                    </div>
-                                    <div class="home-dashboard-user-group19">
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-t3mo.svg"
-                                        class="home-dashboard-user-vector132"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-9a.svg"
-                                        class="home-dashboard-user-vector133"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-t17a.svg"
-                                        class="home-dashboard-user-vector134"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-qf1v.svg"
-                                        class="home-dashboard-user-vector135"
-                                      />
-                                    </div>
-                                    <div class="home-dashboard-user-group20">
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-eaue.svg"
-                                        class="home-dashboard-user-vector136"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-ldwu.svg"
-                                        class="home-dashboard-user-vector137"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-3fue.svg"
-                                        class="home-dashboard-user-vector138"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-lib.svg"
-                                        class="home-dashboard-user-vector139"
-                                      />
-                                    </div>
-                                    <div class="home-dashboard-user-group21">
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-kk8s.svg"
-                                        class="home-dashboard-user-vector140"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-ycqq.svg"
-                                        class="home-dashboard-user-vector141"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-xn4h.svg"
-                                        class="home-dashboard-user-vector142"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-uee.svg"
-                                        class="home-dashboard-user-vector143"
-                                      />
-                                    </div>
-                                    <div class="home-dashboard-user-group22">
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-p3i.svg"
-                                        class="home-dashboard-user-vector144"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-bpnq.svg"
-                                        class="home-dashboard-user-vector145"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-ii4g.svg"
-                                        class="home-dashboard-user-vector146"
-                                      />
-                                      <img
-                                        alt="VectorI5300"
-                                        src="public/external/vectori5300-ddjf.svg"
-                                        class="home-dashboard-user-vector147"
-                                      />
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div
-                              class="home-dashboard-user-textandsupportingtext7"
-                            >
-                              <span
-                                class="home-dashboard-user-text095 TextmdMedium"
-                              >
-                                <span>21</span>
-                              </span>
-                              <span
-                                class="home-dashboard-user-text097 TextsmRegular"
-                              >
-                                <span>Pending Payment</span>
-                              </span>
-                            </div>
-                          </div>
-                          <span
-                            class="home-dashboard-user-text099 TextsmRegular"
-                          >
-                            <span>Jan 2018 – May 2020</span>
-                          </span>
-                        </div>
-                        <div class="home-dashboard-user-sectionfooter2">
-                          <img
-                            alt="DividerI5300"
-                            src="public/external/divideri5300-qr2f.svg"
-                            class="home-dashboard-user-divider10"
-                          />
-                          <div class="home-dashboard-user-content10">
-                            <div class="home-dashboard-user-actions4">
-                              <button class="home-dashboard-user-button7">
-                                <span
-                                  class="home-dashboard-user-text101 TextsmSemibold"
-                                >
-                                  <span>View all Parcels</span>
-                                </span>
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div
+              class="transaction-dashboard-alipay-top-up-text004 TextmdRegular"
+            >
+              <span>Track, manage, and monitor parcel easily.</span>
             </div>
-            <div class="home-dashboard-user-section5">
-              <div class="home-dashboard-user-container5">
-                <div class="home-dashboard-user-sectionheader1">
-                  <div class="home-dashboard-user-content11">
-                    <div class="home-dashboard-user-textandsupportingtext8">
-                      <span class="home-dashboard-user-text103 TextlgSemibold">
-                        <span>Start creating content</span>
-                      </span>
-                    </div>
-                    <div class="home-dashboard-user-dropdown3">
-                      <img
-                        alt="dotsverticalI5300"
-                        src="public/external/dotsverticali5300-jzk.svg"
-                        class="home-dashboard-user-dotsvertical1"
-                      />
+            <div>
+              <div>
+                <div class="row mt-3">
+                  <div class="col">
+                    <span class="form-label">Total Commission</span><br />
+                    <span class="form-label-bold"><h1>0</h1></span>
+                  </div>
+                  <div class="col-7">
+                    <div style="min-height: 200px">
+                      <canvas id="examChart"></canvas>
                     </div>
                   </div>
-                  <img
-                    alt="DividerI5300"
-                    src="public/external/divideri5300-d3yo7.svg"
-                    class="home-dashboard-user-divider11"
-                  />
+                  <div class="col">
+                    <div>
+                      <div>
+                        <span class="form-label">Total Parcel</span><br />
+                        <span class="form-label-bold"
+                          ><h3 id="total-parcel">0</h3></span
+                        >
+                      </div>
+                      <div>
+                        <span class="form-label">Total Shipment</span><br />
+                        <span class="form-label-bold"
+                          ><h3 id="total-shipment">0</h3></span
+                        >
+                      </div>
+                      <div>
+                        <span class="form-label">Total Payment</span><br />
+                        <span class="form-label-bold"
+                          ><h3 id="total-topup">0</h3></span
+                        >
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="home-dashboard-user-metricgroup">
-                  <div class="home-dashboard-user-metricitem">
-                    <span class="home-dashboard-user-text105 TextmdMedium">
-                      <span>Total Shipment</span>
-                    </span>
-                    <div class="home-dashboard-user-numberandchart">
-                      <div class="home-dashboard-user-numberandbadge4">
-                        <span
-                          class="home-dashboard-user-text107 DisplaymdSemibold"
-                        >
-                          <span>20.8k</span>
-                        </span>
-                        <div class="home-dashboard-user-changeandtext">
-                          <div class="home-dashboard-user-frame-change">
-                            <img
-                              alt="arrowupI5300"
-                              src="public/external/arrowupi5300-y465.svg"
-                              class="home-dashboard-user-arrowup4"
-                            />
-                            <span
-                              class="home-dashboard-user-text109 TextsmMedium"
-                            >
-                              <span>12%</span>
-                            </span>
-                          </div>
-                          <span
-                            class="home-dashboard-user-text111 TextsmMedium"
+                <div
+                  class="transaction-dashboard-alipay-top-up-text004 TextmdRegular mt-3"
+                >
+                  <span>Start creating content</span>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="col-sm">
+                    <div
+                      class="card btn btn-warning unselected-card justify-content-center"
+                      style="min-height: 110px"
+                      id="create-parcel-shorcut"
+                    >
+                      <div class="card-body d-flex">
+                        <div class="icon-bg">
+                          <img
+                            alt="userplus01I5300"
+                            src="public/external/userplus01i5300-o8ia.svg"
+                            class="home-dashboard-user-userplus01"
+                          />
+                        </div>
+                        <div class="ml-2 text-left">
+                          <span class="form-label-bold"
+                            >Create a new parcel</span
+                          ><br />
+                          <span class="form-label"
+                            >Add yourself or import from CSV</span
                           >
-                            <span>vs last month</span>
-                          </span>
                         </div>
                       </div>
-                      <img
-                        alt="SVGChartI5300"
-                        src="public/external/svgcharti5300-m24.svg"
-                        class="home-dashboard-user-sv-chart"
-                      />
                     </div>
-                    <div class="home-dashboard-user-dropdown4">
-                      <img
-                        alt="dotsverticalI5300"
-                        src="public/external/dotsverticali5300-qj3.svg"
-                        class="home-dashboard-user-dotsvertical2"
-                      />
+                    <div
+                      class="card unselected-card justify-content-center mt-3"
+                    >
+                      <div class="card-body d-flex">
+                        <div class="icon-bg">
+                          <img
+                            alt="creditcardplusI131"
+                            src="public/external/creditcardplusi131-olzb.svg"
+                            class="transaction-add-new-transaction-alipay-top-up-creditcardplus1"
+                          />
+                        </div>
+                        <div class="ml-2 text-left">
+                          <span
+                            class="form-label-bold"
+                            id="total-pending-parcel"
+                            >0</span
+                          ><br />
+                          <span class="form-label"
+                            >Pending Parcel waiting to arrive</span
+                          >
+                        </div>
+                      </div>
+                      <div class="card-body d-flex">
+                        <span class="form-label" id="date-range-pending-parcel"
+                          >...</span
+                        >
+                      </div>
+                      <div class="card-footer bg-transparent text-right">
+                        <span
+                          class="selected-card-text btn btn-link"
+                          style="text-decoration: none"
+                          id="all-parcel-shorcut"
+                          >View all Parcels</span
+                        >
+                      </div>
                     </div>
                   </div>
-                  <div class="home-dashboard-user-metricitem1">
-                    <span class="home-dashboard-user-text113 TextmdMedium">
-                      <span>Sessions</span>
-                    </span>
-                    <div class="home-dashboard-user-numberandchart1">
-                      <div class="home-dashboard-user-numberandbadge5">
-                        <span
-                          class="home-dashboard-user-text115 DisplaymdSemibold"
-                        >
-                          <span>26.4k</span>
-                        </span>
-                        <div class="home-dashboard-user-changeandtext1">
-                          <div class="home-dashboard-user-frame-change1">
-                            <img
-                              alt="arrowdownI5300"
-                              src="public/external/arrowdowni5300-2dsa.svg"
-                              class="home-dashboard-user-arrowdown"
-                            />
-                            <span
-                              class="home-dashboard-user-text117 TextsmMedium"
-                            >
-                              <span>2%</span>
-                            </span>
-                          </div>
-                          <span
-                            class="home-dashboard-user-text119 TextsmMedium"
+
+                  <div class="col-sm">
+                    <div
+                      class="card btn btn-warning unselected-card justify-content-center"
+                      style="min-height: 110px"
+                      id="create-shipment-shorcut"
+                    >
+                      <div class="card-body d-flex">
+                        <div class="icon-bg">
+                          <img
+                            alt="edit04I5300"
+                            src="public/external/edit04i5300-ljr.svg"
+                            class="home-dashboard-user-edit04"
+                          />
+                        </div>
+                        <div class="ml-2 text-left">
+                          <span class="form-label-bold"
+                            >Create a new shipment</span
+                          ><br />
+                          <span class="form-label"
+                            >Dive into the editor and start creating</span
                           >
-                            <span>vs last month</span>
-                          </span>
                         </div>
                       </div>
-                      <img
-                        alt="SVGChartI5300"
-                        src="public/external/svgcharti5300-30be.svg"
-                        class="home-dashboard-user-sv-chart1"
-                      />
                     </div>
-                    <div class="home-dashboard-user-dropdown5">
-                      <img
-                        alt="dotsverticalI5300"
-                        src="public/external/dotsverticali5300-3h.svg"
-                        class="home-dashboard-user-dotsvertical3"
-                      />
+                    <div
+                      class="card unselected-card justify-content-center mt-3"
+                    >
+                      <div class="card-body d-flex">
+                        <div class="icon-bg">
+                          <img
+                            alt="creditcardplusI131"
+                            src="public/external/creditcardplusi131-olzb.svg"
+                            class="transaction-add-new-transaction-alipay-top-up-creditcardplus1"
+                          />
+                        </div>
+                        <div class="ml-2 text-left">
+                          <span
+                            class="form-label-bold"
+                            id="total-pending-shipment"
+                            >0</span
+                          ><br />
+                          <span class="form-label"
+                            >Pending shipment waiting to arrive</span
+                          >
+                        </div>
+                      </div>
+                      <div class="card-body d-flex">
+                        <span
+                          class="form-label"
+                          id="date-range-pending-shipment"
+                          >...</span
+                        >
+                      </div>
+                      <div class="card-footer bg-transparent text-right">
+                        <span
+                          class="selected-card-text btn btn-link"
+                          style="text-decoration: none"
+                          id="all-shipment-shorcut"
+                          >View all Shipment</span
+                        >
+                      </div>
                     </div>
                   </div>
-                  <div class="home-dashboard-user-metricitem2">
-                    <span class="home-dashboard-user-text121 TextmdMedium">
-                      <span>Session duration</span>
-                    </span>
-                    <div class="home-dashboard-user-numberandchart2">
-                      <div class="home-dashboard-user-numberandbadge6">
-                        <span
-                          class="home-dashboard-user-text123 DisplaymdSemibold"
-                        >
-                          <span>3m 52s</span>
-                        </span>
-                        <div class="home-dashboard-user-changeandtext2">
-                          <div class="home-dashboard-user-frame-change2">
-                            <img
-                              alt="arrowupI5300"
-                              src="public/external/arrowupi5300-t2wb.svg"
-                              class="home-dashboard-user-arrowup5"
-                            />
-                            <span
-                              class="home-dashboard-user-text125 TextsmMedium"
-                            >
-                              <span>2%</span>
-                            </span>
-                          </div>
-                          <span
-                            class="home-dashboard-user-text127 TextsmMedium"
+
+                  <div class="col-sm">
+                    <div
+                      class="card btn btn-warning unselected-card justify-content-center"
+                      style="min-height: 110px"
+                      id="create-topup-shorcut"
+                    >
+                      <div class="card-body d-flex">
+                        <div class="icon-bg">
+                          <img
+                            alt="edit04I5300"
+                            src="public/external/edit04i5300-n7zb.svg"
+                            class="home-dashboard-user-edit041"
+                          />
+                        </div>
+                        <div class="ml-2 text-left">
+                          <span class="form-label-bold"
+                            >Create a new payment</span
+                          ><br />
+                          <span class="form-label"
+                            >Dive into the editor and start creating</span
                           >
-                            <span>vs last month</span>
-                          </span>
                         </div>
                       </div>
-                      <img
-                        alt="SVGChartI5300"
-                        src="public/external/svgcharti5300-m6e4.svg"
-                        class="home-dashboard-user-sv-chart2"
-                      />
                     </div>
-                    <div class="home-dashboard-user-dropdown6">
-                      <img
-                        alt="dotsverticalI5300"
-                        src="public/external/dotsverticali5300-6t9.svg"
-                        class="home-dashboard-user-dotsvertical4"
-                      />
+                    <div
+                      class="card unselected-card justify-content-center mt-3"
+                    >
+                      <div class="card-body d-flex">
+                        <div class="icon-bg">
+                          <img
+                            alt="creditcardplusI131"
+                            src="public/external/creditcardplusi131-olzb.svg"
+                            class="transaction-add-new-transaction-alipay-top-up-creditcardplus1"
+                          />
+                        </div>
+                        <div class="ml-2 text-left">
+                          <span class="form-label-bold" id="total-unpaid-topup"
+                            >0</span
+                          ><br />
+                          <span class="form-label">Pending Payment</span>
+                        </div>
+                      </div>
+                      <div class="card-body d-flex">
+                        <span class="form-label" id="date-range-pending-topup"
+                          >...</span
+                        >
+                      </div>
+                      <div class="card-footer bg-transparent text-right">
+                        <span
+                          class="selected-card-text btn btn-link"
+                          style="text-decoration: none"
+                          id="all-topup-shorcut"
+                          >View all Payments</span
+                        >
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <!-- content -->
             </div>
           </div>
         </div>
@@ -1733,10 +344,21 @@
       data-section-id="navbar"
       src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
     ></script>
-    <!-- My function 2 -->
+    <!-- function -->
     <div id="alert-toast-container">
       <!-- alert toast -->
     </div>
-    <script src="functions/home-dashboard-user.js"></script>
+    <script src="functions/home-dashboard.js"></script>
+    <!--Data table -->
+    <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.3/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.5/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.colVis.min.js"></script>
   </body>
 </html>
