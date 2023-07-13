@@ -47,7 +47,7 @@ const inputAddress2 = document.getElementById('input-address-2');
 const inputPostcode = document.getElementById('input-postcode');
 const inputCity = document.getElementById('input-city');
 const inputState = document.getElementById('input-state');
-const inputCountry = document.getElementById('input-country');
+const inputSelectCountry = document.getElementById('input-select-country');
 
 const checkoutTitle = document.getElementById('check-out-title');
 var custom_id_to_pay = null;
@@ -78,7 +78,7 @@ document
         postcode: inputPostcode.value,
         city: inputCity.value,
         state: inputState.value,
-        country: inputCountry.value,
+        country_id: inputSelectCountry.value,
         selected_parcel: selectedParcel,
       }),
     };
@@ -180,6 +180,14 @@ function getShipmentDropdownData() {
           optionElement.value = item.id;
           optionElement.text = `${item.tracking_number} (${item.content})`;
           inputSelectParcel.appendChild(optionElement);
+        });
+
+        data.country_list.unshift({ id: '', name: 'Please Select' });
+        data.country_list.forEach((item) => {
+          const optionElement = document.createElement('option');
+          optionElement.value = item.id;
+          optionElement.text = item.name;
+          inputSelectCountry.appendChild(optionElement);
         });
       }
     })
