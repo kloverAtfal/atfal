@@ -1,108 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Sign-Up - KloverAtfal</title>
-    <meta property="og:title" content="Sign-Up - KloverAtfal" />
+    <title>KloverAtfal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
-
-    <style data-tag="reset-style-sheet">
-      html {
-        line-height: 1.15;
-      }
-      body {
-        margin: 0;
-      }
-      * {
-        box-sizing: border-box;
-        border-width: 0;
-        border-style: solid;
-      }
-      p,
-      li,
-      ul,
-      pre,
-      div,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      figure,
-      blockquote,
-      figcaption {
-        margin: 0;
-        padding: 0;
-      }
-      button {
-        background-color: transparent;
-      }
-      button,
-      input,
-      optgroup,
-      select,
-      textarea {
-        font-family: inherit;
-        font-size: 100%;
-        line-height: 1.15;
-        margin: 0;
-      }
-      button,
-      select {
-        text-transform: none;
-      }
-      button,
-      [type='button'],
-      [type='reset'],
-      [type='submit'] {
-        -webkit-appearance: button;
-      }
-      button::-moz-focus-inner,
-      [type='button']::-moz-focus-inner,
-      [type='reset']::-moz-focus-inner,
-      [type='submit']::-moz-focus-inner {
-        border-style: none;
-        padding: 0;
-      }
-      button:-moz-focus,
-      [type='button']:-moz-focus,
-      [type='reset']:-moz-focus,
-      [type='submit']:-moz-focus {
-        outline: 1px dotted ButtonText;
-      }
-      a {
-        color: inherit;
-        text-decoration: inherit;
-      }
-      input {
-        padding: 2px 4px;
-      }
-      img {
-        display: block;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-    </style>
-    <style data-tag="default-style-sheet">
-      html {
-        font-family: Inter;
-        font-size: 16px;
-      }
-
-      body {
-        font-weight: 400;
-        font-style: normal;
-        text-decoration: none;
-        text-transform: none;
-        letter-spacing: normal;
-        line-height: 1.15;
-        color: var(--dl-color-gray-black);
-        background-color: var(--dl-color-gray-white);
-      }
-    </style>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
@@ -113,21 +15,11 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
       data-tag="font"
     />
-    <!--This is the head section-->
-    <!-- <style> ... </style> -->
-    <style data-section-id="dropdown">
-      [data-thq='thq-dropdown']:hover > [data-thq='thq-dropdown-list'] {
-        display: flex;
-      }
-
-      [data-thq='thq-dropdown']:hover > div [data-thq='thq-dropdown-arrow'] {
-        transform: rotate(90deg);
-      }
-    </style>
     <link rel="stylesheet" href="./style.css" />
-    <!-- My function 1 -->
+    <!-- function -->
     <script src="functions/apiHelper.js"></script>
     <script src="functions/globalFunction.js"></script>
+    <script src="functions/shareComponent.js"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
@@ -135,151 +27,145 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.10/moment-timezone-with-data.js"></script>
+    <!-- style -->
+    <link rel="stylesheet" href="./components/custom-style.css" />
+    <link rel="stylesheet" href="./components/sidebarnavigation.css" />
   </head>
-  <body>
+  <body class="body body-secondary">
     <div>
-      <link href="./sign-up.css" rel="stylesheet" />
-      <div class="sign-up-container">
-        <div class="sign-up-login">
-          <div class="sign-up-section">
-            <div class="sign-up-headernavigation">
-              <div class="sign-up-logo">
-                <div class="sign-up-logowrap">
-                  <div class="sign-up-logomark">
+      <div class="d-flex">
+        <div class="col pt-3 body-content">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <div class="d-flex justify-content-start align-items-center">
+                  <span class="mr-3" id="header-company-icon">
                     <img
                       alt="Frame1I5318"
                       src="public/external/frame1i5318-17h8.svg"
-                      class="sign-up-frame1"
+                      class="log-in-frame1"
+                    />
+                    <img
+                      alt="LogotypeI5318"
+                      src="public/external/logotypei5318-so1.svg"
+                      class="log-in-logotype"
+                    />
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="d-flex align-items-center px-5 mt-5">
+                      <form style="width: 23rem" id="sign-up-form">
+                        <div
+                          class="transaction-dashboard-alipay-top-up-text002 DisplaysmSemibold mt-3"
+                        >
+                          <span>Sign up</span>
+                        </div>
+                        <div
+                          class="transaction-dashboard-alipay-top-up-text004 TextmdRegular mb-4"
+                        >
+                          <span>Start your 30-day free trial.</span>
+                        </div>
+                        <div class="form-group">
+                          <label class="form-label">Name</label>
+                          <input
+                            maxlength="30"
+                            type="text"
+                            class="form-control form-input"
+                            id="input-username"
+                            placeholder="Enter your name"
+                            required
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label class="form-label">Email</label>
+                          <input
+                            maxlength="30"
+                            type="email"
+                            class="form-control form-input"
+                            id="input-email"
+                            placeholder="Enter your email"
+                            required
+                          />
+                        </div>
+                        <div class="form-group mt-3">
+                          <label class="form-label">Password</label>
+                          <input
+                            maxlength="30"
+                            type="password"
+                            class="form-control form-input"
+                            id="input-password"
+                            placeholder="Create a password"
+                            required
+                          />
+                        </div>
+                        <button
+                          type="submit"
+                          class="btn btn-warning atfal-primary-btn btn-block mt-5"
+                          id="submit-btn-register"
+                        >
+                          Get started
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-light atfal-secondary-btn btn-block mt-3"
+                          id="button-continue-with-google"
+                        >
+                          <img
+                            alt="SocialiconI5318"
+                            src="public/external/socialiconi5318-o828.svg"
+                            class="mr-2"
+                          />
+                          Continue with Google
+                        </button>
+                        <div class="mt-4 text-center">
+                          Already have an account?
+                          <a href="log-in.html" class="clickable-primary-text">
+                            Log in
+                          </a>
+                        </div>
+                        <div class="row mt-5 small text-muted">
+                          <div class="col text-left">© 2023 Atfal&amp;Co</div>
+                          <div class="col text-right">
+                            <img
+                              alt="mail01I5318"
+                              src="public/external/mail01i5318-8um.svg"
+                            />
+                            help@atfal.com
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 px-0 d-none d-sm-block">
+                    <img
+                      src="public/external/contentsi5298-lv3l.svg"
+                      alt="Login image"
+                      class="w-100 vh-100"
+                      style="object-fit: cover; object-position: left"
                     />
                   </div>
-                  <img
-                    alt="LogotypeI5318"
-                    src="public/external/logotypei5318-so1.svg"
-                    class="sign-up-logotype"
-                  />
                 </div>
-              </div>
-            </div>
-            <div class="sign-up-container1">
-              <div class="sign-up-content">
-                <div class="sign-up-textandsupportingtext">
-                  <span class="sign-up-text DisplaysmSemibold">
-                    <span>Sign up</span>
-                  </span>
-                  <span class="sign-up-text02 TextmdRegular">
-                    <span>Start your 30-day free trial.</span>
-                  </span>
-                </div>
-
-                <div class="sign-up-content1">
-                  <form id="sign-up-form" class="sign-up-form">
-                    <div class="sign-up-inputfield">
-                      <div class="sign-up-inputwithlabel">
-                        <span class="sign-up-text04 TextsmMedium">
-                          <span>Name*</span>
-                        </span>
-                        <input
-                          maxlength="50"
-                          type="text"
-                          class="sign-up-input"
-                          id="input-username"
-                          placeholder="Enter your name"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div class="sign-up-inputfield1">
-                      <div class="sign-up-inputwithlabel1">
-                        <span class="sign-up-text08 TextsmMedium">
-                          <span>Email*</span>
-                        </span>
-                        <input
-                          maxlength="50"
-                          type="email"
-                          class="sign-up-input"
-                          id="input-email"
-                          placeholder="Enter your email"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div class="sign-up-inputfield2">
-                      <div class="sign-up-inputwithlabel2">
-                        <span class="sign-up-text12 TextsmMedium">
-                          <span>Password*</span>
-                        </span>
-                        <input
-                          maxlength="50"
-                          type="password"
-                          class="sign-up-input"
-                          id="input-password"
-                          placeholder="Create a password"
-                          required
-                        />
-                      </div>
-                      <span class="sign-up-text16 TextsmRegular">
-                        <span>Must be at least 8 characters.</span>
-                      </span>
-                    </div>
-
-                    <button
-                      class="btn btn-warning sign-up-button sign-up-text18 TextmdSemibold"
-                      type="submit"
-                      id="submit-btn-register"
-                    >
-                      Get started
-                    </button>
-                  </form>
-                  <button
-                    class="btn btn-light sign-up-socialbutton sign-up-text18 TextmdSemibold"
-                    type="button"
-                    id="button-continue-with-google"
-                  >
-                    <img
-                      alt="SocialiconI5318"
-                      src="public/external/socialiconi5318-o828.svg"
-                      class="sign-up-socialicon"
-                    />
-                    <span class="sign-up-text20 TextmdSemibold">
-                      <span>Continue with Google</span>
-                    </span>
-                  </button>
-                </div>
-                <div class="sign-up-row">
-                  <span class="sign-up-text22 TextsmRegular">
-                    <span>Already have an account?</span>
-                  </span>
-                  <button class="sign-up-button1">
-                    <a href="log-in.html" class="sign-up-text24 TextsmSemibold">
-                      <span>Log in</span>
-                    </a>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="sign-up-footer">
-              <span class="sign-up-text26 TextsmRegular">
-                <span>© 2023 Atfal&amp;Co</span>
-              </span>
-              <div class="sign-up-row1">
-                <img
-                  alt="mail01I5318"
-                  src="public/external/mail01i5318-8um.svg"
-                  class="sign-up-mail01"
-                />
-                <span class="sign-up-text28"><span>help@atfal.com</span></span>
               </div>
             </div>
           </div>
-          <div class="sign-up-section1"></div>
         </div>
       </div>
+    </div>
+    <div id="logout-modal-container">
+      <!-- logout modal -->
     </div>
     <script
       data-section-id="navbar"
       src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
     ></script>
-    <!-- My function 2 -->
+    <!-- function -->
     <div id="alert-toast-container">
       <!-- alert toast -->
     </div>

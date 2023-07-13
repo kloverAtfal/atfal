@@ -1,108 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Log-In - KloverAtfal</title>
-    <meta property="og:title" content="Log-In - KloverAtfal" />
+    <title>KloverAtfal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
-
-    <style data-tag="reset-style-sheet">
-      html {
-        line-height: 1.15;
-      }
-      body {
-        margin: 0;
-      }
-      * {
-        box-sizing: border-box;
-        border-width: 0;
-        border-style: solid;
-      }
-      p,
-      li,
-      ul,
-      pre,
-      div,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      figure,
-      blockquote,
-      figcaption {
-        margin: 0;
-        padding: 0;
-      }
-      button {
-        background-color: transparent;
-      }
-      button,
-      input,
-      optgroup,
-      select,
-      textarea {
-        font-family: inherit;
-        font-size: 100%;
-        line-height: 1.15;
-        margin: 0;
-      }
-      button,
-      select {
-        text-transform: none;
-      }
-      button,
-      [type='button'],
-      [type='reset'],
-      [type='submit'] {
-        -webkit-appearance: button;
-      }
-      button::-moz-focus-inner,
-      [type='button']::-moz-focus-inner,
-      [type='reset']::-moz-focus-inner,
-      [type='submit']::-moz-focus-inner {
-        border-style: none;
-        padding: 0;
-      }
-      button:-moz-focus,
-      [type='button']:-moz-focus,
-      [type='reset']:-moz-focus,
-      [type='submit']:-moz-focus {
-        outline: 1px dotted ButtonText;
-      }
-      a {
-        color: inherit;
-        text-decoration: inherit;
-      }
-      input {
-        padding: 2px 4px;
-      }
-      img {
-        display: block;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-    </style>
-    <style data-tag="default-style-sheet">
-      html {
-        font-family: Inter;
-        font-size: 16px;
-      }
-
-      body {
-        font-weight: 400;
-        font-style: normal;
-        text-decoration: none;
-        text-transform: none;
-        letter-spacing: normal;
-        line-height: 1.15;
-        color: var(--dl-color-gray-black);
-        background-color: var(--dl-color-gray-white);
-      }
-    </style>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
@@ -113,21 +15,11 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
       data-tag="font"
     />
-    <!--This is the head section-->
-    <!-- <style> ... </style> -->
-    <style data-section-id="dropdown">
-      [data-thq='thq-dropdown']:hover > [data-thq='thq-dropdown-list'] {
-        display: flex;
-      }
-
-      [data-thq='thq-dropdown']:hover > div [data-thq='thq-dropdown-arrow'] {
-        transform: rotate(90deg);
-      }
-    </style>
     <link rel="stylesheet" href="./style.css" />
-    <!-- My function 1 -->
+    <!-- function -->
     <script src="functions/apiHelper.js"></script>
     <script src="functions/globalFunction.js"></script>
+    <script src="functions/shareComponent.js"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
@@ -135,149 +27,139 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.10/moment-timezone-with-data.js"></script>
+    <!-- style -->
+    <link rel="stylesheet" href="./components/custom-style.css" />
+    <link rel="stylesheet" href="./components/sidebarnavigation.css" />
   </head>
-  <body>
+  <body class="body body-secondary">
     <div>
-      <link href="./log-in.css" rel="stylesheet" />
-
-      <div class="log-in-container">
-        <div class="log-in-login">
-          <div class="log-in-section">
-            <div class="log-in-headernavigation">
-              <div class="log-in-logo">
-                <div class="log-in-logowrap">
-                  <div class="log-in-logomark">
+      <div class="d-flex">
+        <div class="col pt-3 body-content">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <div class="d-flex justify-content-start align-items-center">
+                  <span class="mr-3" id="header-company-icon">
                     <img
                       alt="Frame1I5318"
                       src="public/external/frame1i5318-17h8.svg"
                       class="log-in-frame1"
                     />
-                  </div>
-                  <img
-                    alt="LogotypeI5318"
-                    src="public/external/logotypei5318-so1.svg"
-                    class="log-in-logotype"
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="log-in-headerandform">
-              <div class="log-in-header">
-                <div class="log-in-textandsupportingtext">
-                  <span class="log-in-text DisplaymdSemibold">
-                    <span>Log in</span>
-                  </span>
-                  <span class="log-in-text02 TextmdRegular">
-                    <span>Welcome back! Please enter your details.</span>
+                    <img
+                      alt="LogotypeI5318"
+                      src="public/external/logotypei5318-so1.svg"
+                      class="log-in-logotype"
+                    />
                   </span>
                 </div>
               </div>
-              <div class="log-in-content">
-                <form id="log-in-form" class="log-in-form">
-                  <div class="log-in-inputfield">
-                    <div class="log-in-inputwithlabel">
-                      <span class="log-in-text04 TextsmMedium">
-                        <span>Email</span>
-                      </span>
-                      <input
-                        maxlength="50"
-                        type="email"
-                        class="log-in-input"
-                        id="input-email"
-                        placeholder="Enter your email"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div class="log-in-inputfield">
-                    <div class="log-in-inputwithlabel">
-                      <span class="log-in-text08 TextsmMedium">
-                        <span>Password</span>
-                      </span>
-                      <input
-                        maxlength="50"
-                        type="password"
-                        class="log-in-input1"
-                        id="input-password"
-                        placeholder="Enter your password"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div class="log-in-row">
-                    <div class="log-in-checkbox">
-                      <!-- <div class="log-in-input2">
-                        <div class="log-in-frame-checkboxbase"></div>
-                      </div>
-                      <div class="log-in-textandsupportingtext1">
-                        <span class="log-in-text12 TextsmMedium">
-                          <span>Remember for 30 days</span>
-                        </span>
-                      </div> -->
-                    </div>
-                    <span class="log-in-text14 TextsmSemibold">
-                      <span>Forgot password</span>
-                    </span>
-                  </div>
-                  <button
-                    class="btn btn-warning log-in-button1 log-in-text16 TextmdSemibold"
-                    type="submit"
-                    id="submit-btn-log-in"
-                  >
-                    Sign in
-                  </button>
-                </form>
-                <button
-                  class="btn btn-light log-in-socialbutton log-in-text18 TextmdSemibold"
-                  type="button"
-                  id="button-continue-with-google"
-                >
-                  <img
-                    alt="SocialiconI5318"
-                    src="public/external/socialiconi5318-o828.svg"
-                    class="log-in-socialicon"
-                  />
-                  <span class="log-in-text18 TextmdSemibold">
-                    <span>Continue with Google</span>
-                  </span>
-                </button>
-              </div>
-              <div class="log-in-row1">
-                <span class="log-in-text20 TextsmRegular">
-                  <span>Don’t have an account?</span>
-                </span>
-                <button class="log-in-button2">
-                  <a href="sign-up.html" class="log-in-text22 TextsmSemibold">
-                    <span>Sign up</span>
-                  </a>
-                </button>
-              </div>
             </div>
-            <div class="log-in-footer">
-              <span class="log-in-text24 TextsmRegular">
-                <span>© 2023 Atfal&amp;Co</span>
-              </span>
-              <div class="log-in-row2">
-                <img
-                  alt="mail01I5318"
-                  src="public/external/mail01i5318-8um.svg"
-                  class="log-in-mail01"
-                />
-                <span class="log-in-text26"><span>help@atfal.com</span></span>
+            <div>
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="d-flex align-items-center px-5 mt-5">
+                      <form style="width: 23rem" id="log-in-form">
+                        <div
+                          class="transaction-dashboard-alipay-top-up-text002 DisplaysmSemibold mt-3"
+                        >
+                          <span>Log in</span>
+                        </div>
+                        <div
+                          class="transaction-dashboard-alipay-top-up-text004 TextmdRegular mb-4"
+                        >
+                          <span>Welcome back! Please enter your details.</span>
+                        </div>
+                        <div class="form-group">
+                          <label class="form-label">Email</label>
+                          <input
+                            maxlength="30"
+                            type="email"
+                            class="form-control form-input"
+                            id="input-email"
+                            placeholder="Enter your email"
+                            required
+                          />
+                        </div>
+                        <div class="form-group mt-3">
+                          <label class="form-label">Password</label>
+                          <input
+                            maxlength="30"
+                            type="password"
+                            class="form-control form-input"
+                            id="input-password"
+                            placeholder="Enter your password"
+                            required
+                          />
+                        </div>
+                        <p class="small mb-4 text-right">
+                          <a class="clickable-primary-text" href="#!"
+                            >Forgot password?</a
+                          >
+                        </p>
+                        <button
+                          type="submit"
+                          class="btn btn-warning atfal-primary-btn btn-block"
+                          id="submit-btn-log-in"
+                        >
+                          Sign in
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-light atfal-secondary-btn btn-block mt-3"
+                          id="button-continue-with-google"
+                        >
+                          <img
+                            alt="SocialiconI5318"
+                            src="public/external/socialiconi5318-o828.svg"
+                            class="mr-2"
+                          />
+                          Continue with Google
+                        </button>
+                        <div class="mt-4 text-center">
+                          Don’t have an account?
+                          <a href="sign-up.html" class="clickable-primary-text">
+                            Sign up
+                          </a>
+                        </div>
+                        <div class="row mt-5 small text-muted">
+                          <div class="col text-left">© 2023 Atfal&amp;Co</div>
+                          <div class="col text-right">
+                            <img
+                              alt="mail01I5318"
+                              src="public/external/mail01i5318-8um.svg"
+                            />
+                            help@atfal.com
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 px-0 d-none d-sm-block">
+                    <img
+                      src="public/external/contentsi5298-lv3l.svg"
+                      alt="Login image"
+                      class="w-100 vh-100"
+                      style="object-fit: cover; object-position: left"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="log-in-section1"></div>
         </div>
       </div>
+    </div>
+    <div id="logout-modal-container">
+      <!-- logout modal -->
     </div>
     <script
       data-section-id="navbar"
       src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
     ></script>
-    <!-- My function 2 -->
+    <!-- function -->
     <div id="alert-toast-container">
       <!-- alert toast -->
     </div>
