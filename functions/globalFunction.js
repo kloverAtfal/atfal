@@ -228,7 +228,7 @@ function getSavedData(key) {
 const currentUrl = window.location.pathname.substring(
   window.location.pathname.lastIndexOf('/')
 );
-const excludedPages = ['/index', '/sign-up', '/login'];
+const excludedPages = ['/index', '/sign-up', '/log-in'];
 
 if (!excludedPages.includes(currentUrl)) {
   window.onload = function () {
