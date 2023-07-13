@@ -205,6 +205,9 @@
   .body {
     background-color: var(--dl-color-gray-25);
   }
+  .body-secondary {
+    background-color: var(--dl-color-base-white);
+  }
   .checkout-title-medium {
     font-size: 18px;
     font-style: normal;
@@ -227,6 +230,9 @@
     font-weight: 400px;
     font-stretch: normal;
     color: var(--dl-color-gray-600);
+  }
+  .clickable-primary-text {
+    color: var(--dl-color-primary-700);
   }
   .form-label {
     font-size: 14px;

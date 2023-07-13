@@ -1,4 +1,10 @@
 document
+  .getElementById('header-company-icon')
+  .addEventListener('click', function () {
+    window.location.href = 'index';
+  });
+
+document
   .getElementById('sign-up-form')
   .addEventListener('submit', function (e) {
     e.preventDefault();

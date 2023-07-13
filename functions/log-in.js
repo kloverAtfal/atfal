@@ -1,3 +1,9 @@
+document
+  .getElementById('header-company-icon')
+  .addEventListener('click', function () {
+    window.location.href = 'index';
+  });
+
 document.getElementById('log-in-form').addEventListener('submit', function (e) {
   e.preventDefault();
 
