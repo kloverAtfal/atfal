@@ -188,7 +188,6 @@
   .nav-tabs .nav-item .nav-link.active {
     color: var(--dl-color-primary-700);
   }
-
   .rounded-btn {
     box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05000000074505806);
     align-items: center;
@@ -357,4 +356,19 @@
     font-weight: 500;
     font-stretch: normal;
     margin: 0; /* Reset the default margin */
+  }
+  .font-primary {
+      color: var(--dl-color-primary-700);
+  }
+  .font-white {
+   color: var(--dl-color-base-white)
+  }
+  .disable-color {
+    background-color: var(--dl-color-gray-50);
+  }
+  .space-section {
+    margin-top: 5rem
+  }
+  .text-shadow {
+    text-shadow: 2px 3px 5px rgba(0,0,0,0.5);
   }
