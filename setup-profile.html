@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>KloverAtfal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <!-- function -->
+    <script src="functions/apiHelper.js"></script>
+    <script src="functions/globalFunction.js"></script>
+    <script src="functions/shareComponent.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.10/moment-timezone-with-data.js"></script>
+    <!-- style -->
+    <link rel="stylesheet" href="./components/custom-style.css" />
+    <link rel="stylesheet" href="./components/sidebarnavigation.css" />
+  </head>
+  <body class="body body-secondary">
+    <div>
+      <div class="d-flex">
+        <div class="col pt-3 body-content">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <div class="d-flex justify-content-start align-items-center">
+                  <span class="mr-3" id="header-company-icon">
+                    <img
+                      alt="Frame1I5318"
+                      src="public/external/frame1i5318-17h8.svg"
+                      class="log-in-frame1"
+                    />
+                    <img
+                      alt="LogotypeI5318"
+                      src="public/external/logotypei5318-so1.svg"
+                      class="log-in-logotype"
+                    />
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="d-flex align-items-center px-5 mt-5">
+                      <form style="width: 23rem" id="setup-profile-form">
+                        <div
+                          class="transaction-dashboard-alipay-top-up-text002 DisplaysmSemibold mt-3"
+                        >
+                          <span>Let's setup your profile</span>
+                        </div>
+                        <div
+                          class="transaction-dashboard-alipay-top-up-text004 TextmdRegular mb-4"
+                        >
+                          <span>Tell us more about yourself.</span>
+                        </div>
+                        <div class="form-group">
+                          <label class="form-label">Full Name </label>
+                          <div class="form-row">
+                            <div class="col">
+                              <input
+                                maxlength="30"
+                                type="text"
+                                class="form-control form-input"
+                                id="input-first-name"
+                                placeholder="First name"
+                                required
+                              />
+                            </div>
+                            <div class="col">
+                              <input
+                                maxlength="30"
+                                type="text"
+                                class="form-control form-input"
+                                id="input-last-name"
+                                placeholder="Last name"
+                                required
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="form-label">Phone Number </label>
+                          <div class="form-group">
+                            <div class="d-flex input-group">
+                              <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                  <img
+                                    alt="phoneI5239"
+                                    src="public/external/phonei5239-3yro.svg"
+                                    class="shipment-add-new-shipment-phone"
+                                  />
+                                </div>
+                              </div>
+                              <input
+                                maxlength="30"
+                                type="number"
+                                class="form-control form-input"
+                                id="input-phone-number"
+                                required
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="form-group">
+                            <label class="form-label">Address 1</label>
+                            <input
+                              maxlength="100"
+                              type="text"
+                              class="form-control form-input"
+                              id="input-address-1"
+                              placeholder=""
+                              required
+                            />
+                          </div>
+                          <div class="form-group">
+                            <label class="form-label">Address 2</label>
+                            <input
+                              maxlength="100"
+                              type="text"
+                              class="form-control form-input"
+                              id="input-address-2"
+                              placeholder=""
+                              required
+                            />
+                          </div>
+                          <div class="form-group">
+                            <div class="form-row">
+                              <div class="form-group col-md-2">
+                                <label class="form-label">Postcode</label>
+                                <input
+                                  maxlength="100"
+                                  type="text"
+                                  class="form-control form-input"
+                                  id="input-postcode"
+                                  placeholder=""
+                                  required
+                                />
+                              </div>
+                              <div class="form-group col-md-4">
+                                <label class="form-label">City</label>
+                                <input
+                                  maxlength="100"
+                                  type="text"
+                                  class="form-control form-input"
+                                  id="input-city"
+                                  placeholder=""
+                                  required
+                                />
+                              </div>
+                              <div class="form-group col-md-6">
+                                <label class="form-label">State</label>
+                                <input
+                                  maxlength="100"
+                                  type="text"
+                                  class="form-control form-input"
+                                  id="input-state"
+                                  placeholder=""
+                                  required
+                                />
+                              </div>
+                            </div>
+                            <label class="form-label">Country</label>
+                            <select
+                              class="form-control"
+                              id="input-select-country"
+                              required=""
+                            ></select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="form-label"
+                            >Refferal Code (Optional)</label
+                          >
+                          <input
+                            maxlength="100"
+                            type="text"
+                            class="form-control form-input"
+                            id="input-refferal-code"
+                            placeholder=""
+                          />
+                        </div>
+                        <button
+                          type="submit"
+                          class="btn btn-warning atfal-primary-btn btn-block mt-3 mb-5"
+                          id="setup-profile-btn"
+                        >
+                          Setup
+                        </button>
+                        <!-- <button
+                          type="button"
+                          class="btn btn-light atfal-secondary-btn btn-block mt-3 mb-3"
+                          id="skip-setup-profile-btn"
+                        >
+                          Skip
+                        </button> -->
+                      </form>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 px-0 d-none d-sm-block">
+                    <img
+                      src="public/external/contentsi5298-lv3l.svg"
+                      alt="Login image"
+                      class="w-100 vh-100"
+                      style="object-fit: cover; object-position: left"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="logout-modal-container">
+      <!-- logout modal -->
+    </div>
+    <script
+      data-section-id="navbar"
+      src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
+    ></script>
+    <!-- function -->
+    <div id="alert-toast-container">
+      <!-- alert toast -->
+    </div>
+    <script src="functions/setup-profile.js"></script>
+  </body>
+</html>
