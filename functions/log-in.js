@@ -39,7 +39,11 @@ document.getElementById('log-in-form').addEventListener('submit', function (e) {
             userData: data.userData,
             authToken: data.authToken,
           });
-          location.href = 'home-dashboard-user';
+          if (data.userData.is_new_user) {
+            location.href = 'setup-profile';
+          } else {
+            location.href = 'home-dashboard-user';
+          }
         } else {
           showToast('alert-toast-container', data.message, 'danger');
         }
@@ -119,7 +123,11 @@ function continueOauth(code) {
             userData: data.userData,
             authToken: data.authToken,
           });
-          location.href = 'home-dashboard-user';
+          if (data.userData.is_new_user) {
+            location.href = 'setup-profile';
+          } else {
+            location.href = 'home-dashboard-user';
+          }
         } else {
           showToast('alert-toast-container', 'Token not found', 'danger');
         }
