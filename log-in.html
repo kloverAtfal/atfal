@@ -204,6 +204,57 @@
         </div>
       </div>
     </div>
+    <div
+      class="modal fade"
+      id="reverifyModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form id="reverify-form">
+              <div class="form-group">
+                <div
+                  class="transaction-dashboard-alipay-top-up-text002 DisplaysmSemibold"
+                >
+                  <span>Resend Verification Email</span>
+                </div>
+                <div
+                  class="transaction-dashboard-alipay-top-up-text004 TextmdRegular mb-4"
+                >
+                  <span
+                    >Your email is not verified yet. Check your inbox for the
+                    verification email. If not found, please enter your email
+                    below to resend it.</span
+                  >
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Email</label>
+                  <input
+                    maxlength="30"
+                    type="email"
+                    class="form-control form-input"
+                    id="input-email-reverify"
+                    placeholder="Enter your email"
+                    required
+                  />
+                </div>
+              </div>
+              <button
+                type="submit"
+                class="btn btn-warning atfal-primary-btn btn-block"
+                id="submit-btn-reverify"
+              >
+                Resend
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
     <div id="logout-modal-container">
       <!-- logout modal -->
     </div>
