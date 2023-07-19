@@ -372,3 +372,24 @@
   .text-shadow {
     text-shadow: 2px 3px 5px rgba(0,0,0,0.5);
   }
+  /* Add a class to style the navbar with the blur effect */
+  .navbar-scrolled {
+    backdrop-filter: blur(
+      20px
+    ); /* Increase the blur intensity to 20px or adjust as needed */
+    background-color: rgba(
+      240,
+      240,
+      240,
+      0.5
+    ); /* Soft gray background with 50% transparency */
+    transition: backdrop-filter 0.3s ease, background-color 0.3s ease; /* Add smooth transitions */
+  }
+
+  /* Adjust the text color to be more prominent against the softer background */
+  .navbar-scrolled .nav-link,
+  .navbar-scrolled .btn {
+    /* color: #333;  */
+    /* Darker color for the text */
+    text-shadow: none; /* Remove the text shadow for better readability */
+  }
