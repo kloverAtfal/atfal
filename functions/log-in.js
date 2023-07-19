@@ -57,6 +57,56 @@ document.getElementById('log-in-form').addEventListener('submit', function (e) {
 });
 
 document
+  .getElementById('go-to-forgot-password-modal')
+  .addEventListener('click', function () {
+    $('#forgotPasswordModal').modal('show');
+  });
+
+document
+  .getElementById('forgot-password-form')
+  .addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    let useBtn = document.querySelector('#submit-btn-forgot-password');
+    let defaultBtnText = useBtn.innerHTML;
+
+    useBtn.disabled = true;
+    useBtn.innerHTML = `${spinner} ${useBtn.innerHTML}`;
+
+    const email = document.getElementById('input-email-forgot-password').value;
+
+    const options = {
+      body: JSON.stringify({
+        email: email,
+      }),
+    };
+    fetchAPI(
+      'https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/auth/password/request-magic-link',
+      'POST',
+      null,
+      options
+    )
+      .then((data) => {
+        useBtn.disabled = false;
+        useBtn.innerHTML = defaultBtnText;
+        if (data?.message) {
+          showToast('alert-toast-container', data.message, 'danger');
+        } else {
+          showToast(
+            'alert-toast-container',
+            'Password reset email sent. Please check your inbox for further instructions.',
+            'success'
+          );
+        }
+      })
+      .catch((error) => {
+        useBtn.disabled = false;
+        useBtn.innerHTML = defaultBtnText;
+        console.log('error', error);
+      });
+  });
+
+document
   .getElementById('button-continue-with-google')
   .addEventListener('click', function () {
     initGoogleCode();
