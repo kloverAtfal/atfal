@@ -31,6 +31,14 @@ document.getElementById('log-in-form').addEventListener('submit', function (e) {
     .then((data) => {
       useBtn.disabled = false;
       useBtn.innerHTML = defaultBtnText;
+
+      if (data?.payload?.verify == false) {
+        $('#reverifyModal').modal('show');
+        useBtn.disabled = false;
+        useBtn.innerHTML = defaultBtnText;
+        return;
+      }
+
       if (data.code) {
         showToast('alert-toast-container', data.message, 'danger');
       } else {
@@ -52,7 +60,7 @@ document.getElementById('log-in-form').addEventListener('submit', function (e) {
     .catch((error) => {
       useBtn.disabled = false;
       useBtn.innerHTML = defaultBtnText;
-      alert(error);
+      console.log('error', error);
     });
 });
 
@@ -97,6 +105,47 @@ document
             'Password reset email sent. Please check your inbox for further instructions.',
             'success'
           );
+        }
+      })
+      .catch((error) => {
+        useBtn.disabled = false;
+        useBtn.innerHTML = defaultBtnText;
+        console.log('error', error);
+      });
+  });
+
+document
+  .getElementById('reverify-form')
+  .addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    let useBtn = document.querySelector('#submit-btn-reverify');
+    let defaultBtnText = useBtn.innerHTML;
+
+    useBtn.disabled = true;
+    useBtn.innerHTML = `${spinner} ${useBtn.innerHTML}`;
+
+    const emailVerifyInput = document.getElementById('input-email-reverify');
+
+    const options = {
+      body: JSON.stringify({
+        email: emailVerifyInput.value,
+      }),
+    };
+
+    fetchAPI(
+      'https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/auth/verify_email/resend',
+      'POST',
+      null,
+      options
+    )
+      .then((data) => {
+        useBtn.disabled = false;
+        useBtn.innerHTML = defaultBtnText;
+        if (data.code) {
+          showToast('alert-toast-container', data.message, 'danger');
+        } else {
+          showToast('alert-toast-container', data.message, 'success');
         }
       })
       .catch((error) => {

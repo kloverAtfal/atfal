@@ -9,7 +9,7 @@ var sendToken = null;
 document
   .getElementById('return-to-login-btn')
   .addEventListener('click', function () {
-    window.location.href = '/index';
+    window.location.href = '/log-in';
   });
 
 document
