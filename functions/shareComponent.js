@@ -84,6 +84,18 @@ function sidebarNavigation(pageName, callback) {
         </div>
       </a>
     </li>
+    <li class="${pageName == 'admin' ? 'active' : ''}">
+      <a href="admin-dashboard.html" class="d-flex" style="text-decoration: none">
+        <img
+          alt="settings01I5236"
+          src="public/external/settings01i5236-dwy.svg"
+          class="pl-2 mr-2"
+        />
+        <div class="sidebarnavigation-text02 TextmdSemibold">
+          <span>Admin</span>
+        </div>
+      </a>
+    </li>
   </ul>
   <ul class="list-unstyled">
     <li>
@@ -150,4 +162,124 @@ function logoutModal() {
       </div>
     </div>
   </div>`;
+}
+
+function editParcelModal() {
+  return `
+  <div
+  class="modal fade"
+  id="editParcelModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Parcel</h5>
+        <button
+          class="close"
+          type="button"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <form id="edit-parcel-form">
+        <div class="modal-body">
+          <h6 class="modal-title">
+          Parcel ID: <strong id="edit-parcel-id">-</strong>
+          </h6>
+          <div class="form-group mt-3">
+            <label class="form-label">Parcel Status</label>
+            <select
+              class="form-control"
+              id="input-select-parcel-status"
+              required
+            ></select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            class="btn btn-secondary"
+            type="button"
+            data-dismiss="modal"
+          >
+            Cancel
+          </button>
+          <button
+            class="btn btn-warning parcel-add-new-parcel-text53"
+            type="submit"
+            id="edit-parcel-submit-btn"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+}
+
+function editShipmentModal() {
+  return `
+  <div
+  class="modal fade"
+  id="editShipmentModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Shipment</h5>
+        <button
+          class="close"
+          type="button"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <form id="edit-shipment-form">
+        <div class="modal-body">
+          <h6 class="modal-title">
+          Shipment ID: <strong id="edit-shipment-id">-</strong>
+          </h6>
+          <div class="form-group mt-3">
+            <label class="form-label">Shipping Status</label>
+            <select
+              class="form-control"
+              id="input-select-shipment-status"
+              required
+            ></select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            class="btn btn-secondary"
+            type="button"
+            data-dismiss="modal"
+          >
+            Cancel
+          </button>
+          <button
+            class="btn btn-warning parcel-add-new-parcel-text53"
+            type="submit"
+            id="edit-shipment-submit-btn"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
 }
