@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>KloverAtfal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <!-- function -->
+    <script src="functions/apiHelper.js"></script>
+    <script src="functions/globalFunction.js"></script>
+    <script src="functions/shareComponent.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.10/moment-timezone-with-data.js"></script>
+    <!-- data table -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.3/css/dataTables.bootstrap5.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/buttons/2.3.5/css/buttons.bootstrap5.min.css"
+    />
+    <!-- dropdown -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    />
+    <!-- style -->
+    <link rel="stylesheet" href="./components/custom-style.css" />
+    <link rel="stylesheet" href="./components/sidebarnavigation.css" />
+  </head>
+  <body class="body">
+    <div>
+      <div class="d-flex">
+        <div class="d-flex" id="sidebar-navigation">
+          <!-- sidebarNavigation -->
+        </div>
+        <div
+          class="col pt-3 body-content"
+          id="body-content"
+          style="display: none"
+        >
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <div class="d-flex justify-content-start align-items-center">
+                  <span class="mr-3">
+                    <button
+                      type="button"
+                      id="sidebarCollapse"
+                      class="btn btn-warning"
+                    >
+                      <span style="color: #fff">&#9776;</span>
+                    </button>
+                  </span>
+                  <span class="mr-3">
+                    <a href="home-dashboard-user.html">
+                      <img
+                        alt="homelineI131"
+                        src="public/external/homelinei131-k1j1.svg"
+                      /> </a
+                  ></span>
+                  <span class="mr-3">
+                    <img
+                      alt="chevronright1311"
+                      src="public/external/chevronright1311-6r0f.svg"
+                  /></span>
+                </div>
+              </div>
+              <!-- <div class="col">
+                <div class="d-flex justify-content-end align-items-center">
+                  <span class="mr-3">
+                    <img
+                      alt="download01I131"
+                      src="public/external/download01i131-4ln.svg"
+                  /></span>
+                  <span
+                    ><button
+                      class="btn btn-warning rounded-btn"
+                      type="button"
+                      style="color: white"
+                      id="add-new-transactions"
+                    >
+                      +
+                    </button></span
+                  >
+                </div>
+              </div> -->
+            </div>
+            <div
+              class="transaction-dashboard-alipay-top-up-text002 DisplaysmSemibold mt-3"
+            >
+              <span>Admin</span>
+            </div>
+            <div
+              class="transaction-dashboard-alipay-top-up-text004 TextmdRegular"
+            >
+              <span>Track, manage, and monitor transactions easily. </span>
+            </div>
+            <div>
+              <ul class="nav nav-tabs mt-3" id="myTab" role="tablist">
+                <!-- nav tabs -->
+              </ul>
+              <div class="tab-content pt-3">
+                <div
+                  class="tab-pane fade"
+                  id="parcel-tab"
+                  role="tabpanel"
+                  aria-labelledby="parcel-content"
+                >
+                  <div id="table-loader">
+                    <div class="d-flex justify-content-center">
+                      <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                      </div>
+                    </div>
+                  </div>
+                  <table
+                    id="parcel_table"
+                    class="table table-hover"
+                    style="background-color: white; width: 100%"
+                  >
+                    <thead class="datatable-header-container"></thead>
+                    <tbody class="datatable-row-container"></tbody>
+                  </table>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="shipment-tab"
+                  role="tabpanel"
+                  aria-labelledby="shipment-content"
+                >
+                  <div id="table-loader2">
+                    <div class="d-flex justify-content-center">
+                      <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                      </div>
+                    </div>
+                  </div>
+                  <table
+                    id="shipment_table"
+                    class="table table-hover"
+                    style="background-color: white; width: 100%"
+                  >
+                    <thead class="datatable-header-container"></thead>
+                    <tbody class="datatable-row-container"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="edit-parcel-modal-container">
+      <!-- edit parcel modal -->
+    </div>
+    <div id="edit-shipment-modal-container">
+      <!-- edit shipment modal -->
+    </div>
+    <div id="logout-modal-container">
+      <!-- logout modal -->
+    </div>
+    <script
+      data-section-id="navbar"
+      src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
+    ></script>
+    <!-- function -->
+    <div id="alert-toast-container">
+      <!-- alert toast -->
+    </div>
+    <script src="functions/admin-dashboard.js"></script>
+    <!--Data table -->
+    <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.3/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.5/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.5/js/buttons.colVis.min.js"></script>
+  </body>
+</html>
