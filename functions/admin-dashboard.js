@@ -1716,6 +1716,10 @@ document
           showToast('alert-toast-container', data.message, 'danger');
         } else {
           showToast('alert-toast-container', 'Record saved!', 'success');
+
+          setTimeout(function () {
+            location.reload();
+          }, 2000);
         }
       })
       .catch((error) => {
