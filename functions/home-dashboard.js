@@ -177,6 +177,53 @@ function populateToChart(passData) {
   const myChart = new Chart(ctx, config);
 }
 
+const totalPayoutText = document.getElementById('total-payout-text');
+
+function getTotalPayout(data) {
+  data.map((refItem) => {
+    refItem = refItem.user_data;
+    if (refItem.topup_price_of_user_data.length !== 0) {
+      var total_payout_shipment = 0;
+      var total_payout_transaction = 0;
+      var totalPayout = 0;
+
+      refItem.shipment_price_of_user_data.map(function (item) {
+        if (
+          item.payment_status_id == 1 &&
+          item.payout_payment_status_id !== 1
+        ) {
+          var price = item.price_myr ? parseFloat(item.price_myr) : 0;
+          var comm = item.payout_percentage
+            ? parseFloat(item.payout_percentage)
+            : 0;
+
+          total_payout_shipment = total_payout_shipment + (comm / 100) * price;
+        }
+      });
+
+      refItem.topup_price_of_user_data.map(function (item) {
+        if (
+          item.payment_status_id == 1 &&
+          item.payout_payment_status_id !== 1
+        ) {
+          var price = item.price_myr ? parseFloat(item.price_myr) : 0;
+          var comm = item.payout_percentage
+            ? parseFloat(item.payout_percentage)
+            : 0;
+
+          total_payout_transaction =
+            total_payout_transaction + (comm / 100) * price;
+        }
+      });
+
+      totalPayout = total_payout_shipment + total_payout_transaction;
+      totalPayoutText.innerHTML = `RM ${parseFloat(
+        totalPayout.toFixed(2)
+      ).toString()}`;
+    }
+  });
+}
+
 function getDashboardData() {
   fetchAPI(
     'https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/dashboard',
@@ -216,6 +263,8 @@ function getDashboardData() {
             waitingTopup.push(item);
           }
         });
+
+        getTotalPayout(data.referral_list);
 
         document.getElementById('total-parcel').innerHTML = totalParcel;
         document.getElementById('total-shipment').innerHTML = totalShipment;

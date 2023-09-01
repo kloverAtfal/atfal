@@ -445,7 +445,8 @@ function populateToTablePOB() {
         data: 'id',
         render: function (data, type, row, meta) {
           if (row?.topup_status_data) {
-            return `<div class="datatable-item-container"><div class="datatable-item-title">${row.topup_status_data.name}</div></div>`;
+            return `<div class="datatable-item-container"><div class="datatable-item-title">
+            <div class="badge-rounded-info"><span class="badge-text ml-1">${row.topup_status_data.name}</div></div></div></div>`;
           } else {
             return `<div class="datatable-item-container"><div class="datatable-item-title">
                 <span class="badge-text ml-1">-</span>

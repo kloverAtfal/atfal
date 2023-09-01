@@ -62,6 +62,11 @@ tabs.push(
     content: 'transaction-tab',
   },
   {
+    id: 'payout-tab-content',
+    title: 'All Payout',
+    content: 'payout-tab',
+  },
+  {
     id: 'rate-and-fees-tab-content',
     title: 'Rate and Fees',
     content: 'rate-and-fees-tab',
@@ -102,9 +107,11 @@ document.getElementById('myTab').innerHTML = tabHTML;
 const tableLoader = document.getElementById('table-loader');
 const tableLoader2 = document.getElementById('table-loader2');
 const tableLoader3 = document.getElementById('table-loader3');
+const tableLoader4 = document.getElementById('table-loader4');
 let tableDataParcel = [];
 let tableDataShipment = [];
 let tableDataTransaction = [];
+let tableDataPayout = [];
 
 function populateToTableParcel() {
   // initialize Datatables with your table and column definitions
@@ -801,6 +808,397 @@ function populateToTableTransaction() {
   }
 }
 
+function populateToTablePayout() {
+  // initialize Datatables with your table and column definitions
+
+  const table = $('#payout_table').DataTable({
+    data: tableDataPayout,
+    columns: [
+      {
+        title: '<label class="datatable-header-title">User</label>',
+        data: 'id',
+        render: function (data, type, row, meta) {
+          defaultImage = `https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png`;
+          if (row.profile_image) {
+            defaultImage = row.profile_image.url;
+          }
+
+          return `<div class="datatable-item-container"><div class="datatable-item-title">
+            <div class="d-flex" style="text-decoration: none">
+            <img src="${defaultImage}" class="rounded-circle mr-2" style="width: 35px; height: 35px" alt="Avatar">
+            <div class="form-label mr-2 row">
+              <span>${row.username}</span>
+              <span class="small">${row.email}</span>
+            </div>
+            </div>
+          </div></div>`;
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Members</label>',
+        data: 'id',
+        render: function (data, type, row, meta) {
+          var totalTeam = 0;
+          if (row.referrals_of_user_data) {
+            totalTeam = row.referrals_of_user_data.length;
+          }
+          return `<div class="datatable-item-container"><div class="datatable-item-title">${totalTeam}</div></div>`;
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Total Sales</label>',
+        data: 'id',
+        render: function (data, type, row, meta) {
+          var shipment_list = [];
+          var transaction_list = [];
+          var total_shipment = 0;
+          var total_transaction = 0;
+          var total = 0;
+
+          if (row.referrals_of_user_data.length > 0) {
+            row.referrals_of_user_data.map((item) => {
+              if (item.shipment_price_of_user_data.length > 0) {
+                item.shipment_price_of_user_data.map((item2) => {
+                  shipment_list.push(item2);
+                });
+              }
+
+              if (item.topup_price_of_user_data.length > 0) {
+                item.topup_price_of_user_data.map((item3) => {
+                  transaction_list.push(item3);
+                });
+              }
+            });
+          }
+
+          shipment_list.map(function (item) {
+            if (
+              item.payment_status_id == 1 &&
+              item.payout_payment_status_id !== 1
+            ) {
+              var price = item.price_myr ? parseFloat(item.price_myr) : 0;
+              total_shipment = total_shipment + price;
+            }
+          });
+
+          transaction_list.map(function (item) {
+            if (
+              item.payment_status_id == 1 &&
+              item.payout_payment_status_id !== 1
+            ) {
+              var price = item.price_myr ? parseFloat(item.price_myr) : 0;
+              total_transaction = total_transaction + price;
+            }
+          });
+
+          total = total_shipment + total_transaction;
+
+          return `<div class="datatable-item-container"><div class="datatable-item-title">RM ${parseFloat(
+            total.toFixed(2)
+          ).toString()}</div></div>`;
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Total Payout</label>',
+        data: 'id',
+        render: function (data, type, row, meta) {
+          var shipment_list = [];
+          var transaction_list = [];
+          var total_shipment = 0;
+          var total_transaction = 0;
+          var total = 0;
+
+          if (row.referrals_of_user_data.length > 0) {
+            row.referrals_of_user_data.map((item) => {
+              if (item.shipment_price_of_user_data.length > 0) {
+                item.shipment_price_of_user_data.map((item2) => {
+                  shipment_list.push(item2);
+                });
+              }
+
+              if (item.topup_price_of_user_data.length > 0) {
+                item.topup_price_of_user_data.map((item3) => {
+                  transaction_list.push(item3);
+                });
+              }
+            });
+          }
+
+          shipment_list.map(function (item) {
+            if (
+              item.payment_status_id == 1 &&
+              item.payout_payment_status_id !== 1
+            ) {
+              var price = item.price_myr ? parseFloat(item.price_myr) : 0;
+              var comm = item.payout_percentage
+                ? parseFloat(item.payout_percentage)
+                : 0;
+
+              total_shipment = total_shipment + (comm / 100) * price;
+            }
+          });
+
+          transaction_list.map(function (item) {
+            if (
+              item.payment_status_id == 1 &&
+              item.payout_payment_status_id !== 1
+            ) {
+              var price = item.price_myr ? parseFloat(item.price_myr) : 0;
+              var comm = item.payout_percentage
+                ? parseFloat(item.payout_percentage)
+                : 0;
+
+              total_transaction = total_transaction + (comm / 100) * price;
+            }
+          });
+
+          total = total_shipment + total_transaction;
+
+          return `<div class="datatable-item-container"><div class="datatable-item-title">RM ${parseFloat(
+            total.toFixed(2)
+          ).toString()}</div></div>`;
+        },
+      },
+      {
+        title: '<label class="datatable-header-title"></label>',
+        data: 'id',
+        orderable: false, // disable sorting for this column
+        render: function (data, type, row, meta) {
+          return `<div class="datatable-item-container"><div class="datatable-item-title">
+            <button onclick="editPayout('${data}', this)" type="button" class="btn btn-light btn-sm atfal-secondary-btn">Edit</button>
+          </div></div>`;
+        },
+      },
+    ],
+    lengthChange: false,
+    buttons: [
+      {
+        extend: 'csv',
+        //   split: ["pdf", "excel"],
+      },
+    ],
+    drawCallback: function () {
+      tableLoader4.style.display = 'none';
+    },
+  });
+
+  // table
+  //   .buttons()
+  //   .container()
+  //   .appendTo("#example_wrapper .col-md-6:eq(0)");
+
+  // var buttonDownloadCSV = document.getElementById('button-download-csv');
+  // buttonDownloadCSV.addEventListener('click', function () {
+  //   table.button('.buttons-csv').trigger();
+  // });
+
+  let checkedRows = [];
+
+  // Add click event handler for checkAll checkbox
+  $('#checkAll').on('click', function () {
+    const isChecked = $(this).prop('checked');
+    if (isChecked) {
+      // Set checked attribute and push data for all checkboxes with id="checkItem"
+      table
+        .rows()
+        .nodes()
+        .each(function (row) {
+          const checkbox = $(row).find("input[type='checkbox']");
+          if (checkbox.attr('id') === 'checkItem') {
+            checkbox.prop('checked', true);
+            const rowData = table.row(row).data();
+            if (!isCheckedRow(rowData)) {
+              checkedRows.push(rowData);
+            }
+          }
+        });
+    } else {
+      // Remove checked attribute and remove data for all checkboxes with id="checkItem"
+      table
+        .rows()
+        .nodes()
+        .each(function (row) {
+          const checkbox = $(row).find("input[type='checkbox']");
+          if (checkbox.attr('id') === 'checkItem') {
+            checkbox.prop('checked', false);
+            const rowData = table.row(row).data();
+            const index = checkedRows.findIndex(
+              (item) => item.id === rowData.id
+            );
+            if (index >= 0) {
+              checkedRows.splice(index, 1);
+            }
+          }
+        });
+    }
+  });
+
+  // Add click event handler for individual checkboxes
+  $(document).on('click', '#checkItem', function () {
+    const rowData = table.row($(this).closest('tr')).data();
+    if ($(this).prop('checked')) {
+      if (!isCheckedRow(rowData)) {
+        checkedRows.push(rowData);
+      }
+    } else {
+      const index = checkedRows.findIndex((item) => item.id === rowData.id);
+      if (index >= 0) {
+        checkedRows.splice(index, 1);
+      }
+    }
+  });
+
+  // Function to check if a row is already checked
+  function isCheckedRow(rowData) {
+    return checkedRows.some((item) => item.id === rowData.id);
+  }
+}
+
+const editPayoutUsername = document.getElementById('edit-payout-username');
+var editPayoutTotalComm = document.getElementById('edit-unpaid-payout');
+var shipment_payout_list = [];
+var transaction_payout_list = [];
+
+function editPayout(id, button) {
+  var closestRow = $(button).closest('tr');
+  var tableRef = $('#payout_table').DataTable();
+  var rowIndex = tableRef.row(closestRow).index();
+  selectedRowIndex = rowIndex;
+
+  var foundObject = tableDataPayout.find(function (obj) {
+    return obj.id.toString() === id.toString();
+  });
+
+  editPayoutUsername.innerHTML = foundObject.username;
+
+  if (foundObject) {
+    var shipment_list = [];
+    var transaction_list = [];
+    var total_shipment = 0;
+    var total_transaction = 0;
+    var total = 0;
+
+    if (foundObject.referrals_of_user_data.length > 0) {
+      foundObject.referrals_of_user_data.map((item) => {
+        if (item.shipment_price_of_user_data.length > 0) {
+          item.shipment_price_of_user_data.map((item2) => {
+            shipment_list.push(item2);
+          });
+        }
+
+        if (item.topup_price_of_user_data.length > 0) {
+          item.topup_price_of_user_data.map((item3) => {
+            transaction_list.push(item3);
+          });
+        }
+      });
+    }
+
+    shipment_list.map(function (item) {
+      if (item.payment_status_id == 1 && item.payout_payment_status_id !== 1) {
+        var price = item.price_myr ? parseFloat(item.price_myr) : 0;
+        var comm = item.payout_percentage
+          ? parseFloat(item.payout_percentage)
+          : 0;
+
+        total_shipment = total_shipment + (comm / 100) * price;
+        shipment_payout_list.push(item);
+      }
+    });
+
+    transaction_list.map(function (item) {
+      if (item.payment_status_id == 1 && item.payout_payment_status_id !== 1) {
+        var price = item.price_myr ? parseFloat(item.price_myr) : 0;
+        var comm = item.payout_percentage
+          ? parseFloat(item.payout_percentage)
+          : 0;
+
+        total_transaction = total_transaction + (comm / 100) * price;
+        transaction_payout_list.push(item);
+      }
+    });
+
+    total = total_shipment + total_transaction;
+
+    editPayoutTotalComm.innerHTML = `RM ${parseFloat(
+      total.toFixed(2)
+    ).toString()}`;
+
+    if (total > 0) {
+      inputSelectPayoutStatus.disabled = false;
+    } else {
+      inputSelectPayoutStatus.disabled = true;
+    }
+  } else {
+    shipment_payout_list = [];
+    transaction_payout_list = [];
+    inputSelectPayoutStatus.disabled = true;
+  }
+
+  $('#editPayoutModal').modal('show');
+}
+
+document
+  .getElementById('edit-payout-form')
+  .addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    let useBtn = document.querySelector('#edit-payout-submit-btn');
+    let defaultBtnText = useBtn.innerHTML;
+
+    useBtn.disabled = true;
+    useBtn.innerHTML = `${spinner} ${useBtn.innerHTML}`;
+
+    let shipment_array_id = [];
+    shipment_payout_list.map((item) => {
+      shipment_array_id.push({ shipment_price_id: item.id });
+    });
+
+    let topup_array_id = [];
+    transaction_payout_list.map((item) => {
+      topup_array_id.push({ topup_price_id: item.id });
+    });
+
+    const options = {
+      body: JSON.stringify({
+        shipment_price_list: shipment_array_id,
+        topup_price_list: topup_array_id,
+        payout_status_id: inputSelectPayoutStatus.value,
+      }),
+    };
+
+    fetchAPI(
+      'https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/admin/update/payout',
+      'PUT',
+      token,
+      options
+    )
+      .then((data) => {
+        useBtn.disabled = false;
+        useBtn.innerHTML = defaultBtnText;
+        if (data?.message) {
+          showToast('alert-toast-container', data.message, 'danger');
+        } else {
+          var tableRef = $('#payout_table').DataTable();
+          var rowIndex = selectedRowIndex;
+          var rowData = data.new_parcel;
+          tableRef.row(rowIndex).data(rowData).draw();
+
+          $('#editPayoutModal').modal('hide');
+          showToast(
+            'alert-toast-container',
+            'Updated successfully!',
+            'success'
+          );
+        }
+      })
+      .catch((error) => {
+        useBtn.disabled = false;
+        useBtn.innerHTML = defaultBtnText;
+        console.log('error', error);
+      });
+  });
+
 var selectedRowIndex = null;
 
 var feeData = [];
@@ -832,6 +1230,10 @@ const inputSelectParcelStatus = document.getElementById(
 
 const inputSelectTransactionStatus = document.getElementById(
   'input-select-transaction-status'
+);
+
+const inputSelectPayoutStatus = document.getElementById(
+  'input-select-payout-status'
 );
 
 function editShipment(custom_id, button) {
@@ -1416,6 +1818,8 @@ function firstFetch() {
         tableDataParcel = data.parcel_list;
         tableDataShipment = data.shipment_list;
         tableDataTransaction = data.transaction_list;
+        tableDataPayout = data.referral_list;
+
         currencyData = data.currency_list;
         feeData = data.fee_list;
         rateData = data.rate_list;
@@ -1432,6 +1836,7 @@ function firstFetch() {
         populateToTableShipment();
         populateToTransactionSummary();
         populateToTableTransaction();
+        populateToTablePayout();
 
         populateToFee();
         populateToRate();
@@ -1454,7 +1859,13 @@ function firstFetch() {
           inputSelectTransactionStatus.appendChild(optionElement);
         });
 
-        inputSelectTransactionStatus;
+        data.payout_status_list.unshift({ id: '', name: 'Please Select' });
+        data.payout_status_list.forEach((item) => {
+          const optionElement = document.createElement('option');
+          optionElement.value = item.id;
+          optionElement.text = item.name;
+          inputSelectPayoutStatus.appendChild(optionElement);
+        });
 
         data.shipping_status_list.unshift({ id: '', name: 'Please Select' });
         data.shipping_status_list.forEach((item) => {
