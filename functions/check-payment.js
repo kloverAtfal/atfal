@@ -51,11 +51,32 @@ function updatePaymentStatus(status_id, order_id, bill_code, type) {
           redirectFunction(type);
         } else if (status_id == 2) {
           textPaymentStatus.innerHTML = 'Pending';
+          if (type == 'shipment') {
+            location.href = 'shipment-dashboard';
+          } else if (type == 'topup') {
+            location.href = 'transaction-dashboard';
+          } else {
+            location.href = 'home-dashboard-user';
+          }
         } else if (status_id == 3) {
-          textPaymentStatus.innerHTML = 'Fail';
+          textPaymentStatus.innerHTML = 'Payment Failed';
+          if (type == 'shipment') {
+            location.href = 'shipment-dashboard';
+          } else if (type == 'topup') {
+            location.href = 'transaction-dashboard';
+          } else {
+            location.href = 'home-dashboard-user';
+          }
         } else {
           textPaymentStatus.innerHTML =
             'Something went wrong, please reload page.';
+          if (type == 'shipment') {
+            location.href = 'shipment-dashboard';
+          } else if (type == 'topup') {
+            location.href = 'transaction-dashboard';
+          } else {
+            location.href = 'home-dashboard-user';
+          }
         }
       }
     })

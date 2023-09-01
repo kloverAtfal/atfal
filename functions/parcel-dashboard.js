@@ -311,8 +311,12 @@ document
         if (data?.message) {
           showToast('alert-toast-container', data.message, 'danger');
         } else {
+          if (tableData.length !== 0) {
+            $('#example').DataTable().row.add(data.new_parcel).draw().node();
+          } else {
+            getParcelList();
+          }
           $('#newParcelModal').modal('hide');
-          $('#example').DataTable().row.add(data.new_parcel).draw().node();
           showToast(
             'alert-toast-container',
             'New parcel added successfully!',

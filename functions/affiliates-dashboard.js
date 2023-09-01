@@ -46,7 +46,7 @@ function populateToTable(data) {
   // updateTotals(data);
 
   // initialize Datatables with your table and column definitions
-  const table = $('#example').DataTable({
+  const table = $('#affiliates_table').DataTable({
     data: tableData,
     columns: [
       {
@@ -57,7 +57,7 @@ function populateToTable(data) {
             <div class="d-flex" style="text-decoration: none">
             <img src="${
               data.profile_image
-                ? data.profile_image.url
+                ? data.profile_image?.url
                 : `https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png`
             }" class="rounded-circle mr-2" style="width: 35px; height: 35px" alt="Avatar">
             <div class="form-label mr-2 row">
@@ -80,34 +80,13 @@ function populateToTable(data) {
         },
       },
       {
-        title: '<label class="datatable-header-title">Shipment</label>',
+        title: '<label class="datatable-header-title">Total Sales</label>',
         data: 'user_data',
         render: function (data, type, row, meta) {
           if (data.shipment_price_of_user_data.length !== 0) {
-            var total_shipment = 0;
-
-            data.shipment_price_of_user_data.map(function (item) {
-              if (
-                item.payment_status_id == 1 &&
-                item.payout_payment_status_id !== 1
-              ) {
-                total_shipment = total_shipment + 1;
-              }
-            });
-
-            return `<div class="datatable-item-container"><div class="datatable-item-title">${total_shipment}</div></div>`;
-          } else {
-            return `<div class="datatable-item-container"><div class="datatable-item-title">-</div></div>`;
-          }
-        },
-      },
-      {
-        title:
-          '<label class="datatable-header-title">Shipment Commission</label>',
-        data: 'user_data',
-        render: function (data, type, row, meta) {
-          if (data.shipment_price_of_user_data.length !== 0) {
-            var total_comm = 0;
+            var total_sales_shipment = 0;
+            var total_sales_transaction = 0;
+            var totalSales = 0;
 
             data.shipment_price_of_user_data.map(function (item) {
               if (
@@ -115,16 +94,24 @@ function populateToTable(data) {
                 item.payout_payment_status_id !== 1
               ) {
                 var price = item.price_myr ? parseFloat(item.price_myr) : 0;
-                var comm = item.payout_percentage
-                  ? parseFloat(item.payout_percentage)
-                  : 0;
-
-                total_comm = total_comm + (comm / 100) * price;
+                total_sales_shipment = price;
               }
             });
 
+            data.topup_price_of_user_data.map(function (item) {
+              if (
+                item.payment_status_id == 1 &&
+                item.payout_payment_status_id !== 1
+              ) {
+                var price = item.price_myr ? parseFloat(item.price_myr) : 0;
+                total_sales_transaction = price;
+              }
+            });
+
+            totalSales = total_sales_shipment + total_sales_transaction;
+
             return `<div class="datatable-item-container"><div class="datatable-item-title">RM ${parseFloat(
-              total_comm.toFixed(2)
+              totalSales.toFixed(2)
             ).toString()}</div></div>`;
           } else {
             return `<div class="datatable-item-container"><div class="datatable-item-title">-</div></div>`;
@@ -132,34 +119,28 @@ function populateToTable(data) {
         },
       },
       {
-        title: '<label class="datatable-header-title">Transaction</label>',
+        title: '<label class="datatable-header-title">Total Payout</label>',
         data: 'user_data',
         render: function (data, type, row, meta) {
           if (data.topup_price_of_user_data.length !== 0) {
-            var total_topup = 0;
+            var total_payout_shipment = 0;
+            var total_payout_transaction = 0;
+            var totalPayout = 0;
 
-            data.topup_price_of_user_data.map(function (item) {
+            data.shipment_price_of_user_data.map(function (item) {
               if (
                 item.payment_status_id == 1 &&
                 item.payout_payment_status_id !== 1
               ) {
-                total_topup = total_topup + 1;
+                var price = item.price_myr ? parseFloat(item.price_myr) : 0;
+                var comm = item.payout_percentage
+                  ? parseFloat(item.payout_percentage)
+                  : 0;
+
+                total_payout_shipment =
+                  total_payout_shipment + (comm / 100) * price;
               }
             });
-
-            return `<div class="datatable-item-container"><div class="datatable-item-title">${total_topup}</div></div>`;
-          } else {
-            return `<div class="datatable-item-container"><div class="datatable-item-title">-</div></div>`;
-          }
-        },
-      },
-      {
-        title:
-          '<label class="datatable-header-title">Transaction Commission</label>',
-        data: 'user_data',
-        render: function (data, type, row, meta) {
-          if (data.topup_price_of_user_data.length !== 0) {
-            var total_comm = 0;
 
             data.topup_price_of_user_data.map(function (item) {
               if (
@@ -171,12 +152,15 @@ function populateToTable(data) {
                   ? parseFloat(item.payout_percentage)
                   : 0;
 
-                total_comm = total_comm + (comm / 100) * price;
+                total_payout_transaction =
+                  total_payout_transaction + (comm / 100) * price;
               }
             });
 
+            totalPayout = total_payout_shipment + total_payout_transaction;
+
             return `<div class="datatable-item-container"><div class="datatable-item-title">RM ${parseFloat(
-              total_comm.toFixed(2)
+              totalPayout.toFixed(2)
             ).toString()}</div></div>`;
           } else {
             return `<div class="datatable-item-container"><div class="datatable-item-title">-</div></div>`;
@@ -302,7 +286,7 @@ const gradTotalPayout = document.getElementById('grand-total-payout');
 
 function viewDetails(id, button) {
   var closestRow = $(button).closest('tr');
-  var tableRef = $('#parcel_table').DataTable();
+  var tableRef = $('#affiliates_table').DataTable();
   var rowIndex = tableRef.row(closestRow).index();
   selectedRowIndex = rowIndex;
 
