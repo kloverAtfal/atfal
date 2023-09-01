@@ -80,8 +80,40 @@ document
     location.href = `transaction-add-new`;
   });
 
+document
+  .getElementById('add-new-transaction-btn-2')
+  .addEventListener('click', function (e) {
+    location.href = `transaction-add-new`;
+  });
+
+document
+  .getElementById('add-new-transaction-btn-3')
+  .addEventListener('click', function (e) {
+    location.href = `transaction-add-new`;
+  });
+
+function alreadyPaid(custom_id) {
+  showToast(
+    'alert-toast-container',
+    `The payment for transaction Id ${custom_id} has already been completed.`,
+    'success'
+  );
+}
+
+function notAcceptPaymentYet(custom_id) {
+  showToast(
+    'alert-toast-container',
+    `Payment processing is not yet open for transaction Id ${custom_id}`,
+    'danger'
+  );
+}
+
 const tableLoader = document.getElementById('table-loader');
 const tableLoader2 = document.getElementById('table-loader2');
+
+const tableEmpty = document.getElementById('table-empty');
+const tableEmpty2 = document.getElementById('table-empty2');
+
 let tableData = [];
 let tableData2 = [];
 
@@ -92,7 +124,7 @@ function populateToTableTopup() {
     columns: [
       {
         title:
-          '<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="checkAll"/><label class="datatable-header-title" for="flexCheckDefault">Invoice Id</label></div>',
+          '<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="checkAll"/><label class="datatable-header-title" for="flexCheckDefault">ID</label></div>',
         data: 'custom_id',
         render: function (data, type, row, meta) {
           return `<div class="datatable-item-container"><div class="datatable-item-title">
@@ -111,46 +143,34 @@ function populateToTableTopup() {
       },
       {
         title: '<label class="datatable-header-title">Payment Status</label>',
-        data: 'payment_status_data',
+        data: 'id',
         render: function (data, type, row, meta) {
-          if (data.code == 'not_paid') {
-            return `
-            <div class="datatable-item-container">
-              <div class="badge-rounded-danger">
-                <span class="badge-text ml-1">${data.name}</span>
-              </div>
-            </div>
-         `;
-          }
-          if (data.code == 'pending') {
-            return `
-            <div class="datatable-item-container">
-              <div class="badge-rounded-warning">
-                <span class="badge-text ml-1">${data.name}</span>
-              </div>
-            </div>
-         `;
-          }
-          if (data.code == 'paid') {
-            return `
-            <div class="datatable-item-container">
-              <div class="badge-rounded-success">
-                <img alt="checkI5296" src="public/external/checki5296-srbj.svg" class="shipment-dashboard-check06">
-                <span class="badge-text ml-1">${data.name}</span>
-              </div>
-            </div>
-         `;
-          }
-          if (data.code == 'refunded') {
-            return `
+          if (row?.topup_price_data) {
+            if (row?.topup_price_data?.payment_status_data) {
+              return `
+                <div class="datatable-item-container">
+                  <div class="badge-rounded-${row?.topup_price_data?.payment_status_data.theme}">
+                    <span class="badge-text ml-1">${row?.topup_price_data?.payment_status_data.name}</span>
+                  </div>
+                </div>
+             `;
+            } else {
+              return `
             <div class="datatable-item-container">
               <div class="badge-rounded-info">
-                <span class="badge-text ml-1">${data.name}</span>
+                <span class="badge-text ml-1">Pending</span>
               </div>
             </div>
          `;
+            }
           } else {
-            return `<div class="datatable-item-container">-</div>`;
+            return `
+              <div class="datatable-item-container">
+                <div class="badge-rounded-info">
+                  <span class="badge-text ml-1">Pending</span>
+                </div>
+              </div>
+           `;
           }
         },
       },
@@ -166,18 +186,73 @@ function populateToTableTopup() {
         },
       },
       {
+        title: '<label class="datatable-header-title">Price MYR</label>',
+        data: 'id',
+        render: function (data, type, row, meta) {
+          if (row?.topup_price_data) {
+            return `<div class="datatable-item-container"><div class="datatable-item-title">${row.topup_price_data.price_myr}</div></div>`;
+          } else {
+            return `<div class="datatable-item-container"><div class="datatable-item-title">
+              <div class="badge-rounded-info">
+                <span class="badge-text ml-1">Pending</span>
+              </div>
+            </div></div>`;
+          }
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Fee (%)</label>',
+        data: 'id',
+        render: function (data, type, row, meta) {
+          if (row?.topup_price_data) {
+            return `<div class="datatable-item-container"><div class="datatable-item-title">${row.topup_price_data.fee_percentage}</div></div>`;
+          } else {
+            return `<div class="datatable-item-container"><div class="datatable-item-title">
+              <div class="badge-rounded-info">
+                <span class="badge-text ml-1">Pending</span>
+              </div>
+            </div></div>`;
+          }
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Status</label>',
+        data: 'id',
+        render: function (data, type, row, meta) {
+          if (row?.topup_status_data) {
+            return `<div class="datatable-item-container"><div class="datatable-item-title">
+            <div class="badge-rounded-info"><span class="badge-text ml-1">${row.topup_status_data.name}</div></div></div></div>`;
+          } else {
+            return `<div class="datatable-item-container"><div class="datatable-item-title">
+                <span class="badge-text ml-1">-</span>
+            </div></div>`;
+          }
+        },
+      },
+      {
         title: '<label class="datatable-header-title"></label>',
         data: 'id',
         orderable: false, // disable sorting for this column
         render: function (data, type, row, meta) {
-          if (row.payment_status_data.code == 'not_paid') {
-            return `<div class="datatable-item-container"><div class="datatable-item-title">
-            <button onclick="payTopup('${row.custom_id}', this)" type="button" class="btn btn-warning btn-sm atfal-primary-btn">Pay</button>
-            <button type="button" class="btn btn-light btn-sm atfal-secondary-btn">Edit</button>
-          </div></div>`;
+          if (row?.topup_price_data) {
+            if (row?.topup_price_data?.payment_status_data?.code == 'paid') {
+              return `<div class="datatable-item-container"><div class="datatable-item-title">
+               <button type="button" onclick="alreadyPaid('${row.custom_id}', this)" class="btn btn-outline-secondary btn-sm atfal-secondary-btn">Paid</button>
+              </div></div>`;
+            } else {
+              if (row?.topup_price_data.allow_payment) {
+                return `<div class="datatable-item-container"><div class="datatable-item-title">
+                <button onclick="transactionDetails('${row.id}', this)" type="button" class="btn btn-warning btn-sm atfal-primary-btn">Pay</button>
+              </div></div>`;
+              } else {
+                return `<div class="datatable-item-container"><div class="datatable-item-title">
+                <button type="button" onclick="notAcceptPaymentYet('${row.custom_id}', this)" class="btn btn-outline-secondary btn-sm atfal-secondary-btn">Pay</button>
+               </div></div>`;
+              }
+            }
           } else {
             return `<div class="datatable-item-container"><div class="datatable-item-title">
-               <button type="button" class="btn btn-light btn-sm atfal-secondary-btn">Edit</button>
+               <button type="button" onclick="notAcceptPaymentYet('${row.custom_id}', this)" class="btn btn-outline-secondary btn-sm atfal-secondary-btn">Pay</button>
               </div></div>`;
           }
         },
@@ -274,7 +349,7 @@ function populateToTablePOB() {
     columns: [
       {
         title:
-          '<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="checkAll"/><label class="datatable-header-title" for="flexCheckDefault">Invoice Id</label></div>',
+          '<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="checkAll"/><label class="datatable-header-title" for="flexCheckDefault">ID</label></div>',
         data: 'custom_id',
         render: function (data, type, row, meta) {
           return `<div class="datatable-item-container"><div class="datatable-item-title">
@@ -293,46 +368,34 @@ function populateToTablePOB() {
       },
       {
         title: '<label class="datatable-header-title">Payment Status</label>',
-        data: 'payment_status_data',
+        data: 'id',
         render: function (data, type, row, meta) {
-          if (data.code == 'not_paid') {
-            return `
-            <div class="datatable-item-container">
-              <div class="badge-rounded-danger">
-                <span class="badge-text ml-1">${data.name}</span>
-              </div>
-            </div>
-         `;
-          }
-          if (data.code == 'pending') {
-            return `
-            <div class="datatable-item-container">
-              <div class="badge-rounded-warning">
-                <span class="badge-text ml-1">${data.name}</span>
-              </div>
-            </div>
-         `;
-          }
-          if (data.code == 'paid') {
-            return `
-            <div class="datatable-item-container">
-              <div class="badge-rounded-success">
-                <img alt="checkI5296" src="public/external/checki5296-srbj.svg" class="shipment-dashboard-check06">
-                <span class="badge-text ml-1">${data.name}</span>
-              </div>
-            </div>
-         `;
-          }
-          if (data.code == 'refunded') {
-            return `
+          if (row?.topup_price_data) {
+            if (row?.topup_price_data?.payment_status_data) {
+              return `
+                <div class="datatable-item-container">
+                  <div class="badge-rounded-${row?.topup_price_data?.payment_status_data.theme}">
+                    <span class="badge-text ml-1">${row?.topup_price_data?.payment_status_data.name}</span>
+                  </div>
+                </div>
+             `;
+            } else {
+              return `
             <div class="datatable-item-container">
               <div class="badge-rounded-info">
-                <span class="badge-text ml-1">${data.name}</span>
+                <span class="badge-text ml-1">Pending</span>
               </div>
             </div>
          `;
+            }
           } else {
-            return `<div class="datatable-item-container">-</div>`;
+            return `
+              <div class="datatable-item-container">
+                <div class="badge-rounded-info">
+                  <span class="badge-text ml-1">Pending</span>
+                </div>
+              </div>
+           `;
           }
         },
       },
@@ -348,18 +411,72 @@ function populateToTablePOB() {
         },
       },
       {
+        title: '<label class="datatable-header-title">Price MYR</label>',
+        data: 'id',
+        render: function (data, type, row, meta) {
+          if (row?.topup_price_data) {
+            return `<div class="datatable-item-container"><div class="datatable-item-title">${row.topup_price_data.price_myr}</div></div>`;
+          } else {
+            return `<div class="datatable-item-container"><div class="datatable-item-title">
+              <div class="badge-rounded-info">
+                <span class="badge-text ml-1">Pending</span>
+              </div>
+            </div></div>`;
+          }
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Fee (%)</label>',
+        data: 'id',
+        render: function (data, type, row, meta) {
+          if (row?.topup_price_data) {
+            return `<div class="datatable-item-container"><div class="datatable-item-title">${row.topup_price_data.fee_percentage}</div></div>`;
+          } else {
+            return `<div class="datatable-item-container"><div class="datatable-item-title">
+              <div class="badge-rounded-info">
+                <span class="badge-text ml-1">Pending</span>
+              </div>
+            </div></div>`;
+          }
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Status</label>',
+        data: 'id',
+        render: function (data, type, row, meta) {
+          if (row?.topup_status_data) {
+            return `<div class="datatable-item-container"><div class="datatable-item-title">${row.topup_status_data.name}</div></div>`;
+          } else {
+            return `<div class="datatable-item-container"><div class="datatable-item-title">
+                <span class="badge-text ml-1">-</span>
+            </div></div>`;
+          }
+        },
+      },
+      {
         title: '<label class="datatable-header-title"></label>',
         data: 'id',
         orderable: false, // disable sorting for this column
         render: function (data, type, row, meta) {
-          if (row.payment_status_data.code == 'not_paid') {
-            return `<div class="datatable-item-container"><div class="datatable-item-title">
-            <button onclick="payTopup('${row.custom_id}', this)" type="button" class="btn btn-warning btn-sm atfal-primary-btn">Pay</button>
-            <button type="button" class="btn btn-light btn-sm atfal-secondary-btn">Edit</button>
-          </div></div>`;
+          if (row?.topup_price_data) {
+            if (row?.topup_price_data?.payment_status_data?.code == 'paid') {
+              return `<div class="datatable-item-container"><div class="datatable-item-title">
+               <button type="button" onclick="alreadyPaid('${row.custom_id}', this)" class="btn btn-outline-secondary btn-sm atfal-secondary-btn">Paid</button>
+              </div></div>`;
+            } else {
+              if (row?.topup_price_data.allow_payment) {
+                return `<div class="datatable-item-container"><div class="datatable-item-title">
+                <button onclick="transactionDetails('${row.id}', this)" type="button" class="btn btn-warning btn-sm atfal-primary-btn">Pay</button>
+              </div></div>`;
+              } else {
+                return `<div class="datatable-item-container"><div class="datatable-item-title">
+                <button type="button" onclick="notAcceptPaymentYet('${row.custom_id}', this)" class="btn btn-outline-secondary btn-sm atfal-secondary-btn">Pay</button>
+               </div></div>`;
+              }
+            }
           } else {
             return `<div class="datatable-item-container"><div class="datatable-item-title">
-               <button type="button" class="btn btn-light btn-sm atfal-secondary-btn">Edit</button>
+               <button type="button" onclick="notAcceptPaymentYet('${row.custom_id}', this)" class="btn btn-outline-secondary btn-sm atfal-secondary-btn">Pay</button>
               </div></div>`;
           }
         },
@@ -449,7 +566,15 @@ function populateToTablePOB() {
   }
 }
 
-function payTopup(custom_id_to_pay, button) {
+var currentSelectedTopupId = null;
+
+document
+  .getElementById('retry-price-btn')
+  .addEventListener('click', function (e) {
+    transactionDetails(currentSelectedTopupId);
+  });
+
+function makePayment(id, button) {
   let useBtn = button;
   let defaultBtnText = useBtn.innerHTML;
 
@@ -458,38 +583,113 @@ function payTopup(custom_id_to_pay, button) {
 
   const options = {
     body: JSON.stringify({
-      topup_custom_id: custom_id_to_pay,
+      topup_price_id: id,
     }),
   };
 
   fetchAPI(
-    `https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/payment/top_pup`,
+    `https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/top_up/price/pay`,
     'POST',
     token,
     options
   )
     .then((data) => {
+      useBtn.disabled = false;
+      useBtn.innerHTML = defaultBtnText;
       if (data?.message) {
         showToast('alert-toast-container', data.message, 'danger');
       } else {
-        const paymentUrl = `${data.paymentURL}/${data.paymentResult[0].BillCode}`;
-        if (paymentUrl) {
-          window.open(paymentUrl, '_self');
+        if (data?.paymentResult?.status == 'error') {
+          showToast('alert-toast-container', data.paymentResult.msg, 'danger');
         } else {
-          showToast(
-            'alert-toast-container',
-            'Something went wrong, please try again',
-            'danger'
-          );
+          const paymentUrl = `${data.paymentURL}/${data.paymentResult[0].BillCode}`;
+          if (paymentUrl) {
+            window.open(paymentUrl, '_self');
+          } else {
+            showToast(
+              'alert-toast-container',
+              'Something went wrong, please try again',
+              'danger'
+            );
+          }
         }
       }
+    })
+    .catch((error) => {
       useBtn.disabled = false;
       useBtn.innerHTML = defaultBtnText;
+      console.log('error', error);
+    });
+}
+
+function transactionDetails(top_up_id, button) {
+  $('#payModal').modal('show');
+
+  currentSelectedTopupId = top_up_id;
+
+  const listLoader = document.getElementById('price-list-loader');
+  const listEmpty = document.getElementById('price-list-empty');
+  const listContainer = document.getElementById('price-list-container');
+  const checkOutBtn = document.getElementById('check-out-btn');
+
+  listEmpty.classList.add('hidden');
+  listLoader.classList.remove('hidden');
+  listContainer.classList.add('hidden');
+  checkOutBtn.disabled = true;
+
+  fetchAPI(
+    `https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/top_up/price/${top_up_id}`,
+    'GET',
+    token
+  )
+    .then((data) => {
+      if (data?.message) {
+        showToast('alert-toast-container', data.message, 'danger');
+        listEmpty.classList.remove('hidden');
+        listLoader.classList.add('hidden');
+        listContainer.classList.add('hidden');
+        checkOutBtn.disabled = true;
+      } else {
+        listLoader.classList.add('hidden');
+        listContainer.classList.remove('hidden');
+        checkOutBtn.disabled = false;
+
+        const orderId = document.getElementById('text-order-id');
+        const totalBig = document.getElementById('text-total-big');
+        const transaction = document.getElementById('text-transaction');
+        const fees = document.getElementById('text-fees');
+        const total = document.getElementById('text-total');
+
+        data = data.price_data;
+        var price1 = data.price_myr ? parseFloat(data.price_myr) : 0;
+        var price2 = data.fee_percentage ? parseFloat(data.fee_percentage) : 0;
+
+        const fee_price = (price2 / 100) * price1;
+        const formattedTotal = price1 + fee_price;
+
+        orderId.innerHTML = `Pay for transaction: ${data.top_up_data.custom_id}`;
+        totalBig.innerHTML = `RM ${parseFloat(
+          formattedTotal.toFixed(2)
+        ).toString()}`;
+        transaction.innerHTML = `RM ${parseFloat(
+          price1.toFixed(2)
+        ).toString()}`;
+        fees.innerHTML = `RM ${parseFloat(fee_price.toFixed(2)).toString()}`;
+        total.innerHTML = `RM ${parseFloat(
+          formattedTotal.toFixed(2)
+        ).toString()}`;
+
+        checkOutBtn.addEventListener('click', function (e) {
+          makePayment(data.id, this);
+        });
+      }
     })
     .catch((error) => {
       console.log('error', error);
-      useBtn.disabled = false;
-      useBtn.innerHTML = defaultBtnText;
+      listEmpty.classList.remove('hidden');
+      listLoader.classList.add('hidden');
+      listContainer.classList.add('hidden');
+      checkOutBtn.disabled = true;
     });
 }
 
@@ -506,15 +706,30 @@ function getTransactionList() {
         tableLoader.style.display = 'none';
         tableLoader2.style.display = 'none';
       } else {
-        tableData = data.topup_list;
-        tableData2 = data.pob_list;
-        populateToTableTopup();
-        populateToTablePOB();
+        if (data.topup_list.length > 0) {
+          tableData = data.topup_list;
+          populateToTableTopup();
+          tableEmpty.style.display = 'none';
+        } else {
+          tableLoader.style.display = 'none';
+          tableEmpty.style.display = 'block';
+        }
+
+        if (data.pob_list.length > 0) {
+          tableData2 = data.pob_list;
+          populateToTablePOB();
+          tableEmpty2.style.display = 'none';
+        } else {
+          tableLoader2.style.display = 'none';
+          tableEmpty2.style.display = 'block';
+        }
       }
     })
     .catch((error) => {
       tableLoader.style.display = 'none';
       tableLoader2.style.display = 'none';
+      tableEmpty.style.display = 'block';
+      tableEmpty2.style.display = 'block';
       console.log('error', error);
     });
 }

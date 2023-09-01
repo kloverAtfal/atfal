@@ -38,7 +38,7 @@ document
 
 // --- end auth function
 
-var selectTypeId = 'topup';
+var selectTypeId = 'alipay_topup';
 
 function populateTransactionCard() {
   const parentTable = document.getElementById('transaction-type-list-parent');
@@ -50,13 +50,13 @@ function populateTransactionCard() {
       title: 'Alipay TopUp',
       description: 'Easy Alipay top-ups with our help',
       icon: 'public/external/creditcardplusi131-olzb.svg',
-      id: 'topup',
+      id: 'alipay_topup',
     },
     {
       title: 'Alipay Pay On Behalf (POB)',
       description: 'let us handle your Alipay payment',
       icon: 'public/external/coinshandi131-qlyc.svg',
-      id: 'pob',
+      id: 'alipay_pob',
     },
   ].forEach(function (item, index) {
     const card = style.cloneNode(true);
@@ -69,11 +69,11 @@ function populateTransactionCard() {
 
     if (item.id == selectTypeId) {
       divs[0].classList.add('selected-card');
-      iconImage[1].src = 'public/external/checkcirclei5287-wqq.svg';
+      iconImage[1].src = 'public/external/checkbox-true-icon.svg';
       toggleAccountContainer();
     } else {
       divs[0].classList.remove('selected-card');
-      iconImage[1].src = 'public/external/arrowdowni131-alv.svg';
+      iconImage[1].src = 'public/external/checkbox-false-icon.svg';
       toggleAccountContainer();
     }
 
@@ -106,7 +106,7 @@ function populateTransactionCard() {
 function toggleAccountContainer() {
   accountCard = document.getElementById('account-container');
 
-  if (selectTypeId == 1) {
+  if (selectTypeId == 'alipay_pob') {
     accountCard.classList.add('hidden');
   } else {
     accountCard.classList.remove('hidden');
@@ -133,10 +133,72 @@ document
 const inputName = document.getElementById('input-name');
 const inputRemark = document.getElementById('input-remark');
 const inputRequestAmount = document.getElementById('input-request-amount');
-// const inputSelectCurrency = document.getElementById('input-select-currency');
 
-const checkoutTitle = document.getElementById('check-out-title');
-var custom_id_to_pay = null;
+const useCurrencyLongName = document.getElementById('use-currency-long-name');
+const useCurrencyShortName = document.getElementById('use-currency-short-name');
+const currencyConvertion = document.getElementById('request-amount-convertion');
+var useCurrency = null;
+
+inputRequestAmount.addEventListener('input', function () {
+  if (useCurrency.value > 0) {
+    currencyConvertion.innerHTML = `...`;
+    clearTimeout(this.timerId);
+    let convResult = inputRequestAmount.value * useCurrency.value;
+    this.timerId = setTimeout(() => {
+      currencyConvertion.innerHTML = `= RM ${parseFloat(
+        convResult.toFixed(2)
+      ).toString()}`;
+    }, 1000);
+  }
+});
+
+function makePayment(id, button) {
+  let useBtn = button;
+  let defaultBtnText = useBtn.innerHTML;
+
+  useBtn.disabled = true;
+  useBtn.innerHTML = `${spinner} ${useBtn.innerHTML}`;
+
+  const options = {
+    body: JSON.stringify({
+      topup_price_id: id,
+    }),
+  };
+
+  fetchAPI(
+    `https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/top_up/price/pay`,
+    'POST',
+    token,
+    options
+  )
+    .then((data) => {
+      useBtn.disabled = false;
+      useBtn.innerHTML = defaultBtnText;
+      if (data?.message) {
+        showToast('alert-toast-container', data.message, 'danger');
+      } else {
+        if (data?.paymentResult?.status == 'error') {
+          showToast('alert-toast-container', data.paymentResult.msg, 'danger');
+        } else {
+          const paymentUrl = `${data.paymentURL}/${data.paymentResult[0].BillCode}`;
+          if (paymentUrl) {
+            window.open(paymentUrl, '_self');
+          } else {
+            showToast(
+              'alert-toast-container',
+              'Something went wrong, please try again',
+              'danger'
+            );
+          }
+        }
+      }
+    })
+    .catch((error) => {
+      useBtn.disabled = false;
+      useBtn.innerHTML = defaultBtnText;
+      console.log('error', error);
+    });
+}
 
 document
   .getElementById('payment-form')
@@ -160,11 +222,10 @@ document
 
     const options = {
       body: JSON.stringify({
-        type: selectTypeId,
-        name: inputName.value,
+        category: selectTypeId,
+        account_name: inputName.value,
         remark: inputRemark.value,
         request_amount: inputRequestAmount.value,
-        // currency_id: inputSelectCurrency.value,
       }),
     };
 
@@ -182,71 +243,45 @@ document
         } else {
           showToast('alert-toast-container', 'Record saved!', 'success');
 
-          const subtotalBig = document.getElementById('text-subtotal-big');
-          const subtotal = document.getElementById('text-subtotal');
+          const orderId = document.getElementById('text-order-id');
+          const totalBig = document.getElementById('text-total-big');
+          const transaction = document.getElementById('text-transaction');
           const fees = document.getElementById('text-fees');
           const total = document.getElementById('text-total');
 
-          subtotalBig.innerHTML = `RM ${data.subtotal}`;
-          subtotal.innerHTML = `RM ${data.subtotal}`;
-          fees.innerHTML = `RM ${data.fees}`;
-          console.log(data.subtotal, data.fees);
-          total.innerHTML = `RM ${Number(data.subtotal) + Number(data.fees)}`;
+          data = data.latest_price;
+          var price1 = data.price_myr ? parseFloat(data.price_myr) : 0;
+          var price2 = data.fee_percentage
+            ? parseFloat(data.fee_percentage)
+            : 0;
+
+          const fee_price = (price2 / 100) * price1;
+          const formattedTotal = price1 + fee_price;
+
+          orderId.innerHTML = `Pay for transaction: ${data.top_up_data.custom_id}`;
+          totalBig.innerHTML = `RM ${parseFloat(
+            formattedTotal.toFixed(2)
+          ).toString()}`;
+          transaction.innerHTML = `RM ${parseFloat(
+            price1.toFixed(2)
+          ).toString()}`;
+          fees.innerHTML = `RM ${parseFloat(fee_price.toFixed(2)).toString()}`;
+          total.innerHTML = `RM ${parseFloat(
+            formattedTotal.toFixed(2)
+          ).toString()}`;
+
+          const checkOutBtn = document.getElementById('check-out-btn');
+          checkOutBtn.addEventListener('click', function (e) {
+            makePayment(data.id, this);
+          });
+
           $('#payModal').modal('show');
-          checkoutTitle.innerHTML = `Order Id: ${data.custom_id}`;
-          custom_id_to_pay = data.custom_id;
         }
       })
       .catch((error) => {
         useBtn.disabled = false;
         useBtn.innerHTML = defaultBtnText;
         console.log('error', error);
-      });
-  });
-
-document
-  .getElementById('check-out-btn')
-  .addEventListener('click', function (e) {
-    let useBtn = document.getElementById('check-out-btn');
-    let defaultBtnText = useBtn.innerHTML;
-
-    useBtn.disabled = true;
-    useBtn.innerHTML = `${spinner} ${useBtn.innerHTML}`;
-
-    const options = {
-      body: JSON.stringify({
-        topup_custom_id: custom_id_to_pay,
-      }),
-    };
-
-    fetchAPI(
-      `https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/payment/top_pup`,
-      'POST',
-      token,
-      options
-    )
-      .then((data) => {
-        if (data?.message) {
-          showToast('alert-toast-container', data.message, 'danger');
-        } else {
-          const paymentUrl = `${data.paymentURL}/${data.paymentResult[0].BillCode}`;
-          if (paymentUrl) {
-            window.open(paymentUrl, '_self');
-          } else {
-            showToast(
-              'alert-toast-container',
-              'Something went wrong, please try again',
-              'danger'
-            );
-          }
-        }
-        useBtn.disabled = false;
-        useBtn.innerHTML = defaultBtnText;
-      })
-      .catch((error) => {
-        console.log('error', error);
-        useBtn.disabled = false;
-        useBtn.innerHTML = defaultBtnText;
       });
   });
 
@@ -260,13 +295,9 @@ function getTransactionDropdownData() {
       if (data?.message) {
         showToast('alert-toast-container', data.message, 'danger');
       } else {
-        data.currency.unshift({ id: '', short_name: 'Please Select' });
-        // data.currency.forEach((item) => {
-        //   const optionElement = document.createElement('option');
-        //   optionElement.value = item.id;
-        //   optionElement.text = item.short_name;
-        //   inputSelectCurrency.appendChild(optionElement);
-        // });
+        useCurrency = data.use_currency;
+        useCurrencyLongName.innerHTML = data.use_currency.name;
+        useCurrencyShortName.innerHTML = data.use_currency.short_name;
       }
     })
     .catch((error) => {

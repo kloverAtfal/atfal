@@ -363,6 +363,9 @@
   .font-white {
    color: var(--dl-color-base-white)
   }
+  .font-small {
+    font-size: 12px;
+  }
   .disable-color {
     background-color: var(--dl-color-gray-50);
   }
@@ -392,4 +395,10 @@
     /* color: #333;  */
     /* Darker color for the text */
     text-shadow: none; /* Remove the text shadow for better readability */
+  }
+
+  .text-overflow {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }

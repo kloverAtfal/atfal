@@ -79,60 +79,103 @@ document
     location.href = 'transaction-dashboard.html';
   });
 
-var ctx = document.getElementById('examChart').getContext('2d');
+function populateToChart(passData) {
+  const ctx = document.getElementById('examChart').getContext('2d');
 
-const labels = [
-  'Jan',
-  'Feb',
-  'Mar',
-  'Apr',
-  'May',
-  'Jun',
-  'Jul',
-  'Aug',
-  'Sep',
-  'Oct',
-  'Nov',
-  'Dec',
-];
+  const labels = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
 
-const data = {
-  labels: labels,
-  datasets: [
-    {
-      label: 'Commission',
-      data: [20, 35, 45, 47, 35, 54, 62, 55, 72, 80, 84, 90],
-      fill: false,
-      borderColor: 'rgba(238,191,8,255)',
-      tension: 0.1,
-    },
-  ],
-};
+  const parcelCounts = Array.from({ length: 12 }, () => 0);
+  const shipmentCounts = Array.from({ length: 12 }, () => 0);
+  const topupCounts = Array.from({ length: 12 }, () => 0);
 
-const config = {
-  type: 'line',
-  data: data,
-  options: {
-    maintainAspectRatio: false,
-    scales: {
-      xAxes: [
-        {
-          gridLines: {
+  passData.parcel_list.forEach((item) => {
+    const monthIndex = new Date(item.created_at).getMonth();
+    parcelCounts[monthIndex]++;
+  });
+
+  passData.shipment_list.forEach((item) => {
+    const monthIndex = new Date(item.created_at).getMonth();
+    shipmentCounts[monthIndex]++;
+  });
+
+  passData.topup_list.forEach((item) => {
+    const monthIndex = new Date(item.created_at).getMonth();
+    topupCounts[monthIndex]++;
+  });
+
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        label: 'Parcel',
+        data: parcelCounts,
+        fill: false,
+        borderColor: 'rgba(238, 191, 8, 1)',
+        tension: 0.1,
+      },
+      {
+        label: 'Shipment',
+        data: shipmentCounts,
+        fill: false,
+        borderColor: 'rgba(75, 192, 192, 1)',
+        tension: 0.1,
+      },
+      {
+        label: 'Transaction',
+        data: topupCounts,
+        fill: false,
+        borderColor: 'rgba(255, 99, 132, 1)',
+        tension: 0.1,
+      },
+    ],
+  };
+
+  const config = {
+    type: 'line',
+    data: data,
+    options: {
+      maintainAspectRatio: false,
+      scales: {
+        x: {
+          grid: {
             display: false,
           },
         },
-      ],
-      yAxes: [
-        {
-          gridLines: {
+        y: {
+          grid: {
             display: false,
           },
         },
-      ],
+      },
+      plugins: {
+        tooltip: {
+          callbacks: {
+            label: (context) => {
+              const datasetLabel = context.dataset.label;
+              const dataPoint = context.parsed.y;
+              return `${datasetLabel}: ${dataPoint}`;
+            },
+          },
+        },
+      },
     },
-  },
-};
-var myChart = new Chart(ctx, config);
+  };
+
+  const myChart = new Chart(ctx, config);
+}
 
 function getDashboardData() {
   fetchAPI(
@@ -145,18 +188,54 @@ function getDashboardData() {
       if (data?.message) {
         showToast('alert-toast-container', data.message, 'danger');
       } else {
-        document.getElementById('total-parcel').innerHTML = data.total_parcel;
-        document.getElementById('total-shipment').innerHTML =
-          data.total_shipment;
-        document.getElementById('total-topup').innerHTML = data.total_topup;
+        let totalParcel = 0;
+        let totalShipment = 0;
+        let totalTopup = 0;
+
+        let waitingParcel = [];
+        let waitingShipment = [];
+        let waitingTopup = [];
+
+        data.parcel_list.map((item) => {
+          totalParcel = totalParcel + 1;
+          if (item.parcel_status_id == 1) {
+            waitingParcel.push(item);
+          }
+        });
+
+        data.shipment_list.map((item) => {
+          totalShipment = totalShipment + 1;
+          if (item.shipping_status_id == 1) {
+            waitingShipment.push(item);
+          }
+        });
+
+        data.topup_list.map((item) => {
+          totalTopup = totalTopup + 1;
+          if (item.payment_status_id == 5) {
+            waitingTopup.push(item);
+          }
+        });
+
+        document.getElementById('total-parcel').innerHTML = totalParcel;
+        document.getElementById('total-shipment').innerHTML = totalShipment;
+        document.getElementById('total-topup').innerHTML = totalTopup;
+
         document.getElementById('total-pending-parcel').innerHTML =
-          data.pending_parcel_list.length;
+          waitingParcel.length;
+        document.getElementById('total-pending-shipment').innerHTML =
+          waitingShipment.length;
+        document.getElementById('total-pending-topup').innerHTML =
+          waitingTopup.length;
+
         document.getElementById('date-range-pending-parcel').innerHTML =
-          formatDateRange(data.pending_parcel_list);
+          formatDateRange(waitingParcel);
         document.getElementById('date-range-pending-shipment').innerHTML =
-          formatDateRange(data.pending_shipment_list);
+          formatDateRange(waitingShipment);
         document.getElementById('date-range-pending-topup').innerHTML =
-          formatDateRange(data.pending_topup_list);
+          formatDateRange(waitingTopup);
+
+        populateToChart(data);
       }
     })
     .catch((error) => {

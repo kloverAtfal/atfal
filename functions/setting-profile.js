@@ -54,13 +54,8 @@ tabs.push(
   },
   {
     id: 'affiliates-tab-content',
-    title: 'Affiliates',
+    title: 'Team',
     content: 'affiliates-tab',
-  },
-  {
-    id: 'currency-tab-content',
-    title: 'Admin-Currency',
-    content: 'currency-tab',
   }
 );
 let tabHTML = '';
@@ -200,104 +195,6 @@ function getAllTimezones(region = 'Asia/') {
   return timezones;
 }
 
-var currencyData = [];
-var preId = 'input-currency';
-
-// buttonCancelCurrency.addEventListener('click', function () {
-//   currencyData.map((item) => {
-//     const currencyForm = document.getElementById(`${preId}-${item.code}`);
-//     currencyForm.value = '';
-//   });
-// });
-
-document
-  .getElementById('currency-form')
-  .addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    let useBtn = document.querySelector('#save-currency-btn');
-    let defaultBtnText = useBtn.innerHTML;
-
-    useBtn.disabled = true;
-    useBtn.innerHTML = `${spinner} ${useBtn.innerHTML}`;
-
-    const allCurrency = [];
-
-    currencyData.map((item) => {
-      const currencyForm = document.getElementById(`${preId}-${item.code}`);
-      if (currencyForm?.value) {
-        allCurrency.push({ code: item.code, rate: currencyForm.value });
-      }
-    });
-
-    const options = {
-      body: JSON.stringify({
-        all_currency: allCurrency,
-      }),
-    };
-
-    fetchAPI(
-      'https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/admin/currency/update',
-      'POST',
-      token,
-      options
-    )
-      .then((data) => {
-        useBtn.disabled = false;
-        useBtn.innerHTML = defaultBtnText;
-        if (data?.message) {
-          showToast('alert-toast-container', data.message, 'danger');
-        } else {
-          showToast('alert-toast-container', 'Record saved!', 'success');
-          // lastUpdatedPassword.innerHTML = `Last reset on ${formatDate(
-          //   data.user.last_updated_password
-          // )}`;
-        }
-      })
-      .catch((error) => {
-        useBtn.disabled = false;
-        useBtn.innerHTML = defaultBtnText;
-        console.log('error', error);
-      });
-  });
-
-function populateToAdminCurrency(data) {
-  const parentTable = document.getElementById('form-parent-currency');
-  const child = document.getElementById('form-child-currency');
-
-  const emptyDiv = [];
-
-  if (data.length !== 0) {
-    data.map((item) => {
-      const card = child.cloneNode(true);
-
-      const label = card.getElementsByTagName('label');
-      const formInput = card.getElementsByTagName('input');
-
-      label[0].innerHTML = `${item.name} (${item.short_name})`;
-
-      formInput[0].setAttribute('id', `${preId}-${item.code}`);
-      formInput[0].value = item.rate;
-
-      emptyDiv.push(card);
-    });
-  }
-
-  if (emptyDiv.length === 0) {
-    parentTable.classList.add('hidden');
-  } else {
-    parentTable.classList.remove('hidden');
-
-    while (parentTable.firstChild) {
-      parentTable.removeChild(parentTable.firstChild);
-    }
-
-    emptyDiv.forEach((item) => {
-      parentTable.appendChild(item);
-    });
-  }
-}
-
 function getSettingDropdownData() {
   fetchAPI(
     'https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/setting/dropdown',
@@ -308,30 +205,13 @@ function getSettingDropdownData() {
       if (data?.message) {
         showToast('alert-toast-container', data.message, 'danger');
       } else {
-        currencyData = data.currency;
-        populateToAdminCurrency(currencyData);
-
-        document.getElementById('input-affiliate-link').value =
-          data.affiliate_data.link;
-        document
-          .getElementById('copy-affiliates-link-btn')
-          .addEventListener('click', function () {
-            navigator.clipboard
-              .writeText(data.affiliate_data.link)
-              .then(() => {
-                showToast('alert-toast-container', 'Link copied!', 'success');
-              })
-              .catch((error) => {
-                console.error('Failed to copy: ', error);
-              });
-          });
         document.getElementById('input-affiliate-code').value =
-          data.affiliate_data.code;
+          data.affiliate_list.code;
         document
           .getElementById('copy-affiliates-code-btn')
           .addEventListener('click', function () {
             navigator.clipboard
-              .writeText(data.affiliate_data.code)
+              .writeText(data.affiliate_list.code)
               .then(() => {
                 showToast('alert-toast-container', 'Code copied!', 'success');
               })
@@ -340,8 +220,8 @@ function getSettingDropdownData() {
               });
           });
 
-        data.country.unshift({ id: '', name: 'Please Select' });
-        data.country.forEach((item) => {
+        data.country_list.unshift({ id: '', name: 'Please Select' });
+        data.country_list.forEach((item) => {
           const optionElement = document.createElement('option');
           optionElement.value = item.id;
           optionElement.text = item.name;
@@ -357,8 +237,8 @@ function getSettingDropdownData() {
           inputSelectTimezone.appendChild(optionElement);
         });
 
-        currencyData.unshift({ id: '', name: 'Please Select' });
-        currencyData.forEach((item) => {
+        data.currency_list.unshift({ id: '', name: 'Please Select' });
+        data.currency_list.forEach((item) => {
           const optionElement = document.createElement('option');
           optionElement.value = item.id;
           optionElement.text = `${item.name} ${
@@ -368,7 +248,7 @@ function getSettingDropdownData() {
         });
 
         if (data.user.country_id) {
-          const findSelectedCountry = data.country.find(
+          const findSelectedCountry = data.country_list.find(
             (country) => country.id === data.user.country_id
           );
           if (findSelectedCountry) {
@@ -397,7 +277,7 @@ function getSettingDropdownData() {
         }
 
         if (data.user.currency_id) {
-          const findSelectedCurrency = currencyData.find(
+          const findSelectedCurrency = data.currency_list.find(
             (currency) => currency.id === data.user.currency_id
           );
           if (findSelectedCurrency) {

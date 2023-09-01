@@ -140,25 +140,26 @@
                     <div class="card unselected-card">
                       <div class="card-body">
                         <div class="form-group">
-                          <label class="form-label"
-                            >Parcel
-                            <small
-                              class="form-text text-muted"
-                              style="display: inline"
-                              >(hold Ctrl/Cmd to select multiple)</small
-                            ></label
-                          >
+                          <label class="form-label">Parcel </label>
+                          <script src="functions/multiselect-dropdown.js"></script>
                           <select
-                            class="form-control"
+                            name="parcel[]"
                             id="input-select-parcel"
                             multiple
-                            name="parcel[]"
-                            required
+                            multiselect-search="true"
+                            multiselect-select-all="true"
+                            style="width: 100%"
                           ></select>
-                          <p class="mt-1">
-                            Selected:
-                            <span id="selected-parcel"></span>
-                          </p>
+                          <label class="form-label">
+                            <small
+                              >Don't have parcel?
+                              <strong
+                                id="create-parcel-shorcut"
+                                style="cursor: pointer"
+                                >Create here</strong
+                              >.</small
+                            >
+                          </label>
                         </div>
                       </div>
                     </div>
@@ -176,7 +177,7 @@
                         <div class="form-group">
                           <label class="form-label">Name</label>
                           <input
-                            maxlength="30"
+                            maxlength="50"
                             type="text"
                             class="form-control form-input"
                             id="input-name"
@@ -199,7 +200,7 @@
                                   </div>
                                 </div>
                                 <input
-                                  maxlength="30"
+                                  maxlength="50"
                                   type="email"
                                   class="form-control form-input"
                                   id="input-email"
@@ -220,7 +221,7 @@
                                   </div>
                                 </div>
                                 <input
-                                  maxlength="30"
+                                  maxlength="50"
                                   type="number"
                                   class="form-control form-input"
                                   id="input-phone-number"
@@ -307,9 +308,9 @@
                           <button
                             type="submit"
                             class="btn btn-warning atfal-primary-btn"
-                            id="submit-checkout-btn"
+                            id="submit-shipment-btn"
                           >
-                            Submit & Pay
+                            Submit
                           </button>
                         </div>
                       </div>
@@ -324,7 +325,7 @@
     </div>
     <div
       class="modal fade"
-      id="payModal"
+      id="shipmentAddedModal"
       tabindex="-1"
       role="dialog"
       aria-labelledby="exampleModalLabel"
@@ -333,7 +334,7 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Checkout</h5>
+            <h5 class="modal-title">Submitted For Review</h5>
             <button
               class="close"
               type="button"
@@ -344,39 +345,30 @@
             </button>
           </div>
           <div class="modal-body">
-            <span class="checkout-title-medium" id="check-out-title">...</span
-            ><br />
-            <span class="checkout-title-big" id="text-subtotal-big">-</span>
+            <span class="checkout-title-medium"
+              >Shipment Id: <b><span id="text-new-shipment-id"></span></b
+            ></span>
             <br />
-            <br />
-            <div class="d-flex justify-content-between">
-              <span class="checkout-title-small">Subtotal</span>
-              <span class="checkout-title-small" id="text-subtotal">-</span>
-            </div>
-            <div class="d-flex justify-content-between">
-              <span class="checkout-title-small">Fees</span>
-              <span class="checkout-title-small" id="text-fees">-</span>
-            </div>
-            <hr />
-            <div class="d-flex justify-content-between">
-              <span class="checkout-title-small">Total</span>
-              <span class="checkout-title-small" id="text-total">-</span>
-            </div>
+            <span class="checkout-title-medium"
+              >Your new shipment record has been successfully submitted. We'll
+              review the details and send you an email once the review is
+              complete.</span
+            >
           </div>
           <div class="modal-footer">
             <button
               type="button"
               class="btn btn-light atfal-secondary-btn"
-              data-dismiss="modal"
+              id="go-to-dashbaord-btn"
             >
-              Not Now
+              Back to dashboard
             </button>
             <button
               type="button"
               class="btn btn-warning atfal-primary-btn"
-              id="check-out-btn"
+              data-dismiss="modal"
             >
-              Continue with payment
+              Add New Record
             </button>
           </div>
         </div>
