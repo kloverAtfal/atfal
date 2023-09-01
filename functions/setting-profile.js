@@ -26,6 +26,11 @@ document.getElementById('sidebar-username').innerHTML =
 document.getElementById('sidebar-email').innerHTML =
   myData?.userData.email ?? '-';
 
+if (myData?.userData?.profile_image) {
+  document.getElementById('sidebar-profile-image').src =
+    myData.userData.profile_image.url;
+}
+
 document
   .getElementById('sidebar-logout-btn')
   .addEventListener('click', function (e) {
@@ -172,6 +177,10 @@ document
         if (data?.message) {
           showToast('alert-toast-container', data.message, 'danger');
         } else {
+          saveData('masterData', {
+            userData: data.user_data,
+            authToken: myData.authToken,
+          });
           showToast('alert-toast-container', 'Record saved!', 'success');
         }
       })

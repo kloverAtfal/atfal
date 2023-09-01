@@ -100,16 +100,20 @@ function sidebarNavigation(pageName, callback) {
   <ul class="list-unstyled">
     <li>
       <a id="sidebar-logout-btn" class="d-flex" style="text-decoration: none">
-      <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png" class="rounded-circle mr-2" style="width: 35px; height: 35px"
+      <img id="sidebar-profile-image" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png" class="rounded-circle mr-2" style="width: 35px; height: 35px"
       alt="Avatar" />
         <div class="sidebarnavigation-text14 TextsmSemibold mr-2">
           <span id="sidebar-username">...</span>
-          <span class="sidebarnavigation-text16 small" id="sidebar-email"
+          <span class="sidebarnavigation-text16 small" id="sidebar-email" style=" display: inline-block; /* Make the text a block element */
+          width: 150px; /* Set the width of the container */
+          white-space: nowrap; /* Prevent text from wrapping */
+          overflow: hidden; /* Hide any overflowing text */
+          text-overflow: ellipsis; /"
             >...</span
           >
         </div>
         <button class="sidebarnavigation-button btn">
-          <img
+          <img 
             alt="logout01I5236"
             src="public/external/logout01i5236-ixha.svg"
             class="sidebarnavigation-logout01"

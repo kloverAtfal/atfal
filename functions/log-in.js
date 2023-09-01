@@ -47,6 +47,7 @@ document.getElementById('log-in-form').addEventListener('submit', function (e) {
             userData: data.userData,
             authToken: data.authToken,
           });
+
           if (data.userData.is_new_user) {
             location.href = 'setup-profile';
           } else {
