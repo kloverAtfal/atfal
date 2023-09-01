@@ -14,8 +14,8 @@ function sidebarNavigationLoaded() {
   document.getElementById('logout-modal-container').innerHTML = logoutModal();
   document.getElementById('edit-parcel-modal-container').innerHTML =
     editParcelModal();
-  document.getElementById('edit-shipment-modal-container').innerHTML =
-    editShipmentModal();
+  document.getElementById('edit-transaction-modal-container').innerHTML =
+    editTransactionModal();
 }
 
 $(document).ready(function () {
@@ -55,6 +55,21 @@ tabs.push(
     id: 'shipment-tab-content',
     title: 'All Shipment',
     content: 'shipment-tab',
+  },
+  {
+    id: 'transaction-tab-content',
+    title: 'All Transaction',
+    content: 'transaction-tab',
+  },
+  {
+    id: 'rate-and-fees-tab-content',
+    title: 'Rate and Fees',
+    content: 'rate-and-fees-tab',
+  },
+  {
+    id: 'currency-pair-content',
+    title: 'Currency Rate',
+    content: 'currency-pair-tab',
   }
 );
 let tabHTML = '';
@@ -86,8 +101,10 @@ document.getElementById('myTab').innerHTML = tabHTML;
 
 const tableLoader = document.getElementById('table-loader');
 const tableLoader2 = document.getElementById('table-loader2');
+const tableLoader3 = document.getElementById('table-loader3');
 let tableDataParcel = [];
 let tableDataShipment = [];
+let tableDataTransaction = [];
 
 function populateToTableParcel() {
   // initialize Datatables with your table and column definitions
@@ -145,7 +162,7 @@ function populateToTableParcel() {
           if (data.code == 'arrived') {
             return `
             <div class="datatable-item-container">
-              <div class="badge-rounded-info">
+              <div class="badge-rounded-success">
                 <span class="badge-text ml-1">${data.name}</span>
               </div>
             </div>
@@ -358,51 +375,6 @@ function populateToTableShipment() {
         },
       },
       {
-        title: '<label class="datatable-header-title">Payment Status</label>',
-        data: 'payment_status_data',
-        render: function (data, type, row, meta) {
-          if (data.code == 'not_paid') {
-            return `
-            <div class="datatable-item-container">
-              <div class="badge-rounded-danger">
-                <span class="badge-text ml-1">${data.name}</span>
-              </div>
-            </div>
-         `;
-          }
-          if (data.code == 'pending') {
-            return `
-            <div class="datatable-item-container">
-              <div class="badge-rounded-warning">
-                <span class="badge-text ml-1">${data.name}</span>
-              </div>
-            </div>
-         `;
-          }
-          if (data.code == 'paid') {
-            return `
-            <div class="datatable-item-container">
-              <div class="badge-rounded-success">
-                <img alt="checkI5296" src="public/external/checki5296-srbj.svg" class="shipment-dashboard-check06">
-                <span class="badge-text ml-1">${data.name}</span>
-              </div>
-            </div>
-         `;
-          }
-          if (data.code == 'refunded') {
-            return `
-            <div class="datatable-item-container">
-              <div class="badge-rounded-info">
-                <span class="badge-text ml-1">${data.name}</span>
-              </div>
-            </div>
-         `;
-          } else {
-            return `<div class="datatable-item-container">-</div>`;
-          }
-        },
-      },
-      {
         title: '<label class="datatable-header-title">Date Created</label>',
         data: 'created_at',
         render: function (data, type, row, meta) {
@@ -413,6 +385,101 @@ function populateToTableShipment() {
           )}</div></div>`;
         },
       },
+      {
+        title: '<label class="datatable-header-title">Price MYR</label>',
+        data: 'id',
+        render: function (data, type, row, meta) {
+          if (row?.shipment_price_data) {
+            return `<div class="datatable-item-container"><div class="datatable-item-title">${row.shipment_price_data.price_myr}</div></div>`;
+          } else {
+            return `<div class="datatable-item-container"><div class="datatable-item-title">-</div></div>`;
+          }
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Fee (%)</label>',
+        data: 'id',
+        render: function (data, type, row, meta) {
+          if (row?.shipment_price_data) {
+            return `<div class="datatable-item-container"><div class="datatable-item-title">${row.shipment_price_data.fee_percentage}</div></div>`;
+          } else {
+            return `<div class="datatable-item-container"><div class="datatable-item-title">-</div></div>`;
+          }
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Allow to pay</label>',
+        data: 'id',
+        render: function (data, type, row, meta) {
+          if (row?.shipment_price_data) {
+            return `<div class="datatable-item-container"><div class="datatable-item-title">${
+              row?.shipment_price_data?.allow_payment == true ? 'Yes' : 'No'
+            }</div></div>`;
+          } else {
+            return `<div class="datatable-item-container"><div class="datatable-item-title">-</div></div>`;
+          }
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Payment Status</label>',
+        data: 'id',
+        render: function (data, type, row, meta) {
+          if (row?.shipment_price_data) {
+            if (row?.shipment_price_data?.payment_status_data) {
+              //  <img alt="checkI5296" src="public/external/checki5296-srbj.svg" class="shipment-dashboard-check06">
+              return `
+                <div class="datatable-item-container">
+                  <div class="badge-rounded-${row?.shipment_price_data?.payment_status_data.theme}">
+                    <span class="badge-text ml-1">${row?.shipment_price_data?.payment_status_data.name}</span>
+                  </div>
+                </div>
+             `;
+            } else {
+              return `
+            <div class="datatable-item-container">
+              <div class="badge-rounded-info">
+                <span class="badge-text ml-1">Pending</span>
+              </div>
+            </div>
+         `;
+            }
+          } else {
+            return `
+              <div class="datatable-item-container">
+                <div class="badge-rounded-info">
+                  <span class="badge-text ml-1">Pending</span>
+                </div>
+              </div>
+           `;
+          }
+        },
+      },
+      // {
+      //   title: '<label class="datatable-header-title">Cost List</label>',
+      //   data: 'cost',
+      //   render: function (data, type, row, meta) {
+      //     let formattedItems = '';
+
+      //     if (data && data.length > 0) {
+      //       formattedItems = data
+      //         .map((item, index) => {
+      //           const valueText =
+      //             item.value_type === 'percentage'
+      //               ? `${item.value}%`
+      //               : item.value;
+      //           return `
+      //                 <div class="item-container">
+      //                     <div>${index + 1}. ${item.name} (${valueText})</div>
+      //                 </div>`;
+      //         })
+      //         .join('');
+      //     } else {
+      //       formattedItems = '<div class="no-data-message">-</div>';
+      //     }
+
+      //     return `<div class="datatable-item-container"><div class="datatable-item-title">${formattedItems}</div></div>`;
+      //   },
+      // },
       {
         title: '<label class="datatable-header-title"></label>',
         data: 'id',
@@ -508,28 +575,264 @@ function populateToTableShipment() {
   }
 }
 
+function populateToTableTransaction() {
+  // initialize Datatables with your table and column definitions
+
+  const table = $('#transaction_table').DataTable({
+    data: tableDataTransaction,
+    columns: [
+      {
+        title:
+          '<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="checkAll"/><label class="datatable-header-title" for="flexCheckDefault">ID Id</label></div>',
+        data: 'custom_id',
+        render: function (data, type, row, meta) {
+          return `<div class="datatable-item-container"><div class="datatable-item-title">
+                <div class="form-check"><input class="form-check-input" type="checkbox" value="${data}" id="checkItem" />${data}</div></div>
+                </div></div>`;
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Type</label>',
+        data: 'category',
+        render: function (data, type, row, meta) {
+          let typeDetails = {
+            alipay_topup: {
+              name: 'Topup',
+            },
+            alipay_pob: {
+              name: 'POB',
+            },
+          };
+
+          return `<div class="datatable-item-container"><div class="datatable-item-title">${
+            data ? typeDetails[data].name : '-'
+          }</div></div>`;
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Remarks</label>',
+        data: 'remark',
+        render: function (data, type, row, meta) {
+          return `<div class="datatable-item-container"><div class="datatable-item-title">${
+            data ? data : '-'
+          }</div></div>`;
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Payment Status</label>',
+        data: 'id',
+        render: function (data, type, row, meta) {
+          if (row?.topup_price_data) {
+            if (row?.topup_price_data?.payment_status_data) {
+              return `
+                <div class="datatable-item-container">
+                  <div class="badge-rounded-${row?.topup_price_data?.payment_status_data.theme}">
+                    <span class="badge-text ml-1">${row?.topup_price_data?.payment_status_data.name}</span>
+                  </div>
+                </div>
+             `;
+            } else {
+              return `
+            <div class="datatable-item-container">
+              <div class="badge-rounded-info">
+                <span class="badge-text ml-1">Pending</span>
+              </div>
+            </div>
+         `;
+            }
+          } else {
+            return `
+              <div class="datatable-item-container">
+                <div class="badge-rounded-info">
+                  <span class="badge-text ml-1">Pending</span>
+                </div>
+              </div>
+           `;
+          }
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Date Created</label>',
+        data: 'created_at',
+        render: function (data, type, row, meta) {
+          return `<div class="datatable-item-container" onclick="alert(${formatDate(
+            data
+          )})"><div class="datatable-item-title">${formatDate(
+            data
+          )}</div></div>`;
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Price MYR</label>',
+        data: 'id',
+        render: function (data, type, row, meta) {
+          if (row?.topup_price_data) {
+            return `<div class="datatable-item-container"><div class="datatable-item-title">${row.topup_price_data.price_myr}</div></div>`;
+          } else {
+            return `<div class="datatable-item-container"><div class="datatable-item-title">
+              <div class="badge-rounded-info">
+                <span class="badge-text ml-1">Pending</span>
+              </div>
+            </div></div>`;
+          }
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Fee (%)</label>',
+        data: 'id',
+        render: function (data, type, row, meta) {
+          if (row?.topup_price_data) {
+            return `<div class="datatable-item-container"><div class="datatable-item-title">${row.topup_price_data.fee_percentage}</div></div>`;
+          } else {
+            return `<div class="datatable-item-container"><div class="datatable-item-title">
+              <div class="badge-rounded-info">
+                <span class="badge-text ml-1">Pending</span>
+              </div>
+            </div></div>`;
+          }
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Status</label>',
+        data: 'id',
+        render: function (data, type, row, meta) {
+          if (row?.topup_status_data) {
+            return `<div class="datatable-item-container"><div class="datatable-item-title">
+            <div class="badge-rounded-info"><span class="badge-text ml-1">${row.topup_status_data.name}</div></div></div></div>`;
+          } else {
+            return `<div class="datatable-item-container"><div class="datatable-item-title">
+                <span class="badge-text ml-1">-</span>
+            </div></div>`;
+          }
+        },
+      },
+      {
+        title: '<label class="datatable-header-title"></label>',
+        data: 'id',
+        orderable: false, // disable sorting for this column
+        render: function (data, type, row, meta) {
+          return `<div class="datatable-item-container"><div class="datatable-item-title">
+            <button onclick="editTransaction('${row.custom_id}', this)" type="button" class="btn btn-light btn-sm atfal-secondary-btn">Edit</button>
+          </div></div>`;
+        },
+      },
+    ],
+    lengthChange: false,
+    buttons: [
+      {
+        extend: 'csv',
+        //   split: ["pdf", "excel"],
+      },
+    ],
+    drawCallback: function () {
+      tableLoader3.style.display = 'none';
+    },
+  });
+
+  // table
+  //   .buttons()
+  //   .container()
+  //   .appendTo("#example_wrapper .col-md-6:eq(0)");
+
+  // var buttonDownloadCSV = document.getElementById('button-download-csv');
+  // buttonDownloadCSV.addEventListener('click', function () {
+  //   table.button('.buttons-csv').trigger();
+  // });
+
+  let checkedRows = [];
+
+  // Add click event handler for checkAll checkbox
+  $('#checkAll').on('click', function () {
+    const isChecked = $(this).prop('checked');
+    if (isChecked) {
+      // Set checked attribute and push data for all checkboxes with id="checkItem"
+      table
+        .rows()
+        .nodes()
+        .each(function (row) {
+          const checkbox = $(row).find("input[type='checkbox']");
+          if (checkbox.attr('id') === 'checkItem') {
+            checkbox.prop('checked', true);
+            const rowData = table.row(row).data();
+            if (!isCheckedRow(rowData)) {
+              checkedRows.push(rowData);
+            }
+          }
+        });
+    } else {
+      // Remove checked attribute and remove data for all checkboxes with id="checkItem"
+      table
+        .rows()
+        .nodes()
+        .each(function (row) {
+          const checkbox = $(row).find("input[type='checkbox']");
+          if (checkbox.attr('id') === 'checkItem') {
+            checkbox.prop('checked', false);
+            const rowData = table.row(row).data();
+            const index = checkedRows.findIndex(
+              (item) => item.id === rowData.id
+            );
+            if (index >= 0) {
+              checkedRows.splice(index, 1);
+            }
+          }
+        });
+    }
+  });
+
+  // Add click event handler for individual checkboxes
+  $(document).on('click', '#checkItem', function () {
+    const rowData = table.row($(this).closest('tr')).data();
+    if ($(this).prop('checked')) {
+      if (!isCheckedRow(rowData)) {
+        checkedRows.push(rowData);
+      }
+    } else {
+      const index = checkedRows.findIndex((item) => item.id === rowData.id);
+      if (index >= 0) {
+        checkedRows.splice(index, 1);
+      }
+    }
+  });
+
+  // Function to check if a row is already checked
+  function isCheckedRow(rowData) {
+    return checkedRows.some((item) => item.id === rowData.id);
+  }
+}
+
 var selectedRowIndex = null;
 
-const inputSelectParcelStatus = document.getElementById(
-  'input-select-parcel-status'
-);
+var feeData = [];
+var preId_fee = 'input-fee';
+var rateData = [];
+var preId_rate = 'input-rate';
+var currencyData = [];
+var preId_currency = 'input-currency';
+
+var totalPrice = document.getElementById('total-price-shipment');
+const inputShippingPrice = document.getElementById('input-shipping-price');
+const inputShippingFee = document.getElementById('input-shipping-fee');
 const inputSelectShipmentStatus = document.getElementById(
   'input-select-shipment-status'
+);
+const inputSelectAllowToPay = document.getElementById(
+  'input-select-allow-to-pay'
 );
 
 var selectedParcelCustomId = null;
 var selectedShipmentCustomId = null;
+var selectedTransactionCustomId = null;
 
-function editParcel(custom_id, button) {
-  var closestRow = $(button).closest('tr');
-  var tableRef = $('#parcel_table').DataTable();
-  var rowIndex = tableRef.row(closestRow).index();
-  selectedRowIndex = rowIndex;
+var shipmentFreeDefaultValue = 0;
 
-  document.getElementById('edit-parcel-id').innerHTML = custom_id;
-  selectedParcelCustomId = custom_id;
-  $('#editParcelModal').modal('show');
-}
+const inputSelectParcelStatus = document.getElementById(
+  'input-select-parcel-status'
+);
+
+const inputSelectTransactionStatus = document.getElementById(
+  'input-select-transaction-status'
+);
 
 function editShipment(custom_id, button) {
   var closestRow = $(button).closest('tr');
@@ -537,9 +840,93 @@ function editShipment(custom_id, button) {
   var rowIndex = tableRef.row(closestRow).index();
   selectedRowIndex = rowIndex;
 
-  document.getElementById('edit-shipment-id').innerHTML = custom_id;
-  selectedShipmentCustomId = custom_id;
-  $('#editShipmentModal').modal('show');
+  var foundObject = tableDataShipment.find(function (obj) {
+    return obj.custom_id === custom_id;
+  });
+
+  if (foundObject) {
+    if (foundObject?.shipment_price_data) {
+      inputShippingPrice.value = foundObject.shipment_price_data.price_myr;
+      inputShippingFee.value = foundObject.shipment_price_data.fee_percentage;
+
+      inputSelectShipmentStatus.value = foundObject.shipping_status_id;
+      inputSelectAllowToPay.value =
+        foundObject.shipment_price_data.allow_payment;
+
+      if (foundObject.shipment_price_data.payment_status_data.id == 1) {
+        inputShippingPrice.disabled = true;
+
+        inputSelectAllowToPay.disabled = true;
+      } else {
+        inputShippingPrice.disabled = false;
+
+        inputSelectAllowToPay.disabled = false;
+      }
+    } else {
+      inputShippingPrice.value = 0;
+      inputShippingFee.value = shipmentFreeDefaultValue;
+
+      inputSelectShipmentStatus.value = '';
+      inputSelectAllowToPay.value = '';
+
+      inputShippingPrice.disabled = false;
+
+      inputSelectAllowToPay.disabled = false;
+    }
+
+    document.getElementById('edit-shipment-id').innerHTML =
+      foundObject.custom_id;
+    selectedShipmentCustomId = foundObject.custom_id;
+    populateToEditShipmentFee();
+    $('#editShipmentModal').modal('show');
+  }
+}
+
+function editParcel(custom_id, button) {
+  var closestRow = $(button).closest('tr');
+  var tableRef = $('#parcel_table').DataTable();
+  var rowIndex = tableRef.row(closestRow).index();
+  selectedRowIndex = rowIndex;
+
+  var foundObject = tableDataParcel.find(function (obj) {
+    return obj.custom_id === custom_id;
+  });
+
+  if (foundObject) {
+    inputSelectParcelStatus.value = foundObject.parcel_status_id;
+  } else {
+    inputSelectParcelStatus.value = '';
+  }
+
+  document.getElementById('edit-parcel-id').innerHTML = foundObject.custom_id;
+
+  selectedParcelCustomId = custom_id;
+
+  $('#editParcelModal').modal('show');
+}
+
+function editTransaction(custom_id, button) {
+  var closestRow = $(button).closest('tr');
+  var tableRef = $('#transaction_table').DataTable();
+  var rowIndex = tableRef.row(closestRow).index();
+  selectedRowIndex = rowIndex;
+
+  var foundObject = tableDataTransaction.find(function (obj) {
+    return obj.custom_id === custom_id;
+  });
+
+  if (foundObject) {
+    inputSelectTransactionStatus.value = foundObject.topup_status_id;
+  } else {
+    inputSelectTransactionStatus.value = '';
+  }
+
+  document.getElementById('edit-transaction-id').innerHTML =
+    foundObject.custom_id;
+
+  selectedTransactionCustomId = custom_id;
+
+  $('#editTransactionModal').modal('show');
 }
 
 document
@@ -593,6 +980,75 @@ document
   });
 
 document
+  .getElementById('edit-transaction-form')
+  .addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    let useBtn = document.querySelector('#edit-transaction-submit-btn');
+    let defaultBtnText = useBtn.innerHTML;
+
+    useBtn.disabled = true;
+    useBtn.innerHTML = `${spinner} ${useBtn.innerHTML}`;
+
+    const options = {
+      body: JSON.stringify({
+        custom_id: selectedTransactionCustomId,
+        topup_status_id: inputSelectTransactionStatus.value,
+      }),
+    };
+
+    fetchAPI(
+      'https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/admin/update/top_up',
+      'PUT',
+      token,
+      options
+    )
+      .then((data) => {
+        useBtn.disabled = false;
+        useBtn.innerHTML = defaultBtnText;
+        if (data?.message) {
+          showToast('alert-toast-container', data.message, 'danger');
+        } else {
+          var tableRef = $('#transaction_table').DataTable();
+          var rowIndex = selectedRowIndex;
+          var rowData = data.new_transaction;
+          tableRef.row(rowIndex).data(rowData).draw();
+
+          $('#editTransactionModal').modal('hide');
+          showToast(
+            'alert-toast-container',
+            'Updated successfully!',
+            'success'
+          );
+        }
+      })
+      .catch((error) => {
+        useBtn.disabled = false;
+        useBtn.innerHTML = defaultBtnText;
+        console.log('error', error);
+      });
+  });
+
+inputShippingPrice.addEventListener('input', function () {
+  totalPrice.innerHTML = `...`;
+  clearTimeout(this.timerId);
+  this.timerId = setTimeout(() => {
+    populateToEditShipmentFee();
+  }, 1000);
+});
+
+function populateToEditShipmentFee() {
+  totalPrice.innerHTML = 0;
+  var price1 = inputShippingPrice.value
+    ? parseFloat(inputShippingPrice.value)
+    : 0;
+  var price2 = inputShippingFee.value ? parseFloat(inputShippingFee.value) : 0;
+  const fee_price = (price2 / 100) * price1;
+  const formattedTotal = price1 + fee_price;
+  totalPrice.innerHTML = parseFloat(formattedTotal.toFixed(2)).toString();
+}
+
+document
   .getElementById('edit-shipment-form')
   .addEventListener('submit', function (e) {
     e.preventDefault();
@@ -607,6 +1063,8 @@ document
       body: JSON.stringify({
         custom_id: selectedShipmentCustomId,
         shipping_status_id: inputSelectShipmentStatus.value,
+        price_myr: inputShippingPrice.value,
+        allow_payment: inputSelectAllowToPay.value,
       }),
     };
 
@@ -619,6 +1077,7 @@ document
       .then((data) => {
         useBtn.disabled = false;
         useBtn.innerHTML = defaultBtnText;
+
         if (data?.message) {
           showToast('alert-toast-container', data.message, 'danger');
         } else {
@@ -633,6 +1092,18 @@ document
             'Updated successfully!',
             'success'
           );
+
+          var updatedTableDataShipment = tableDataShipment.map(function (
+            oldRecord
+          ) {
+            if (oldRecord.custom_id === rowData.custom_id) {
+              return rowData; // Replace the old record with the new one
+            } else {
+              return oldRecord; // Keep other records unchanged
+            }
+          });
+
+          tableDataShipment = updatedTableDataShipment;
         }
       })
       .catch((error) => {
@@ -641,6 +1112,293 @@ document
         console.log('error', error);
       });
   });
+
+function populateToFee() {
+  const parentTable = document.getElementById('form-parent-fee');
+  const child = document.getElementById('form-child-fee');
+  const emptyDiv = [];
+
+  if (feeData.length !== 0) {
+    feeData.map((item) => {
+      const card = child.cloneNode(true);
+      const label = card.getElementsByTagName('label');
+      const formInput = card.getElementsByTagName('input');
+      label[0].innerHTML = `${item.name} ${
+        item.value_type == 'percentage' ? '(%)' : ''
+      }`;
+      formInput[0].setAttribute('id', `${preId_fee}-${item.code}`);
+      formInput[0].value = item.value;
+      emptyDiv.push(card);
+    });
+  }
+
+  if (emptyDiv.length === 0) {
+    parentTable.classList.add('hidden');
+  } else {
+    parentTable.classList.remove('hidden');
+
+    while (parentTable.firstChild) {
+      parentTable.removeChild(parentTable.firstChild);
+    }
+
+    emptyDiv.forEach((item) => {
+      parentTable.appendChild(item);
+    });
+  }
+}
+
+function populateToRate() {
+  const parentTable = document.getElementById('form-parent-rate');
+  const child = document.getElementById('form-child-rate');
+  const emptyDiv = [];
+
+  if (rateData.length !== 0) {
+    rateData.map((item) => {
+      const card = child.cloneNode(true);
+      const label = card.getElementsByTagName('label');
+      const formInput = card.getElementsByTagName('input');
+      label[0].innerHTML = `${item.name} ${
+        item.value_type == 'percentage' ? '(%)' : ''
+      }`;
+      formInput[0].setAttribute('id', `${preId_rate}-${item.code}`);
+      formInput[0].value = item.value;
+      emptyDiv.push(card);
+    });
+  }
+
+  if (emptyDiv.length === 0) {
+    parentTable.classList.add('hidden');
+  } else {
+    parentTable.classList.remove('hidden');
+
+    while (parentTable.firstChild) {
+      parentTable.removeChild(parentTable.firstChild);
+    }
+
+    emptyDiv.forEach((item) => {
+      parentTable.appendChild(item);
+    });
+  }
+}
+
+function populateToCurrency() {
+  const parentTable = document.getElementById('form-parent-currency');
+  const child = document.getElementById('form-child-currency');
+  const emptyDiv = [];
+
+  if (currencyData.length !== 0) {
+    currencyData.map((item) => {
+      const card = child.cloneNode(true);
+      const label = card.getElementsByTagName('label');
+      const formInput = card.getElementsByTagName('input');
+      label[0].innerHTML = `${item.name} (${item.short_name})`;
+      formInput[0].setAttribute('id', `${preId_currency}-${item.code}`);
+      formInput[0].value = item.value;
+      emptyDiv.push(card);
+    });
+  }
+
+  if (emptyDiv.length === 0) {
+    parentTable.classList.add('hidden');
+  } else {
+    parentTable.classList.remove('hidden');
+
+    while (parentTable.firstChild) {
+      parentTable.removeChild(parentTable.firstChild);
+    }
+
+    emptyDiv.forEach((item) => {
+      parentTable.appendChild(item);
+    });
+  }
+}
+
+document
+  .getElementById('currency-form')
+  .addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    let useBtn = document.querySelector('#save-currency-btn');
+    let defaultBtnText = useBtn.innerHTML;
+
+    useBtn.disabled = true;
+    useBtn.innerHTML = `${spinner} ${useBtn.innerHTML}`;
+
+    const allCurrency = [];
+    currencyData.map((item) => {
+      const currencyForm = document.getElementById(
+        `${preId_currency}-${item.code}`
+      );
+
+      if (currencyForm?.value) {
+        allCurrency.push({ code: item.code, value: currencyForm.value });
+      }
+    });
+
+    const options = {
+      body: JSON.stringify({
+        currency_list: allCurrency,
+      }),
+    };
+
+    fetchAPI(
+      'https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/admin/currency/update',
+      'POST',
+      token,
+      options
+    )
+      .then((data) => {
+        useBtn.disabled = false;
+        useBtn.innerHTML = defaultBtnText;
+        if (data?.message) {
+          showToast('alert-toast-container', data.message, 'danger');
+        } else {
+          showToast('alert-toast-container', 'Record saved!', 'success');
+        }
+      })
+      .catch((error) => {
+        useBtn.disabled = false;
+        useBtn.innerHTML = defaultBtnText;
+        console.log('error', error);
+      });
+  });
+
+document
+  .getElementById('rate-and-fees-form')
+  .addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    let useBtn = document.querySelector('#save-rate-and-fees-btn');
+    let defaultBtnText = useBtn.innerHTML;
+
+    useBtn.disabled = true;
+    useBtn.innerHTML = `${spinner} ${useBtn.innerHTML}`;
+
+    const allRate = [];
+    rateData.map((item) => {
+      const rateForm = document.getElementById(`${preId_rate}-${item.code}`);
+      if (rateForm?.value) {
+        allRate.push({ code: item.code, value: rateForm.value });
+      }
+    });
+
+    const allFee = [];
+    feeData.map((item) => {
+      const rateFee = document.getElementById(`${preId_fee}-${item.code}`);
+      if (rateFee?.value) {
+        allFee.push({ code: item.code, value: rateFee.value });
+      }
+    });
+
+    const options = {
+      body: JSON.stringify({
+        rate_fee_list: allRate.concat(allFee),
+      }),
+    };
+
+    fetchAPI(
+      'https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/admin/rate_fee/update',
+      'POST',
+      token,
+      options
+    )
+      .then((data) => {
+        useBtn.disabled = false;
+        useBtn.innerHTML = defaultBtnText;
+        if (data?.message) {
+          showToast('alert-toast-container', data.message, 'danger');
+        } else {
+          showToast('alert-toast-container', 'Record saved!', 'success');
+        }
+      })
+      .catch((error) => {
+        useBtn.disabled = false;
+        useBtn.innerHTML = defaultBtnText;
+        console.log('error', error);
+      });
+  });
+
+function populateToParcelSummary() {
+  let totalWaiting = 0;
+  tableDataParcel.map((item) => {
+    if (item.parcel_status_data.code == 'waiting') {
+      totalWaiting = totalWaiting + 1;
+    }
+  });
+
+  const summaryContainer = document.getElementById('parcel-summary-container');
+  const summaryBody = document.getElementById('parcel-summary-body');
+
+  if (totalWaiting > 0) {
+    let summaryText = `Action Required: <strong>${totalWaiting}</strong> items is on waiting status`;
+    summaryBody.innerHTML = summaryText;
+    summaryContainer.style.display = 'block';
+  } else {
+    summaryBody.innerHTML = '';
+    summaryContainer.style.display = 'none';
+  }
+}
+
+function populateToShipmentSummary() {
+  let totalPendingPrice = 0;
+  let totalWaiting = 0;
+  tableDataShipment.map((item) => {
+    if (item?.shipment_price_data) {
+    } else {
+      totalPendingPrice = totalPendingPrice + 1;
+    }
+    if (item.shipping_status_data.code == 'waiting') {
+      totalWaiting = totalWaiting + 1;
+    }
+  });
+
+  const summaryContainer = document.getElementById(
+    'shipping-summary-container'
+  );
+  const summaryBody = document.getElementById('shipping-summary-body');
+
+  if (totalPendingPrice > 0 || totalWaiting > 0) {
+    let summaryText = 'Action Required:';
+    if (totalPendingPrice > 0) {
+      summaryText += ` Pending Prices for <strong>${totalPendingPrice}</strong> items`;
+    }
+    if (totalWaiting > 0) {
+      summaryText += ` ${
+        totalPendingPrice > 0 ? ',' : ''
+      } <strong>${totalWaiting}</strong> items is on waiting status`;
+    }
+    summaryBody.innerHTML = summaryText;
+    summaryContainer.style.display = 'block';
+  } else {
+    summaryBody.innerHTML = '';
+    summaryContainer.style.display = 'none';
+  }
+}
+
+function populateToTransactionSummary() {
+  let totalPending = 0;
+  tableDataTransaction.map((item) => {
+    if (item?.topup_status_data) {
+      if (item.topup_status_data.code == 'pending') {
+        totalPending = totalPending + 1;
+      }
+    }
+  });
+
+  const summaryContainer = document.getElementById(
+    'transaction-summary-container'
+  );
+  const summaryBody = document.getElementById('transaction-summary-body');
+
+  if (totalPending > 0) {
+    let summaryText = `Action Required: <strong>${totalPending}</strong> items is on pending status`;
+    summaryBody.innerHTML = summaryText;
+    summaryContainer.style.display = 'block';
+  } else {
+    summaryBody.innerHTML = '';
+    summaryContainer.style.display = 'none';
+  }
+}
 
 function firstFetch() {
   fetchAPI(
@@ -657,8 +1415,28 @@ function firstFetch() {
       } else {
         tableDataParcel = data.parcel_list;
         tableDataShipment = data.shipment_list;
+        tableDataTransaction = data.transaction_list;
+        currencyData = data.currency_list;
+        feeData = data.fee_list;
+        rateData = data.rate_list;
+
+        data.fee_list.map((item) => {
+          if (item.type == 'fee' && item.code == 'sf') {
+            shipmentFreeDefaultValue = item.value;
+          }
+        });
+
+        populateToParcelSummary();
         populateToTableParcel();
+        populateToShipmentSummary();
         populateToTableShipment();
+        populateToTransactionSummary();
+        populateToTableTransaction();
+
+        populateToFee();
+        populateToRate();
+
+        populateToCurrency();
 
         data.parcel_status_list.unshift({ id: '', name: 'Please Select' });
         data.parcel_status_list.forEach((item) => {
@@ -668,12 +1446,33 @@ function firstFetch() {
           inputSelectParcelStatus.appendChild(optionElement);
         });
 
+        data.transaction_status_list.unshift({ id: '', name: 'Please Select' });
+        data.transaction_status_list.forEach((item) => {
+          const optionElement = document.createElement('option');
+          optionElement.value = item.id;
+          optionElement.text = item.name;
+          inputSelectTransactionStatus.appendChild(optionElement);
+        });
+
+        inputSelectTransactionStatus;
+
         data.shipping_status_list.unshift({ id: '', name: 'Please Select' });
         data.shipping_status_list.forEach((item) => {
           const optionElement = document.createElement('option');
           optionElement.value = item.id;
           optionElement.text = item.name;
           inputSelectShipmentStatus.appendChild(optionElement);
+        });
+
+        [
+          { id: '', name: 'Please Select' },
+          { id: 'true', name: 'Yes' },
+          { id: 'false', name: 'No' },
+        ].forEach((item) => {
+          const optionElement = document.createElement('option');
+          optionElement.value = item.id;
+          optionElement.text = item.name;
+          inputSelectAllowToPay.appendChild(optionElement);
         });
       }
     })

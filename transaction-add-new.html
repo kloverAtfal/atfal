@@ -230,7 +230,7 @@
                         <div class="form-group">
                           <label class="form-label">Name</label>
                           <input
-                            maxlength="30"
+                            maxlength="50"
                             type="text"
                             class="form-control form-input"
                             id="input-name"
@@ -246,7 +246,7 @@
                           <label class="form-label">Alipay Id</label>
                           <div class="d-flex">
                             <input
-                              maxlength="30"
+                              maxlength="50"
                               type="text"
                               class="form-control form-input"
                               id="input-alipay-id"
@@ -268,24 +268,34 @@
                         </div>
                         <div class="form-group">
                           <label class="form-label"
-                            >Total Amount to Pay (in Chinese Yuan)</label
+                            >Total Amount to Pay (in
+                            <span id="use-currency-long-name">...</span>)</label
                           >
                           <div class="d-flex input-group">
                             <div class="input-group-prepend">
-                              <div class="input-group-text">CNY</div>
+                              <div
+                                class="input-group-text"
+                                id="use-currency-short-name"
+                              >
+                                ...
+                              </div>
                             </div>
                             <input
-                              maxlength="30"
+                              maxlength="50"
                               type="number"
                               class="form-control form-input"
                               id="input-request-amount"
                               required
                             />
                           </div>
+                          <span
+                            class="font-small"
+                            id="request-amount-convertion"
+                          ></span>
                           <!-- 
                           <div class="d-flex">
                             <input
-                              maxlength="30"
+                              maxlength="50"
                               type="number"
                               class="form-control form-input col-sm-10"
                               id="input-request-amount"
@@ -355,17 +365,17 @@
             </button>
           </div>
           <div class="modal-body">
-            <span class="checkout-title-medium" id="check-out-title">...</span
+            <span class="checkout-title-medium" id="text-order-id">-</span
             ><br />
-            <span class="checkout-title-big" id="text-subtotal-big">-</span>
+            <span class="checkout-title-big" id="text-total-big">-</span>
             <br />
             <br />
             <div class="d-flex justify-content-between">
-              <span class="checkout-title-small">Subtotal</span>
-              <span class="checkout-title-small" id="text-subtotal">-</span>
+              <span class="checkout-title-small">Transaction</span>
+              <span class="checkout-title-small" id="text-transaction">-</span>
             </div>
             <div class="d-flex justify-content-between">
-              <span class="checkout-title-small">Alipay Admin Fees</span>
+              <span class="checkout-title-small">Fees</span>
               <span class="checkout-title-small" id="text-fees">-</span>
             </div>
             <hr />

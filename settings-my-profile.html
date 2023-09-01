@@ -158,7 +158,7 @@
                       <div class="col-sm-9">
                         <div class="form-group">
                           <input
-                            maxlength="30"
+                            maxlength="50"
                             type="text"
                             class="form-control form-input"
                             id="input-username"
@@ -178,7 +178,7 @@
                             <div class="col">
                               <div class="d-flex input-group">
                                 <input
-                                  maxlength="30"
+                                  maxlength="50"
                                   type="text"
                                   class="form-control form-input"
                                   id="input-first-name"
@@ -190,7 +190,7 @@
                             <div class="col">
                               <div class="d-flex input-group">
                                 <input
-                                  maxlength="30"
+                                  maxlength="50"
                                   type="text"
                                   class="form-control form-input"
                                   id="input-last-name"
@@ -220,7 +220,7 @@
                               </div>
                             </div>
                             <input
-                              maxlength="30"
+                              maxlength="50"
                               type="number"
                               class="form-control form-input"
                               id="input-phone-number"
@@ -506,7 +506,7 @@
                               </div>
                             </div>
                             <input
-                              maxlength="30"
+                              maxlength="50"
                               type="password"
                               class="form-control form-input"
                               id="input-current-password"
@@ -534,7 +534,7 @@
                               </div>
                             </div>
                             <input
-                              maxlength="30"
+                              maxlength="50"
                               type="password"
                               class="form-control form-input"
                               id="input-new-password"
@@ -562,7 +562,7 @@
                               </div>
                             </div>
                             <input
-                              maxlength="30"
+                              maxlength="50"
                               type="password"
                               class="form-control form-input"
                               id="input-confirm-new-password"
@@ -584,12 +584,12 @@
                   <form id="affiliates-form">
                     <div class="form-group row">
                       <label class="col-sm-5 col-form-label form-label-bold"
-                        >Program settings<br />
+                        >Team settings<br />
                         <small class="form-label"
-                          >View and update your affiliate settings</small
+                          >View and update your team settings</small
                         ></label
                       >
-                      <div class="col-sm-7">
+                      <!-- <div class="col-sm-7">
                         <div class="text-right">
                           <button
                             type="button"
@@ -606,50 +606,18 @@
                             Save
                           </button>
                         </div>
-                      </div>
+                      </div> -->
                     </div>
                     <div class="form-group row">
                       <label class="col-sm-3 col-form-label form-label"
-                        >Affiliate link<br /><small
-                          >Anyone can apply to be your affiliate with this link
+                        >Team link<br /><small
+                          >Anyone can apply to be your team with this code
                         </small>
                       </label>
                       <div class="col-sm-9">
                         <div class="form-group d-flex">
                           <input
-                            maxlength="30"
-                            type="text"
-                            class="form-control form-input"
-                            id="input-affiliate-link"
-                            placeholder=""
-                            required
-                            disabled
-                          />
-                          <button
-                            class="btn btn-light atfal-secondary-btn d-flex align-items-center ml-2"
-                            type="button"
-                            id="copy-affiliates-link-btn"
-                          >
-                            <img
-                              alt="copy01I5296"
-                              src="public/external/copy01i5296-qyl8.svg"
-                              class="settings-affiliates-copy01"
-                            />
-                            <span class="ml-2">Copy</span>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-sm-3 col-form-label form-label"
-                        >Affiliate link<br /><small
-                          >Anyone can apply to be your affiliate with this code
-                        </small>
-                      </label>
-                      <div class="col-sm-9">
-                        <div class="form-group d-flex">
-                          <input
-                            maxlength="30"
+                            maxlength="50"
                             type="text"
                             class="form-control form-input"
                             id="input-affiliate-code"
@@ -672,63 +640,6 @@
                         </div>
                       </div>
                     </div>
-                  </form>
-                </div>
-                <div
-                  class="tab-pane fade"
-                  id="currency-tab"
-                  role="tabpanel"
-                  aria-labelledby="currency-tab-content"
-                >
-                  <form id="currency-form">
-                    <form id="password-form">
-                      <div class="form-group row">
-                        <label class="col-sm-5 col-form-label form-label-bold"
-                          >Currency Rate<br />
-                          <small class="form-label" id="last-reset-currency"
-                            >-</small
-                          ></label
-                        >
-                        <div class="col-sm-7">
-                          <div class="text-right">
-                            <button
-                              type="button"
-                              class="btn btn-light atfal-secondary-btn"
-                              id="cancel-currency-btn"
-                            >
-                              Cancel
-                            </button>
-                            <button
-                              type="submit"
-                              class="btn btn-warning atfal-primary-btn"
-                              id="save-currency-btn"
-                            >
-                              Save
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-sm-3 col-form-label form-label"
-                          >Currency List<br />
-                        </label>
-                        <div class="col-sm-9" id="form-parent-currency">
-                          <div class="form-group" id="form-child-currency">
-                            <label class="form-label">-</label>
-                            <input
-                              maxlength="100"
-                              type="number"
-                              step="0.01"
-                              class="form-control form-input"
-                              id="input-select-country"
-                              placeholder=""
-                              required
-                              value=""
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </form>
                   </form>
                 </div>
               </div>

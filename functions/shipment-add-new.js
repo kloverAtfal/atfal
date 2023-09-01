@@ -49,15 +49,24 @@ const inputCity = document.getElementById('input-city');
 const inputState = document.getElementById('input-state');
 const inputSelectCountry = document.getElementById('input-select-country');
 
-const checkoutTitle = document.getElementById('check-out-title');
-var custom_id_to_pay = null;
+document
+  .getElementById('go-to-dashbaord-btn')
+  .addEventListener('click', function (e) {
+    location.href = 'shipment-dashboard';
+  });
+
+document
+  .getElementById('create-parcel-shorcut')
+  .addEventListener('click', function (e) {
+    location.href = 'parcel-dashboard.html?code=new';
+  });
 
 document
   .getElementById('shipment-form')
   .addEventListener('submit', function (e) {
     e.preventDefault();
 
-    let useBtn = document.querySelector('#submit-checkout-btn');
+    let useBtn = document.querySelector('#submit-shipment-btn');
     let defaultBtnText = useBtn.innerHTML;
 
     useBtn.disabled = true;
@@ -67,6 +76,17 @@ document
     $('#input-select-parcel :selected').each(function () {
       selectedParcel.push({ parcel_id: $(this).val() });
     });
+
+    if (selectedParcel.length == 0) {
+      showToast('alert-toast-container', 'Parcel not selected', 'danger');
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+      useBtn.disabled = false;
+      useBtn.innerHTML = defaultBtnText;
+      return;
+    }
 
     const options = {
       body: JSON.stringify({
@@ -95,73 +115,16 @@ document
         if (data?.message) {
           showToast('alert-toast-container', data.message, 'danger');
         } else {
-          showToast('alert-toast-container', 'Record saved!', 'success');
-
-          const subtotalBig = document.getElementById('text-subtotal-big');
-          const subtotal = document.getElementById('text-subtotal');
-          const fees = document.getElementById('text-fees');
-          const total = document.getElementById('text-total');
-
-          subtotalBig.innerHTML = `RM ${data.subtotal}`;
-          subtotal.innerHTML = `RM ${data.subtotal}`;
-          fees.innerHTML = `RM ${data.fees}`;
-
-          total.innerHTML = `RM ${Number(data.subtotal) + Number(data.fees)}`;
-          $('#payModal').modal('show');
-          checkoutTitle.innerHTML = `Order Id: ${data.custom_id}`;
-          custom_id_to_pay = data.custom_id;
+          $('#shipmentAddedModal').modal('show');
+          document.getElementById(
+            'text-new-shipment-id'
+          ).innerHTML = `${data.custom_id}`;
         }
       })
       .catch((error) => {
         useBtn.disabled = false;
         useBtn.innerHTML = defaultBtnText;
         console.log('error', error);
-      });
-  });
-
-document
-  .getElementById('check-out-btn')
-  .addEventListener('click', function (e) {
-    let useBtn = document.getElementById('check-out-btn');
-    let defaultBtnText = useBtn.innerHTML;
-
-    useBtn.disabled = true;
-    useBtn.innerHTML = `${spinner} ${useBtn.innerHTML}`;
-
-    const options = {
-      body: JSON.stringify({
-        shipment_custom_id: custom_id_to_pay,
-      }),
-    };
-
-    fetchAPI(
-      `https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/payment/shipment`,
-      'POST',
-      token,
-      options
-    )
-      .then((data) => {
-        if (data?.message) {
-          showToast('alert-toast-container', data.message, 'danger');
-        } else {
-          const paymentUrl = `${data.paymentURL}/${data.paymentResult[0].BillCode}`;
-          if (paymentUrl) {
-            window.open(paymentUrl, '_self');
-          } else {
-            showToast(
-              'alert-toast-container',
-              'Something went wrong, please try again',
-              'danger'
-            );
-          }
-        }
-        useBtn.disabled = false;
-        useBtn.innerHTML = defaultBtnText;
-      })
-      .catch((error) => {
-        console.log('error', error);
-        useBtn.disabled = false;
-        useBtn.innerHTML = defaultBtnText;
       });
   });
 
@@ -182,6 +145,10 @@ function getShipmentDropdownData() {
           inputSelectParcel.appendChild(optionElement);
         });
 
+        setTimeout(() => {
+          MultiselectDropdown(window.MultiselectDropdownOptions);
+        }, 500);
+
         data.country_list.unshift({ id: '', name: 'Please Select' });
         data.country_list.forEach((item) => {
           const optionElement = document.createElement('option');
@@ -199,14 +166,14 @@ function getShipmentDropdownData() {
 function firstCall() {
   getShipmentDropdownData();
 
-  // initiate on changes
-  $('#input-select-parcel').change(function () {
-    var selected = [];
-    $('#input-select-parcel :selected').each(function () {
-      selected.push($(this).text());
-    });
-    $('#selected-parcel').text(selected.join(', '));
-  });
+  // // initiate on changes
+  // $('#input-select-parcel').change(function () {
+  //   var selected = [];
+  //   $('#input-select-parcel :selected').each(function () {
+  //     selected.push($(this).text());
+  //   });
+  //   $('#selected-parcel').text(selected.join(', '));
+  // });
 }
 
 firstCall();

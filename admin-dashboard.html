@@ -130,6 +130,19 @@
                   role="tabpanel"
                   aria-labelledby="parcel-content"
                 >
+                  <div
+                    class="row mb-3"
+                    id="parcel-summary-container"
+                    style="display: block"
+                  >
+                    <div
+                      class="alert alert-warning"
+                      role="alert"
+                      id="parcel-summary-body"
+                    >
+                      ...
+                    </div>
+                  </div>
                   <div id="table-loader">
                     <div class="d-flex justify-content-center">
                       <div class="spinner-border" role="status">
@@ -152,6 +165,19 @@
                   role="tabpanel"
                   aria-labelledby="shipment-content"
                 >
+                  <div
+                    class="row mb-3"
+                    id="shipping-summary-container"
+                    style="display: block"
+                  >
+                    <div
+                      class="alert alert-warning"
+                      role="alert"
+                      id="shipping-summary-body"
+                    >
+                      ...
+                    </div>
+                  </div>
                   <div id="table-loader2">
                     <div class="d-flex justify-content-center">
                       <div class="spinner-border" role="status">
@@ -168,6 +194,193 @@
                     <tbody class="datatable-row-container"></tbody>
                   </table>
                 </div>
+                <div
+                  class="tab-pane fade"
+                  id="transaction-tab"
+                  role="tabpanel"
+                  aria-labelledby="transaction-content"
+                >
+                  <div
+                    class="row mb-3"
+                    id="transaction-summary-container"
+                    style="display: block"
+                  >
+                    <div
+                      class="alert alert-warning"
+                      role="alert"
+                      id="transaction-summary-body"
+                    >
+                      ...
+                    </div>
+                  </div>
+                  <div id="table-loader3">
+                    <div class="d-flex justify-content-center">
+                      <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                      </div>
+                    </div>
+                  </div>
+                  <table
+                    id="transaction_table"
+                    class="table table-hover"
+                    style="background-color: white; width: 100%"
+                  >
+                    <thead class="datatable-header-container"></thead>
+                    <tbody class="datatable-row-container"></tbody>
+                  </table>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="rate-and-fees-tab"
+                  role="tabpanel"
+                  aria-labelledby="rate-and-fees-content"
+                >
+                  <div>
+                    <form id="rate-and-fees-form">
+                      <div class="form-group row">
+                        <label class="col-sm-5 col-form-label form-label-bold"
+                          >Rate and Fees<br />
+                          <small class="form-label"
+                            >Manage Atfal Rate and Fees details here.</small
+                          ></label
+                        >
+                        <div class="col-sm-7">
+                          <div class="text-right">
+                            <button
+                              type="button"
+                              class="btn btn-light atfal-secondary-btn"
+                              id="cancel-rate-and-fees-btn"
+                            >
+                              Cancel
+                            </button>
+                            <button
+                              type="submit"
+                              class="btn btn-warning atfal-primary-btn"
+                              id="save-rate-and-fees-btn"
+                            >
+                              Save
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div id="form-parent-fee">
+                        <div class="form-group row" id="form-child-fee">
+                          <label class="col-sm-3 col-form-label form-label"
+                            >-<br />
+                          </label>
+                          <div class="col-sm-9">
+                            <div class="form-group">
+                              <input
+                                maxlength="100"
+                                type="number"
+                                step="0.01"
+                                class="form-control form-input"
+                                id=""
+                                placeholder=""
+                                required
+                                value=""
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label class="col-sm-5 col-form-label form-label-bold"
+                          >Payout Rate<br />
+                          <small class="form-label"
+                            >Manage Payout Rate for your leader and team
+                            here.</small
+                          ></label
+                        >
+                        <div class="col-sm-7"></div>
+                      </div>
+
+                      <div id="form-parent-rate">
+                        <div class="form-group row" id="form-child-rate">
+                          <label class="col-sm-3 col-form-label form-label"
+                            >-<br />
+                          </label>
+                          <div class="col-sm-9">
+                            <div class="form-group">
+                              <input
+                                maxlength="100"
+                                type="number"
+                                step="0.01"
+                                class="form-control form-input"
+                                id=""
+                                placeholder=""
+                                required
+                                value=""
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="currency-pair-tab"
+                  role="tabpanel"
+                  aria-labelledby="currency-pair-content"
+                >
+                  <div>
+                    <form id="currency-form">
+                      <div class="form-group row">
+                        <label class="col-sm-5 col-form-label form-label-bold"
+                          >Currency Rate<br />
+                          <small class="form-label"
+                            >Manage Atfal Currency Rate over Malaysian Ringgit
+                            here.</small
+                          ></label
+                        >
+                        <div class="col-sm-7">
+                          <div class="text-right">
+                            <button
+                              type="button"
+                              class="btn btn-light atfal-secondary-btn"
+                              id="cancel-currency-btn"
+                            >
+                              Cancel
+                            </button>
+                            <button
+                              type="submit"
+                              class="btn btn-warning atfal-primary-btn"
+                              id="save-currency-btn"
+                            >
+                              Save
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div id="form-parent-currency">
+                        <div class="form-group row" id="form-child-currency">
+                          <label class="col-sm-3 col-form-label form-label"
+                            >-<br />
+                          </label>
+                          <div class="col-sm-9">
+                            <div class="form-group">
+                              <input
+                                maxlength="100"
+                                type="number"
+                                step="0.01"
+                                class="form-control form-input"
+                                id=""
+                                placeholder=""
+                                required
+                                value=""
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -179,6 +392,101 @@
     </div>
     <div id="edit-shipment-modal-container">
       <!-- edit shipment modal -->
+      <div
+        class="modal fade"
+        id="editShipmentModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Edit Shipment</h5>
+              <button
+                class="close"
+                type="button"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <form id="edit-shipment-form">
+              <div class="modal-body">
+                <h6 class="modal-title">
+                  Shipment ID: <strong id="edit-shipment-id">-</strong>
+                </h6>
+                <div class="form-group mt-3">
+                  <label class="form-label">Shipping Price (MYR)</label>
+                  <input
+                    type="number"
+                    step="0.01"
+                    class="form-control form-input"
+                    id="input-shipping-price"
+                    placeholder=""
+                  />
+                </div>
+                <div class="form-group mt-3">
+                  <label class="form-label">Shipping Fee (%)</label>
+                  <input
+                    type="number"
+                    step="0.01"
+                    class="form-control form-input"
+                    id="input-shipping-fee"
+                    placeholder=""
+                    disabled
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Shipping Status</label>
+                  <select
+                    class="form-control"
+                    id="input-select-shipment-status"
+                    required
+                  ></select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Allow to pay</label>
+                  <select
+                    class="form-control"
+                    id="input-select-allow-to-pay"
+                    required
+                  ></select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Total (RM)</label>
+                  <div>
+                    <h1 id="total-price-shipment" class="text-overflow">
+                      0.00
+                    </h1>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  class="btn btn-secondary"
+                  type="button"
+                  data-dismiss="modal"
+                >
+                  Cancel
+                </button>
+                <button
+                  class="btn btn-warning parcel-add-new-parcel-text53"
+                  type="submit"
+                  id="edit-shipment-submit-btn"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="edit-transaction-modal-container">
+      <!-- edit transaction modal -->
     </div>
     <div id="logout-modal-container">
       <!-- logout modal -->

@@ -44,7 +44,14 @@ document
     $('#newParcelModal').modal('show');
   });
 
+document
+  .getElementById('add-new-parcel-btn-2')
+  .addEventListener('click', function (e) {
+    $('#newParcelModal').modal('show');
+  });
+
 const tableLoader = document.getElementById('table-loader');
+const tableEmpty = document.getElementById('table-empty');
 
 let tableData = [];
 
@@ -57,8 +64,8 @@ function populateToTable(data) {
     columns: [
       {
         title:
-          '<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="checkAll"/><label class="datatable-header-title" for="flexCheckDefault">Tracking Number</label></div>',
-        data: 'tracking_number',
+          '<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="checkAll"/><label class="datatable-header-title" for="flexCheckDefault">Parcel ID</label></div>',
+        data: 'custom_id',
         render: function (data, type, row, meta) {
           return `<div class="datatable-item-container"><div class="datatable-item-title">
                 <div class="form-check"><input class="form-check-input" type="checkbox" value="${data}" id="checkItem" />${data}</div></div>
@@ -66,10 +73,62 @@ function populateToTable(data) {
         },
       },
       {
+        title: '<label class="datatable-header-title">Tracking Number</label>',
+        data: 'tracking_number',
+        render: function (data, type, row, meta) {
+          return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
+        },
+      },
+      {
         title: '<label class="datatable-header-title">Parcel Content</label>',
         data: 'content',
         render: function (data, type, row, meta) {
           return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
+        },
+      },
+
+      {
+        title: '<label class="datatable-header-title">Parcel Status</label>',
+        data: 'parcel_status_data',
+        render: function (data, type, row, meta) {
+          if (data.code == 'waiting') {
+            return `
+            <div class="datatable-item-container">
+              <div class="badge-rounded-info">
+                <span class="badge-text ml-1">${data.name}</span>
+              </div>
+            </div>
+         `;
+          }
+          if (data.code == 'arrived') {
+            return `
+            <div class="datatable-item-container">
+              <div class="badge-rounded-success">
+                <span class="badge-text ml-1">${data.name}</span>
+              </div>
+            </div>
+         `;
+          }
+          if (data.code == 'shipped') {
+            return `
+            <div class="datatable-item-container">
+              <div class="badge-rounded-success">
+              <span class="badge-text ml-1">${data.name}</span>
+              </div>
+            </div>
+         `;
+          }
+          if (data.code == 'consolidate') {
+            return `
+            <div class="datatable-item-container">
+              <div class="badge-rounded-info">
+              <span class="badge-text ml-1">${data.name}</span>
+              </div>
+            </div>
+         `;
+          } else {
+            return `<div class="datatable-item-container">-</div>`;
+          }
         },
       },
       {
@@ -280,12 +339,19 @@ function getParcelList() {
         showToast('alert-toast-container', data.message, 'danger');
         tableLoader.style.display = 'none';
       } else {
-        tableData = data.parcel_list;
-        populateToTable();
+        if (data.parcel_list.length > 0) {
+          tableData = data.parcel_list;
+          populateToTable();
+          tableEmpty.style.display = 'none';
+        } else {
+          tableLoader.style.display = 'none';
+          tableEmpty.style.display = 'block';
+        }
       }
     })
     .catch((error) => {
       tableLoader.style.display = 'none';
+      tableEmpty.style.display = 'block';
       console.log('error', error);
     });
 }

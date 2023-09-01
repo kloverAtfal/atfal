@@ -68,7 +68,7 @@ function sidebarNavigation(pageName, callback) {
           class="pl-2 mr-2"
         />
         <div class="sidebarnavigation-text02 TextmdSemibold">
-          <span>Affiliates</span>
+          <span>Team</span>
         </div>
       </a>
     </li>
@@ -253,6 +253,25 @@ function editShipmentModal() {
           Shipment ID: <strong id="edit-shipment-id">-</strong>
           </h6>
           <div class="form-group mt-3">
+          <label class="form-label">Shipping Price</label>
+          <input
+            type="number"
+            class="form-control form-input"
+            id="input-shipping-price"
+            placeholder=""
+           
+          />
+          </div>
+          <div class="form-group">
+          <label class="form-label">Shipping Fees</label>
+          <input
+            type="number"
+            class="form-control form-input"
+            id="input-shipping-fees"
+            placeholder=""
+          />
+          </div>
+          <div class="form-group">
             <label class="form-label">Shipping Status</label>
             <select
               class="form-control"
@@ -273,6 +292,66 @@ function editShipmentModal() {
             class="btn btn-warning parcel-add-new-parcel-text53"
             type="submit"
             id="edit-shipment-submit-btn"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+}
+
+function editTransactionModal() {
+  return `
+  <div
+  class="modal fade"
+  id="editTransactionModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Transaction</h5>
+        <button
+          class="close"
+          type="button"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <form id="edit-transaction-form">
+        <div class="modal-body">
+          <h6 class="modal-title">
+          Transaction ID: <strong id="edit-transaction-id">-</strong>
+          </h6>
+          <div class="form-group mt-3">
+            <label class="form-label">Transaction Status</label>
+            <select
+              class="form-control"
+              id="input-select-transaction-status"
+              required
+            ></select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            class="btn btn-secondary"
+            type="button"
+            data-dismiss="modal"
+          >
+            Cancel
+          </button>
+          <button
+            class="btn btn-warning parcel-add-new-parcel-text53"
+            type="submit"
+            id="edit-transaction-submit-btn"
           >
             Submit
           </button>
