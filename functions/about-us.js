@@ -13,12 +13,6 @@ document
     window.location.href = 'sign-up';
   });
 
-document
-  .getElementById('sign-up-main-btn')
-  .addEventListener('click', function () {
-    window.location.href = 'sign-up';
-  });
-
 document.addEventListener('DOMContentLoaded', function () {
   const navbar = document.querySelector('.navbar');
 

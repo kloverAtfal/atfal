@@ -253,6 +253,28 @@
                 </div>
                 <div
                   class="tab-pane fade"
+                  id="users-tab"
+                  role="tabpanel"
+                  aria-labelledby="users-content"
+                >
+                  <div id="table-loader5">
+                    <div class="d-flex justify-content-center">
+                      <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                      </div>
+                    </div>
+                  </div>
+                  <table
+                    id="users_table"
+                    class="table table-hover"
+                    style="background-color: white; width: 100%"
+                  >
+                    <thead class="datatable-header-container"></thead>
+                    <tbody class="datatable-row-container"></tbody>
+                  </table>
+                </div>
+                <div
+                  class="tab-pane fade"
                   id="rate-and-fees-tab"
                   role="tabpanel"
                   aria-labelledby="rate-and-fees-content"
@@ -402,6 +424,47 @@
                       </div>
                     </form>
                   </div>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="career-tab"
+                  role="tabpanel"
+                  aria-labelledby="career-content"
+                >
+                  <div class="form-group row">
+                    <label class="col-sm-5 col-form-label form-label-bold"
+                      >Career<br />
+                      <small class="form-label"
+                        >Manage career opportunities here.</small
+                      ></label
+                    >
+                    <div class="col-sm-7">
+                      <div class="text-right">
+                        <button
+                          type="button"
+                          class="btn btn-warning atfal-primary-btn"
+                          id="add-new-career-btn"
+                        >
+                          Add New
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="table-loader-career">
+                    <div class="d-flex justify-content-center">
+                      <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                      </div>
+                    </div>
+                  </div>
+                  <table
+                    id="career_table"
+                    class="table table-hover"
+                    style="background-color: white; width: 100%"
+                  >
+                    <thead class="datatable-header-container"></thead>
+                    <tbody class="datatable-row-container"></tbody>
+                  </table>
                 </div>
               </div>
             </div>
@@ -561,6 +624,109 @@
                 class="btn btn-warning parcel-add-new-parcel-text53"
                 type="submit"
                 id="edit-payout-submit-btn"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="addCareerModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">New Career</h5>
+            <button
+              class="close"
+              type="button"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <form id="new-career-form">
+            <div class="modal-body">
+              <div class="form-group">
+                <label class="form-label">Title</label>
+                <input
+                  type="text"
+                  class="form-control form-input"
+                  id="input-career-title"
+                  placeholder=""
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Description</label>
+                <textarea
+                  class="form-control form-input"
+                  id="input-career-description"
+                  rows="3"
+                  required
+                ></textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Type</label>
+                <input
+                  type="text"
+                  class="form-control form-input"
+                  id="input-career-type"
+                  placeholder=""
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Location</label>
+                <input
+                  type="text"
+                  class="form-control form-input"
+                  id="input-career-location"
+                  placeholder=""
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Tag</label>
+                <input
+                  type="text"
+                  class="form-control form-input"
+                  id="input-career-tag"
+                  placeholder=""
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Application URL</label>
+                <input
+                  type="url"
+                  class="form-control form-input"
+                  id="input-career-application-url"
+                  placeholder=""
+                  required
+                />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                class="btn btn-secondary"
+                type="button"
+                data-dismiss="modal"
+              >
+                Cancel
+              </button>
+              <button
+                class="btn btn-warning parcel-add-new-parcel-text53"
+                type="submit"
+                id="new-career-submit-btn"
               >
                 Submit
               </button>

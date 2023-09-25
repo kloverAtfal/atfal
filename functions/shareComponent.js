@@ -1,3 +1,203 @@
+function footer(pageName, callback) {
+  return `
+  <footer>
+<div class="row justify-content-between">
+  <div>
+    <div class="mb-3">
+      <img
+        alt="Frame1I5298"
+        src="public/external/frame1i5298-n1zj.svg"
+      />
+      <img
+        alt="LogotypeI5298"
+        src="public/external/logotypei5298-ne7.svg"
+      />
+    </div>
+    <ul class="nav">
+      <li class="nav-item">
+        <a href="index.html" class="nav-link px-2 text-muted">Home</a>
+      </li>
+      <li class="nav-item">
+        <a href="about-us.html" class="nav-link px-2 text-muted"
+          >About Us</a
+        >
+      </li>
+      <li class="nav-item">
+        <a href="services.html" class="nav-link px-2 text-muted"
+          >Services</a
+        >
+      </li>
+      <li class="nav-item">
+        <a href="pricing.html" class="nav-link px-2 text-muted"
+          >Pricing</a
+        >
+      </li>
+      <li class="nav-item">
+        <a href="career.html" class="nav-link px-2 text-muted"
+          >Careers</a
+        >
+      </li>
+      <li class="nav-item">
+        <a href="help.html" class="nav-link px-2 text-muted">Help</a>
+      </li>
+      <li class="nav-item">
+        <a href="contact.html" class="nav-link px-2 text-muted"
+          >Contact</a
+        >
+      </li>
+    </ul>
+  </div>
+  <div class="col justify-content-end d-flex">
+    <form>
+      <h5>Stay up to date</h5>
+      <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+        <form>
+          <div class="form-group">
+            <div class="d-flex">
+              <input
+                maxlength="50"
+                type="email"
+                class="form-control form-input"
+                id="input-email"
+                placeholder="Enter your email"
+                required
+              />
+              <button
+                class="btn btn-warning atfal-primary-btn d-flex align-items-center ml-2"
+                type="submit"
+              >
+                Subscribe
+              </button>
+            </div>
+            <small class="text-muted"
+              >We care about your data in our privacy policy.</small
+            >
+          </div>
+        </form>
+      </div>
+    </form>
+  </div>
+</div>
+<div
+  class="d-flex flex-wrap justify-content-between align-items-center pt-3 mb-4 border-top"
+>
+  <ul class="nav">
+    <li class="nav-item">
+      <a href="#" class="nav-link px-2 text-muted">
+        © 2023 Atfal. All rights reserved.</a
+      >
+    </li>
+    <!-- <li class="nav-item">
+      <a href="terms.html" class="nav-link px-2 text-muted">Terms</a>
+    </li>
+    <li class="nav-item">
+      <a href="terms.html" class="nav-link px-2 text-muted">Privacy</a>
+    </li>
+    <li class="nav-item">
+      <a href="terms.html" class="nav-link px-2 text-muted">Cookies</a>
+    </li> -->
+  </ul>
+  <ul class="nav">
+    <li class="nav-item">
+      <a href="terms.html" class="nav-link px-2 text-muted">Terms</a>
+    </li>
+    <li class="nav-item">
+      <a href="terms.html" class="nav-link px-2 text-muted">Privacy</a>
+    </li>
+    <li class="nav-item">
+      <a href="terms.html" class="nav-link px-2 text-muted">Cookies</a>
+    </li>
+  </ul>
+</div>
+</footer>
+  `;
+}
+
+function header(pageName, callback) {
+  return `
+  <nav class="navbar navbar-expand-sm fixed-top navbar-light">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <span class="mr-3">
+        <img
+          alt="Frame1I5318"
+          src="public/external/frame1i5318-17h8.svg"
+          class="log-in-frame1"
+        />
+        <img
+          alt="LogotypeI5318"
+          src="public/external/logotypei5318-so1.svg"
+          class="log-in-logotype"
+        /> </span
+    ></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbar1"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar1">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link font-white" href="index.html"
+            ><span class="font-white text-shadow">Home</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about-us.html"
+            ><span class="font-white text-shadow">About Us</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="services.html"
+            ><span class="font-white text-shadow">Services</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="pricing.html"
+            ><span class="font-white text-shadow">Pricing</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="career.html"
+            ><span class="font-white text-shadow">Careers</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="help.html"
+            ><span class="font-white text-shadow">Help</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html"
+            ><span class="font-white text-shadow">Contact</span></a
+          >
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item mr-3">
+          <a class="nav-link font-white" id="log-in-nav-btn"
+            ><span class="font-white text-shadow">Log in</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <button
+            type="submit"
+            class="btn btn-warning atfal-primary-btn"
+            id="sign-up-nav-btn"
+          >
+            Sign up
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  `;
+}
+
 function sidebarNavigation(pageName, callback) {
   return `<nav id="sidebar">
   <div class="sidebar-header d-flex">

@@ -72,6 +72,11 @@ tabs.push(
     content: 'payout-tab',
   },
   {
+    id: 'users-tab-content',
+    title: 'All User',
+    content: 'users-tab',
+  },
+  {
     id: 'rate-and-fees-tab-content',
     title: 'Rate and Fees',
     content: 'rate-and-fees-tab',
@@ -80,6 +85,11 @@ tabs.push(
     id: 'currency-pair-content',
     title: 'Currency Rate',
     content: 'currency-pair-tab',
+  },
+  {
+    id: 'career-tab-content',
+    title: 'All Career',
+    content: 'career-tab',
   }
 );
 let tabHTML = '';
@@ -113,10 +123,14 @@ const tableLoader = document.getElementById('table-loader');
 const tableLoader2 = document.getElementById('table-loader2');
 const tableLoader3 = document.getElementById('table-loader3');
 const tableLoader4 = document.getElementById('table-loader4');
+const tableLoader5 = document.getElementById('table-loader5');
+const tableLoaderCareer = document.getElementById('table-loader-career');
 let tableDataParcel = [];
 let tableDataShipment = [];
 let tableDataTransaction = [];
 let tableDataPayout = [];
+let tableDataUsers = [];
+let tableDataCareer = [];
 
 function populateToTableParcel() {
   // initialize Datatables with your table and column definitions
@@ -1059,6 +1073,391 @@ function populateToTablePayout() {
   }
 }
 
+function populateToTableUsers() {
+  // initialize Datatables with your table and column definitions
+
+  const table = $('#users_table').DataTable({
+    data: tableDataUsers,
+    columns: [
+      {
+        title: '<label class="datatable-header-title">User</label>',
+        data: 'id',
+        render: function (data, type, row, meta) {
+          defaultImage = `https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png`;
+          if (row.profile_image) {
+            defaultImage = row.profile_image.url;
+          }
+
+          return `<div class="datatable-item-container"><div class="datatable-item-title">
+            <div class="d-flex" style="text-decoration: none">
+            <img src="${defaultImage}" class="rounded-circle mr-2" style="width: 35px; height: 35px" alt="Avatar">
+            <div class="form-label mr-2 row">
+              <span>${row.username}</span>
+              <span class="small">${row.email}</span>
+            </div>
+            </div>
+          </div></div>`;
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Role</label>',
+        data: 'id',
+        render: function (data, type, row, meta) {
+          return `<div class="datatable-item-container"><div class="datatable-item-title">${row.role_data.name}</div></div>`;
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Phone Number</label>',
+        data: 'id',
+        render: function (data, type, row, meta) {
+          if (row?.phone_number) {
+            return `<div class="datatable-item-container"><div class="datatable-item-title">${row.phone_number}</div></div>`;
+          } else {
+            return `<div class="datatable-item-container"><div class="datatable-item-title">-</div></div>`;
+          }
+        },
+      },
+    ],
+    lengthChange: false,
+    buttons: [
+      {
+        extend: 'csv',
+        //   split: ["pdf", "excel"],
+      },
+    ],
+    drawCallback: function () {
+      tableLoader5.style.display = 'none';
+    },
+  });
+
+  // table
+  //   .buttons()
+  //   .container()
+  //   .appendTo("#example_wrapper .col-md-6:eq(0)");
+
+  // var buttonDownloadCSV = document.getElementById('button-download-csv');
+  // buttonDownloadCSV.addEventListener('click', function () {
+  //   table.button('.buttons-csv').trigger();
+  // });
+
+  let checkedRows = [];
+
+  // Add click event handler for checkAll checkbox
+  $('#checkAll').on('click', function () {
+    const isChecked = $(this).prop('checked');
+    if (isChecked) {
+      // Set checked attribute and push data for all checkboxes with id="checkItem"
+      table
+        .rows()
+        .nodes()
+        .each(function (row) {
+          const checkbox = $(row).find("input[type='checkbox']");
+          if (checkbox.attr('id') === 'checkItem') {
+            checkbox.prop('checked', true);
+            const rowData = table.row(row).data();
+            if (!isCheckedRow(rowData)) {
+              checkedRows.push(rowData);
+            }
+          }
+        });
+    } else {
+      // Remove checked attribute and remove data for all checkboxes with id="checkItem"
+      table
+        .rows()
+        .nodes()
+        .each(function (row) {
+          const checkbox = $(row).find("input[type='checkbox']");
+          if (checkbox.attr('id') === 'checkItem') {
+            checkbox.prop('checked', false);
+            const rowData = table.row(row).data();
+            const index = checkedRows.findIndex(
+              (item) => item.id === rowData.id
+            );
+            if (index >= 0) {
+              checkedRows.splice(index, 1);
+            }
+          }
+        });
+    }
+  });
+
+  // Add click event handler for individual checkboxes
+  $(document).on('click', '#checkItem', function () {
+    const rowData = table.row($(this).closest('tr')).data();
+    if ($(this).prop('checked')) {
+      if (!isCheckedRow(rowData)) {
+        checkedRows.push(rowData);
+      }
+    } else {
+      const index = checkedRows.findIndex((item) => item.id === rowData.id);
+      if (index >= 0) {
+        checkedRows.splice(index, 1);
+      }
+    }
+  });
+
+  // Function to check if a row is already checked
+  function isCheckedRow(rowData) {
+    return checkedRows.some((item) => item.id === rowData.id);
+  }
+}
+
+function populateToTableCareer() {
+  // initialize Datatables with your table and column definitions
+
+  const table = $('#career_table').DataTable({
+    data: tableDataCareer,
+    columns: [
+      {
+        title:
+          '<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="checkAll"/><label class="datatable-header-title" for="flexCheckDefault">Title</label></div>',
+        data: 'title',
+        render: function (data, type, row, meta) {
+          return `<div class="datatable-item-container"><div class="datatable-item-title">
+                <div class="form-check"><input class="form-check-input" type="checkbox" value="${data}" id="checkItem" />${data}</div></div>
+                </div></div>`;
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Description</label>',
+        data: 'description',
+        render: function (data, type, row, meta) {
+          return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Type</label>',
+        data: 'type',
+        render: function (data, type, row, meta) {
+          return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Location</label>',
+        data: 'location',
+        render: function (data, type, row, meta) {
+          return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Tag</label>',
+        data: 'tag',
+        render: function (data, type, row, meta) {
+          return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Application URL</label>',
+        data: 'application_url',
+        render: function (data, type, row, meta) {
+          return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
+        },
+      },
+      {
+        title: '<label class="datatable-header-title"></label>',
+        data: 'id',
+        orderable: false, // disable sorting for this column
+        render: function (data, type, row, meta) {
+          return `<div class="datatable-item-container"><div class="datatable-item-title">
+            <button onclick="deleteCareer('${data}', this)" type="button" class="btn btn-light btn-sm atfal-secondary-btn">Delete</button>
+          </div></div>`;
+        },
+      },
+    ],
+    lengthChange: false,
+    buttons: [
+      {
+        extend: 'csv',
+        //   split: ["pdf", "excel"],
+      },
+    ],
+    drawCallback: function () {
+      tableLoaderCareer.style.display = 'none';
+    },
+  });
+
+  // table
+  //   .buttons()
+  //   .container()
+  //   .appendTo("#example_wrapper .col-md-6:eq(0)");
+
+  // var buttonDownloadCSV = document.getElementById('button-download-csv');
+  // buttonDownloadCSV.addEventListener('click', function () {
+  //   table.button('.buttons-csv').trigger();
+  // });
+
+  let checkedRows = [];
+
+  // Add click event handler for checkAll checkbox
+  $('#checkAll').on('click', function () {
+    const isChecked = $(this).prop('checked');
+    if (isChecked) {
+      // Set checked attribute and push data for all checkboxes with id="checkItem"
+      table
+        .rows()
+        .nodes()
+        .each(function (row) {
+          const checkbox = $(row).find("input[type='checkbox']");
+          if (checkbox.attr('id') === 'checkItem') {
+            checkbox.prop('checked', true);
+            const rowData = table.row(row).data();
+            if (!isCheckedRow(rowData)) {
+              checkedRows.push(rowData);
+            }
+          }
+        });
+    } else {
+      // Remove checked attribute and remove data for all checkboxes with id="checkItem"
+      table
+        .rows()
+        .nodes()
+        .each(function (row) {
+          const checkbox = $(row).find("input[type='checkbox']");
+          if (checkbox.attr('id') === 'checkItem') {
+            checkbox.prop('checked', false);
+            const rowData = table.row(row).data();
+            const index = checkedRows.findIndex(
+              (item) => item.id === rowData.id
+            );
+            if (index >= 0) {
+              checkedRows.splice(index, 1);
+            }
+          }
+        });
+    }
+  });
+
+  // Add click event handler for individual checkboxes
+  $(document).on('click', '#checkItem', function () {
+    const rowData = table.row($(this).closest('tr')).data();
+    if ($(this).prop('checked')) {
+      if (!isCheckedRow(rowData)) {
+        checkedRows.push(rowData);
+      }
+    } else {
+      const index = checkedRows.findIndex((item) => item.id === rowData.id);
+      if (index >= 0) {
+        checkedRows.splice(index, 1);
+      }
+    }
+  });
+
+  // Function to check if a row is already checked
+  function isCheckedRow(rowData) {
+    return checkedRows.some((item) => item.id === rowData.id);
+  }
+}
+
+function deleteCareer(id, button) {
+  if (
+    confirm(
+      'Are you sure you want to delete this record? This action cannot be undone.'
+    )
+  ) {
+  } else {
+    return;
+  }
+
+  var closestRow = $(button).closest('tr');
+  var tableRef = $('#career_table').DataTable();
+  var rowIndex = tableRef.row(closestRow).index();
+  selectedRowIndex = rowIndex;
+
+  let useBtn = button;
+  let defaultBtnText = useBtn.innerHTML;
+
+  useBtn.disabled = true;
+  useBtn.innerHTML = `${spinner} ${useBtn.innerHTML}`;
+
+  fetchAPI(
+    `https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/admin/delete/career/${id}`,
+    'DELETE',
+    token
+  )
+    .then((data) => {
+      useBtn.disabled = false;
+      useBtn.innerHTML = defaultBtnText;
+      if (data?.message) {
+        showToast('alert-toast-container', data.message, 'danger');
+      } else {
+        var tableRef = $('#career_table').DataTable();
+        var rowIndex = selectedRowIndex;
+        tableRef.row(rowIndex).remove().draw();
+        showToast('alert-toast-container', 'Deleted successfully!', 'success');
+      }
+    })
+    .catch((error) => {
+      useBtn.disabled = false;
+      useBtn.innerHTML = defaultBtnText;
+      console.log('error', error);
+    });
+}
+
+document
+  .getElementById('add-new-career-btn')
+  .addEventListener('click', function (e) {
+    e.preventDefault();
+    $('#addCareerModal').modal('show');
+  });
+
+const careerTitle = document.getElementById('input-career-title');
+const careerDescription = document.getElementById('input-career-description');
+const careerType = document.getElementById('input-career-type');
+const careerLocation = document.getElementById('input-career-location');
+const careerTag = document.getElementById('input-career-tag');
+const careerApplicationUrl = document.getElementById(
+  'input-career-application-url'
+);
+
+document
+  .getElementById('new-career-form')
+  .addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    let useBtn = document.querySelector('#new-career-submit-btn');
+    let defaultBtnText = useBtn.innerHTML;
+
+    useBtn.disabled = true;
+    useBtn.innerHTML = `${spinner} ${useBtn.innerHTML}`;
+
+    const options = {
+      body: JSON.stringify({
+        title: careerTitle.value,
+        description: careerDescription.value,
+        type: careerType.value,
+        location: careerLocation.value,
+        tag: careerTag.value,
+        application_url: careerApplicationUrl.value,
+      }),
+    };
+
+    fetchAPI(
+      'https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/admin/add/career',
+      'POST',
+      token,
+      options
+    )
+      .then((data) => {
+        useBtn.disabled = false;
+        useBtn.innerHTML = defaultBtnText;
+        if (data?.message) {
+          showToast('alert-toast-container', data.message, 'danger');
+        } else {
+          var tableRef = $('#career_table').DataTable();
+          var rowData = data.new_career;
+          tableRef.row.add(rowData).draw();
+
+          $('#addCareerModal').modal('hide');
+          showToast('alert-toast-container', 'Added successfully!', 'success');
+        }
+      })
+      .catch((error) => {
+        useBtn.disabled = false;
+        useBtn.innerHTML = defaultBtnText;
+        console.log('error', error);
+      });
+  });
+
 const editPayoutUsername = document.getElementById('edit-payout-username');
 var editPayoutTotalComm = document.getElementById('edit-unpaid-payout');
 var shipment_payout_list = [];
@@ -1828,6 +2227,8 @@ function firstFetch() {
         tableDataShipment = data.shipment_list;
         tableDataTransaction = data.transaction_list;
         tableDataPayout = data.referral_list;
+        tableDataUsers = data.user_list;
+        tableDataCareer = data.career_list;
 
         currencyData = data.currency_list;
         feeData = data.fee_list;
@@ -1846,6 +2247,8 @@ function firstFetch() {
         populateToTransactionSummary();
         populateToTableTransaction();
         populateToTablePayout();
+        populateToTableUsers();
+        populateToTableCareer();
 
         populateToFee();
         populateToRate();
