@@ -1,31 +1,47 @@
-document.getElementById('header-container').innerHTML = header('index');
-document.getElementById('footer-container').innerHTML = footer('index');
+document.getElementById('header-container').innerHTML = header('contact');
+document.getElementById('footer-container').innerHTML = footer('contact');
 
 document
-  .getElementById('log-in-nav-btn')
-  .addEventListener('click', function () {
-    window.location.href = 'log-in';
+  .getElementById('add-contact-us-form')
+  .addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    let useBtn = document.querySelector('#submit-contact-button');
+    let defaultBtnText = useBtn.innerHTML;
+
+    useBtn.disabled = true;
+    useBtn.innerHTML = `${spinner} ${useBtn.innerHTML}`;
+
+    const options = {
+      body: JSON.stringify({
+        name: document.getElementById('input-contact-name').value,
+        email: document.getElementById('input-contact-email').value,
+        remarks: document.getElementById('input-contact-message').value,
+      }),
+    };
+
+    fetchAPI(
+      'https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/contact_us',
+      'POST',
+      token,
+      options
+    )
+      .then((data) => {
+        useBtn.disabled = false;
+        useBtn.innerHTML = defaultBtnText;
+        if (data?.message) {
+          showToast('alert-toast-container', data.message, 'danger');
+        } else {
+          showToast(
+            'alert-toast-container',
+            'Successfully submitted!',
+            'success'
+          );
+        }
+      })
+      .catch((error) => {
+        useBtn.disabled = false;
+        useBtn.innerHTML = defaultBtnText;
+        console.log('error', error);
+      });
   });
-
-document
-  .getElementById('sign-up-nav-btn')
-  .addEventListener('click', function () {
-    window.location.href = 'sign-up';
-  });
-
-document.addEventListener('DOMContentLoaded', function () {
-  const navbar = document.querySelector('.navbar');
-
-  // Function to add or remove the "navbar-scrolled" class based on scroll position
-  function toggleNavbarBlur() {
-    if (window.scrollY > 0) {
-      navbar.classList.add('navbar-scrolled');
-    } else {
-      navbar.classList.remove('navbar-scrolled');
-    }
-  }
-
-  // Call the function on page load and whenever the user scrolls
-  toggleNavbarBlur();
-  window.addEventListener('scroll', toggleNavbarBlur);
-});
