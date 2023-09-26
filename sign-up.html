@@ -34,130 +34,111 @@
     <link rel="stylesheet" href="./components/sidebarnavigation.css" />
   </head>
   <body class="body body-secondary">
-    <div>
+    <div id="header-container"></div>
+    <div class="sticky-top bg-white hidden-spacer"></div>
+    <section class="container space-section">
       <div class="d-flex">
-        <div class="col pt-3 body-content">
-          <div class="container">
-            <div class="row">
-              <div class="col">
-                <div class="d-flex justify-content-start align-items-center">
-                  <span class="mr-3" id="header-company-icon">
-                    <img
-                      alt="Frame1I5318"
-                      src="public/external/frame1i5318-17h8.svg"
-                      class="log-in-frame1"
-                    />
-                    <img
-                      alt="LogotypeI5318"
-                      src="public/external/logotypei5318-so1.svg"
-                      class="log-in-logotype"
-                    />
-                  </span>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="d-flex align-items-center px-5 mt-5">
+              <form style="width: 23rem" id="sign-up-form">
+                <div
+                  class="transaction-dashboard-alipay-top-up-text002 DisplaysmSemibold mt-3"
+                >
+                  <span>Sign up</span>
                 </div>
-              </div>
-            </div>
-            <div>
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-sm-6">
-                    <div class="d-flex align-items-center px-5 mt-5">
-                      <form style="width: 23rem" id="sign-up-form">
-                        <div
-                          class="transaction-dashboard-alipay-top-up-text002 DisplaysmSemibold mt-3"
-                        >
-                          <span>Sign up</span>
-                        </div>
-                        <div
-                          class="transaction-dashboard-alipay-top-up-text004 TextmdRegular mb-4"
-                        >
-                          <span>Start your 30-day free trial.</span>
-                        </div>
-                        <div class="form-group">
-                          <label class="form-label">Name</label>
-                          <input
-                            maxlength="50"
-                            type="text"
-                            class="form-control form-input"
-                            id="input-username"
-                            placeholder="Enter your name"
-                            required
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label class="form-label">Email</label>
-                          <input
-                            maxlength="50"
-                            type="email"
-                            class="form-control form-input"
-                            id="input-email"
-                            placeholder="Enter your email"
-                            required
-                          />
-                        </div>
-                        <div class="form-group mt-3">
-                          <label class="form-label">Password</label>
-                          <input
-                            maxlength="50"
-                            type="password"
-                            class="form-control form-input"
-                            id="input-password"
-                            placeholder="Create a password"
-                            required
-                          />
-                        </div>
-                        <button
-                          type="submit"
-                          class="btn btn-warning atfal-primary-btn btn-block mt-5"
-                          id="submit-btn-register"
-                        >
-                          Get started
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-light atfal-secondary-btn btn-block mt-3"
-                          id="button-continue-with-google"
-                        >
-                          <img
-                            alt="SocialiconI5318"
-                            src="public/external/socialiconi5318-o828.svg"
-                            class="mr-2"
-                          />
-                          Continue with Google
-                        </button>
-                        <div class="mt-4 text-center">
-                          Already have an account?
-                          <a href="log-in.html" class="clickable-primary-text">
-                            Log in
-                          </a>
-                        </div>
-                        <div class="row mt-5 small text-muted">
-                          <div class="col text-left">© 2023 Atfal&amp;Co</div>
-                          <div class="col text-right">
-                            <img
-                              alt="mail01I5318"
-                              src="public/external/mail01i5318-8um.svg"
-                            />
-                            help@atfal.com
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                  <div class="col-sm-6 px-0 d-none d-sm-block">
+                <div
+                  class="transaction-dashboard-alipay-top-up-text004 TextmdRegular mb-4"
+                >
+                  <span>Start your 30-day free trial.</span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Name</label>
+                  <input
+                    maxlength="50"
+                    type="text"
+                    class="form-control form-input"
+                    id="input-username"
+                    placeholder="Enter your name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Email</label>
+                  <input
+                    maxlength="50"
+                    type="email"
+                    class="form-control form-input"
+                    id="input-email"
+                    placeholder="Enter your email"
+                    required
+                  />
+                </div>
+                <div class="form-group mt-3">
+                  <label class="form-label">Password</label>
+                  <input
+                    maxlength="50"
+                    type="password"
+                    class="form-control form-input"
+                    id="input-password"
+                    placeholder="Create a password"
+                    required
+                  />
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-warning atfal-primary-btn btn-block mt-5"
+                  id="submit-btn-register"
+                >
+                  Get started
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-light atfal-secondary-btn btn-block mt-3"
+                  id="button-continue-with-google"
+                >
+                  <img
+                    alt="SocialiconI5318"
+                    src="public/external/socialiconi5318-o828.svg"
+                    class="mr-2"
+                  />
+                  Continue with Google
+                </button>
+                <div class="mt-4 text-center">
+                  Already have an account?
+                  <a href="log-in.html" class="clickable-primary-text">
+                    Log in
+                  </a>
+                </div>
+                <div class="row mt-5 small text-muted">
+                  <div class="col text-left">© 2023 Atfal&amp;Co</div>
+                  <div class="col text-right">
                     <img
-                      src="public/external/contentsi5298-lv3l.svg"
-                      alt="Login image"
-                      class="w-100 vh-100"
-                      style="object-fit: cover; object-position: left"
+                      alt="mail01I5318"
+                      src="public/external/mail01i5318-8um.svg"
                     />
+                    help@atfal.com
                   </div>
                 </div>
-              </div>
+              </form>
             </div>
+          </div>
+          <div class="col-sm-6 px-0 d-none d-sm-block">
+            <img
+              src="public/external/contentsi5298-lv3l.svg"
+              alt="Login image"
+              class="w-100 vh-100"
+              style="object-fit: cover; object-position: left"
+            />
           </div>
         </div>
       </div>
-    </div>
+    </section>
+    <section class="space-section">
+      <div class="container pt-5">
+        <div id="footer-container"></div>
+      </div>
+    </section>
     <div id="logout-modal-container">
       <!-- logout modal -->
     </div>
@@ -170,5 +151,6 @@
       <!-- alert toast -->
     </div>
     <script src="functions/sign-up.js"></script>
+    <script src="functions/share-nav-function.js"></script>
   </body>
 </html>

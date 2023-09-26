@@ -89,7 +89,7 @@
         <div class="col-12 col-lg-6">
           <div class="card">
             <div class="card-body">
-              <form>
+              <form id="add-contact-us-form">
                 <div class="modal-body">
                   <div class="form-group">
                     <label class="form-label">Name</label>
@@ -99,6 +99,7 @@
                       class="form-control form-input"
                       placeholder=""
                       required
+                      id="input-contact-name"
                     />
                   </div>
                   <div class="form-group">
@@ -109,6 +110,7 @@
                       class="form-control form-input"
                       placeholder=""
                       required
+                      id="input-contact-email"
                     />
                   </div>
                   <div class="form-group">
@@ -116,7 +118,7 @@
                     <textarea
                       maxlength="500"
                       class="form-control"
-                      id="input-remarks"
+                      id="input-contact-message"
                       rows="3"
                       placeholder="Write your message here..."
                       required
@@ -139,6 +141,7 @@
                   <button
                     type="submit"
                     class="btn btn-warning atfal-primary-btn"
+                    id="submit-contact-button"
                   >
                     Submit
                   </button>
@@ -166,5 +169,6 @@
       <!-- alert toast -->
     </div>
     <script src="functions/contact.js"></script>
+    <script src="functions/share-nav-function.js"></script>
   </body>
 </html>

@@ -37,7 +37,7 @@ function formatNumber(number) {
   });
 }
 
-const spinner = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`;
+const spinner = `<span class="spinner-border spinner-border-sm mr-1" role="status" aria-hidden="true"></span>`;
 
 const momentFormat = {
   year: 'numeric',

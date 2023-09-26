@@ -1,8 +1,5 @@
-document
-  .getElementById('header-company-icon')
-  .addEventListener('click', function () {
-    window.location.href = 'index';
-  });
+document.getElementById('header-container').innerHTML = header('sign-up');
+document.getElementById('footer-container').innerHTML = footer('sign-up');
 
 document
   .getElementById('sign-up-form')
