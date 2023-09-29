@@ -138,6 +138,24 @@ function populateToTableTopup() {
         },
       },
       {
+        title: '<label class="datatable-header-title">Name</label>',
+        data: 'account_name',
+        render: function (data, type, row, meta) {
+          return `<div class="datatable-item-container"><div class="datatable-item-title">${
+            data ? data : '-'
+          }</div></div>`;
+        },
+      },
+      {
+        title: '<label class="datatable-header-title">Alipay ID</label>',
+        data: 'alipay_id',
+        render: function (data, type, row, meta) {
+          return `<div class="datatable-item-container"><div class="datatable-item-title">${
+            data ? data : '-'
+          }</div></div>`;
+        },
+      },
+      {
         title: '<label class="datatable-header-title">Remarks</label>',
         data: 'remark',
         render: function (data, type, row, meta) {
