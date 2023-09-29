@@ -56,11 +56,6 @@ tabs.push(
     id: 'password-tab-content',
     title: 'Password',
     content: 'password-tab',
-  },
-  {
-    id: 'affiliates-tab-content',
-    title: 'Team',
-    content: 'affiliates-tab',
   }
 );
 let tabHTML = '';
@@ -214,21 +209,6 @@ function getSettingDropdownData() {
       if (data?.message) {
         showToast('alert-toast-container', data.message, 'danger');
       } else {
-        document.getElementById('input-affiliate-code').value =
-          data.affiliate_list.code;
-        document
-          .getElementById('copy-affiliates-code-btn')
-          .addEventListener('click', function () {
-            navigator.clipboard
-              .writeText(data.affiliate_list.code)
-              .then(() => {
-                showToast('alert-toast-container', 'Code copied!', 'success');
-              })
-              .catch((error) => {
-                console.error('Failed to copy: ', error);
-              });
-          });
-
         data.country_list.unshift({ id: '', name: 'Please Select' });
         data.country_list.forEach((item) => {
           const optionElement = document.createElement('option');

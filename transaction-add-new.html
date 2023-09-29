@@ -128,7 +128,7 @@
             </div>
             <div>
               <hr />
-              <form id="payment-form">
+              <form id="payment-form" novalidate>
                 <div class="form-group row">
                   <label
                     for="staticEmail"
@@ -227,7 +227,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" id="name-container">
                           <label class="form-label">Name</label>
                           <input
                             maxlength="50"
@@ -235,27 +235,28 @@
                             class="form-control form-input"
                             id="input-name"
                             placeholder=""
-                            required
                           />
                           <small class="form-label"
                             >Name should be same as per Alipay Account for
                             verification</small
                           >
                         </div>
-                        <div class="form-group">
-                          <label class="form-label">Alipay Id</label>
+                        <div class="form-group" id="payment-link-cantainer">
+                          <label class="form-label"
+                            >Payment link from 1688 website</label
+                          >
                           <div class="d-flex">
                             <input
                               maxlength="50"
                               type="text"
                               class="form-control form-input"
-                              id="input-alipay-id"
+                              id="input-payment-link"
                               disabled
                             />
                             <button
                               class="btn btn-light atfal-secondary-btn d-flex align-items-center ml-2"
                               type="button"
-                              id="copy-alipay-id-btn"
+                              id="copy-payment-link-btn"
                             >
                               <img
                                 alt="copy01I5296"
@@ -266,12 +267,21 @@
                             </button>
                           </div>
                         </div>
+                        <div class="form-group" id="alipay-id-container">
+                          <label class="form-label">Alipay Id</label>
+                          <input
+                            maxlength="50"
+                            type="text"
+                            class="form-control form-input"
+                            id="input-alipay-id"
+                          />
+                        </div>
                         <div class="form-group">
                           <label class="form-label"
                             >Total Amount to Pay (in
                             <span id="use-currency-long-name">...</span>)</label
                           >
-                          <div class="d-flex input-group">
+                          <div class="d-flex input-group mb-2">
                             <div class="input-group-prepend">
                               <div
                                 class="input-group-text"
@@ -288,10 +298,7 @@
                               required
                             />
                           </div>
-                          <span
-                            class="font-small"
-                            id="request-amount-convertion"
-                          ></span>
+                          <span id="request-amount-convertion"></span>
                           <!-- 
                           <div class="d-flex">
                             <input

@@ -110,32 +110,28 @@ function populateTransactionCard() {
 
 function toggleAccountContainer() {
   accountCard = document.getElementById('account-container');
+  nameCard = document.getElementById('name-container');
+  alipayIdCard = document.getElementById('alipay-id-container');
+  paymentLinkCard = document.getElementById('payment-link-cantainer');
 
-  if (selectTypeId == 'alipay_pob') {
+  if (selectTypeId == 'alipay_topup') {
     accountCard.classList.add('hidden');
-  } else {
+    nameCard.classList.remove('hidden');
+    alipayIdCard.classList.remove('hidden');
+    paymentLinkCard.classList.add('hidden');
+  }
+  if (selectTypeId == 'alipay_pob') {
     accountCard.classList.remove('hidden');
+    nameCard.classList.add('hidden');
+    alipayIdCard.classList.add('hidden');
+    paymentLinkCard.classList.remove('hidden');
   }
 }
 
-const alipayId = 'a2becfa8';
-
-document.getElementById('input-alipay-id').value = alipayId;
-
-document
-  .getElementById('copy-alipay-id-btn')
-  .addEventListener('click', function () {
-    navigator.clipboard
-      .writeText(alipayId)
-      .then(() => {
-        showToast('alert-toast-container', 'Id copied!', 'success');
-      })
-      .catch((error) => {
-        console.error('Failed to copy: ', error);
-      });
-  });
+const paymentLink = 'a2becfa8';
 
 const inputName = document.getElementById('input-name');
+const inputAlipayId = document.getElementById('input-alipay-id');
 const inputRemark = document.getElementById('input-remark');
 const inputRequestAmount = document.getElementById('input-request-amount');
 
@@ -143,6 +139,21 @@ const useCurrencyLongName = document.getElementById('use-currency-long-name');
 const useCurrencyShortName = document.getElementById('use-currency-short-name');
 const currencyConvertion = document.getElementById('request-amount-convertion');
 var useCurrency = null;
+
+document.getElementById('input-payment-link').value = paymentLink;
+
+document
+  .getElementById('copy-payment-link-btn')
+  .addEventListener('click', function () {
+    navigator.clipboard
+      .writeText(paymentLink)
+      .then(() => {
+        showToast('alert-toast-container', 'Link copied!', 'success');
+      })
+      .catch((error) => {
+        console.error('Failed to copy: ', error);
+      });
+  });
 
 inputRequestAmount.addEventListener('input', function () {
   if (useCurrency.value > 0) {
@@ -225,12 +236,43 @@ document
     useBtn.disabled = true;
     useBtn.innerHTML = `${spinner} ${useBtn.innerHTML}`;
 
+    const requiredInputs = {
+      alipay_topup: [
+        { id: inputRequestAmount, message: 'Total Amount to Pay is required.' },
+        { id: inputAlipayId, message: 'Alipay ID is required.' },
+        { id: inputName, message: 'Name is required.' },
+      ],
+      alipay_pob: [
+        { id: inputRequestAmount, message: 'Total Amount to Pay is required.' },
+      ],
+    };
+
+    let isValid = true;
+    const currentRequiredInputs = requiredInputs[selectTypeId];
+
+    currentRequiredInputs.forEach((input) => {
+      if (!input.id.value) {
+        showToast('alert-toast-container', input.message, 'danger');
+        isValid = false;
+        return;
+      }
+    });
+
+    if (isValid) {
+      // proceed
+    } else {
+      useBtn.disabled = false;
+      useBtn.innerHTML = defaultBtnText;
+      return;
+    }
+
     const options = {
       body: JSON.stringify({
         category: selectTypeId,
         account_name: inputName.value,
-        remark: inputRemark.value,
+        alipay_id: inputAlipayId.value,
         request_amount: inputRequestAmount.value,
+        remark: inputRemark.value,
       }),
     };
 

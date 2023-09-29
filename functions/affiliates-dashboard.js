@@ -43,6 +43,42 @@ document
 
 // --- end auth function
 
+let tabs = [];
+var defaultTab = document.getElementById('my-team-tab');
+defaultTab.classList.add('show', 'active');
+tabs.push(
+  {
+    id: 'my-team-tab-content',
+    title: 'My Team',
+    content: 'my-team-tab',
+  },
+  {
+    id: 'settings-team-tab-content',
+    title: 'Settings',
+    content: 'settings-team-tab',
+  }
+);
+let tabHTML = '';
+for (let i = 0; i < tabs.length; i++) {
+  let isActive = i === 0 ? 'active' : '';
+  let isShow = i === 0 ? 'show' : '';
+  tabHTML += `
+    <li class="nav-item">
+      <a
+        class="nav-link ${isActive} ${isShow}"
+        id="${tabs[i].id}"
+        data-toggle="tab"
+        href="#${tabs[i].content}"
+        role="tab"
+        aria-controls="${tabs[i].content}"
+        aria-selected="${isActive}"
+        >${tabs[i].title}</a
+      >
+    </li>
+  `;
+}
+document.getElementById('myTab').innerHTML = tabHTML;
+
 const tableLoader = document.getElementById('table-loader');
 
 let tableData = [];
@@ -414,6 +450,21 @@ function getReferralList() {
       } else {
         tableData = data.referral_list;
         populateToTable();
+
+        document.getElementById('input-affiliate-code').value =
+          data.affiliate_list.code;
+        document
+          .getElementById('copy-affiliates-code-btn')
+          .addEventListener('click', function () {
+            navigator.clipboard
+              .writeText(data.affiliate_list.code)
+              .then(() => {
+                showToast('alert-toast-container', 'Code copied!', 'success');
+              })
+              .catch((error) => {
+                console.error('Failed to copy: ', error);
+              });
+          });
       }
     })
     .catch((error) => {
