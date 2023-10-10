@@ -225,6 +225,126 @@ function getSavedData(key) {
     const data = getSavedData(key);
     */
 
+function getMyElement(form_id = '') {
+  return document.getElementById(form_id);
+}
+
+function getTableData(tableName) {
+  var table = $(tableName).DataTable();
+  var data = table.rows().data().toArray();
+  return data;
+}
+
+function addTableDataById(tableName, newData) {
+  var tableRef = $(tableName).DataTable();
+  var rowData = newData;
+  tableRef.row.add(rowData).draw();
+}
+
+function updateTableDataById(tableName, newData) {
+  var table = $(tableName).DataTable();
+
+  table.rows().every(function () {
+    var rowData = this.data();
+    if (rowData.id === newData.id) {
+      // Update the data for rows with matching id
+      this.data(newData);
+    }
+  });
+
+  table.draw(); // Redraw the table with updated data
+}
+
+function populateToForm(passId, tableData, inputElements) {
+  const selectedItem = tableData.find((item) => item.id == passId);
+  currentSelectedId = selectedItem.id;
+
+  Object.entries(inputElements).forEach(([key, prop]) => {
+    const propertyValue = prop
+      .split('.')
+      .reduce((obj, property) => obj[property], selectedItem);
+    document.getElementById(key).value = propertyValue;
+  });
+}
+
+function populateToTable(tableId, tableData, columns, loaderId) {
+  const table = $(tableId).DataTable({
+    data: tableData,
+    columns: columns,
+    lengthChange: false,
+    buttons: [
+      {
+        extend: 'csv',
+        // split: ["pdf", "excel"],
+      },
+    ],
+    drawCallback: function () {
+      loaderId.style.display = 'none';
+    },
+  });
+
+  let checkedRows = [];
+
+  // Add click event handler for checkAll checkbox
+  $(`${tableId}_checkAll`).on('click', function () {
+    const isChecked = $(this).prop('checked');
+    if (isChecked) {
+      // Set checked attribute and push data for all checkboxes with id="checkItem"
+      table
+        .rows()
+        .nodes()
+        .each(function (row) {
+          const checkbox = $(row).find("input[type='checkbox']");
+          if (checkbox.attr('id') === 'checkItem') {
+            checkbox.prop('checked', true);
+            const rowData = table.row(row).data();
+            if (!isCheckedRow(rowData)) {
+              checkedRows.push(rowData);
+            }
+          }
+        });
+    } else {
+      // Remove checked attribute and remove data for all checkboxes with id="checkItem"
+      table
+        .rows()
+        .nodes()
+        .each(function (row) {
+          const checkbox = $(row).find("input[type='checkbox']");
+          if (checkbox.attr('id') === 'checkItem') {
+            checkbox.prop('checked', false);
+            const rowData = table.row(row).data();
+            const index = checkedRows.findIndex(
+              (item) => item.id === rowData.id
+            );
+            if (index >= 0) {
+              checkedRows.splice(index, 1);
+            }
+          }
+        });
+    }
+  });
+
+  // Add click event handler for individual checkboxes
+  $(document).on('click', `${tableId}_checkItem`, function () {
+    const rowData = table.row($(this).closest('tr')).data();
+    if ($(this).prop('checked')) {
+      if (!isCheckedRow(rowData)) {
+        checkedRows.push(rowData);
+      }
+    } else {
+      const index = checkedRows.findIndex((item) => item.id === rowData.id);
+      if (index >= 0) {
+        checkedRows.splice(index, 1);
+      }
+    }
+  });
+
+  // Function to check if a row is already checked
+  function isCheckedRow(rowData) {
+    return checkedRows.some((item) => item.id === rowData.id);
+  }
+}
+
 const currentUrl = window.location.pathname.substring(
   window.location.pathname.lastIndexOf('/')
 );

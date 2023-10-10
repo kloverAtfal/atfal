@@ -393,9 +393,23 @@ function editParcelModal() {
       </div>
       <form id="edit-parcel-form">
         <div class="modal-body">
-          <h6 class="modal-title">
-          Parcel ID: <strong id="edit-parcel-id">-</strong>
-          </h6>
+          <input
+          type="text"
+          class="form-control form-input"
+          id="input-parcel-id"
+          placeholder=""
+          hidden
+        />
+          <div class="form-group">
+          <label class="form-label">Parcel ID</label>
+          <input
+            type="text"
+            class="form-control form-input"
+            id="input-parcel-custom-id"
+            placeholder=""
+            disabled
+            required
+          </div>
           <div class="form-group mt-3">
             <label class="form-label">Parcel Status</label>
             <select
@@ -429,8 +443,7 @@ function editParcelModal() {
 }
 
 function editShipmentModal() {
-  return `
-  <div
+  return `<div
   class="modal fade"
   id="editShipmentModal"
   tabindex="-1"
@@ -453,27 +466,44 @@ function editShipmentModal() {
       </div>
       <form id="edit-shipment-form">
         <div class="modal-body">
-          <h6 class="modal-title">
-          Shipment ID: <strong id="edit-shipment-id">-</strong>
-          </h6>
-          <div class="form-group mt-3">
-          <label class="form-label">Shipping Price</label>
           <input
-            type="number"
+            type="text"
             class="form-control form-input"
-            id="input-shipping-price"
+            id="input-shipping-id"
             placeholder=""
-           
+            hidden
           />
+          <div class="form-group">
+            <label class="form-label">Shipping ID</label>
+            <input
+              type="text"
+              class="form-control form-input"
+              id="input-shipping-custom-id"
+              placeholder=""
+              disabled
+              required
+            />
           </div>
           <div class="form-group">
-          <label class="form-label">Shipping Fees</label>
-          <input
-            type="number"
-            class="form-control form-input"
-            id="input-shipping-fees"
-            placeholder=""
-          />
+            <label class="form-label">Shipping Price (MYR)</label>
+            <input
+              type="number"
+              step="0.01"
+              class="form-control form-input"
+              id="input-shipping-price"
+              placeholder=""
+            />
+          </div>
+          <div class="form-group mt-3">
+            <label class="form-label">Shipping Fee (%)</label>
+            <input
+              type="number"
+              step="0.01"
+              class="form-control form-input"
+              id="input-shipping-fee"
+              placeholder=""
+              disabled
+            />
           </div>
           <div class="form-group">
             <label class="form-label">Shipping Status</label>
@@ -482,6 +512,22 @@ function editShipmentModal() {
               id="input-select-shipment-status"
               required
             ></select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Allow to pay</label>
+            <select
+              class="form-control"
+              id="input-select-allow-to-pay"
+              required
+            ></select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Total (RM)</label>
+            <div>
+              <h1 id="total-price-shipment" class="text-overflow">
+                0.00
+              </h1>
+            </div>
           </div>
         </div>
         <div class="modal-footer">
@@ -503,8 +549,7 @@ function editShipmentModal() {
       </form>
     </div>
   </div>
-</div>
-`;
+</div>`;
 }
 
 function editTransactionModal() {
@@ -532,10 +577,25 @@ function editTransactionModal() {
       </div>
       <form id="edit-transaction-form">
         <div class="modal-body">
-          <h6 class="modal-title">
-          Transaction ID: <strong id="edit-transaction-id">-</strong>
-          </h6>
-          <div class="form-group mt-3">
+          <input
+            type="text"
+            class="form-control form-input"
+            id="input-transaction-id"
+            placeholder=""
+            hidden
+          />
+          <div class="form-group">
+            <label class="form-label">Transaction ID</label>
+            <input
+              type="text"
+              class="form-control form-input"
+              id="input-transaction-custom-id"
+              placeholder=""
+              disabled
+              required
+            />
+          </div>
+          <div class="form-group">
             <label class="form-label">Transaction Status</label>
             <select
               class="form-control"
@@ -565,4 +625,76 @@ function editTransactionModal() {
   </div>
 </div>
 `;
+}
+
+function editUserModal() {
+  return `<div
+  class="modal fade"
+  id="editUserModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">More</h5>
+        <button
+          class="close"
+          type="button"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <form id="edit-user-form">
+        <div class="modal-body">
+          <input
+            type="text"
+            class="form-control form-input"
+            id="input-user-user-id"
+            placeholder=""
+            hidden
+          />
+          <div class="form-group">
+            <label class="form-label">Username</label>
+            <input
+              type="text"
+              class="form-control form-input"
+              id="input-user-username"
+              placeholder=""
+              disabled
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Role</label>
+            <select
+              class="form-control"
+              id="input-select-user-role"
+              required
+            ></select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            class="btn btn-secondary"
+            type="button"
+            data-dismiss="modal"
+          >
+            Cancel
+          </button>
+          <button
+            class="btn btn-warning parcel-add-new-parcel-text53"
+            type="submit"
+            id="edit-user-submit-btn"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>`;
 }
