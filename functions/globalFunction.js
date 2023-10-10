@@ -235,6 +235,18 @@ function getTableData(tableName) {
   return data;
 }
 
+function deleteTableData(tableName, idToDelete) {
+  var tableRef = $(tableName).DataTable();
+
+  tableRef
+    .rows(function (idx, data, node) {
+      return data.id.toString() === idToDelete.toString();
+    })
+    .remove();
+
+  tableRef.draw();
+}
+
 function addTableDataById(tableName, newData) {
   var tableRef = $(tableName).DataTable();
   var rowData = newData;
