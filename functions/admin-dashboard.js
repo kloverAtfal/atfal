@@ -18,8 +18,14 @@ function sidebarNavigationLoaded() {
     editShipmentModal();
   document.getElementById('edit-transaction-modal-container').innerHTML =
     editTransactionModal();
+  document.getElementById('edit-payout-modal-container').innerHTML =
+    editPayoutModal();
   document.getElementById('edit-user-modal-container').innerHTML =
     editUserModal();
+  document.getElementById('add-career-modal-container').innerHTML =
+    editCareerModal('add');
+  document.getElementById('edit-career-modal-container').innerHTML =
+    editCareerModal('edit');
 }
 
 $(document).ready(function () {
@@ -315,57 +321,25 @@ function editUser(passId) {
   });
 }
 
-function deleteCareer(id, button) {
-  if (
-    confirm(
-      'Are you sure you want to delete this record? This action cannot be undone.'
-    )
-  ) {
-  } else {
-    return;
-  }
-
-  var closestRow = $(button).closest('tr');
-  var tableRef = $('#career_table').DataTable();
-  var rowIndex = tableRef.row(closestRow).index();
-  selectedRowIndex = rowIndex;
-
-  let useBtn = button;
-  let defaultBtnText = useBtn.innerHTML;
-
-  useBtn.disabled = true;
-  useBtn.innerHTML = `${spinner} ${useBtn.innerHTML}`;
-
-  fetchAPI(
-    `https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/admin/delete/career/${id}`,
-    'DELETE',
-    token
-  )
-    .then((data) => {
-      useBtn.disabled = false;
-      useBtn.innerHTML = defaultBtnText;
-      if (data?.message) {
-        showToast('alert-toast-container', data.message, 'danger');
-      } else {
-        var tableRef = $('#career_table').DataTable();
-        var rowIndex = selectedRowIndex;
-        tableRef.row(rowIndex).remove().draw();
-        showToast('alert-toast-container', 'Deleted successfully!', 'success');
-      }
-    })
-    .catch((error) => {
-      useBtn.disabled = false;
-      useBtn.innerHTML = defaultBtnText;
-      console.log('error', error);
-    });
-}
-
 function editTransaction(passId) {
   $('#editTransactionModal').modal('show');
   populateToForm(passId, getTableData('#transaction_table'), {
     'input-transaction-id': 'id',
     'input-transaction-custom-id': 'custom_id',
     'input-select-transaction-status': 'topup_status_data.id',
+  });
+}
+
+function editCareer(passId) {
+  $('#editCareerModal').modal('show');
+  populateToForm(passId, getTableData('#career_table'), {
+    'input-edit-career-id': 'id',
+    'input-edit-career-title': 'title',
+    'input-edit-career-description': 'description',
+    'input-edit-career-type': 'type',
+    'input-edit-career-location': 'location',
+    'input-edit-career-tag': 'tag',
+    'input-edit-career-application-url': 'application_url',
   });
 }
 
@@ -727,11 +701,11 @@ document
   });
 
 document
-  .getElementById('new-career-form')
+  .getElementById('add-career-form')
   .addEventListener('submit', function (e) {
     e.preventDefault();
 
-    let useBtn = document.querySelector('#new-career-submit-btn');
+    let useBtn = document.querySelector('#add-career-submit-btn');
     let defaultBtnText = useBtn.innerHTML;
 
     useBtn.disabled = true;
@@ -739,12 +713,12 @@ document
 
     const options = {
       body: JSON.stringify({
-        title: getMyElement('input-career-title').value,
-        description: getMyElement('input-career-description').value,
-        type: getMyElement('input-career-type').value,
-        location: getMyElement('input-career-location').value,
-        tag: getMyElement('input-career-tag').value,
-        application_url: getMyElement('input-career-application-url').value,
+        title: getMyElement('input-add-career-title').value,
+        description: getMyElement('input-add-career-description').value,
+        type: getMyElement('input-add-career-type').value,
+        location: getMyElement('input-add-career-location').value,
+        tag: getMyElement('input-add-career-tag').value,
+        application_url: getMyElement('input-add-career-application-url').value,
       }),
     };
 
@@ -763,6 +737,110 @@ document
           addTableDataById('#career_table', data.newData);
           $('#addCareerModal').modal('hide');
           showToast('alert-toast-container', 'Added successfully!', 'success');
+        }
+      })
+      .catch((error) => {
+        useBtn.disabled = false;
+        useBtn.innerHTML = defaultBtnText;
+        console.log('error', error);
+      });
+  });
+
+document
+  .getElementById('edit-career-form')
+  .addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    let useBtn = document.querySelector('#edit-career-submit-btn');
+    let defaultBtnText = useBtn.innerHTML;
+
+    useBtn.disabled = true;
+    useBtn.innerHTML = `${spinner} ${useBtn.innerHTML}`;
+
+    const options = {
+      body: JSON.stringify({
+        career_id: getMyElement('input-edit-career-id').value,
+        title: getMyElement('input-edit-career-title').value,
+        description: getMyElement('input-edit-career-description').value,
+        type: getMyElement('input-edit-career-type').value,
+        location: getMyElement('input-edit-career-location').value,
+        tag: getMyElement('input-edit-career-tag').value,
+        application_url: getMyElement('input-edit-career-application-url')
+          .value,
+      }),
+    };
+
+    fetchAPI(
+      'https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/admin/career/update',
+      'POST',
+      token,
+      options
+    )
+      .then((data) => {
+        useBtn.disabled = false;
+        useBtn.innerHTML = defaultBtnText;
+        if (data?.message) {
+          showToast('alert-toast-container', data.message, 'danger');
+        } else {
+          updateTableDataById('#career_table', data.newData);
+          $('#editCareerModal').modal('hide');
+          showToast(
+            'alert-toast-container',
+            'Updated successfully!',
+            'success'
+          );
+        }
+      })
+      .catch((error) => {
+        useBtn.disabled = false;
+        useBtn.innerHTML = defaultBtnText;
+        console.log('error', error);
+      });
+  });
+
+document
+  .getElementById('edit-career-delete-btn')
+  .addEventListener('click', function (e) {
+    e.preventDefault();
+
+    if (
+      confirm(
+        'Are you sure you want to delete this record? This action cannot be undone.'
+      )
+    ) {
+    } else {
+      return;
+    }
+
+    let useBtn = document.querySelector('#edit-career-delete-btn');
+    let defaultBtnText = useBtn.innerHTML;
+
+    useBtn.disabled = true;
+    useBtn.innerHTML = `${spinner} ${useBtn.innerHTML}`;
+
+    const inputEditCareerId = getMyElement('input-edit-career-id').value;
+
+    fetchAPI(
+      `https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/admin/delete/career/${inputEditCareerId}`,
+      'DELETE',
+      token
+    )
+      .then((data) => {
+        useBtn.disabled = false;
+        useBtn.innerHTML = defaultBtnText;
+        if (data?.message) {
+          showToast('alert-toast-container', data.message, 'danger');
+        } else {
+          deleteTableData(
+            '#career_table',
+            getMyElement('input-edit-career-id').value
+          );
+          $('#editCareerModal').modal('hide');
+          showToast(
+            'alert-toast-container',
+            'Deleted successfully!',
+            'success'
+          );
         }
       })
       .catch((error) => {
@@ -1672,7 +1750,7 @@ function populateToTableCareer(tableData) {
       orderable: false, // disable sorting for this column
       render: function (data, type, row, meta) {
         return `<div class="datatable-item-container"><div class="datatable-item-title">
-          <button onclick="deleteCareer('${data}', this)" type="button" class="btn btn-light btn-sm atfal-secondary-btn">Delete</button>
+          <button onclick="editCareer('${data}')" type="button" class="btn btn-light btn-sm atfal-secondary-btn">More</button>
         </div></div>`;
       },
     },

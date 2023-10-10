@@ -627,6 +627,90 @@ function editTransactionModal() {
 `;
 }
 
+function editPayoutModal() {
+  return ` <div
+  class="modal fade"
+  id="editPayoutModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Payout</h5>
+        <button
+          class="close"
+          type="button"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <form id="edit-payout-form">
+        <div class="modal-body">
+          <input
+            type="text"
+            class="form-control form-input"
+            id="input-payout-id"
+            placeholder=""
+            hidden
+          />
+          <div class="form-group">
+            <label class="form-label">Username</label>
+            <input
+              type="text"
+              class="form-control form-input"
+              id="input-payout-username"
+              placeholder=""
+              disabled
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Total Payout</label>
+            <input
+              type="text"
+              class="form-control form-input"
+              id="input-total-payout"
+              placeholder=""
+              disabled
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Payment Status</label>
+            <select
+              class="form-control"
+              id="input-select-payout-status"
+              required
+            ></select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            class="btn btn-secondary"
+            type="button"
+            data-dismiss="modal"
+          >
+            Cancel
+          </button>
+          <button
+            class="btn btn-warning parcel-add-new-parcel-text53"
+            type="submit"
+            id="edit-payout-submit-btn"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>`;
+}
+
 function editUserModal() {
   return `<div
   class="modal fade"
@@ -697,4 +781,130 @@ function editUserModal() {
     </div>
   </div>
 </div>`;
+}
+
+function editCareerModal(typeName = '') {
+  return `
+  <div
+    class="modal fade"
+    id="${typeName}CareerModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">${
+            typeName == 'add' ? 'Add' : 'Edit'
+          } Career</h5>
+          <button
+            class="close"
+            type="button"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <form id="${typeName}-career-form">
+          <div class="modal-body">
+            <input
+            type="text"
+            class="form-control form-input"
+            id="input-${typeName}-career-id"
+            placeholder=""
+            hidden
+            />
+            <div class="form-group">
+              <label class="form-label">Title</label>
+              <input
+                type="text"
+                class="form-control form-input"
+                id="input-${typeName}-career-title"
+                placeholder=""
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Description</label>
+              <textarea
+                class="form-control form-input"
+                id="input-${typeName}-career-description"
+                rows="3"
+                required
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Type</label>
+              <input
+                type="text"
+                class="form-control form-input"
+                id="input-${typeName}-career-type"
+                placeholder=""
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Location</label>
+              <input
+                type="text"
+                class="form-control form-input"
+                id="input-${typeName}-career-location"
+                placeholder=""
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Tag</label>
+              <input
+                type="text"
+                class="form-control form-input"
+                id="input-${typeName}-career-tag"
+                placeholder=""
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Application URL</label>
+              <input
+                type="url"
+                class="form-control form-input"
+                id="input-${typeName}-career-application-url"
+                placeholder=""
+                required
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              class="btn btn-danger"
+              type="button"
+              style="display: ${typeName == 'edit' ? 'block' : 'none'};"
+              id="${typeName}-career-delete-btn"
+            >
+              Delete
+            </button>
+            <div class="ml-auto">
+              <button
+                class="btn btn-secondary"
+                type="button"
+                data-dismiss="modal"
+              >
+                Cancel
+              </button>
+              <button
+                class="btn btn-warning parcel-add-new-parcel-text53"
+                type="submit"
+                id="${typeName}-career-submit-btn"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>`;
 }
