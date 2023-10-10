@@ -477,101 +477,12 @@
     </div>
     <div id="edit-shipment-modal-container">
       <!-- edit shipment modal -->
-      <div
-        class="modal fade"
-        id="editShipmentModal"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Edit Shipment</h5>
-              <button
-                class="close"
-                type="button"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">×</span>
-              </button>
-            </div>
-            <form id="edit-shipment-form">
-              <div class="modal-body">
-                <h6 class="modal-title">
-                  Shipment ID: <strong id="edit-shipment-id">-</strong>
-                </h6>
-                <div class="form-group mt-3">
-                  <label class="form-label">Shipping Price (MYR)</label>
-                  <input
-                    type="number"
-                    step="0.01"
-                    class="form-control form-input"
-                    id="input-shipping-price"
-                    placeholder=""
-                  />
-                </div>
-                <div class="form-group mt-3">
-                  <label class="form-label">Shipping Fee (%)</label>
-                  <input
-                    type="number"
-                    step="0.01"
-                    class="form-control form-input"
-                    id="input-shipping-fee"
-                    placeholder=""
-                    disabled
-                  />
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Shipping Status</label>
-                  <select
-                    class="form-control"
-                    id="input-select-shipment-status"
-                    required
-                  ></select>
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Allow to pay</label>
-                  <select
-                    class="form-control"
-                    id="input-select-allow-to-pay"
-                    required
-                  ></select>
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Total (RM)</label>
-                  <div>
-                    <h1 id="total-price-shipment" class="text-overflow">
-                      0.00
-                    </h1>
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button
-                  class="btn btn-secondary"
-                  type="button"
-                  data-dismiss="modal"
-                >
-                  Cancel
-                </button>
-                <button
-                  class="btn btn-warning parcel-add-new-parcel-text53"
-                  type="submit"
-                  id="edit-shipment-submit-btn"
-                >
-                  Submit
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
     </div>
     <div id="edit-transaction-modal-container">
       <!-- edit transaction modal -->
+    </div>
+    <div id="edit-user-modal-container">
+      <!-- edit user modal -->
     </div>
     <div
       class="modal fade"
@@ -596,14 +507,36 @@
           </div>
           <form id="edit-payout-form">
             <div class="modal-body">
-              <h6 class="modal-title">
-                Username: <strong id="edit-payout-username">-</strong>
-              </h6>
-              <h6 class="modal-title">
-                Total Pending Payout:
-                <strong id="edit-unpaid-payout">-</strong>
-              </h6>
-              <div class="form-group mt-3">
+              <input
+                type="text"
+                class="form-control form-input"
+                id="input-payout-id"
+                placeholder=""
+                hidden
+              />
+              <div class="form-group">
+                <label class="form-label">Username</label>
+                <input
+                  type="text"
+                  class="form-control form-input"
+                  id="input-payout-username"
+                  placeholder=""
+                  disabled
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Total Payout</label>
+                <input
+                  type="text"
+                  class="form-control form-input"
+                  id="input-total-payout"
+                  placeholder=""
+                  disabled
+                  required
+                />
+              </div>
+              <div class="form-group">
                 <label class="form-label">Payment Status</label>
                 <select
                   class="form-control"
