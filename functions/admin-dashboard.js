@@ -121,7 +121,61 @@ for (let i = 0; i < tabs.length; i++) {
     </li>
   `;
 }
+
+let tabsCareer = [];
+var defaultTabCareer = document.getElementById('career-tab-1');
+defaultTabCareer.classList.add('show', 'active');
+tabsCareer.push(
+  {
+    id: 'career-tab-content-1',
+    title: 'Career List',
+    content: 'career-tab-1',
+  },
+  {
+    id: 'career-tab-content-2',
+    title: 'Application List',
+    content: 'career-tab-2',
+  }
+);
+
+let tabHTMLCareer = '';
+for (let i = 0; i < tabsCareer.length; i++) {
+  let isActive = i === 0 ? 'active' : '';
+  let isShow = i === 0 ? 'show' : '';
+  tabHTMLCareer += `
+    <li class="nav-item">
+      <a
+        class="nav-link ${isActive} ${isShow}"
+        id="${tabsCareer[i].id}"
+        data-toggle="tab"
+        href="#${tabsCareer[i].content}"
+        role="tab"
+        aria-controls="${tabsCareer[i].content}"
+        aria-selected="${isActive}"
+        >${tabsCareer[i].title}</a
+      >
+    </li>
+  `;
+}
+
 document.getElementById('myTab').innerHTML = tabHTML;
+document.getElementById('myNestedTabCareer').innerHTML = tabHTMLCareer;
+
+// to handle empty space between switching tab
+const tabParentElement = document.getElementById('myNestedTabCareer');
+tabParentElement.addEventListener('click', function (event) {
+  if (event.target.classList.contains('nav-link')) {
+    const activeTabId = event.target.id;
+    if (activeTabId == 'career-tab-content-1') {
+      document.getElementById('career-tab-1-container').style.display = 'block';
+      document.getElementById('career-tab-2-container').style.display = 'none';
+    }
+    if (activeTabId == 'career-tab-content-2') {
+      document.getElementById('career-tab-2-container').style.display = 'block';
+      document.getElementById('career-tab-1-container').style.display = 'none';
+    }
+  }
+});
 
 const tableLoader = document.getElementById('table-loader');
 const tableLoader2 = document.getElementById('table-loader2');
@@ -129,6 +183,9 @@ const tableLoader3 = document.getElementById('table-loader3');
 const tableLoader4 = document.getElementById('table-loader4');
 const tableLoader5 = document.getElementById('table-loader5');
 const tableLoaderCareer = document.getElementById('table-loader-career');
+const tableLoaderCareerApplication = document.getElementById(
+  'table-loader-career-application'
+);
 
 var selectedRowIndex = null;
 var shipment_payout_list = [];
@@ -341,6 +398,10 @@ function editCareer(passId) {
     'input-edit-career-tag': 'tag',
     'input-edit-career-application-url': 'application_url',
   });
+}
+
+function viewApplicant(passId) {
+  $('#editCareerModal').modal('show');
 }
 
 document
@@ -1745,6 +1806,26 @@ function populateToTableCareer(tableData) {
       },
     },
     {
+      title: '<label class="datatable-header-title">Applications</label>',
+      data: 'application_url',
+      render: function (data, type, row, meta) {
+        return `<div class="datatable-item-container"><div class="datatable-item-title">${row.applicant_of_career_data.length}</div></div>`;
+      },
+    },
+    // {
+    //   title: '<label class="datatable-header-title">Total Applicants</label>',
+    //   data: 'id',
+    //   render: function (data, type, row, meta) {
+    //     return `<div class="datatable-item-container">
+    //               <div class="datatable-item-title">
+    //                 <a href="#" class="link-primary" onclick="viewApplicant('${data}')">
+    //                   ${row.applicant_of_career_data.length}
+    //                 </a>
+    //               </div>
+    //             </div>`;
+    //   },
+    // },
+    {
       title: '<label class="datatable-header-title"></label>',
       data: 'id',
       orderable: false, // disable sorting for this column
@@ -1757,6 +1838,63 @@ function populateToTableCareer(tableData) {
   ];
 
   populateToTable('#career_table', tableData, tableColumns, tableLoaderCareer);
+}
+
+function populateToTableApplication(tableData) {
+  const tableColumns = [
+    {
+      title:
+        '<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="checkAll"/><label class="datatable-header-title" for="flexCheckDefault">Full Name</label></div>',
+      data: 'name',
+      render: function (data, type, row, meta) {
+        return `<div class="datatable-item-container"><div class="datatable-item-title">
+              <div class="form-check"><input class="form-check-input" type="checkbox" value="${data}" id="checkItem" />${data}</div></div>
+              </div></div>`;
+      },
+    },
+    {
+      title: '<label class="datatable-header-title">Phone Number</label>',
+      data: 'phone_number',
+      render: function (data, type, row, meta) {
+        return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
+      },
+    },
+    {
+      title: '<label class="datatable-header-title">Email</label>',
+      data: 'email',
+      render: function (data, type, row, meta) {
+        return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
+      },
+    },
+    {
+      title: '<label class="datatable-header-title">About Me</label>',
+      data: 'about_me',
+      render: function (data, type, row, meta) {
+        return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
+      },
+    },
+    {
+      title: '<label class="datatable-header-title">Linkin Profile Url</label>',
+      data: 'linkin_profile_url',
+      render: function (data, type, row, meta) {
+        return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
+      },
+    },
+    {
+      title: '<label class="datatable-header-title">Apply For</label>',
+      data: 'career_data.title',
+      render: function (data, type, row, meta) {
+        return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
+      },
+    },
+  ];
+
+  populateToTable(
+    '#career_application_table',
+    tableData,
+    tableColumns,
+    tableLoaderCareerApplication
+  );
 }
 
 function firstFetch() {
@@ -1780,6 +1918,7 @@ function firstFetch() {
         populateToTablePayout(data.referral_list);
         populateToTableUsers(data.user_list);
         populateToTableCareer(data.career_list);
+        populateToTableApplication(data.applicant_list);
 
         populateToFee();
         populateToRate();
