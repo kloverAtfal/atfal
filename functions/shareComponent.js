@@ -866,16 +866,6 @@ function editCareerModal(typeName = '') {
                 required
               />
             </div>
-            <div class="form-group">
-              <label class="form-label">Application URL</label>
-              <input
-                type="url"
-                class="form-control form-input"
-                id="input-${typeName}-career-application-url"
-                placeholder=""
-                required
-              />
-            </div>
           </div>
           <div class="modal-footer">
             <button
