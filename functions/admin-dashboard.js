@@ -396,7 +396,6 @@ function editCareer(passId) {
     'input-edit-career-type': 'type',
     'input-edit-career-location': 'location',
     'input-edit-career-tag': 'tag',
-    'input-edit-career-application-url': 'application_url',
   });
 }
 
@@ -779,7 +778,6 @@ document
         type: getMyElement('input-add-career-type').value,
         location: getMyElement('input-add-career-location').value,
         tag: getMyElement('input-add-career-tag').value,
-        application_url: getMyElement('input-add-career-application-url').value,
       }),
     };
 
@@ -826,8 +824,6 @@ document
         type: getMyElement('input-edit-career-type').value,
         location: getMyElement('input-edit-career-location').value,
         tag: getMyElement('input-edit-career-tag').value,
-        application_url: getMyElement('input-edit-career-application-url')
-          .value,
       }),
     };
 
@@ -1794,13 +1790,6 @@ function populateToTableCareer(tableData) {
     {
       title: '<label class="datatable-header-title">Tag</label>',
       data: 'tag',
-      render: function (data, type, row, meta) {
-        return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
-      },
-    },
-    {
-      title: '<label class="datatable-header-title">Application URL</label>',
-      data: 'application_url',
       render: function (data, type, row, meta) {
         return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
       },
