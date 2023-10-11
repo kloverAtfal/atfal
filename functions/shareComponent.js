@@ -908,3 +908,109 @@ function editCareerModal(typeName = '') {
     </div>
   </div>`;
 }
+
+function addApplicationModal() {
+  return `
+  <div
+    class="modal fade"
+    id="addApplicationModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">New Application</h5>
+          <button
+            class="close"
+            type="button"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <form id="add-application-form">
+          <div class="modal-body">
+            <input
+              type="text"
+              class="form-control form-input"
+              id="input-application-id"
+              placeholder=""
+              hidden
+              required
+            />
+            <div class="form-group">
+              <label class="form-label">Full Name</label>
+              <input
+                type="text"
+                class="form-control form-input"
+                id="input-application-name"
+                placeholder=""
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phone Number</label>
+              <input
+                type="text"
+                class="form-control form-input"
+                id="input-application-phone-number"
+                placeholder=""
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control form-input"
+                id="input-application-email"
+                placeholder=""
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">About Me</label>
+              <textarea
+                class="form-control form-input"
+                id="input-application-about-me"
+                rows="3"
+                required
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Linkedin Profile URL</label>
+              <input
+                type="url"
+                class="form-control form-input"
+                id="input-application-linkin-profile-url"
+                placeholder=""
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="ml-auto">
+              <button
+                class="btn btn-secondary"
+                type="button"
+                data-dismiss="modal"
+              >
+                Cancel
+              </button>
+              <button
+                class="btn btn-warning parcel-add-new-parcel-text53"
+                type="submit"
+                id="add-application-submit-btn"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>`;
+}

@@ -1,32 +1,59 @@
 document.getElementById('header-container').innerHTML = header('career');
 document.getElementById('footer-container').innerHTML = footer('career');
+document.getElementById('add-application-modal-container').innerHTML =
+  addApplicationModal();
 
-var postData = [
-  {
-    title: 'Product Designer',
-    tag: 'Design',
-    description:
-      'We’re looking for someone motivated and experienced to join our team.',
-    location: 'Remote',
-    type: 'Full-time',
-  },
-  {
-    title: 'Engineering Manager',
-    tag: 'Software Development',
-    description:
-      'We’re looking for someone motivated and experienced to join our team.',
-    location: 'Remote',
-    type: 'Full-time',
-  },
-  {
-    title: 'Customer Success Manager',
-    tag: 'Customer Success',
-    description:
-      'We’re looking for someone motivated and experienced to join our team.',
-    location: 'Remote',
-    type: 'Full-time',
-  },
-];
+var postData = [];
+
+document
+  .getElementById('add-application-form')
+  .addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    let useBtn = document.querySelector('#add-application-submit-btn');
+    let defaultBtnText = useBtn.innerHTML;
+
+    useBtn.disabled = true;
+    useBtn.innerHTML = `${spinner} ${useBtn.innerHTML}`;
+
+    const options = {
+      body: JSON.stringify({
+        career_id: getMyElement('input-application-id').value,
+        name: getMyElement('input-application-name').value,
+        phone_number: getMyElement('input-application-phone-number').value,
+        email: getMyElement('input-application-email').value,
+        about_me: getMyElement('input-application-about-me').value,
+        linkin_profile_url: getMyElement('input-application-linkin-profile-url')
+          .value,
+      }),
+    };
+
+    fetchAPI(
+      'https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/applicant/add',
+      'POST',
+      token,
+      options
+    )
+      .then((data) => {
+        useBtn.disabled = false;
+        useBtn.innerHTML = defaultBtnText;
+        if (data?.message) {
+          showToast('alert-toast-container', data.message, 'danger');
+        } else {
+          $('#addApplicationModal').modal('hide');
+          showToast(
+            'alert-toast-container',
+            'Submitted successfully!',
+            'success'
+          );
+        }
+      })
+      .catch((error) => {
+        useBtn.disabled = false;
+        useBtn.innerHTML = defaultBtnText;
+        console.log('error', error);
+      });
+  });
 
 function populateContent() {
   const listLoader = document.getElementById('content-list-loader');
@@ -51,7 +78,8 @@ function populateContent() {
     listItem[1].innerHTML = item.type;
 
     button[0].addEventListener('click', function () {
-      window.open(item.application_url, '_blank');
+      getMyElement('input-application-id').value = item.id;
+      $('#addApplicationModal').modal('show');
     });
 
     totalRecord.push(card);

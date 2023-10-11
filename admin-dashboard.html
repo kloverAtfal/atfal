@@ -445,26 +445,66 @@
                           class="btn btn-warning atfal-primary-btn"
                           id="add-new-career-btn"
                         >
-                          Add New
+                          Add New Career
                         </button>
                       </div>
                     </div>
                   </div>
-                  <div id="table-loader-career">
-                    <div class="d-flex justify-content-center">
-                      <div class="spinner-border" role="status">
-                        <span class="sr-only">Loading...</span>
+                  <ul
+                    class="nav nav-tabs mt-3 mb-3"
+                    id="myNestedTabCareer"
+                    role="tablist"
+                  >
+                    <!-- nav tabs -->
+                  </ul>
+                  <div
+                    class="tab-pane fade"
+                    id="career-tab-1"
+                    role="tabpanel"
+                    aria-labelledby="career-content-1"
+                  >
+                    <div id="career-tab-1-container">
+                      <div id="table-loader-career">
+                        <div class="d-flex justify-content-center">
+                          <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                          </div>
+                        </div>
                       </div>
+                      <table
+                        id="career_table"
+                        class="table table-hover"
+                        style="background-color: white; width: 100%"
+                      >
+                        <thead class="datatable-header-container"></thead>
+                        <tbody class="datatable-row-container"></tbody>
+                      </table>
                     </div>
                   </div>
-                  <table
-                    id="career_table"
-                    class="table table-hover"
-                    style="background-color: white; width: 100%"
+                  <div
+                    class="tab-pane fade"
+                    id="career-tab-2"
+                    role="tabpanel"
+                    aria-labelledby="career-content-2"
                   >
-                    <thead class="datatable-header-container"></thead>
-                    <tbody class="datatable-row-container"></tbody>
-                  </table>
+                    <div id="career-tab-2-container">
+                      <div id="table-loader-career-application">
+                        <div class="d-flex justify-content-center">
+                          <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                          </div>
+                        </div>
+                      </div>
+                      <table
+                        id="career_application_table"
+                        class="table table-hover"
+                        style="background-color: white; width: 100%"
+                      >
+                        <thead class="datatable-header-container"></thead>
+                        <tbody class="datatable-row-container"></tbody>
+                      </table>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
