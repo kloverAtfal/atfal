@@ -121,7 +121,7 @@ function populateToTable(data) {
         },
       },
       {
-        title: '<label class="datatable-header-title">Total Sales 1</label>',
+        title: '<label class="datatable-header-title">Total Sales</label>',
         data: 'user_data',
         render: function (data, type, row, meta) {
           let total = 0;
