@@ -121,42 +121,34 @@ function populateToTable(data) {
         },
       },
       {
-        title: '<label class="datatable-header-title">Total Sales</label>',
+        title: '<label class="datatable-header-title">Total Sales 1</label>',
         data: 'user_data',
         render: function (data, type, row, meta) {
-          if (data.shipment_price_of_user_data.length !== 0) {
-            var total_sales_shipment = 0;
-            var total_sales_transaction = 0;
-            var totalSales = 0;
+          let total = 0;
 
-            data.shipment_price_of_user_data.map(function (item) {
-              if (
-                item.payment_status_id == 1 &&
-                item.payout_payment_status_id !== 1
-              ) {
-                var price = item.price_myr ? parseFloat(item.price_myr) : 0;
-                total_sales_shipment = price;
-              }
-            });
+          total += data.shipment_price_of_user_data.reduce((acc, shipment) => {
+            if (
+              shipment.payment_status_id === 1 &&
+              shipment.payout_payment_status_id !== 1
+            ) {
+              return acc + (parseFloat(shipment.price_myr) || 0);
+            }
+            return acc;
+          }, 0);
 
-            data.topup_price_of_user_data.map(function (item) {
-              if (
-                item.payment_status_id == 1 &&
-                item.payout_payment_status_id !== 1
-              ) {
-                var price = item.price_myr ? parseFloat(item.price_myr) : 0;
-                total_sales_transaction = price;
-              }
-            });
+          total += data.topup_price_of_user_data.reduce((acc, transaction) => {
+            if (
+              transaction.payment_status_id === 1 &&
+              transaction.payout_payment_status_id !== 1
+            ) {
+              return acc + (parseFloat(transaction.price_myr) || 0);
+            }
+            return acc;
+          }, 0);
 
-            totalSales = total_sales_shipment + total_sales_transaction;
-
-            return `<div class="datatable-item-container"><div class="datatable-item-title">RM ${parseFloat(
-              totalSales.toFixed(2)
-            ).toString()}</div></div>`;
-          } else {
-            return `<div class="datatable-item-container"><div class="datatable-item-title">-</div></div>`;
-          }
+          return `<div class="datatable-item-container"><div class="datatable-item-title">RM ${total.toFixed(
+            2
+          )}</div></div>`;
         },
       },
       {
