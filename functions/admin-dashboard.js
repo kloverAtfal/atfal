@@ -18,8 +18,8 @@ function sidebarNavigationLoaded() {
     editShipmentModal();
   document.getElementById('edit-transaction-modal-container').innerHTML =
     editTransactionModal();
-  // document.getElementById('edit-payout-modal-container').innerHTML =
-  //   editPayoutModal();
+  document.getElementById('edit-payout-modal-container').innerHTML =
+    editPayoutModal();
   document.getElementById('edit-user-modal-container').innerHTML =
     editUserModal();
   document.getElementById('add-career-modal-container').innerHTML =
