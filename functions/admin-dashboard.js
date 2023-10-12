@@ -18,8 +18,8 @@ function sidebarNavigationLoaded() {
     editShipmentModal();
   document.getElementById('edit-transaction-modal-container').innerHTML =
     editTransactionModal();
-  document.getElementById('edit-payout-modal-container').innerHTML =
-    editPayoutModal();
+  // document.getElementById('edit-payout-modal-container').innerHTML =
+  //   editPayoutModal();
   document.getElementById('edit-user-modal-container').innerHTML =
     editUserModal();
   document.getElementById('add-career-modal-container').innerHTML =
@@ -188,8 +188,6 @@ const tableLoaderCareerApplication = document.getElementById(
 );
 
 var selectedRowIndex = null;
-var shipment_payout_list = [];
-var transaction_payout_list = [];
 
 var feeData = [];
 var preId_fee = 'input-fee';
@@ -290,11 +288,19 @@ function editShipment(passId) {
   // }
 }
 
+const fileUploadInstance = initializeFileUpload(
+  'payout-file-upload',
+  'payout-text-file-upload-name',
+  'payout-preview-image'
+);
+
 function editPayout(passId) {
   $('#editPayoutModal').modal('show');
 
+  fileUploadInstance.clearFile();
+
   populateToForm(passId, getTableData('#payout_table'), {
-    'input-payout-id': 'id',
+    'input-payout-user-id': 'id',
     'input-payout-username': 'username',
   });
 
@@ -308,6 +314,7 @@ function editPayout(passId) {
     var total_shipment = 0;
     var total_transaction = 0;
     var total = 0;
+    var totalPaid = 0;
 
     if (foundObject.referrals_of_user_data.length > 0) {
       foundObject.referrals_of_user_data.map((item) => {
@@ -333,7 +340,6 @@ function editPayout(passId) {
           : 0;
 
         total_shipment = total_shipment + (comm / 100) * price;
-        shipment_payout_list.push(item);
       }
     });
 
@@ -345,25 +351,22 @@ function editPayout(passId) {
           : 0;
 
         total_transaction = total_transaction + (comm / 100) * price;
-        transaction_payout_list.push(item);
       }
     });
 
     total = total_shipment + total_transaction;
 
-    getMyElement('input-total-payout').value = `RM ${parseFloat(
+    if (foundObject.referrals_payment_of_user_data.length !== 0) {
+      foundObject.referrals_payment_of_user_data.map((item) => {
+        totalPaid = totalPaid + item.amount_paid;
+      });
+    }
+
+    total = total - totalPaid;
+
+    getMyElement('input-total-pending-payout').value = `RM ${parseFloat(
       total.toFixed(2)
     ).toString()}`;
-
-    if (total > 0) {
-      getMyElement('input-select-payout-status').disabled = false;
-    } else {
-      getMyElement('input-select-payout-status').disabled = true;
-    }
-  } else {
-    shipment_payout_list = [];
-    transaction_payout_list = [];
-    getMyElement('input-select-payout-status').disabled = true;
   }
 
   $('#editPayoutModal').modal('show');
@@ -558,30 +561,26 @@ document
     useBtn.disabled = true;
     useBtn.innerHTML = `${spinner} ${useBtn.innerHTML}`;
 
-    let shipment_array_id = [];
-    shipment_payout_list.map((item) => {
-      shipment_array_id.push({ shipment_price_id: item.id });
-    });
+    const uploadedFile = fileUploadInstance.getFile();
 
-    let topup_array_id = [];
-    transaction_payout_list.map((item) => {
-      topup_array_id.push({ topup_price_id: item.id });
-    });
+    let formData = new FormData();
+    formData.append('user_id', getMyElement('input-payout-user-id').value);
+    formData.append(
+      'amount_paid',
+      getMyElement('input-amount-to-pay-payout').value
+    );
+    formData.append('file_resource_payment_receipt_photo', uploadedFile);
 
     const options = {
-      body: JSON.stringify({
-        user_id: getMyElement('input-payout-id').value,
-        shipment_price_list: shipment_array_id,
-        topup_price_list: topup_array_id,
-        payout_status_id: getMyElement('input-select-payout-status').value,
-      }),
+      body: formData,
     };
 
     fetchAPI(
-      'https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/admin/update/payout',
-      'PUT',
+      'https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/admin/update/referrals_payment',
+      'POST',
       token,
-      options
+      options,
+      (headers = null)
     )
       .then((data) => {
         useBtn.disabled = false;
@@ -1564,60 +1563,54 @@ function populateToTablePayout(tableData) {
       },
     },
     {
-      title: '<label class="datatable-header-title">Total Sales</label>',
+      title: '<label class="datatable-header-title">Total Group Sales</label>',
       data: 'id',
       render: function (data, type, row, meta) {
-        var shipment_list = [];
-        var transaction_list = [];
-        var total_shipment = 0;
-        var total_transaction = 0;
-        var total = 0;
+        let total = 0;
 
-        if (row.referrals_of_user_data.length > 0) {
-          row.referrals_of_user_data.map((item) => {
-            if (item.shipment_price_of_user_data.length > 0) {
-              item.shipment_price_of_user_data.map((item2) => {
-                shipment_list.push(item2);
-              });
+        row.referrals_of_user_data.forEach((item) => {
+          total += item.shipment_price_of_user_data.reduce((acc, shipment) => {
+            if (
+              shipment.payment_status_id === 1 &&
+              shipment.payout_payment_status_id !== 1
+            ) {
+              return acc + (parseFloat(shipment.price_myr) || 0);
             }
+            return acc;
+          }, 0);
 
-            if (item.topup_price_of_user_data.length > 0) {
-              item.topup_price_of_user_data.map((item3) => {
-                transaction_list.push(item3);
-              });
+          total += item.topup_price_of_user_data.reduce((acc, transaction) => {
+            if (
+              transaction.payment_status_id === 1 &&
+              transaction.payout_payment_status_id !== 1
+            ) {
+              return acc + (parseFloat(transaction.price_myr) || 0);
             }
-          });
-        }
-
-        shipment_list.map(function (item) {
-          if (
-            item.payment_status_id == 1 &&
-            item.payout_payment_status_id !== 1
-          ) {
-            var price = item.price_myr ? parseFloat(item.price_myr) : 0;
-            total_shipment = total_shipment + price;
-          }
+            return acc;
+          }, 0);
         });
 
-        transaction_list.map(function (item) {
-          if (
-            item.payment_status_id == 1 &&
-            item.payout_payment_status_id !== 1
-          ) {
-            var price = item.price_myr ? parseFloat(item.price_myr) : 0;
-            total_transaction = total_transaction + price;
-          }
-        });
-
-        total = total_shipment + total_transaction;
-
-        return `<div class="datatable-item-container"><div class="datatable-item-title">RM ${parseFloat(
-          total.toFixed(2)
-        ).toString()}</div></div>`;
+        return `<div class="datatable-item-container"><div class="datatable-item-title">RM ${total.toFixed(
+          2
+        )}</div></div>`;
       },
     },
     {
-      title: '<label class="datatable-header-title">Total Payout</label>',
+      title: '<label class="datatable-header-title">Total Paid Payout</label>',
+      data: 'id',
+      render: function (data, type, row, meta) {
+        const totalPaid = row.referrals_payment_of_user_data.reduce(
+          (acc, item) => acc + item.amount_paid,
+          0
+        );
+        return `<div class="datatable-item-container"><div class="datatable-item-title">RM ${totalPaid.toFixed(
+          2
+        )}</div></div>`;
+      },
+    },
+    {
+      title:
+        '<label class="datatable-header-title">Total Pending Payout</label>',
       data: 'id',
       render: function (data, type, row, meta) {
         var shipment_list = [];
@@ -1625,6 +1618,7 @@ function populateToTablePayout(tableData) {
         var total_shipment = 0;
         var total_transaction = 0;
         var total = 0;
+        var totalPaid = 0;
 
         if (row.referrals_of_user_data.length > 0) {
           row.referrals_of_user_data.map((item) => {
@@ -1643,10 +1637,7 @@ function populateToTablePayout(tableData) {
         }
 
         shipment_list.map(function (item) {
-          if (
-            item.payment_status_id == 1 &&
-            item.payout_payment_status_id !== 1
-          ) {
+          if (item.payment_status_id == 1) {
             var price = item.price_myr ? parseFloat(item.price_myr) : 0;
             var comm = item.payout_percentage
               ? parseFloat(item.payout_percentage)
@@ -1657,10 +1648,7 @@ function populateToTablePayout(tableData) {
         });
 
         transaction_list.map(function (item) {
-          if (
-            item.payment_status_id == 1 &&
-            item.payout_payment_status_id !== 1
-          ) {
+          if (item.payment_status_id == 1) {
             var price = item.price_myr ? parseFloat(item.price_myr) : 0;
             var comm = item.payout_percentage
               ? parseFloat(item.payout_percentage)
@@ -1671,6 +1659,14 @@ function populateToTablePayout(tableData) {
         });
 
         total = total_shipment + total_transaction;
+
+        if (row.referrals_payment_of_user_data.length !== 0) {
+          row.referrals_payment_of_user_data.map((item) => {
+            totalPaid = totalPaid + item.amount_paid;
+          });
+        }
+
+        total = total - totalPaid;
 
         return `<div class="datatable-item-container"><div class="datatable-item-title">RM ${parseFloat(
           total.toFixed(2)
@@ -1944,14 +1940,6 @@ function firstFetch() {
           getMyElement('input-select-transaction-status').appendChild(
             optionElement
           );
-        });
-
-        data.payout_status_list.unshift({ id: '', name: 'Please Select' });
-        data.payout_status_list.forEach((item) => {
-          const optionElement = document.createElement('option');
-          optionElement.value = item.id;
-          optionElement.text = item.name;
-          getMyElement('input-select-payout-status').appendChild(optionElement);
         });
 
         data.shipping_status_list.unshift({ id: '', name: 'Please Select' });

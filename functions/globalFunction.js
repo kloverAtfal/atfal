@@ -225,6 +225,64 @@ function getSavedData(key) {
     const data = getSavedData(key);
     */
 
+function initializeFileUpload(inputId, textDisplayId, imageId) {
+  var fileUploadPhoto = null;
+  const fileUpload = document.getElementById(inputId);
+  const fileUploadName = document.getElementById(textDisplayId);
+  const imageProfile = document.getElementById(imageId);
+
+  fileUpload.addEventListener('click', (event) => {
+    const fileInput = document.createElement('input');
+    fileInput.setAttribute('type', 'file');
+    fileInput.setAttribute('accept', 'image/*');
+
+    fileInput.addEventListener('change', (event) => {
+      handleFileUpload(event.target.files[0]);
+    });
+
+    fileInput.click();
+  });
+
+  fileUpload.addEventListener('dragover', (event) => {
+    event.preventDefault();
+  });
+
+  fileUpload.addEventListener('drop', (event) => {
+    event.preventDefault();
+    handleFileUpload(event.dataTransfer.files[0]);
+  });
+
+  function handleFileUpload(file) {
+    fileUploadPhoto = file;
+    fileUploadName.innerHTML = `File: ${file.name}`;
+
+    const objectUrl = URL.createObjectURL(file);
+
+    // Set a temporary image URL if object URL is not available
+    const temporaryImageUrl = 'path/to/temporary/image.jpg';
+    imageProfile.setAttribute('src', objectUrl || temporaryImageUrl);
+  }
+
+  return {
+    getFile: function () {
+      return fileUploadPhoto;
+    },
+    clearFile: function () {
+      fileUploadPhoto = null;
+      fileUploadName.innerHTML = 'No file chosen';
+      const temporaryImageUrl = 'path/to/temporary/image.jpg';
+      imageProfile.setAttribute('src', temporaryImageUrl); // Set temporary image on clear
+    },
+  };
+}
+
+// // Usage
+// const fileUploadInstance = initializeFileUpload('file-upload', 'text-file-upload-name', 'image-profile');
+// // To get the uploaded file
+// const uploadedFile = fileUploadInstance.getFile();
+// // To clear the uploaded file and reset the UI
+// fileUploadInstance.clearFile();
+
 function getMyElement(form_id = '') {
   return document.getElementById(form_id);
 }
