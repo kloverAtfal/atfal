@@ -198,7 +198,7 @@ function footer(pageName, callback) {
   `;
 }
 
-function sidebarNavigation(pageName, callback) {
+function sidebarNavigation(pageName, userRole = null) {
   return `<nav id="sidebar">
   <div class="sidebar-header d-flex">
     <img
@@ -284,6 +284,9 @@ function sidebarNavigation(pageName, callback) {
         </div>
       </a>
     </li>
+    ${
+      userRole == 2
+        ? `
     <li class="${pageName == 'admin' ? 'active' : ''}">
       <a href="admin-dashboard.html" class="d-flex" style="text-decoration: none">
         <img
@@ -296,6 +299,9 @@ function sidebarNavigation(pageName, callback) {
         </div>
       </a>
     </li>
+    `
+        : ''
+    }
   </ul>
   <ul class="list-unstyled">
     <li>
@@ -323,8 +329,6 @@ function sidebarNavigation(pageName, callback) {
     </li>
   </ul>
 </nav>`;
-
-  callback();
 }
 
 function logoutModal() {
@@ -680,8 +684,45 @@ function editPayoutModal() {
               required
             />
           </div>
+          <hr/>
+          <label class="form-label">Please make the payment using the given details and after the payment is completed, please submit the proof of payment.</label>
           <div class="form-group">
-            <label class="form-label">Amount to Pay (RM)</label>
+            <label class="form-label">Bank name</label>
+            <input
+              type="text"
+              class="form-control form-input"
+              id="input-bank-name-payout"
+              disabled
+              placeholder=""
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label"
+              >Bank account holder's name</label
+            >
+            <input
+              type="text"
+              class="form-control form-input"
+              id="input-bank-account-holder-name-payout"
+              disabled
+              placeholder=""
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Bank account number</label>
+            <input
+              type="number"
+              class="form-control form-input"
+              id="input-bank-account-number-payout"
+              disabled
+              placeholder=""
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Amount Paid (RM)</label>
             <input
               type="number"
               step="0.01"

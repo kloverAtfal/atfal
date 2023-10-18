@@ -6,27 +6,24 @@ if (!token) {
 
 document.getElementById('sidebar-navigation').innerHTML = sidebarNavigation(
   'admin',
-  sidebarNavigationLoaded()
+  myData?.userData.role_id
 );
-
-function sidebarNavigationLoaded() {
-  document.getElementById('body-content').style.display = 'block';
-  document.getElementById('logout-modal-container').innerHTML = logoutModal();
-  document.getElementById('edit-parcel-modal-container').innerHTML =
-    editParcelModal();
-  document.getElementById('edit-shipment-modal-container').innerHTML =
-    editShipmentModal();
-  document.getElementById('edit-transaction-modal-container').innerHTML =
-    editTransactionModal();
-  document.getElementById('edit-payout-modal-container').innerHTML =
-    editPayoutModal();
-  document.getElementById('edit-user-modal-container').innerHTML =
-    editUserModal();
-  document.getElementById('add-career-modal-container').innerHTML =
-    editCareerModal('add');
-  document.getElementById('edit-career-modal-container').innerHTML =
-    editCareerModal('edit');
-}
+document.getElementById('body-content').style.display = 'block';
+document.getElementById('logout-modal-container').innerHTML = logoutModal();
+document.getElementById('edit-parcel-modal-container').innerHTML =
+  editParcelModal();
+document.getElementById('edit-shipment-modal-container').innerHTML =
+  editShipmentModal();
+document.getElementById('edit-transaction-modal-container').innerHTML =
+  editTransactionModal();
+document.getElementById('edit-payout-modal-container').innerHTML =
+  editPayoutModal();
+document.getElementById('edit-user-modal-container').innerHTML =
+  editUserModal();
+document.getElementById('add-career-modal-container').innerHTML =
+  editCareerModal('add');
+document.getElementById('edit-career-modal-container').innerHTML =
+  editCareerModal('edit');
 
 $(document).ready(function () {
   $('#sidebarCollapse').on('click', function () {
@@ -63,27 +60,27 @@ defaultTab.classList.add('show', 'active');
 tabs.push(
   {
     id: 'parcel-tab-content',
-    title: 'All Parcel',
+    title: 'Parcels',
     content: 'parcel-tab',
   },
   {
     id: 'shipment-tab-content',
-    title: 'All Shipment',
+    title: 'Shipments',
     content: 'shipment-tab',
   },
   {
     id: 'transaction-tab-content',
-    title: 'All Transaction',
+    title: 'Transactions',
     content: 'transaction-tab',
   },
   {
     id: 'payout-tab-content',
-    title: 'All Payout',
+    title: 'Payouts',
     content: 'payout-tab',
   },
   {
     id: 'users-tab-content',
-    title: 'All User',
+    title: 'Users',
     content: 'users-tab',
   },
   {
@@ -98,7 +95,7 @@ tabs.push(
   },
   {
     id: 'career-tab-content',
-    title: 'All Career',
+    title: 'Careers',
     content: 'career-tab',
   }
 );
@@ -128,12 +125,12 @@ defaultTabCareer.classList.add('show', 'active');
 tabsCareer.push(
   {
     id: 'career-tab-content-1',
-    title: 'Career List',
+    title: 'Posts',
     content: 'career-tab-1',
   },
   {
     id: 'career-tab-content-2',
-    title: 'Application List',
+    title: 'Applications',
     content: 'career-tab-2',
   }
 );
@@ -302,6 +299,9 @@ function editPayout(passId) {
   populateToForm(passId, getTableData('#payout_table'), {
     'input-payout-user-id': 'id',
     'input-payout-username': 'username',
+    'input-bank-name-payout': 'bank_name',
+    'input-bank-account-holder-name-payout': 'bank_account_holder_name',
+    'input-bank-account-number-payout': 'bank_account_number',
   });
 
   var foundObject = getTableData('#payout_table').find(function (obj) {
@@ -1862,7 +1862,7 @@ function populateToTableApplication(tableData) {
       title: '<label class="datatable-header-title">Linkin Profile Url</label>',
       data: 'linkin_profile_url',
       render: function (data, type, row, meta) {
-        return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
+        return `<div class="datatable-item-container"><div class="datatable-item-title"><a href="${data}" target="_blank">${data}</a></div></div>`;
       },
     },
     {

@@ -6,13 +6,10 @@ if (!token) {
 
 document.getElementById('sidebar-navigation').innerHTML = sidebarNavigation(
   'home',
-  sidebarNavigationLoaded()
+  myData?.userData.role_id
 );
-
-function sidebarNavigationLoaded() {
-  document.getElementById('body-content').style.display = 'block';
-  document.getElementById('logout-modal-container').innerHTML = logoutModal();
-}
+document.getElementById('body-content').style.display = 'block';
+document.getElementById('logout-modal-container').innerHTML = logoutModal();
 
 $(document).ready(function () {
   $('#sidebarCollapse').on('click', function () {
