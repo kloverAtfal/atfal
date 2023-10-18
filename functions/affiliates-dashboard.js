@@ -6,13 +6,10 @@ if (!token) {
 
 document.getElementById('sidebar-navigation').innerHTML = sidebarNavigation(
   'affiliates',
-  sidebarNavigationLoaded()
+  myData?.userData.role_id
 );
-
-function sidebarNavigationLoaded() {
-  document.getElementById('body-content').style.display = 'block';
-  document.getElementById('logout-modal-container').innerHTML = logoutModal();
-}
+document.getElementById('body-content').style.display = 'block';
+document.getElementById('logout-modal-container').innerHTML = logoutModal();
 
 $(document).ready(function () {
   $('#sidebarCollapse').on('click', function () {
@@ -53,6 +50,11 @@ tabs.push(
     content: 'my-team-tab',
   },
   {
+    id: 'payout-history-tab-content',
+    title: 'Payout History',
+    content: 'payout-history-tab',
+  },
+  {
     id: 'settings-team-tab-content',
     title: 'Settings',
     content: 'settings-team-tab',
@@ -79,251 +81,33 @@ for (let i = 0; i < tabs.length; i++) {
 }
 document.getElementById('myTab').innerHTML = tabHTML;
 
-const tableLoader = document.getElementById('table-loader');
-
-let tableData = [];
-
-function populateToTable(data) {
-  // updateTotals(data);
-
-  // initialize Datatables with your table and column definitions
-  const table = $('#affiliates_table').DataTable({
-    data: tableData,
-    columns: [
-      {
-        title: '<label class="datatable-header-title">Members</label>',
-        data: 'user_data',
-        render: function (data, type, row, meta) {
-          return `<div class="datatable-item-container"><div class="datatable-item-title">
-            <div class="d-flex" style="text-decoration: none">
-            <img src="${
-              data.profile_image
-                ? data.profile_image?.url
-                : `https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png`
-            }" class="rounded-circle mr-2" style="width: 35px; height: 35px" alt="Avatar">
-            <div class="form-label mr-2 row">
-              <span>${data.username}</span>
-              <span class="small">${data.email}</span>
-            </div>
-            </div>
-          </div></div>`;
-        },
-      },
-      {
-        title: '<label class="datatable-header-title">Date Created</label>',
-        data: 'created_at',
-        render: function (data, type, row, meta) {
-          return `<div class="datatable-item-container" onclick="alert(${formatDate(
-            data
-          )})"><div class="datatable-item-title">${formatDate(
-            data
-          )}</div></div>`;
-        },
-      },
-      {
-        title: '<label class="datatable-header-title">Total Sales</label>',
-        data: 'user_data',
-        render: function (data, type, row, meta) {
-          let total = 0;
-
-          total += data.shipment_price_of_user_data.reduce((acc, shipment) => {
-            if (
-              shipment.payment_status_id === 1 &&
-              shipment.payout_payment_status_id !== 1
-            ) {
-              return acc + (parseFloat(shipment.price_myr) || 0);
-            }
-            return acc;
-          }, 0);
-
-          total += data.topup_price_of_user_data.reduce((acc, transaction) => {
-            if (
-              transaction.payment_status_id === 1 &&
-              transaction.payout_payment_status_id !== 1
-            ) {
-              return acc + (parseFloat(transaction.price_myr) || 0);
-            }
-            return acc;
-          }, 0);
-
-          return `<div class="datatable-item-container"><div class="datatable-item-title">RM ${total.toFixed(
-            2
-          )}</div></div>`;
-        },
-      },
-      {
-        title: '<label class="datatable-header-title">Total Payout</label>',
-        data: 'user_data',
-        render: function (data, type, row, meta) {
-          if (data.topup_price_of_user_data.length !== 0) {
-            var total_payout_shipment = 0;
-            var total_payout_transaction = 0;
-            var totalPayout = 0;
-
-            data.shipment_price_of_user_data.map(function (item) {
-              if (
-                item.payment_status_id == 1 &&
-                item.payout_payment_status_id !== 1
-              ) {
-                var price = item.price_myr ? parseFloat(item.price_myr) : 0;
-                var comm = item.payout_percentage
-                  ? parseFloat(item.payout_percentage)
-                  : 0;
-
-                total_payout_shipment =
-                  total_payout_shipment + (comm / 100) * price;
-              }
-            });
-
-            data.topup_price_of_user_data.map(function (item) {
-              if (
-                item.payment_status_id == 1 &&
-                item.payout_payment_status_id !== 1
-              ) {
-                var price = item.price_myr ? parseFloat(item.price_myr) : 0;
-                var comm = item.payout_percentage
-                  ? parseFloat(item.payout_percentage)
-                  : 0;
-
-                total_payout_transaction =
-                  total_payout_transaction + (comm / 100) * price;
-              }
-            });
-
-            totalPayout = total_payout_shipment + total_payout_transaction;
-
-            return `<div class="datatable-item-container"><div class="datatable-item-title">RM ${parseFloat(
-              totalPayout.toFixed(2)
-            ).toString()}</div></div>`;
-          } else {
-            return `<div class="datatable-item-container"><div class="datatable-item-title">-</div></div>`;
-          }
-        },
-      },
-      {
-        title: '<label class="datatable-header-title"></label>',
-        data: 'id',
-        orderable: false, // disable sorting for this column
-        render: function (data, type, row, meta) {
-          return `<div class="datatable-item-container"><div class="datatable-item-title">
-            <button onclick="viewDetails('${data}', this)" type="button" class="btn btn-light btn-sm atfal-secondary-btn">View</button>
-          </div></div>`;
-        },
-      },
-    ],
-    lengthChange: false,
-    buttons: [
-      {
-        extend: 'csv',
-        //   split: ["pdf", "excel"],
-      },
-    ],
-    drawCallback: function () {
-      tableLoader.style.display = 'none';
-    },
-  });
-
-  // table
-  //   .buttons()
-  //   .container()
-  //   .appendTo("#example_wrapper .col-md-6:eq(0)");
-
-  var buttonDownloadCSV = document.getElementById('button-download-csv');
-  buttonDownloadCSV.addEventListener('click', function () {
-    table.button('.buttons-csv').trigger();
-  });
-
-  let checkedRows = [];
-
-  // Add click event handler for checkAll checkbox
-  $('#checkAll').on('click', function () {
-    const isChecked = $(this).prop('checked');
-    if (isChecked) {
-      // Set checked attribute and push data for all checkboxes with id="checkItem"
-      table
-        .rows()
-        .nodes()
-        .each(function (row) {
-          const checkbox = $(row).find("input[type='checkbox']");
-          if (checkbox.attr('id') === 'checkItem') {
-            checkbox.prop('checked', true);
-            const rowData = table.row(row).data();
-            if (!isCheckedRow(rowData)) {
-              checkedRows.push(rowData);
-            }
-          }
-        });
-    } else {
-      // Remove checked attribute and remove data for all checkboxes with id="checkItem"
-      table
-        .rows()
-        .nodes()
-        .each(function (row) {
-          const checkbox = $(row).find("input[type='checkbox']");
-          if (checkbox.attr('id') === 'checkItem') {
-            checkbox.prop('checked', false);
-            const rowData = table.row(row).data();
-            const index = checkedRows.findIndex(
-              (item) => item.id === rowData.id
-            );
-            if (index >= 0) {
-              checkedRows.splice(index, 1);
-            }
-          }
-        });
-    }
-  });
-
-  // Add click event handler for individual checkboxes
-  $(document).on('click', '#checkItem', function () {
-    const rowData = table.row($(this).closest('tr')).data();
-    if ($(this).prop('checked')) {
-      if (!isCheckedRow(rowData)) {
-        checkedRows.push(rowData);
-      }
-    } else {
-      const index = checkedRows.findIndex((item) => item.id === rowData.id);
-      if (index >= 0) {
-        checkedRows.splice(index, 1);
-      }
-    }
-  });
-
-  // Function to check if a row is already checked
-  function isCheckedRow(rowData) {
-    return checkedRows.some((item) => item.id === rowData.id);
-  }
-}
-
-selectedAffiliateId = null;
-const affiliateModalUsername = document.getElementById(
-  'affiliate-modal-username'
+const tableLoaderTeam = document.getElementById('table-loader-team');
+const tableLoaderPayoutHistory = document.getElementById(
+  'table-loader-payout-history'
 );
-const affiliateModalProfileImage = document.getElementById(
-  'affiliate-modal-profile-image'
-);
-const affiliateModalCreatedAt = document.getElementById(
-  'affiliate-modal-created-at'
-);
-
-const shipmentTotalSales = document.getElementById('shipment-total-sales');
-const shipmentTotalPayout = document.getElementById('shipment-total-payout');
-const transactionTotalSales = document.getElementById(
-  'transaction-total-sales'
-);
-const transactionTotalPayout = document.getElementById(
-  'transaction-total-payout'
-);
-const gradTotalSales = document.getElementById('grand-total-sales');
-const gradTotalPayout = document.getElementById('grand-total-payout');
 
 function viewDetails(id, button) {
-  var closestRow = $(button).closest('tr');
-  var tableRef = $('#affiliates_table').DataTable();
-  var rowIndex = tableRef.row(closestRow).index();
-  selectedRowIndex = rowIndex;
+  const affiliateModalProfileImage = document.getElementById(
+    'affiliate-modal-profile-image'
+  );
+  const affiliateModalUsername = document.getElementById(
+    'affiliate-modal-username'
+  );
+  const affiliateModalCreatedAt = document.getElementById(
+    'affiliate-modal-created-at'
+  );
+  const shipmentTotalSales = document.getElementById('shipment-total-sales');
+  const shipmentTotalPayout = document.getElementById('shipment-total-payout');
+  const transactionTotalSales = document.getElementById(
+    'transaction-total-sales'
+  );
+  const transactionTotalPayout = document.getElementById(
+    'transaction-total-payout'
+  );
+  const gradTotalSales = document.getElementById('grand-total-sales');
+  const gradTotalPayout = document.getElementById('grand-total-payout');
 
-  var foundObject = tableData.find(function (obj) {
+  var foundObject = getTableData('#team_table').find(function (obj) {
     return obj.id.toString() === id.toString();
   });
 
@@ -424,11 +208,192 @@ function viewDetails(id, button) {
     gradTotalPayout.innerHTML = `-`;
   }
 
-  selectedAffiliateId = id;
   $('#affiliateModal').modal('show');
 }
 
-function getReferralList() {
+function populateToTableTeam(tableData) {
+  const tableColumns = [
+    {
+      title: '<label class="datatable-header-title">Members</label>',
+      data: 'user_data',
+      render: function (data, type, row, meta) {
+        return `<div class="datatable-item-container"><div class="datatable-item-title">
+          <div class="d-flex" style="text-decoration: none">
+          <img src="${
+            data.profile_image
+              ? data.profile_image?.url
+              : `https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png`
+          }" class="rounded-circle mr-2" style="width: 35px; height: 35px" alt="Avatar">
+          <div class="form-label mr-2 row">
+            <span>${data.username}</span>
+            <span class="small">${data.email}</span>
+          </div>
+          </div>
+        </div></div>`;
+      },
+    },
+    {
+      title: '<label class="datatable-header-title">Date Created</label>',
+      data: 'created_at',
+      render: function (data, type, row, meta) {
+        return `<div class="datatable-item-container" onclick="alert(${formatDate(
+          data
+        )})"><div class="datatable-item-title">${formatDate(data)}</div></div>`;
+      },
+    },
+    {
+      title: '<label class="datatable-header-title">Total Sales</label>',
+      data: 'user_data',
+      render: function (data, type, row, meta) {
+        let total = 0;
+
+        total += data.shipment_price_of_user_data.reduce((acc, shipment) => {
+          if (
+            shipment.payment_status_id === 1 &&
+            shipment.payout_payment_status_id !== 1
+          ) {
+            return acc + (parseFloat(shipment.price_myr) || 0);
+          }
+          return acc;
+        }, 0);
+
+        total += data.topup_price_of_user_data.reduce((acc, transaction) => {
+          if (
+            transaction.payment_status_id === 1 &&
+            transaction.payout_payment_status_id !== 1
+          ) {
+            return acc + (parseFloat(transaction.price_myr) || 0);
+          }
+          return acc;
+        }, 0);
+
+        return `<div class="datatable-item-container"><div class="datatable-item-title">RM ${total.toFixed(
+          2
+        )}</div></div>`;
+      },
+    },
+    {
+      title: '<label class="datatable-header-title">Total Payout</label>',
+      data: 'user_data',
+      render: function (data, type, row, meta) {
+        if (data.topup_price_of_user_data.length !== 0) {
+          var total_payout_shipment = 0;
+          var total_payout_transaction = 0;
+          var totalPayout = 0;
+
+          data.shipment_price_of_user_data.map(function (item) {
+            if (
+              item.payment_status_id == 1 &&
+              item.payout_payment_status_id !== 1
+            ) {
+              var price = item.price_myr ? parseFloat(item.price_myr) : 0;
+              var comm = item.payout_percentage
+                ? parseFloat(item.payout_percentage)
+                : 0;
+
+              total_payout_shipment =
+                total_payout_shipment + (comm / 100) * price;
+            }
+          });
+
+          data.topup_price_of_user_data.map(function (item) {
+            if (
+              item.payment_status_id == 1 &&
+              item.payout_payment_status_id !== 1
+            ) {
+              var price = item.price_myr ? parseFloat(item.price_myr) : 0;
+              var comm = item.payout_percentage
+                ? parseFloat(item.payout_percentage)
+                : 0;
+
+              total_payout_transaction =
+                total_payout_transaction + (comm / 100) * price;
+            }
+          });
+
+          totalPayout = total_payout_shipment + total_payout_transaction;
+
+          return `<div class="datatable-item-container"><div class="datatable-item-title">RM ${parseFloat(
+            totalPayout.toFixed(2)
+          ).toString()}</div></div>`;
+        } else {
+          return `<div class="datatable-item-container"><div class="datatable-item-title">-</div></div>`;
+        }
+      },
+    },
+    {
+      title: '<label class="datatable-header-title"></label>',
+      data: 'id',
+      orderable: false, // disable sorting for this column
+      render: function (data, type, row, meta) {
+        return `<div class="datatable-item-container"><div class="datatable-item-title">
+          <button onclick="viewDetails('${data}', this)" type="button" class="btn btn-light btn-sm atfal-secondary-btn">View</button>
+        </div></div>`;
+      },
+    },
+  ];
+
+  // var buttonDownloadCSV = document.getElementById('button-download-csv');
+  // buttonDownloadCSV.addEventListener('click', function () {
+  //   table.button('.buttons-csv').trigger();
+  // });
+
+  populateToTable(
+    '#team_table',
+    tableData,
+    tableColumns,
+    tableLoaderTeam,
+    'button-download-csv'
+  );
+}
+
+function populateToTablePayoutHistory(tableData) {
+  const tableColumns = [
+    {
+      title: '<label class="datatable-header-title">Payment Date</label>',
+      data: 'created_at',
+      render: function (data, type, row, meta) {
+        return `<div class="datatable-item-container"><div class="datatable-item-title">${formatDate(
+          data
+        )}</div></div>`;
+      },
+    },
+    {
+      title: '<label class="datatable-header-title">Paid Amount</label>',
+      data: 'amount_paid',
+      render: function (data, type, row, meta) {
+        return `<div class="datatable-item-container"><div class="datatable-item-title">RM ${parseFloat(
+          data.toFixed(2)
+        ).toString()}</div></div>`;
+      },
+    },
+    {
+      title: '<label class="datatable-header-title">Receipt</label>',
+      data: 'payment_receipt',
+      orderable: false,
+      render: function (data, type, row, meta) {
+        if (data) {
+          return `<div class="datatable-item-container">
+                    <div class="datatable-item-title">
+                      <a href="${data.url}" target="_blank" class="btn btn-light btn-sm atfal-secondary-btn">View</a>
+                    </div>
+                  </div>`;
+        } else {
+          return ''; // If data is empty, return an empty string
+        }
+      },
+    },
+  ];
+
+  populateToTable(
+    '#payout_history_table',
+    tableData,
+    tableColumns,
+    tableLoaderPayoutHistory
+  );
+}
+
+function firstFetch() {
   fetchAPI(
     'https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/referrals',
     'GET',
@@ -438,10 +403,11 @@ function getReferralList() {
     .then((data) => {
       if (data?.message) {
         showToast('alert-toast-container', data.message, 'danger');
-        tableLoader.style.display = 'none';
+        tableLoaderTeam.style.display = 'none';
+        tableLoaderPayoutHistory.style.display = 'none';
       } else {
-        tableData = data.referral_list;
-        populateToTable();
+        populateToTableTeam(data.referral_list);
+        populateToTablePayoutHistory(data.payout_history_list);
 
         document.getElementById('input-affiliate-code').value =
           data.affiliate_list.code;
@@ -460,9 +426,10 @@ function getReferralList() {
       }
     })
     .catch((error) => {
-      tableLoader.style.display = 'none';
+      tableLoaderTeam.style.display = 'none';
+      tableLoaderPayoutHistory.style.display = 'none';
       console.log('error', error);
     });
 }
 
-getReferralList();
+firstFetch();

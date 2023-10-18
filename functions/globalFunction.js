@@ -327,7 +327,6 @@ function updateTableDataById(tableName, newData) {
 
 function populateToForm(passId, tableData, inputElements) {
   const selectedItem = tableData.find((item) => item.id == passId);
-  currentSelectedId = selectedItem.id;
 
   Object.entries(inputElements).forEach(([key, prop]) => {
     const propertyValue = prop
@@ -337,7 +336,7 @@ function populateToForm(passId, tableData, inputElements) {
   });
 }
 
-function populateToTable(tableId, tableData, columns, loaderId) {
+function populateToTable(tableId, tableData, columns, loaderId, downloadBtnId) {
   const table = $(tableId).DataTable({
     data: tableData,
     columns: columns,
@@ -352,6 +351,13 @@ function populateToTable(tableId, tableData, columns, loaderId) {
       loaderId.style.display = 'none';
     },
   });
+
+  if (downloadBtnId) {
+    var buttonDownloadCSV = document.getElementById(downloadBtnId);
+    buttonDownloadCSV.addEventListener('click', function () {
+      table.button('.buttons-csv').trigger();
+    });
+  }
 
   let checkedRows = [];
 

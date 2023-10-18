@@ -6,13 +6,10 @@ if (!token) {
 
 document.getElementById('sidebar-navigation').innerHTML = sidebarNavigation(
   'settings',
-  sidebarNavigationLoaded()
+  myData?.userData.role_id
 );
-
-function sidebarNavigationLoaded() {
-  document.getElementById('body-content').style.display = 'block';
-  document.getElementById('logout-modal-container').innerHTML = logoutModal();
-}
+document.getElementById('body-content').style.display = 'block';
+document.getElementById('logout-modal-container').innerHTML = logoutModal();
 
 $(document).ready(function () {
   $('#sidebarCollapse').on('click', function () {
@@ -122,6 +119,13 @@ const inputPostcode = document.getElementById('input-postcode');
 const inputCity = document.getElementById('input-city');
 const inputState = document.getElementById('input-state');
 const inputSelectCountry = document.getElementById('input-select-country');
+const inputBankName = document.getElementById('input-bank-name');
+const inputBankAccountHolderName = document.getElementById(
+  'input-bank-account-holder-name'
+);
+const inputBankAccountNumber = document.getElementById(
+  'input-bank-account-number'
+);
 const inputSelectTimezone = document.getElementById('input-select-timezone');
 const inputSelectCurrency = document.getElementById('input-select-currency');
 const badgeStatus = document.getElementById('badge-status');
@@ -151,6 +155,12 @@ document
     formData.append('city', inputCity.value);
     formData.append('state', inputState.value);
     formData.append('country_id', inputSelectCountry.value);
+    formData.append('bank_name', inputBankName.value);
+    formData.append(
+      'bank_account_holder_name',
+      inputBankAccountHolderName.value
+    );
+    formData.append('bank_account_number', inputBankAccountNumber.value);
     formData.append('currency_id', inputSelectCurrency.value);
     formData.append('timezone_name', inputSelectTimezone.value);
     formData.append('file_resource_profile_photo', fileUploadPhoto);
@@ -307,7 +317,9 @@ function getSettingDropdownData() {
         inputPostcode.value = data.user.postcode;
         inputCity.value = data.user.city;
         inputState.value = data.user.state;
-
+        inputBankName.value = data.user.bank_name;
+        inputBankAccountHolderName.value = data.user.bank_account_holder_name;
+        inputBankAccountNumber.value = data.user.bank_account_number;
         lastUpdatedPassword.innerHTML = `Last reset on ${formatDate(
           data.user.last_updated_password
         )}`;
