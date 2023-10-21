@@ -51,7 +51,7 @@ function fetchAPI(
             );
             localStorage.clear();
             sessionStorage.clear();
-            location.href = '/index';
+            location.href = 'index';
           } else {
             return data;
           }
