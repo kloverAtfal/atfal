@@ -174,7 +174,7 @@ function clearSession() {
   // clear session data, such as removing the token from local storage
   localStorage.removeItem('masterData');
   // redirect user to login page
-  window.location.href = '/index';
+  window.location.href = 'index';
 }
 
 function disableButton(button, text, toggle) {
