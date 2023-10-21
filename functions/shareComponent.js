@@ -1,6 +1,14 @@
 function header(pageName, callback) {
   return `
-  <nav class="navbar navbar-expand-sm fixed-top navbar-light">
+  <nav class="navbar navbar-expand-sm fixed-top navbar-light" style="background-color: rgba(
+    240,
+    240,
+    240,
+    0.5
+  ); 
+  backdrop-filter: blur(
+    20px
+  ); ">
   <div class="container">
     <a class="navbar-brand" href="index.html">
       <span class="mr-3">
@@ -843,6 +851,15 @@ function editUserModal() {
               id="input-select-user-role"
               required
             ></select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Blue Wing Id</label>
+            <input
+              type="text"
+              class="form-control form-input"
+              id="input-user-blue-wing-id"
+              placeholder=""
+            />
           </div>
         </div>
         <div class="modal-footer">
