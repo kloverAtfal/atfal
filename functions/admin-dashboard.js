@@ -378,6 +378,7 @@ function editUser(passId) {
     'input-user-user-id': 'id',
     'input-user-username': 'username',
     'input-select-user-role': 'role_data.id',
+    'input-user-blue-wing-id': 'blue_wing_id',
   });
 }
 
@@ -619,6 +620,7 @@ document
       body: JSON.stringify({
         user_id: getMyElement('input-user-user-id').value,
         role_id: getMyElement('input-select-user-role').value,
+        blue_wing_id: getMyElement('input-user-blue-wing-id').value,
       }),
     };
 
