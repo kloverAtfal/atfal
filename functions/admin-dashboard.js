@@ -97,6 +97,11 @@ tabs.push(
     id: 'career-tab-content',
     title: 'Careers',
     content: 'career-tab',
+  },
+  {
+    id: 'contact-us-tab-content',
+    title: 'Contact Us',
+    content: 'contact-us-tab',
   }
 );
 let tabHTML = '';
@@ -125,7 +130,7 @@ defaultTabCareer.classList.add('show', 'active');
 tabsCareer.push(
   {
     id: 'career-tab-content-1',
-    title: 'Posts',
+    title: 'Job Posts',
     content: 'career-tab-1',
   },
   {
@@ -183,6 +188,7 @@ const tableLoaderCareer = document.getElementById('table-loader-career');
 const tableLoaderCareerApplication = document.getElementById(
   'table-loader-career-application'
 );
+const tableLoaderContactUs = document.getElementById('table-loader-contact-us');
 
 var selectedRowIndex = null;
 
@@ -1092,14 +1098,21 @@ function transactionSummary(tableData) {
 
 function populateToTableParcel(tableData) {
   const tableColumns = [
+    // {
+    //   title:
+    //     '<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="checkAll"/><label class="datatable-header-title" for="flexCheckDefault">Parcel ID</label></div>',
+    //   data: 'custom_id',
+    //   render: function (data, type, row, meta) {
+    //     return `<div class="datatable-item-container"><div class="datatable-item-title">
+    //           <div class="form-check"><input class="form-check-input" type="checkbox" value="${data}" id="checkItem" />${data}</div></div>
+    //           </div></div>`;
+    //   },
+    // },
     {
-      title:
-        '<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="checkAll"/><label class="datatable-header-title" for="flexCheckDefault">Parcel ID</label></div>',
+      title: '<label class="datatable-header-title">ID</label>',
       data: 'custom_id',
       render: function (data, type, row, meta) {
-        return `<div class="datatable-item-container"><div class="datatable-item-title">
-              <div class="form-check"><input class="form-check-input" type="checkbox" value="${data}" id="checkItem" />${data}</div></div>
-              </div></div>`;
+        return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
       },
     },
     {
@@ -1197,14 +1210,21 @@ function populateToTableParcel(tableData) {
 
 function populateToTableShipment(tableData) {
   const tableColumns = [
+    // {
+    //   title:
+    //     '<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="checkAll"/><label class="datatable-header-title" for="flexCheckDefault">Shipping ID</label></div>',
+    //   data: 'custom_id',
+    //   render: function (data, type, row, meta) {
+    //     return `<div class="datatable-item-container"><div class="datatable-item-title">
+    //           <div class="form-check"><input class="form-check-input" type="checkbox" value="${data}" id="checkItem" />${data}</div></div>
+    //           </div></div>`;
+    //   },
+    // },
     {
-      title:
-        '<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="checkAll"/><label class="datatable-header-title" for="flexCheckDefault">Shipping ID</label></div>',
+      title: '<label class="datatable-header-title">ID</label>',
       data: 'custom_id',
       render: function (data, type, row, meta) {
-        return `<div class="datatable-item-container"><div class="datatable-item-title">
-              <div class="form-check"><input class="form-check-input" type="checkbox" value="${data}" id="checkItem" />${data}</div></div>
-              </div></div>`;
+        return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
       },
     },
     {
@@ -1392,14 +1412,23 @@ function populateToTableShipment(tableData) {
 
 function populateToTableTransaction(tableData) {
   const tableColumns = [
+    // {
+    //   title:
+    //     '<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="checkAll"/><label class="datatable-header-title" for="flexCheckDefault">ID</label></div>',
+    //   data: 'custom_id',
+    //   render: function (data, type, row, meta) {
+    //     return `<div class="datatable-item-container"><div class="datatable-item-title">
+    //           <div class="form-check"><input class="form-check-input" type="checkbox" value="${data}" id="checkItem" />${data}</div></div>
+    //           </div></div>`;
+    //   },
+    // },
     {
-      title:
-        '<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="checkAll"/><label class="datatable-header-title" for="flexCheckDefault">ID Id</label></div>',
+      title: '<label class="datatable-header-title">ID</label>',
       data: 'custom_id',
       render: function (data, type, row, meta) {
-        return `<div class="datatable-item-container"><div class="datatable-item-title">
-              <div class="form-check"><input class="form-check-input" type="checkbox" value="${data}" id="checkItem" />${data}</div></div>
-              </div></div>`;
+        return `<div class="datatable-item-container"><div class="datatable-item-title">${
+          data ? data : '-'
+        }</div></div>`;
       },
     },
     {
@@ -1754,14 +1783,21 @@ function populateToTableUsers(tableData) {
 
 function populateToTableCareer(tableData) {
   const tableColumns = [
+    // {
+    //   title:
+    //     '<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="checkAll"/><label class="datatable-header-title" for="flexCheckDefault">Title</label></div>',
+    //   data: 'title',
+    //   render: function (data, type, row, meta) {
+    //     return `<div class="datatable-item-container"><div class="datatable-item-title">
+    //           <div class="form-check"><input class="form-check-input" type="checkbox" value="${data}" id="checkItem" />${data}</div></div>
+    //           </div></div>`;
+    //   },
+    // },
     {
-      title:
-        '<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="checkAll"/><label class="datatable-header-title" for="flexCheckDefault">Title</label></div>',
+      title: '<label class="datatable-header-title">Title</label>',
       data: 'title',
       render: function (data, type, row, meta) {
-        return `<div class="datatable-item-container"><div class="datatable-item-title">
-              <div class="form-check"><input class="form-check-input" type="checkbox" value="${data}" id="checkItem" />${data}</div></div>
-              </div></div>`;
+        return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
       },
     },
     {
@@ -1829,14 +1865,21 @@ function populateToTableCareer(tableData) {
 
 function populateToTableApplication(tableData) {
   const tableColumns = [
+    // {
+    //   title:
+    //     '<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="checkAll"/><label class="datatable-header-title" for="flexCheckDefault">Full Name</label></div>',
+    //   data: 'name',
+    //   render: function (data, type, row, meta) {
+    //     return `<div class="datatable-item-container"><div class="datatable-item-title">
+    //           <div class="form-check"><input class="form-check-input" type="checkbox" value="${data}" id="checkItem" />${data}</div></div>
+    //           </div></div>`;
+    //   },
+    // },
     {
-      title:
-        '<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="checkAll"/><label class="datatable-header-title" for="flexCheckDefault">Full Name</label></div>',
+      title: '<label class="datatable-header-title">Full Name</label>',
       data: 'name',
       render: function (data, type, row, meta) {
-        return `<div class="datatable-item-container"><div class="datatable-item-title">
-              <div class="form-check"><input class="form-check-input" type="checkbox" value="${data}" id="checkItem" />${data}</div></div>
-              </div></div>`;
+        return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
       },
     },
     {
@@ -1884,6 +1927,48 @@ function populateToTableApplication(tableData) {
   );
 }
 
+function populateToTableContactUs(tableData) {
+  const tableColumns = [
+    {
+      title: '<label class="datatable-header-title">Date Created</label>',
+      data: 'created_at',
+      render: function (data, type, row, meta) {
+        return `<div class="datatable-item-container" onclick="alert(${formatDate(
+          data
+        )})"><div class="datatable-item-title">${formatDate(data)}</div></div>`;
+      },
+    },
+    {
+      title: '<label class="datatable-header-title">Name</label>',
+      data: 'name',
+      render: function (data, type, row, meta) {
+        return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
+      },
+    },
+    {
+      title: '<label class="datatable-header-title">Email</label>',
+      data: 'email',
+      render: function (data, type, row, meta) {
+        return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
+      },
+    },
+    {
+      title: '<label class="datatable-header-title">Message</label>',
+      data: 'remarks',
+      render: function (data, type, row, meta) {
+        return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
+      },
+    },
+  ];
+
+  populateToTable(
+    '#contact_us_table',
+    tableData,
+    tableColumns,
+    tableLoaderContactUs
+  );
+}
+
 function firstFetch() {
   fetchAPI(
     'https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/admin/master',
@@ -1906,6 +1991,7 @@ function firstFetch() {
         populateToTableUsers(data.user_list);
         populateToTableCareer(data.career_list);
         populateToTableApplication(data.applicant_list);
+        populateToTableContactUs(data.contact_us_list);
 
         populateToFee();
         populateToRate();

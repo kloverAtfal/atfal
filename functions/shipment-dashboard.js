@@ -80,14 +80,21 @@ function populateToTable(data) {
   const table = $('#example').DataTable({
     data: tableData,
     columns: [
+      // {
+      //   title:
+      //     '<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="checkAll"/><label class="datatable-header-title" for="flexCheckDefault">ID</label></div>',
+      //   data: 'custom_id',
+      //   render: function (data, type, row, meta) {
+      //     return `<div class="datatable-item-container"><div class="datatable-item-title">
+      //           <div class="form-check"><input class="form-check-input" type="checkbox" value="${data}" id="checkItem" />${data}</div></div>
+      //           </div></div>`;
+      //   },
+      // },
       {
-        title:
-          '<div class="form-check"><input class="form-check-input" type="checkbox" value="" id="checkAll"/><label class="datatable-header-title" for="flexCheckDefault">ID</label></div>',
+        title: '<label class="datatable-header-title">ID</label>',
         data: 'custom_id',
         render: function (data, type, row, meta) {
-          return `<div class="datatable-item-container"><div class="datatable-item-title">
-                <div class="form-check"><input class="form-check-input" type="checkbox" value="${data}" id="checkItem" />${data}</div></div>
-                </div></div>`;
+          return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
         },
       },
       {
