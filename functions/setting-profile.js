@@ -40,6 +40,16 @@ document
 
 // --- end auth function
 
+const breadcrumbData = [
+  {
+    text: '<img alt="homelineI131" src="public/external/homelinei131-k1j1.svg" />',
+    url: 'home-dashboard-user.html',
+    isActive: false,
+  },
+  { text: 'Settings', url: 'settings-my-profile.html', isActive: true },
+];
+generateBreadcrumb(breadcrumbData);
+
 let tabs = [];
 var defaultTab = document.getElementById('my-profile-tab');
 defaultTab.classList.add('show', 'active');

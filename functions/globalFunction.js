@@ -43,9 +43,9 @@ const momentFormat = {
   year: 'numeric',
   month: 'short',
   day: 'numeric',
-  // hour: "numeric",
-  // minute: "numeric",
-  // hour12: true,
+  hour: 'numeric',
+  minute: 'numeric',
+  hour12: true,
 };
 
 function formatDate(date) {
@@ -282,6 +282,31 @@ function initializeFileUpload(inputId, textDisplayId, imageId) {
 // const uploadedFile = fileUploadInstance.getFile();
 // // To clear the uploaded file and reset the UI
 // fileUploadInstance.clearFile();
+
+function generateBreadcrumb(items) {
+  const breadcrumbContainer = document.getElementById('breadcrumb-container');
+  const breadcrumbHTML = items
+    .map(
+      (item) => `
+      <span class="mr-2">
+        ${
+          item.url
+            ? `<a href="${item.url}" class="custom-breadcrumb ${
+                item.isActive
+                  ? 'custom-breadcrumb-active'
+                  : 'custom-breadcrumb-not-active'
+              }">${item.text}</a>`
+            : `<span>${item.text}</span>`
+        }
+      </span>
+    `
+    )
+    .join(
+      '<span class="mr-2"><img alt="chevronright1311" src="public/external/chevronright1311-6r0f.svg" /></span>'
+    );
+
+  breadcrumbContainer.innerHTML = breadcrumbHTML;
+}
 
 function getMyElement(form_id = '') {
   return document.getElementById(form_id);

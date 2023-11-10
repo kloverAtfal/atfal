@@ -72,10 +72,16 @@ function populateContent() {
     const listItem = divs[0].getElementsByTagName('li');
     const button = divs[0].getElementsByTagName('button');
 
-    title[0].innerHTML = `${item.title} <span class="badge badge-pill badge-warning">${item.tag}</span>`;
-    details[0].innerHTML = item.description;
+    title[0].innerHTML = `${item.title} <span class="badge badge-pill badge-warning">${item.type}</span>`;
+    details[0].setAttribute(
+      'data-full-description',
+      item.description.replace(/\n/g, '<br>')
+    );
+    details[0].innerHTML = truncateDescription(
+      item.description.replace(/\n/g, '<br>')
+    );
+
     listItem[0].innerHTML = item.location;
-    listItem[1].innerHTML = item.type;
 
     button[0].addEventListener('click', function () {
       getMyElement('input-application-id').value = item.id;
@@ -100,6 +106,29 @@ function populateContent() {
     totalRecord.forEach((item) => {
       listContainer.appendChild(item);
     });
+  }
+}
+
+function truncateDescription(description) {
+  const maxLength = 100;
+  if (description.length > maxLength) {
+    const truncatedText = description.substring(0, maxLength);
+    return `${truncatedText}... <a href="#" class="show-more" onclick="toggleDescription(this)">Show more</a>`;
+  }
+  return description;
+}
+
+function toggleDescription(element) {
+  const parentDiv = element.parentNode;
+  const fullDescription = parentDiv.getAttribute('data-full-description');
+  const isTruncated = parentDiv.innerHTML.includes('...');
+
+  if (isTruncated) {
+    parentDiv.innerHTML =
+      fullDescription +
+      ' <a href="#" class="show-more" onclick="toggleDescription(this)">Show less</a>';
+  } else {
+    parentDiv.innerHTML = truncateDescription(fullDescription);
   }
 }
 

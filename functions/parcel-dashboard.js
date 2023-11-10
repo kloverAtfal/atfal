@@ -41,6 +41,16 @@ document
 
 // --- end auth function
 
+const breadcrumbData = [
+  {
+    text: '<img alt="homelineI131" src="public/external/homelinei131-k1j1.svg" />',
+    url: 'home-dashboard-user.html',
+    isActive: false,
+  },
+  { text: 'Parcel', url: 'parcel-dashboard.html', isActive: true },
+];
+generateBreadcrumb(breadcrumbData);
+
 document
   .getElementById('add-new-parcel-btn')
   .addEventListener('click', function (e) {
@@ -131,7 +141,7 @@ function populateToTable(data) {
           if (data.code == 'consolidate') {
             return `
             <div class="datatable-item-container">
-              <div class="badge-rounded-info">
+              <div class="badge-rounded-danger">
               <span class="badge-text ml-1">${data.name}</span>
               </div>
             </div>
