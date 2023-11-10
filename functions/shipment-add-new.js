@@ -40,6 +40,17 @@ document
 
 // --- end auth function
 
+const breadcrumbData = [
+  {
+    text: '<img alt="homelineI131" src="public/external/homelinei131-k1j1.svg" />',
+    url: 'home-dashboard-user.html',
+    isActive: false,
+  },
+  { text: 'Shipment', url: 'shipment-dashboard.html', isActive: false },
+  { text: 'Add New Shipment', url: 'shipment-add-new.html', isActive: true },
+];
+generateBreadcrumb(breadcrumbData);
+
 const inputSelectParcel = document.getElementById('input-select-parcel');
 const inputName = document.getElementById('input-name');
 const inputEmail = document.getElementById('input-email');

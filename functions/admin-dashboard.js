@@ -54,6 +54,16 @@ document
 
 // --- end auth function
 
+const breadcrumbData = [
+  {
+    text: '<img alt="homelineI131" src="public/external/homelinei131-k1j1.svg" />',
+    url: 'home-dashboard-user.html',
+    isActive: false,
+  },
+  { text: 'Admin', url: 'admin-dashboard.html', isActive: true },
+];
+generateBreadcrumb(breadcrumbData);
+
 let tabs = [];
 var defaultTab = document.getElementById('parcel-tab');
 defaultTab.classList.add('show', 'active');
@@ -405,7 +415,6 @@ function editCareer(passId) {
     'input-edit-career-description': 'description',
     'input-edit-career-type': 'type',
     'input-edit-career-location': 'location',
-    'input-edit-career-tag': 'tag',
   });
 }
 
@@ -784,7 +793,6 @@ document
         description: getMyElement('input-add-career-description').value,
         type: getMyElement('input-add-career-type').value,
         location: getMyElement('input-add-career-location').value,
-        tag: getMyElement('input-add-career-tag').value,
       }),
     };
 
@@ -830,7 +838,6 @@ document
         description: getMyElement('input-edit-career-description').value,
         type: getMyElement('input-edit-career-type').value,
         location: getMyElement('input-edit-career-location').value,
-        tag: getMyElement('input-edit-career-tag').value,
       }),
     };
 
@@ -1164,7 +1171,7 @@ function populateToTableParcel(tableData) {
         if (data.code == 'shipped') {
           return `
           <div class="datatable-item-container">
-            <div class="badge-rounded-info">
+            <div class="badge-rounded-success">
              <span class="badge-text ml-1">${data.name}</span>
             </div>
           </div>
@@ -1173,7 +1180,7 @@ function populateToTableParcel(tableData) {
         if (data.code == 'consolidate') {
           return `
           <div class="datatable-item-container">
-            <div class="badge-rounded-info">
+            <div class="badge-rounded-danger">
             <span class="badge-text ml-1">${data.name}</span>
             </div>
           </div>
@@ -1228,10 +1235,24 @@ function populateToTableShipment(tableData) {
       },
     },
     {
-      title: '<label class="datatable-header-title">Receiver Name</label>',
-      data: 'name',
+      title: '<label class="datatable-header-title">User/Blue Wing ID</label>',
+      data: 'id',
       render: function (data, type, row, meta) {
-        return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
+        defaultImage = `https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png`;
+        if (row.user_data.profile_image) {
+          defaultImage = row.user_data.profile_image.url;
+        }
+
+        return `<div class="datatable-item-container"><div class="datatable-item-title">
+          <div class="d-flex" style="text-decoration: none">
+          <img src="${defaultImage}" class="rounded-circle mr-2" style="width: 35px; height: 35px" alt="Avatar">
+          <div class="form-label mr-2 row">
+            <span>${row.user_data.username}</span>
+            <span class="small">${row.user_data.email}</span>
+            <span class="small">${row.user_data.blue_wing_id ?? '-'}</span>
+          </div>
+          </div>
+        </div></div>`;
       },
     },
     {
@@ -1742,6 +1763,13 @@ function populateToTableUsers(tableData) {
       },
     },
     {
+      title: '<label class="datatable-header-title">Blue Wing Id</label>',
+      data: 'blue_wing_id',
+      render: function (data, type, row, meta) {
+        return `<div class="datatable-item-container"><div class="datatable-item-title">${row.blue_wing_id}</div></div>`;
+      },
+    },
+    {
       title: '<label class="datatable-header-title">Role</label>',
       data: 'id',
       render: function (data, type, row, meta) {
@@ -1797,42 +1825,35 @@ function populateToTableCareer(tableData) {
       title: '<label class="datatable-header-title">Title</label>',
       data: 'title',
       render: function (data, type, row, meta) {
-        return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
+        return `<div class="datatable-item-container"><div class="datatable-item-title" text-overflow>${data}</div></div>`;
       },
     },
     {
       title: '<label class="datatable-header-title">Description</label>',
       data: 'description',
       render: function (data, type, row, meta) {
-        return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
+        return `<div class="datatable-item-container"><div class="datatable-item-title text-overflow">${data}</div></div>`;
       },
     },
     {
       title: '<label class="datatable-header-title">Type</label>',
       data: 'type',
       render: function (data, type, row, meta) {
-        return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
+        return `<div class="datatable-item-container"><div class="datatable-item-title text-overflow">${data}</div></div>`;
       },
     },
     {
       title: '<label class="datatable-header-title">Location</label>',
       data: 'location',
       render: function (data, type, row, meta) {
-        return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
-      },
-    },
-    {
-      title: '<label class="datatable-header-title">Tag</label>',
-      data: 'tag',
-      render: function (data, type, row, meta) {
-        return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
+        return `<div class="datatable-item-container"><div class="datatable-item-title text-overflow">${data}</div></div>`;
       },
     },
     {
       title: '<label class="datatable-header-title">Applications</label>',
       data: 'application_url',
       render: function (data, type, row, meta) {
-        return `<div class="datatable-item-container"><div class="datatable-item-title">${row.applicant_of_career_data.length}</div></div>`;
+        return `<div class="datatable-item-container"><div class="datatable-item-title text-overflow">${row.applicant_of_career_data.length}</div></div>`;
       },
     },
     // {
@@ -1893,7 +1914,11 @@ function populateToTableApplication(tableData) {
       title: '<label class="datatable-header-title">Email</label>',
       data: 'email',
       render: function (data, type, row, meta) {
-        return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
+        if (data) {
+          return `<div class="datatable-item-container"><div class="datatable-item-title"><a href="mailto:${data}">${data}</a></div></div>`;
+        } else {
+          return `<div class="datatable-item-container"><div class="datatable-item-title">-</div></div>`;
+        }
       },
     },
     {
@@ -1907,14 +1932,22 @@ function populateToTableApplication(tableData) {
       title: '<label class="datatable-header-title">Linkin Profile Url</label>',
       data: 'linkin_profile_url',
       render: function (data, type, row, meta) {
-        return `<div class="datatable-item-container"><div class="datatable-item-title"><a href="${data}" target="_blank">${data}</a></div></div>`;
+        if (data) {
+          return `<div class="datatable-item-container"><div class="datatable-item-title"><a href="${data}" target="_blank">${data}</a></div></div>`;
+        } else {
+          return `<div class="datatable-item-container"><div class="datatable-item-title">-</div></div>`;
+        }
       },
     },
     {
       title: '<label class="datatable-header-title">Apply For</label>',
       data: 'career_data.title',
       render: function (data, type, row, meta) {
-        return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
+        if (data) {
+          return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
+        } else {
+          return `<div class="datatable-item-container"><div class="datatable-item-title">-</div></div>`;
+        }
       },
     },
   ];
@@ -1949,7 +1982,11 @@ function populateToTableContactUs(tableData) {
       title: '<label class="datatable-header-title">Email</label>',
       data: 'email',
       render: function (data, type, row, meta) {
-        return `<div class="datatable-item-container"><div class="datatable-item-title">${data}</div></div>`;
+        if (data) {
+          return `<div class="datatable-item-container"><div class="datatable-item-title"><a href="mailto:${data}">${data}</a></div></div>`;
+        } else {
+          return `<div class="datatable-item-container"><div class="datatable-item-title">-</div></div>`;
+        }
       },
     },
     {

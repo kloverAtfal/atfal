@@ -40,6 +40,15 @@ document
 
 // --- end auth function
 
+const breadcrumbData = [
+  {
+    text: '<img alt="homelineI131" src="public/external/homelinei131-k1j1.svg" />',
+    url: 'home-dashboard-user.html',
+    isActive: true,
+  },
+];
+generateBreadcrumb(breadcrumbData);
+
 document.getElementById('welcome-username').innerHTML = myData?.userData
   .username
   ? `Welcome back, ${myData.userData.username}`
@@ -125,21 +134,21 @@ function populateToChart(passData) {
         label: 'Parcel',
         data: parcelCounts,
         fill: false,
-        borderColor: 'rgba(238, 191, 8, 1)',
+        borderColor: '#FADD66',
         tension: 0.1,
       },
       {
         label: 'Shipment',
         data: shipmentCounts,
         fill: false,
-        borderColor: 'rgba(75, 192, 192, 1)',
+        borderColor: '#F7C600',
         tension: 0.1,
       },
       {
         label: 'Transaction',
         data: topupCounts,
         fill: false,
-        borderColor: 'rgba(255, 99, 132, 1)',
+        borderColor: '#DEB200',
         tension: 0.1,
       },
     ],

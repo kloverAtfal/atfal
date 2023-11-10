@@ -51,7 +51,7 @@
     <link rel="stylesheet" href="./components/custom-style.css" />
     <link rel="stylesheet" href="./components/sidebarnavigation.css" />
   </head>
-  <body class="body">
+  <body class="body custom-background">
     <div>
       <div class="d-flex">
         <div class="d-flex" id="sidebar-navigation">
@@ -66,35 +66,15 @@
             <div class="row">
               <div class="col">
                 <div class="d-flex justify-content-start align-items-center">
-                  <span class="mr-3">
-                    <button
-                      type="button"
-                      id="sidebarCollapse"
-                      class="btn btn-warning"
-                    >
-                      <span style="color: #fff">&#9776;</span>
-                    </button>
-                  </span>
-                  <span class="mr-3">
-                    <a href="home-dashboard-user.html">
-                      <img
-                        alt="homelineI131"
-                        src="public/external/homelinei131-k1j1.svg"
-                      /> </a
-                  ></span>
-                  <span class="mr-3">
-                    <img
-                      alt="chevronright1311"
-                      src="public/external/chevronright1311-6r0f.svg"
-                  /></span>
-                  <span>
-                    <a
-                      href="parcel-dashboard.html"
-                      class="transaction-dashboard-alipay-top-up-text TextsmMedium"
-                    >
-                      <span>Parcel</span>
-                    </a></span
+                  <button
+                    type="button"
+                    id="sidebarCollapse"
+                    class="btn btn-warning mr-3"
                   >
+                    <span style="color: #fff">&#9776;</span>
+                  </button>
+
+                  <div id="breadcrumb-container"></div>
                 </div>
               </div>
               <div class="col">
@@ -125,7 +105,10 @@
             <div
               class="transaction-dashboard-alipay-top-up-text004 TextmdRegular"
             >
-              <span>Track, manage, and monitor parcel easily.</span>
+              <span
+                >Track and manage packages, keeping records of their contents
+                and delivery status.</span
+              >
             </div>
             <div>
               <div id="table-loader" class="mt-5">
